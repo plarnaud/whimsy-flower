@@ -38,7 +38,7 @@ export default function FollowUsSection() {
           ))}
         </ul>
 
-        <div className="w-full h-[7px] border-y-[1.5px] border-(--pale-yellow)"></div>
+        <div className="w-full h-2 border-y-[1.5px] border-(--pale-yellow)"></div>
       </div>
     </section>
   );

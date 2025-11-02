@@ -26,6 +26,7 @@ export default function HorizontalList({
               src={item.src}
               alt={item.alt}
               fill
+              loading="lazy"
               className="object-cover"
             ></Image>
           </div>

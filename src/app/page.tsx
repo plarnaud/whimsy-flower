@@ -53,7 +53,7 @@ export default function Home() {
 
         {/* Home Lander Section */}
 
-        <section id="home-lander" className="mt-[144px]">
+        <section id="home-lander" className="mt-36">
           <HorizontalList
             className="px-2 my-4 h-2/3 min-h-[640px] gap-2"
             items={homeLanderImages}

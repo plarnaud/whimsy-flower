@@ -85,7 +85,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <div className="mb-8">
+          <div className="pb-6">
             <div className="w-full pl-12 pb-8">
               <img
                 src="/logotype-yellow.svg"
