@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --olive-petal: #fcf9e8;
+  --dark-olive: #969674;
+  --faded-green: #9d9c7e;
+  --pale-yellow: #d8ce93;
+  --dark-green: #424319;
+  --darker-green: #2b2c0c;
+  --blush: #d8a590;
+  --dark-blush: #5e2128;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--olive-petal);
+  --font-title: var(--font-beth-ellen);
+  --font-text: var(--font-libre-baskerville);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--olive-petal);
+  color: var(--dark-green);
+  font-family: var(--font-libre-baskerville);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/bg-graphic.jpeg");
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("/bg-graphic.jpeg");
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+aside#wf-nav-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/bg-graphic.jpeg");
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1; /* keep it behind menu content */
+  pointer-events: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
 }

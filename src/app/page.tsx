@@ -1,65 +1,249 @@
 import Image from "next/image";
+import HorizontalList, { ImageItem } from "@/components/horizontalList";
+import PillButton from "@/components/pillButton";
+import ServicesButton from "@/components/servicesButton";
+import FollowUsSection from "@/components/followUs";
+import Footer from "@/components/footer";
+import Link from "next/link";
+import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
+  const homeLanderImages: ImageItem[] = [
+    { src: "/brand01.jpg", alt: "Brand 01" },
+    { src: "/brand02.jpg", alt: "Brand 02" },
+    { src: "/brand03.jpg", alt: "Brand 03" },
+    { src: "/brand03.jpg", alt: "Brand 03" },
+  ];
+
+  const featuredGalleries: FeaturedGallery[] = [
+    {
+      // Gallery 1
+      imgSrc: "/brand01.jpg",
+      imgAlt: "Gallery Image",
+      coupleName: "Alice & Bob",
+      galleryName: "Spring Wedding",
+      location: "Napa Valley, CA",
+      href: "/",
+    },
+    {
+      // Gallery 2
+      imgSrc: "/brand01.jpg",
+      imgAlt: "Gallery Image",
+      coupleName: "Alice & Bob",
+      galleryName: "Spring Wedding",
+      location: "Napa Valley, CA",
+      href: "/",
+    },
+    {
+      // Gallery 3
+      imgSrc: "/brand01.jpg",
+      imgAlt: "Gallery Image",
+      coupleName: "Alice & Bob",
+      galleryName: "Spring Wedding",
+      location: "Napa Valley, CA",
+      href: "/",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="">
+      <main className="">
+        <Navbar />
+
+        {/* Home Lander Section */}
+
+        <section id="home-lander" className="mt-[144px]">
+          <HorizontalList
+            className="px-2 my-4 h-2/3 min-h-[640px] gap-2"
+            items={homeLanderImages}
+          ></HorizontalList>
+          <div className="relative w-full overflow-hidden">
+            <div className="absolute top-0 left-0 -z-100 w-full h-full bg-[url('/home-lander-section-bg.png')] bg-cover bg-center opacity-[.165]"></div>
+
+            <div className="w-full h-full py-24 flex flex-col justify-center items-center text-center ">
+              <h1 className="text-[18px] tracking-[-0.04em] uppercase">
+                Bespoke wedding and event floral designer
+              </h1>
+              <h2 className="py-6 font-title text-[64px] leading-[72px] text-(--faded-green) ">
+                Timeless Floral Design
+              </h2>
+              <span className="max-w-[644px] py-6 text-[14px] leading-6">
+                Welcome to Whimsy Flower, where years of floral expertise and a
+                foundation in the visual arts come together to create a truly
+                distinctive experience. Our journey is all about infusing
+                flowers with feelings of love, sympathy, and pure fun.
+              </span>
+              <h3 className="uppercase">Artful, design-driven florals</h3>
+              <PillButton label="Contact us!" className="mt-12"></PillButton>
+            </div>
+          </div>
+        </section>
+
+        {/* Meet Whimsy Section */}
+
+        <section id="meet-whimsy">
+          <div className="my-16 flex flex-row gap-6 justify-center items-center h-[686px]">
+            <div className="relative h-[686px] w-[477px] flex justify-center items-center">
+              <Image
+                src="/brand01.jpg"
+                alt="Left column"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+            <div className="w-[477px]">
+              <h2 className="text-[18px] tracking-[-0.04em] uppercase">
+                Bespoke designs for weddings & events
+              </h2>
+              <h3 className="py-6 font-title text-[64px] leading-[72px] text-(--pale-yellow) ">
+                Meet Whimsy
+              </h3>
+              <p className="max-w-[477px] pt-6 text-[14px] leading-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                non congue augue. Proin vestibulum, magna eget placerat
+                scelerisque, ante neque dapibus nisl, at mattis lorem neque eget
+                ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla
+                nisi.
+              </p>
+              <p className="max-w-[477px] pt-6 text-[14px] leading-6">
+                Proin ultrices purus at pretium dictum. Nam velit tellus,
+                sodales ac dolor nec, rutrum ultricies nisi. Aenean commodo elit
+                a vehicula egestas. Donec ac euismod purus, ut tempus neque.
+                Mauris vel consectetur turpis, et consequat ligula. Fusce
+                euismod congue dictum.
+              </p>
+              <PillButton
+                label={"More about Whimsy Flower"}
+                className="mt-12"
+              ></PillButton>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+
+        <section id="services" className="px-16 pb-16">
+          <div className="text-(--dark-green)">
+            <h2 className="font-title text-5xl text-(--dark-olive) leading-16">
+              Our Services
+            </h2>
+            <div className="grid grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
+              <ServicesButton
+                label={"Weddings"}
+                imgSrc={"/brand01.jpg"}
+                imgAlt={"make sure to put an alt"}
+                href={"/home"}
+                className=""
+              ></ServicesButton>
+              <ServicesButton
+                label={"Events"}
+                imgSrc={"/brand01.jpg"}
+                imgAlt={"make sure to put an alt"}
+                href={"/home"}
+                className=""
+              ></ServicesButton>
+              <ServicesButton
+                label={"Workshops"}
+                imgSrc={"/brand01.jpg"}
+                imgAlt={"make sure to put an alt"}
+                href={"/home"}
+                className=""
+              ></ServicesButton>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+
+        <section id="testimonials" className="relative bg-(--blush)/25">
+          <div className="absolute z-[-1] top-0 left-0 w-full h-[25%] bg-(--blush)/25"></div>
+          <div className=" w-full py-16 flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center pb-6">
+              <span className="uppercase text-background font-bold text-[18px] tracking-[-0.04em]">
+                As Seen on
+              </span>
+              <ul className="pt-6 flex gap-8 ">
+                <li className="">
+                  <Link href="#">
+                    <img src="/theknot.png" alt="" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <img src="/weddingwire.png" alt="" />
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="#">
+                    <img src="/rootedfarmers.png" alt="" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-background rounded-lg p-12 text-(--dark-blush)">
+              <h2 className="uppercase w-full text-center mb-12">
+                See what our couples are saying
+              </h2>
+              <div className="relative grid grid-cols-[repeat(2,429px)] gap-6 items-center mb-12">
+                <img
+                  src="/brand01.jpg"
+                  alt=""
+                  className="object-cover aspect-[0.68] rounded-lg"
+                />
+                <div className="flex flex-col gap-6 items-center text-center text-[14px]">
+                  <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
+                    Molly made our wildest dreams into reality
+                  </h3>
+                  <p className="text-[14px] leading-6">
+                    Even though I think I’m good friends with Arnaud and love
+                    Arnaud and Molly very much, Molly flat out refused to be the
+                    florist for our wedding for no other reason besides having a
+                    strong disdain for my fashion choices. We begged, we cried,
+                    but Molly simply would not hear any of it. She told us ‘a
+                    mustard colored hat with a red shirt and brown shoes?
+                    Unthinkable. I simply will not stoop to your level.’ So now
+                    here we are, wishing Molly had been the florist for our
+                    wedding but we had to settle.
+                  </p>
+                  <span className="text-(--blush) text-[14px]">
+                    Maria & Braedon
+                  </span>
+                  <PillButton
+                    label={"See more testimonials"}
+                    color="maroon1"
+                    className="mt-6 text-[16px]"
+                  ></PillButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="featured-galleries">
+          <div className="flex flex-col justify-center items-center p-16">
+            <h2 className="text-[18px] tracking-[-0.04em] uppercase">
+              See our recent work
+            </h2>
+            <h3 className="py-6 font-title text-(--dark-green) text-[64px] leading-[72px] tracking-[-0.04em]">
+              Featured Galleries
+            </h3>
+            <ul className="grid grid-cols-3 pt-6 gap-6">
+              {featuredGalleries.map((item, i) => (
+                <li key={i}>
+                  <GalleryButton gallery={item} className=""></GalleryButton>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <FollowUsSection />
+
+        <Footer />
       </main>
     </div>
   );
-}
+} //0.6791666667

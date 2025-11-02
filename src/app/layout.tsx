@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Beth_Ellen, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bethEllen = Beth_Ellen({
+  variable: "--font-beth-ellen",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-libre-baskerville",
   subsets: ["latin"],
+  weight: "400",
+});
+
+const libreBaskervilleBold = Libre_Baskerville({
+  variable: "--font-libre-baskerville-bold",
+  subsets: ["latin"],
+  weight: "700",
+});
+
+const libreBaskervilleItalic = Libre_Baskerville({
+  variable: "--font-libre-baskerville-italic",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bethEllen.variable} ${libreBaskerville.variable} antialiased`}
       >
         {children}
       </body>
