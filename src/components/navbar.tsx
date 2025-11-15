@@ -87,7 +87,7 @@ const Navbar = () => {
       >
         {/* Menu content */}
         <div className="bg-(--pale-yellow)/25 h-full flex flex-col justify-between">
-          <ul className="flex flex-col gap-12 pl-12 pt-16 lg:pt-8 italic uppercase text-[18px] tracking-[-0.04em] items-start">
+          <ul className="flex flex-col gap-8 md:gap-12 pl-6 md:pl-12 pt-12 md:pt-16 lg:pt-8 italic uppercase text-[18px] tracking-[-0.04em] items-start">
             <li>
               <a href="#" className="block text-lg ">
                 Home
@@ -116,7 +116,7 @@ const Navbar = () => {
           </ul>
 
           <div className="pb-6">
-            <div className="w-full pl-12 pb-8">
+            <div className="w-full pl-6 md:pl-12 pb-6 md:pb-8">
               <img
                 src="/logotype-yellow.svg"
                 alt="Whimsy Flower"
