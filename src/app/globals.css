@@ -21,6 +21,7 @@ body {
   background-color: var(--olive-petal);
   color: var(--dark-green);
   font-family: var(--font-libre-baskerville);
+  overflow-x: hidden;
 }
 
 body::before {

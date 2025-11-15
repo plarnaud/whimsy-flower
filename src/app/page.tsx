@@ -61,11 +61,11 @@ export default function Home() {
           <div className="relative w-full overflow-hidden">
             <div className="absolute top-0 left-0 -z-100 w-full h-full bg-[url('/home-lander-section-bg.png')] bg-cover bg-center opacity-[.165]"></div>
 
-            <div className="w-full h-full py-24 flex flex-col justify-center items-center text-center ">
+            <div className="w-full h-full py-16 sm:py-24 px-6 flex flex-col justify-center items-center text-center ">
               <h1 className="text-[18px] tracking-[-0.04em] uppercase">
                 Bespoke wedding and event floral designer
               </h1>
-              <h2 className="py-6 font-title text-[64px] leading-[72px] text-(--faded-green) ">
+              <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--faded-green) ">
                 Timeless Floral Design
               </h2>
               <span className="max-w-[644px] py-6 text-[14px] leading-6">
@@ -83,8 +83,8 @@ export default function Home() {
         {/* Meet Whimsy Section */}
 
         <section id="meet-whimsy">
-          <div className="my-16 flex flex-row gap-6 justify-center items-center h-[686px]">
-            <div className="relative h-[686px] w-[477px] flex justify-center items-center">
+          <div className="my-16 sm:my-12 lg:sm-16 flex flex-col md:flex-row gap-6 justify-center items-center px-6 sm:px-12">
+            <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
               <Image
                 src="/brand01.jpg"
                 alt="Left column"
@@ -92,14 +92,14 @@ export default function Home() {
                 className="object-cover rounded-lg"
               />
             </div>
-            <div className="w-[477px]">
+            <div className="w-full sm:w-[477px] justify-center text-center md:text-left">
               <h2 className="text-[18px] tracking-[-0.04em] uppercase">
                 Bespoke designs for weddings & events
               </h2>
-              <h3 className="py-6 font-title text-[64px] leading-[72px] text-(--pale-yellow) ">
+              <h3 className="py-6 font-title text-[clamp(48px,6vw,64px)] leading-[clamp(64px,7vw,72px)] text-(--pale-yellow) ">
                 Meet Whimsy
               </h3>
-              <p className="max-w-[477px] pt-6 text-[14px] leading-6">
+              <p className="max-w-[477px] pt-6 text-[14px] leading-6 ">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 non congue augue. Proin vestibulum, magna eget placerat
                 scelerisque, ante neque dapibus nisl, at mattis lorem neque eget
@@ -123,12 +123,12 @@ export default function Home() {
 
         {/* Services Section */}
 
-        <section id="services" className="px-16 pb-16">
+        <section id="services" className="px-6 md:px-12 lg:px-16 pb-16">
           <div className="text-(--dark-green)">
-            <h2 className="font-title text-5xl text-(--dark-olive) leading-16">
+            <h2 className="font-title text-5xl text-(--dark-olive) leading-16 text-center sm:text-left">
               Our Services
             </h2>
-            <div className="grid grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
+            <div className="flex flex-col sm:grid sm:grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
               <ServicesButton
                 label={"Weddings"}
                 imgSrc={"/brand01.jpg"}
@@ -158,36 +158,25 @@ export default function Home() {
 
         <section id="testimonials" className="relative bg-(--blush)/25">
           <div className="absolute z-[-1] top-0 left-0 w-full h-[25%] bg-(--blush)/25"></div>
-          <div className=" w-full py-16 flex flex-col justify-center items-center">
+          <div className=" w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
             <div className="flex flex-col justify-center items-center pb-6">
               <span className="uppercase text-background font-bold text-[18px] tracking-[-0.04em]">
-                As Seen on
+                Featured On
               </span>
-              <ul className="pt-6 flex gap-8 ">
-                <li className="">
+              <ul className="py-4 flex gap-8 ">
+                <li className="w-[124px]">
                   <Link href="#">
-                    <img src="/theknot.png" alt="" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <img src="/weddingwire.png" alt="" />
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#">
-                    <img src="/rootedfarmers.png" alt="" />
+                    <img src="/brides.png" alt="" />
                   </Link>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-background rounded-lg p-12 text-(--dark-blush)">
+            <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-blush)">
               <h2 className="uppercase w-full text-center mb-12">
                 See what our couples are saying
               </h2>
-              <div className="relative grid grid-cols-[repeat(2,429px)] gap-6 items-center mb-12">
+              <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
                 <img
                   src="/brand01.jpg"
                   alt=""
@@ -223,14 +212,14 @@ export default function Home() {
         </section>
 
         <section id="featured-galleries">
-          <div className="flex flex-col justify-center items-center p-16">
+          <div className="flex flex-col justify-center items-center py-16 px-6 md:px-12 lg:px-16">
             <h2 className="text-[18px] tracking-[-0.04em] uppercase">
               See our recent work
             </h2>
-            <h3 className="py-6 font-title text-(--dark-green) text-[64px] leading-[72px] tracking-[-0.04em]">
+            <h3 className="py-6 font-title text-(--dark-olive) text-[64px] leading-[72px] tracking-[-0.04em] text-center">
               Featured Galleries
             </h3>
-            <ul className="grid grid-cols-3 pt-6 gap-6">
+            <ul className="flex flex-col sm:grid sm:grid-cols-3 pt-6 gap-12 sm:gap-6">
               {featuredGalleries.map((item, i) => (
                 <li key={i}>
                   <GalleryButton gallery={item} className=""></GalleryButton>

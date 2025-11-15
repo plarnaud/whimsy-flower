@@ -21,7 +21,7 @@ export default function PillButton({
   return (
     <button
       onClick={onClick}
-      className={`px-12 py-3 rounded-full text-background 
+      className={`px-12 py-8 sm:py-3 rounded-full text-background 
       ${colorMap[color]}
       ${className}
      duration-200`}

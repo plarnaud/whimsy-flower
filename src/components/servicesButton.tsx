@@ -25,7 +25,7 @@ export default function ServicesButton({
       <img
         src={imgSrc}
         alt={imgAlt}
-        className="w-full aspect-[0.8] object-cover rounded-lg"
+        className="w-full aspect-square sm:aspect-[0.8] object-cover rounded-lg"
       />
       <span className="italic uppercase text-[18px] text-center tracking-[-0.04em]">
         {label}

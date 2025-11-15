@@ -16,12 +16,12 @@ export default function FollowUsSection() {
   return (
     <section
       id="follow-us"
-      className="flex flex-col p-16 bg-(--pale-yellow)/25 gap-6"
+      className="flex flex-col py-16 px-6 md:px-12 lg:px-16 bg-(--pale-yellow)/25 gap-6"
     >
       <h2 className="font-title text-(--dark-olive) text-[48px] leading-16 tracking-[-0.04em]">
         Follow us
       </h2>
-      <ul className="grid grid-cols-4 gap-6">
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {followUsImages.map((item, i) => (
           <li key={i}>
             <img
