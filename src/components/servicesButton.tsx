@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import BlurImage from "@/components/blurImage";
 
 interface ServicesButtonProps {
   label: string;
@@ -22,11 +22,15 @@ export default function ServicesButton({
       ${className}
       duration-200`}
     >
-      <img
-        src={imgSrc}
-        alt={imgAlt}
-        className="w-full aspect-square sm:aspect-[0.8] object-cover rounded-lg"
-      />
+      <div className="relative w-full aspect-square sm:aspect-[0.8] rounded-lg overflow-hidden">
+        <BlurImage
+          src={imgSrc}
+          alt={imgAlt}
+          fill
+          sizes="(min-width: 640px) 33vw, 90vw"
+          className="object-cover"
+        />
+      </div>
       <span className="italic uppercase text-[18px] text-center tracking-[-0.04em]">
         {label}
       </span>

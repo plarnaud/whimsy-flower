@@ -23,7 +23,7 @@ export default function PillButton({
       onClick={onClick}
       className={`px-12 py-8 sm:py-3 rounded-full text-background 
       ${colorMap[color]}
-      ${className}
+      ${className} cursor-pointer
      duration-200`}
     >
       {label}

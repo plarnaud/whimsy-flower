@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ImageItem } from "@/components/horizontalList";
+import BlurImage from "@/components/blurImage";
 
 interface FooterLinks {
   label: string;
@@ -8,21 +8,24 @@ interface FooterLinks {
 
 export default function FollowUsSection() {
   const followUsImages: FooterLinks[] = [
-    { label: "Home", href: "/#" },
-    { label: "Weddings", href: "/#" },
-    { label: "Events", href: "/#" },
-    { label: "About", href: "/#" },
-    { label: "Contact", href: "/#" },
+    { label: "Home", href: "/" },
+    { label: "Weddings", href: "/weddings" },
+    { label: "Events", href: "/events" },
+    { label: "About", href: "/about" },
+    { label: "Inquire", href: "/inquire" },
   ];
 
   return (
     <section id="footer">
       <div className="flex flex-col items-center justify-center uppercase w-full pt-16 pb-6">
         <Link href={"/"} className="flex w-full justify-center px-8">
-          <img
+          <BlurImage
             src="/logotype.svg"
             alt="Whimsy Flower wordmark"
-            className="w-full max-w-[364px]"
+            width={364}
+            height={90}
+            className="w-full max-w-[364px] h-auto"
+            sizes="(min-width: 768px) 364px, 70vw"
           />
         </Link>
 
@@ -30,7 +33,7 @@ export default function FollowUsSection() {
           ©2025 Whimsy Flower, LLC
         </span>
 
-        <ul className="flex flex-wrap justify-center w-full px-[212px] pt-16 italic text-[18px] tracking-[-0.04em]">
+        <ul className="flex flex-wrap justify-center w-full px-8 sm:px-16 lg:px-[212px] pt-16 italic text-[18px] tracking-[-0.04em]">
           {followUsImages.map((item, i) => (
             <li key={i} className="mx-8 mb-6">
               <Link href={item.href}>{item.label}</Link>

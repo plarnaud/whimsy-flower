@@ -1,4 +1,4 @@
-import Image from "next/image";
+import BlurImage from "@/components/blurImage";
 import HorizontalList, { ImageItem } from "@/components/horizontalList";
 import PillButton from "@/components/pillButton";
 import ServicesButton from "@/components/servicesButton";
@@ -7,6 +7,8 @@ import Footer from "@/components/footer";
 import Link from "next/link";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
 import Navbar from "@/components/navbar";
+import MeetWhimsy from "@/components/meetWhimsy";
+import { featuredGalleries as featuredGalleryData } from "@/data/galleries";
 
 export default function Home() {
   const homeLanderImages: ImageItem[] = [
@@ -16,35 +18,16 @@ export default function Home() {
     { src: "/brand03.jpg", alt: "Brand 03" },
   ];
 
-  const featuredGalleries: FeaturedGallery[] = [
-    {
-      // Gallery 1
-      imgSrc: "/brand01.jpg",
-      imgAlt: "Gallery Image",
-      coupleName: "Alice & Bob",
-      galleryName: "Spring Wedding",
-      location: "Napa Valley, CA",
-      href: "/",
-    },
-    {
-      // Gallery 2
-      imgSrc: "/brand01.jpg",
-      imgAlt: "Gallery Image",
-      coupleName: "Alice & Bob",
-      galleryName: "Spring Wedding",
-      location: "Napa Valley, CA",
-      href: "/",
-    },
-    {
-      // Gallery 3
-      imgSrc: "/brand01.jpg",
-      imgAlt: "Gallery Image",
-      coupleName: "Alice & Bob",
-      galleryName: "Spring Wedding",
-      location: "Napa Valley, CA",
-      href: "/",
-    },
-  ];
+  const featuredGalleries: FeaturedGallery[] = featuredGalleryData.map(
+    (gallery) => ({
+      imgSrc: gallery.coverImage,
+      imgAlt: gallery.coverAlt,
+      coupleName: gallery.coupleNames,
+      galleryName: gallery.title,
+      location: gallery.location,
+      href: `/galleries/${gallery.slug}`,
+    })
+  );
 
   return (
     <div className="">
@@ -82,44 +65,7 @@ export default function Home() {
 
         {/* Meet Whimsy Section */}
 
-        <section id="meet-whimsy">
-          <div className="my-16 sm:my-12 lg:sm-16 flex flex-col md:flex-row gap-6 justify-center items-center px-6 sm:px-12">
-            <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
-              <Image
-                src="/brand01.jpg"
-                alt="Left column"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-            <div className="w-full sm:w-[477px] justify-center text-center md:text-left">
-              <h2 className="text-[18px] tracking-[-0.04em] uppercase">
-                Bespoke designs for weddings & events
-              </h2>
-              <h3 className="py-6 font-title text-[clamp(48px,6vw,64px)] leading-[clamp(64px,7vw,72px)] text-(--pale-yellow) ">
-                Meet Whimsy
-              </h3>
-              <p className="max-w-[477px] pt-6 text-[14px] leading-6 ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                non congue augue. Proin vestibulum, magna eget placerat
-                scelerisque, ante neque dapibus nisl, at mattis lorem neque eget
-                ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla
-                nisi.
-              </p>
-              <p className="max-w-[477px] pt-6 text-[14px] leading-6">
-                Proin ultrices purus at pretium dictum. Nam velit tellus,
-                sodales ac dolor nec, rutrum ultricies nisi. Aenean commodo elit
-                a vehicula egestas. Donec ac euismod purus, ut tempus neque.
-                Mauris vel consectetur turpis, et consequat ligula. Fusce
-                euismod congue dictum.
-              </p>
-              <PillButton
-                label={"More about Whimsy Flower"}
-                className="mt-12"
-              ></PillButton>
-            </div>
-          </div>
-        </section>
+        <MeetWhimsy />
 
         {/* Services Section */}
 
@@ -133,21 +79,21 @@ export default function Home() {
                 label={"Weddings"}
                 imgSrc={"/brand01.jpg"}
                 imgAlt={"make sure to put an alt"}
-                href={"/home"}
+                href={"/weddings"}
                 className=""
               ></ServicesButton>
               <ServicesButton
                 label={"Events"}
                 imgSrc={"/brand01.jpg"}
                 imgAlt={"make sure to put an alt"}
-                href={"/home"}
+                href={"/events"}
                 className=""
               ></ServicesButton>
               <ServicesButton
                 label={"Workshops"}
                 imgSrc={"/brand01.jpg"}
                 imgAlt={"make sure to put an alt"}
-                href={"/home"}
+                href={"/events"}
                 className=""
               ></ServicesButton>
             </div>
@@ -166,7 +112,14 @@ export default function Home() {
               <ul className="py-4 flex gap-8 ">
                 <li className="w-[124px]">
                   <Link href="#">
-                    <img src="/brides.png" alt="" />
+                    <BlurImage
+                      src="/brides.png"
+                      alt="Brides logo"
+                      width={124}
+                      height={40}
+                      className="w-full h-auto"
+                      sizes="124px"
+                    />
                   </Link>
                 </li>
               </ul>
@@ -177,11 +130,15 @@ export default function Home() {
                 See what our couples are saying
               </h2>
               <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
-                <img
-                  src="/brand01.jpg"
-                  alt=""
-                  className="object-cover aspect-[0.68] rounded-lg"
-                />
+                <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
+                  <BlurImage
+                    src="/brand01.jpg"
+                    alt="Testimonial couple"
+                    fill
+                    sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="flex flex-col gap-6 items-center text-center text-[14px]">
                   <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
                     Molly made our wildest dreams into reality
@@ -212,11 +169,11 @@ export default function Home() {
         </section>
 
         <section id="featured-galleries">
-          <div className="flex flex-col justify-center items-center py-16 px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col justify-stretch items-stretch text-center py-16 px-6 md:px-12 lg:px-16">
             <h2 className="text-[18px] tracking-[-0.04em] uppercase">
               See our recent work
             </h2>
-            <h3 className="py-6 font-title text-(--dark-olive) text-[64px] leading-[72px] tracking-[-0.04em] text-center">
+            <h3 className="py-6 font-title text-(--dark-olive) text-[clamp(48px,6vw,64px)] leading-[clamp(56px,7vw,72px)] tracking-[-0.04em] text-center">
               Featured Galleries
             </h3>
             <ul className="flex flex-col sm:grid sm:grid-cols-3 pt-6 gap-12 sm:gap-6">
@@ -229,7 +186,7 @@ export default function Home() {
           </div>
         </section>
 
-        <FollowUsSection />
+        <FollowUsSection className="bg-(--pale-yellow)/25" />
 
         <Footer />
       </main>

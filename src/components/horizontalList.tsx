@@ -1,4 +1,4 @@
-import Image from "next/image";
+import BlurImage from "@/components/blurImage";
 
 export type ImageItem = {
   src: string;
@@ -22,13 +22,13 @@ export default function HorizontalList({
       {items.map((item, i) => (
         <li key={i} className="flex-none w-[434px] snap-center text-center">
           <div className="relative w-full h-full rounded-lg overflow-hidden">
-            <Image
+            <BlurImage
               src={item.src}
               alt={item.alt}
               fill
               loading="lazy"
               className="object-cover"
-            ></Image>
+            />
           </div>
         </li>
       ))}
