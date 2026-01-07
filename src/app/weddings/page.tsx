@@ -1,38 +1,80 @@
+"use client";
+
 import GalleryButton from "@/components/galleryButton";
 import PageScaffold from "@/components/pageScaffold";
 import { galleries } from "@/data/galleries";
 import MeetWhimsy from "@/components/meetWhimsy";
+import SubPageHeader from "@/components/subPageHeader";
+import { useEffect, useMemo, useState } from "react";
+import PillButton from "@/components/pillButton";
 
 export default function WeddingsPage() {
   return (
-    <PageScaffold
-      title="Weddings"
-      fullHeightHero={false}
-      sectionClassName="flex flex-col pt-40 px-0"
-    >
-      <div className="pt-12">
-        <h2 className="text-[18px] tracking-[-0.04em] uppercase text-center sm:text-left">
-          Galleries
-        </h2>
-        <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-8">
-          {galleries.map((gallery) => (
-            <li key={gallery.slug}>
-              <GalleryButton
-                gallery={{
-                  imgSrc: gallery.coverImage,
-                  imgAlt: gallery.coverAlt,
-                  coupleName: gallery.coupleNames,
-                  galleryName: gallery.title,
-                  location: gallery.location,
-                  href: `/galleries/${gallery.slug}`,
-                }}
-                showCTA={false}
-              />
-            </li>
-          ))}
-        </ul>
+    <PageScaffold>
+      <SubPageHeader
+        title="Weddings"
+        imgSrc="/home-lander-section-bg.png"
+        imgAlt="Wedding bouquet with white and blush roses and greenery"
+      />
+
+      <GallerySection />
+
+      <div className="bg-(--pale-yellow)/25 py-8">
+        <MeetWhimsy />
       </div>
-      <MeetWhimsy className="bg-(--pale-yellow)/25" contentClassName="px-0" />
     </PageScaffold>
+  );
+}
+
+function GallerySection() {
+  const [step, setStep] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const apply = () => {
+      const nextStep = mq.matches ? 9 : 6;
+      setStep(nextStep);
+      setVisibleCount(nextStep);
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const visibleGalleries = useMemo(
+    () => galleries.slice(0, visibleCount),
+    [visibleCount]
+  );
+
+  return (
+    <div className="py-12 lg:py-16 px-6 sm:px-12 lg:px-16 ">
+      <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-y-12 gap-x-6">
+        {visibleGalleries.map((gallery) => (
+          <li key={gallery.slug}>
+            <GalleryButton
+              gallery={{
+                imgSrc: gallery.coverImage,
+                imgAlt: gallery.coverAlt,
+                coupleName: gallery.coupleNames,
+                galleryName: gallery.title,
+                location: gallery.location,
+                href: `/galleries/${gallery.slug}`,
+              }}
+              showCTA={false}
+            />
+          </li>
+        ))}
+      </ul>
+      {visibleCount < galleries.length && (
+        <PillButton
+          label="Load More"
+          className="w-full mt-12 lg:mt-16"
+          onClick={() =>
+            setVisibleCount((c) => Math.min(c + step, galleries.length))
+          }
+        />
+      )}
+    </div>
   );
 }

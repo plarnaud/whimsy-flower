@@ -20,7 +20,10 @@ export default function HorizontalList({
       ${className}`}
     >
       {items.map((item, i) => (
-        <li key={i} className="flex-none w-[434px] snap-center text-center">
+        <li
+          key={i}
+          className="flex-none lg:w-[434px] w-[326px] snap-center text-center"
+        >
           <div className="relative w-full h-full rounded-lg overflow-hidden">
             <BlurImage
               src={item.src}

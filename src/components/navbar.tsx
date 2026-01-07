@@ -96,7 +96,7 @@ const Navbar = () => {
         aria-label="Navigation menu"
       >
         {/* Menu content */}
-        <div className="bg-(--pale-yellow)/25 h-full flex flex-col justify-between">
+        <div className="bg-(--clover)/25 h-full flex flex-col justify-between">
           <ul className="flex flex-col gap-8 md:gap-12 pl-6 md:pl-12 pt-12 md:pt-16 lg:pt-8 italic uppercase text-[18px] tracking-[-0.04em] items-start">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -156,7 +156,7 @@ const Navbar = () => {
         ref={navRef}
         className="fixed top-0 py-2 w-full z-130 bg-background transition-shadow duration-300"
       >
-        <div className="grid grid-cols-3 w-full border-y-[1.5px] border-(--pale-yellow) py-2 px-4 sm:px-8 lg:px-12 items-center">
+        <div className="grid grid-cols-3 w-full border-y-[1.5px] border-(--clover) py-2 px-4 sm:px-8 lg:px-12 items-center">
           {/* Toggle button */}
           <button
             className={`order-3 md:order-1 justify-self-end md:justify-self-start flex flex-col gap-3 relative duration-300 transform transition-all
@@ -219,7 +219,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-px bg-(--pale-yellow) mt-1.5"></div>
+        <div className="w-full h-[1.5px] bg-(--clover) mt-1.5"></div>
       </nav>
     </>
   );
