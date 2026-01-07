@@ -1,6 +1,6 @@
 import BlurImage from "@/components/blurImage";
 import HorizontalList, { ImageItem } from "@/components/horizontalList";
-import PillButton from "@/components/pillButton";
+import PillButton, { OpenContactFormButton } from "@/components/pillButton";
 import ServicesButton from "@/components/servicesButton";
 import FollowUsSection from "@/components/followUs";
 import Footer from "@/components/footer";
@@ -31,7 +31,7 @@ export default function Home() {
   );
 
   return (
-    <PageScaffold>
+    <PageScaffold followUsModifiers="bg-(--clover)/25">
       <HeroSection images={homeLanderImages} />
 
       <MeetWhimsy />
@@ -69,7 +69,7 @@ function HeroSection({ images }: HeroSectionProps) {
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
             Bespoke wedding and event floral designer
           </h1>
-          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--faded-green) ">
+          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive) ">
             Timeless Floral Design
           </h2>
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
@@ -79,7 +79,7 @@ function HeroSection({ images }: HeroSectionProps) {
             with feelings of love, sympathy, and pure fun.
           </span>
           <h3 className="uppercase">Artful, design-driven florals</h3>
-          <PillButton label="Contact us!" className="mt-12"></PillButton>
+          <OpenContactFormButton />
         </div>
       </div>
     </section>
@@ -148,7 +148,7 @@ function TestimonialsSection() {
           </ul>
         </div>
 
-        <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-blush)">
+        <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
           <h2 className="uppercase w-full text-center mb-12">
             See what our couples are saying
           </h2>

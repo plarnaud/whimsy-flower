@@ -146,7 +146,7 @@ const Navbar = () => {
                 ©2025 Whimsy Flower, llc
               </span>
             </div>
-            <div className="w-full h-2 border-y-[1.5px] border-(--faded-green)/50"></div>
+            <div className="w-full h-2 border-y-[1.5px] border-(--olive)/50"></div>
           </div>
         </div>
       </aside>

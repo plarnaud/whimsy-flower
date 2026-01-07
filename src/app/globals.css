@@ -3,13 +3,15 @@
 :root {
   --olive-petal: #fcf9e8;
   --dark-olive: #969674;
-  --faded-green: #9d9c7e;
   --pale-yellow: #d8ce93;
   --dark-green: #424319;
   --darker-green: #2b2c0c;
   --blush: #d8a590;
-  --dark-blush: #5e2128;
+  --dark-rose: #5e2128;
+  --olive: #9d9c7e;
   --clover: #c8bc78;
+  --dark-clover: #4c4207;
+  --rose: #d8a48f;
 }
 
 @theme inline {

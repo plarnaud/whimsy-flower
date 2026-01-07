@@ -44,7 +44,7 @@ export const galleries: GalleryMeta[] = [
     location: "Napa Valley, CA",
     coverImage: "/brand01.jpg",
     coverAlt: "Pastel bouquet set against vineyard scenery",
-    featured: true,
+    featured: false,
   },
   {
     slug: "mountain-ceremony",
@@ -53,7 +53,7 @@ export const galleries: GalleryMeta[] = [
     location: "Big Sur, CA",
     coverImage: "/brand02.jpg",
     coverAlt: "Lush coastal florals overlooking the ocean",
-    featured: true,
+    featured: false,
   },
   {
     slug: "tea-party",
@@ -62,7 +62,7 @@ export const galleries: GalleryMeta[] = [
     location: "Portland, OR",
     coverImage: "/brand03.jpg",
     coverAlt: "Garden-inspired tablescape with seasonal blooms",
-    featured: true,
+    featured: false,
   },
   {
     slug: "summer-wedding",
@@ -71,7 +71,7 @@ export const galleries: GalleryMeta[] = [
     location: "Napa Valley, CA",
     coverImage: "/brand01.jpg",
     coverAlt: "Pastel bouquet set against vineyard scenery",
-    featured: true,
+    featured: false,
   },
   {
     slug: "beach-ceremony",
@@ -80,7 +80,7 @@ export const galleries: GalleryMeta[] = [
     location: "Big Sur, CA",
     coverImage: "/brand02.jpg",
     coverAlt: "Lush coastal florals overlooking the ocean",
-    featured: true,
+    featured: false,
   },
   {
     slug: "coffee-party",
@@ -89,7 +89,7 @@ export const galleries: GalleryMeta[] = [
     location: "Portland, OR",
     coverImage: "/brand03.jpg",
     coverAlt: "Garden-inspired tablescape with seasonal blooms",
-    featured: true,
+    featured: false,
   },
   {
     slug: "autumn-soiree",

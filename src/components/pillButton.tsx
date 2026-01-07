@@ -1,3 +1,5 @@
+"use client";
+
 interface PillButtonProps {
   label: string;
   color?: string;
@@ -16,6 +18,9 @@ export default function PillButton({
     green2: "bg-[#50460B] hover:bg-[#302901]",
     maroon1: "bg-[#612E19] hover:bg-[#491D0A]",
     maroon2: "bg-[#4F1219] hover:bg-[#3D090F]",
+    olive: "bg-(--olive) hover:bg-(--dark-olive)",
+    rose: "bg-(--rose) hover:bg-(--dark-rose)",
+    clover: "bg-(--clover) hover:bg-(--dark-clover)",
   };
 
   return (
@@ -28,5 +33,43 @@ export default function PillButton({
     >
       {label}
     </button>
+  );
+}
+
+export function OpenContactFormButton() {
+  return (
+    <PillButton
+      label="Contact us!"
+      className="mt-12"
+      onClick={() => console.log("Contact us clicked")}
+    ></PillButton>
+  );
+}
+
+export enum eventType {
+  FLOWER_BAR = "flower bar",
+  WORKSHOP = "workshop",
+  CORPORATE = "corporate",
+}
+interface ScheduleEventButtonProps {
+  eventType: eventType;
+  label: string;
+  color: string;
+  className?: string;
+}
+
+export function ScheduleEventButton({
+  eventType,
+  label,
+  className,
+  color,
+}: ScheduleEventButtonProps) {
+  return (
+    <PillButton
+      label={label}
+      color={color}
+      onClick={() => console.log(`${eventType} us clicked`)}
+      className={className}
+    ></PillButton>
   );
 }
