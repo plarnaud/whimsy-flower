@@ -16,7 +16,7 @@ export default function SubPageHeader({
       id="hero"
       className="w-full h-52 lg:h-82 relative flex items-center justify-center border-b-[1.5px] border-(--clover)"
     >
-      <div className="absolute top-0 left-0 -z-90 w-full h-full opacity-33">
+      <div className="absolute top-0 left-0 -z-90 w-full h-full opacity-33 overflow-hidden">
         <BlurImage
           src={imgSrc}
           alt={imgAlt}
