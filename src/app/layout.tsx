@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Beth_Ellen, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const bethEllen = Beth_Ellen({
   variable: "--font-beth-ellen",
