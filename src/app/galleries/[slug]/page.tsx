@@ -17,5 +17,5 @@ export default function GalleryPage({ params }: GalleryPageProps) {
     return notFound();
   }
 
-  return <PageScaffold title={gallery.title} />;
+  return <PageScaffold />;
 }
