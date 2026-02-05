@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
   const email = String(body.email || "").trim();
   const phone = String(body.phone || "").trim();
   const occasion = String(body.occasion || "").trim();
+  const date = String(body.date || "").trim();
   const budget = String(body.budget || "").trim();
   const referralSource = String(body.referralSource || "").trim();
   const notes = String(body.notes || "").trim();
@@ -54,9 +55,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!name || !email || !occasion || !budget) {
+  if (!name || !email || !occasion || !date || !budget) {
     return NextResponse.json(
-      { error: "Name, email, occasion, and budget are required." },
+      { error: "Name, email, occasion, date, and budget are required." },
       { status: 400 }
     );
   }
@@ -74,6 +75,7 @@ export async function POST(request: NextRequest) {
       ${formatLine("Email", email)}
       ${formatLine("Phone", phone)}
       ${formatLine("Occasion", occasion)}
+      ${formatLine("Date", date)}
       ${formatLine("Budget", budget)}
       ${formatLine("How they heard about us", referralSource)}
       ${formatLine("Additional notes", notes)}
@@ -96,8 +98,16 @@ export async function POST(request: NextRequest) {
   });
 
   if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Resend error:", response.status, errorText);
+    }
+    const errorMessage =
+      process.env.NODE_ENV !== "production" && errorText
+        ? `Resend error (${response.status}): ${errorText}`
+        : "We could not send your inquiry. Please try again.";
     return NextResponse.json(
-      { error: "We could not send your inquiry. Please try again." },
+      { error: errorMessage },
       { status: 502 }
     );
   }

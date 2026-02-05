@@ -11,6 +11,7 @@ type InquirePayload = {
   email: string;
   phone?: string;
   occasion: string;
+  date: string;
   budget: string;
   referralSource?: string;
   notes?: string;
@@ -124,6 +125,7 @@ export default function InquireForm({
       email: String(formData.get("email") || "").trim(),
       phone: String(formData.get("phone") || "").trim(),
       occasion: String(formData.get("occasion") || "").trim(),
+      date: String(formData.get("date") || "").trim(),
       budget: String(formData.get("budget") || "").trim(),
       referralSource: String(formData.get("referralSource") || "").trim(),
       notes: String(formData.get("notes") || "").trim(),
@@ -180,20 +182,34 @@ export default function InquireForm({
           />
 
           <LabeledInput
+            label="What's The Occasion"
+            name="occasion"
+            required
+            placeholder="Wedding, baby shower, workshop, launch party..."
+          />
+        </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          <LabeledInput
             label="Email"
             name="email"
             type="email"
             required
             placeholder="name@email.com"
           />
-        </div>
 
+          <LabeledInput
+            label="Phone"
+            name="phone"
+            type="tel"
+            placeholder="(555) 123-4567"
+          />
+        </div>
         <div className="grid gap-8 md:grid-cols-2">
           <LabeledInput
-            label="What's The Occasion"
-            name="occasion"
+            label="Date"
+            name="date"
             required
-            placeholder="Wedding, baby shower, workshop, launch party..."
+            placeholder="June 1st, 2027"
           />
           <LabeledInput
             label="Budget"
@@ -202,20 +218,12 @@ export default function InquireForm({
             placeholder="Don't know? an estimate is totally fine!"
           />
         </div>
-        <div className="grid gap-8 md:grid-cols-2">
-          <LabeledInput
-            label="Phone"
-            name="phone"
-            type="tel"
-            placeholder="(555) 123-4567"
-          />
 
-          <LabeledInput
-            label="How Did You Hear About Us?"
-            name="referralSource"
-            placeholder="Friend, planner, Instagram..."
-          />
-        </div>
+        <LabeledInput
+          label="How Did You Hear About Us?"
+          name="referralSource"
+          placeholder="Friend, planner, Instagram..."
+        />
 
         <LabeledTextArea
           label="Additional Notes"
