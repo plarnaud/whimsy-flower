@@ -6,12 +6,18 @@ interface PillButtonProps {
   hoverColor?: string;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  size?: "default" | "form";
 }
 export default function PillButton({
   label,
   color = "green1",
   onClick,
   className,
+  type,
+  disabled = false,
+  size = "default",
 }: PillButtonProps) {
   const colorMap: Record<string, string> = {
     green1: "bg-[#424319] hover:bg-[#2B2C0C]",
@@ -22,14 +28,20 @@ export default function PillButton({
     rose: "bg-(--rose) hover:bg-(--dark-rose)",
     clover: "bg-(--clover) hover:bg-(--dark-clover)",
   };
+  const sizeClasses =
+    size === "form"
+      ? "w-full px-6 py-3 text-[14px] uppercase tracking-[0.2em]"
+      : "px-12 py-8 sm:py-3";
 
   return (
     <button
+      type={type}
       onClick={onClick}
-      className={`px-12 py-8 sm:py-3 rounded-full text-background 
+      disabled={disabled}
+      className={`${sizeClasses} rounded-full text-background transition
       ${colorMap[color]}
       ${className} cursor-pointer
-     duration-200`}
+      disabled:cursor-not-allowed disabled:opacity-70`}
     >
       {label}
     </button>

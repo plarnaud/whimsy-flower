@@ -3,6 +3,7 @@ import SubPageHeader from "@/components/subPageHeader";
 import BlurImage from "@/components/blurImage";
 import { ScheduleEventButton, eventType } from "@/components/pillButton";
 import MeetWhimsy from "@/components/meetWhimsy";
+import { InquireFormSection } from "@/components/inquireForm";
 
 export default function EventsPage() {
   return (
@@ -45,7 +46,7 @@ export default function EventsPage() {
           reverse={false}
         />
       </ul>
-
+      <InquireFormSection />
       <MeetWhimsy />
     </PageScaffold>
   );

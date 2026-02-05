@@ -7,6 +7,7 @@ import MeetWhimsy from "@/components/meetWhimsy";
 import SubPageHeader from "@/components/subPageHeader";
 import { useEffect, useMemo, useState } from "react";
 import PillButton from "@/components/pillButton";
+import { InquireFormSection } from "@/components/inquireForm";
 
 export default function WeddingsPage() {
   return (
@@ -18,6 +19,8 @@ export default function WeddingsPage() {
       />
 
       <GallerySection />
+
+      <InquireFormSection />
 
       <div className="bg-(--pale-yellow)/25 py-8">
         <MeetWhimsy />
@@ -44,7 +47,7 @@ function GallerySection() {
 
   const visibleGalleries = useMemo(
     () => galleries.slice(0, visibleCount),
-    [visibleCount]
+    [visibleCount],
   );
 
   return (

@@ -1,5 +1,11 @@
+import BlurImage from "@/components/blurImage";
 import PageScaffold from "@/components/pageScaffold";
+import { InquireFormSection } from "@/components/inquireForm";
 
 export default function InquirePage() {
-  return <PageScaffold />;
+  return (
+    <PageScaffold followUsModifiers="bg-(--clover)/20">
+      <InquireFormSection forceSuccess={true} />
+    </PageScaffold>
+  );
 }
