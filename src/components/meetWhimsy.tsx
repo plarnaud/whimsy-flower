@@ -16,7 +16,7 @@ export default function MeetWhimsy({
       >
         <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
           <Image
-            src="/brand01.jpg"
+            src="/whimsy-about-pic.jpg"
             alt="Left column"
             fill
             className="object-cover rounded-lg"

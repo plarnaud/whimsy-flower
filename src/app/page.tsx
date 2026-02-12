@@ -13,10 +13,13 @@ import PageScaffold from "@/components/pageScaffold";
 
 export default function Home() {
   const homeLanderImages: ImageItem[] = [
-    { src: "/brand01.jpg", alt: "Brand 01" },
-    { src: "/brand02.jpg", alt: "Brand 02" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
+    { src: "/home-carousel/chelsea-jessica.jpg", alt: "Brand 01" },
+    { src: "/home-carousel/cjstudios.jpg", alt: "Brand 02" },
+    { src: "/home-carousel/gleb-freeman-photography.jpg", alt: "Brand 03" },
+    { src: "/home-carousel/julia-mcguire.webp", alt: "Brand 04" },
+    { src: "/home-carousel/lindsey-finn.jpg", alt: "Brand 04" },
+    { src: "/home-carousel/natalia-david.jpg", alt: "Brand 04" },
+    { src: "/home-carousel/talea-erich.jpg", alt: "Brand 04" },
   ];
 
   const featuredGalleries: FeaturedGallery[] = featuredGalleryData.map(
@@ -27,7 +30,7 @@ export default function Home() {
       galleryName: gallery.title,
       location: gallery.location,
       href: `/galleries/${gallery.slug}`,
-    })
+    }),
   );
 
   return (
@@ -97,23 +100,23 @@ function ServicesSection() {
         <div className="flex flex-col sm:grid sm:grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
           <ServicesButton
             label={"Weddings"}
-            imgSrc={"/brand01.jpg"}
-            imgAlt={"make sure to put an alt"}
+            imgSrc={"/services/weddings.jpg"}
+            imgAlt={"Weddings service"}
             href={"/weddings"}
             className=""
           ></ServicesButton>
           <ServicesButton
             label={"Events"}
-            imgSrc={"/brand01.jpg"}
-            imgAlt={"make sure to put an alt"}
+            imgSrc={"/services/events.jpg"}
+            imgAlt={"Events service"}
             href={"/events"}
             className=""
           ></ServicesButton>
           <ServicesButton
             label={"Workshops"}
-            imgSrc={"/brand01.jpg"}
-            imgAlt={"make sure to put an alt"}
-            href={"/events"}
+            imgSrc={"/services/workshops.jpg"}
+            imgAlt={"Workshops service"}
+            href={"/workshops"}
             className=""
           ></ServicesButton>
         </div>
@@ -155,7 +158,7 @@ function TestimonialsSection() {
           <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
             <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
               <BlurImage
-                src="/brand01.jpg"
+                src="/testimonials/testimonial-julia-mcguire.webp"
                 alt="Testimonial couple"
                 fill
                 sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
