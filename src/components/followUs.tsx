@@ -5,16 +5,18 @@ type FollowUsSectionProps = {
   className?: string;
 };
 
-export default function FollowUsSection({ className = "" }: FollowUsSectionProps) {
+export default function FollowUsSection({
+  className = "",
+}: FollowUsSectionProps) {
   const followUsImages: ImageItem[] = [
-    { src: "/brand01.webp", alt: "Brand 01" },
-    { src: "/brand02.webp", alt: "Brand 02" },
-    { src: "/brand03.webp", alt: "Brand 03" },
-    { src: "/brand03.webp", alt: "Brand 03" },
-    { src: "/brand03.webp", alt: "Brand 03" },
-    { src: "/brand03.webp", alt: "Brand 03" },
-    { src: "/brand03.webp", alt: "Brand 03" },
-    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand01.webp", alt: "Brand 01", creds: "" },
+    { src: "/brand02.webp", alt: "Brand 02", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
+    { src: "/brand03.webp", alt: "Brand 03", creds: "" },
   ];
 
   return (
