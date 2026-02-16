@@ -1,4 +1,4 @@
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 import HorizontalList, { ImageItem } from "@/components/horizontalList";
 import PillButton, { OpenContactFormButton } from "@/components/pillButton";
 import ServicesButton from "@/components/servicesButton";
@@ -13,13 +13,41 @@ import PageScaffold from "@/components/pageScaffold";
 
 export default function Home() {
   const homeLanderImages: ImageItem[] = [
-    { src: "/home-carousel/chelsea-jessica.jpg", alt: "Brand 01" },
-    { src: "/home-carousel/cjstudios.jpg", alt: "Brand 02" },
-    { src: "/home-carousel/gleb-freeman-photography.jpg", alt: "Brand 03" },
-    { src: "/home-carousel/julia-mcguire.webp", alt: "Brand 04" },
-    { src: "/home-carousel/lindsey-finn.jpg", alt: "Brand 04" },
-    { src: "/home-carousel/natalia-david.jpg", alt: "Brand 04" },
-    { src: "/home-carousel/talea-erich.jpg", alt: "Brand 04" },
+    {
+      src: "/home-carousel/natalia-david.webp",
+      alt: "Brand 06",
+      creds: "Photo by Natalia David",
+    },
+    {
+      src: "/home-carousel/lindsey-finn.webp",
+      alt: "Brand 05",
+      creds: "Photo by Lindsey Finn",
+    },
+    {
+      src: "/home-carousel/gleb-freeman-photography.webp",
+      alt: "Brand 03",
+      creds: "Photo by Gleb Freeman Photography",
+    },
+    {
+      src: "/home-carousel/julia-mcguire.webp",
+      alt: "Brand 04",
+      creds: "Photo by Julia McGuire",
+    },
+    {
+      src: "/home-carousel/talea-erich.webp",
+      alt: "Brand 07",
+      creds: "Photo by Talea Erich",
+    },
+    {
+      src: "/home-carousel/chelsea-jessica.webp",
+      alt: "Brand 01",
+      creds: "Photo by Chelsea Jessica",
+    },
+    {
+      src: "/home-carousel/cjstudios.webp",
+      alt: "Brand 02",
+      creds: "Photo by CJ Studios",
+    },
   ];
 
   const featuredGalleries: FeaturedGallery[] = featuredGalleryData.map(
@@ -59,8 +87,8 @@ function HeroSection({ images }: HeroSectionProps) {
       ></HorizontalList>
       <div className="relative w-full overflow-hidden">
         <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
-          <BlurImage
-            src="/home-lander-section-bg.png"
+          <WhimsyImage
+            src="/home-lander-section-bg.webp"
             alt="Home Lander Background"
             fill
             sizes=""
@@ -100,21 +128,21 @@ function ServicesSection() {
         <div className="flex flex-col sm:grid sm:grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
           <ServicesButton
             label={"Weddings"}
-            imgSrc={"/services/weddings.jpg"}
+            imgSrc={"/services/weddings.webp"}
             imgAlt={"Weddings service"}
             href={"/weddings"}
             className=""
           ></ServicesButton>
           <ServicesButton
             label={"Events"}
-            imgSrc={"/services/events.jpg"}
+            imgSrc={"/services/events.webp"}
             imgAlt={"Events service"}
             href={"/events"}
             className=""
           ></ServicesButton>
           <ServicesButton
             label={"Workshops"}
-            imgSrc={"/services/workshops.jpg"}
+            imgSrc={"/services/workshops.webp"}
             imgAlt={"Workshops service"}
             href={"/workshops"}
             className=""
@@ -138,8 +166,8 @@ function TestimonialsSection() {
           <ul className="py-4 flex gap-8 ">
             <li className="w-[124px]">
               <Link href="#">
-                <BlurImage
-                  src="/brides.png"
+                <WhimsyImage
+                  src="/brides.webp"
                   alt="Brides logo"
                   width={124}
                   height={40}
@@ -157,7 +185,7 @@ function TestimonialsSection() {
           </h2>
           <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
             <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
-              <BlurImage
+              <WhimsyImage
                 src="/testimonials/testimonial-julia-mcguire.webp"
                 alt="Testimonial couple"
                 fill

@@ -1,4 +1,4 @@
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 import { ImageItem } from "@/components/horizontalList";
 
 type FollowUsSectionProps = {
@@ -7,14 +7,14 @@ type FollowUsSectionProps = {
 
 export default function FollowUsSection({ className = "" }: FollowUsSectionProps) {
   const followUsImages: ImageItem[] = [
-    { src: "/brand01.jpg", alt: "Brand 01" },
-    { src: "/brand02.jpg", alt: "Brand 02" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
-    { src: "/brand03.jpg", alt: "Brand 03" },
+    { src: "/brand01.webp", alt: "Brand 01" },
+    { src: "/brand02.webp", alt: "Brand 02" },
+    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand03.webp", alt: "Brand 03" },
+    { src: "/brand03.webp", alt: "Brand 03" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function FollowUsSection({ className = "" }: FollowUsSectionProps
         {followUsImages.map((item, i) => (
           <li key={i}>
             <div className="relative aspect-square rounded-lg overflow-hidden">
-              <BlurImage
+              <WhimsyImage
                 src={item.src}
                 alt={item.alt}
                 fill

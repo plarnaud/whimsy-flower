@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import BlurImage from "./blurImage";
+import WhimsyImage from "./whimsyImage";
 import PillButton from "./pillButton";
 
 const Navbar = () => {
@@ -124,7 +124,7 @@ const Navbar = () => {
               />
               <div className="flex gap-6 mb-4">
                 <a href="">
-                  <BlurImage
+                  <WhimsyImage
                     src="/instagram-logo.svg"
                     alt="Instagram logo"
                     width={24}
@@ -133,7 +133,7 @@ const Navbar = () => {
                   />
                 </a>
                 <a href="">
-                  <BlurImage
+                  <WhimsyImage
                     src="/tiktok-logo.svg"
                     alt="TikTok logo"
                     width={24}
@@ -183,7 +183,7 @@ const Navbar = () => {
           {/* Center logo */}
           <Link href="/" className="order-2 w-[59px] justify-self-center">
             <Image
-              src="/wf-logo.png"
+              src="/wf-logo.webp"
               alt="Whimsy Flower's logo, representing the owner with a bouquet with a black dog walking by her side"
               width={80}
               height={80}
@@ -196,7 +196,7 @@ const Navbar = () => {
           <div className="order-1 md:order-3">
             <div className="hidden md:flex items-center gap-6 justfiy-self-start md:justify-self-end">
               <a href="">
-                <BlurImage
+                <WhimsyImage
                   src="/instagram-logo.svg"
                   alt="Instagram logo"
                   width={20}
@@ -205,7 +205,7 @@ const Navbar = () => {
                 />
               </a>
               <a href="">
-                <BlurImage
+                <WhimsyImage
                   src="/tiktok-logo.svg"
                   alt="TikTok logo"
                   width={20}

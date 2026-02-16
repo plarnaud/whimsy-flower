@@ -1,4 +1,4 @@
-import BlurImage from "./blurImage";
+import WhimsyImage from "./whimsyImage";
 
 type SubPageHeaderProps = {
   title: string;
@@ -17,7 +17,7 @@ export default function SubPageHeader({
       className="w-full h-52 lg:h-82 relative flex items-center justify-center border-b-[1.5px] border-(--clover) mb-2"
     >
       <div className="absolute top-0 left-0 -z-90 w-full h-full opacity-33 overflow-hidden">
-        <BlurImage
+        <WhimsyImage
           src={imgSrc}
           alt={imgAlt}
           fill

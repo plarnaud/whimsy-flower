@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import BlurImage from "./blurImage";
+import WhimsyImage from "./whimsyImage";
 import PillButton from "./pillButton";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -85,8 +85,8 @@ export function InquireFormSection({ forceSuccess }: InquireFormProps) {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
-        <BlurImage
-          src="/home-lander-section-bg.png"
+        <WhimsyImage
+          src="/home-lander-section-bg.webp"
           alt="decorative background image of a flower wedding tablescape"
           fill
           sizes=""
@@ -256,8 +256,8 @@ export default function InquireForm({
           aria-live="polite"
           className="absolute inset-0 p-6 flex flex-col items-center justify-center gap-6 text-center"
         >
-          <BlurImage
-            src="/posie.png"
+          <WhimsyImage
+            src="/posie.webp"
             alt="a drawing of a flower"
             width={80}
             height={80}

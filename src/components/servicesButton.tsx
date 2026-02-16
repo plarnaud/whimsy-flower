@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 
 interface ServicesButtonProps {
   label: string;
@@ -23,7 +23,7 @@ export default function ServicesButton({
       duration-200`}
     >
       <div className="relative w-full aspect-square sm:aspect-[0.8] rounded-lg overflow-hidden">
-        <BlurImage
+        <WhimsyImage
           src={imgSrc}
           alt={imgAlt}
           fill

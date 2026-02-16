@@ -1,4 +1,4 @@
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 import PageScaffold from "@/components/pageScaffold";
 import { InquireFormSection } from "@/components/inquireForm";
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 import PillButton from "./pillButton";
 
 export type FeaturedGallery = {
@@ -30,7 +30,7 @@ export default function GalleryButton({
       duration-200`}
     >
       <div className="relative w-full aspect-square rounded-lg overflow-hidden">
-        <BlurImage
+        <WhimsyImage
           src={gallery.imgSrc}
           alt={gallery.imgAlt}
           fill

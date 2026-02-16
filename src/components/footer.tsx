@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 
 interface FooterLinks {
   label: string;
@@ -19,7 +19,7 @@ export default function FollowUsSection() {
     <section id="footer">
       <div className="flex flex-col items-center justify-center uppercase w-full pt-16 pb-6">
         <Link href={"/"} className="flex w-full justify-center px-8">
-          <BlurImage
+          <WhimsyImage
             src="/logotype.svg"
             alt="Whimsy Flower wordmark"
             width={364}

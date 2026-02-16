@@ -1,6 +1,6 @@
 import PageScaffold from "@/components/pageScaffold";
 import SubPageHeader from "@/components/subPageHeader";
-import BlurImage from "@/components/blurImage";
+import WhimsyImage from "@/components/whimsyImage";
 import { ScheduleEventButton, eventType } from "@/components/pillButton";
 import MeetWhimsy from "@/components/meetWhimsy";
 import { InquireFormSection } from "@/components/inquireForm";
@@ -10,7 +10,7 @@ export default function EventsPage() {
     <PageScaffold followUsModifiers="bg-(--clover)/25">
       <SubPageHeader
         title="Events"
-        imgSrc="/home-lander-section-bg.png"
+        imgSrc="/home-lander-section-bg.webp"
         imgAlt="Wedding bouquet with white and blush roses and greenery"
       />
 
@@ -20,7 +20,7 @@ export default function EventsPage() {
           text="Choose your vibe, budget, and colors, and watch as guests create bouquets, capturing memorable moments. Perfect for bridal showers, birthdays, and events, our Flower Bars elevate any space with fresh blooms."
           buttonLabel="Schedule a Flower Bar"
           eventType={eventType.FLOWER_BAR}
-          imgSrc="/brand02.jpg"
+          imgSrc="/brand02.webp"
           imgAlt="Flower bar with various flowers and greenery"
           colorScheme={ColorScheme.CLOVER}
           reverse={false}
@@ -30,7 +30,7 @@ export default function EventsPage() {
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non congue augue. Proin vestibulum, magna eget placerat scelerisque, ante neque dapibus nisl, at mattis lorem neque eget ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla nisi."
           buttonLabel="Schedule a Workshop"
           eventType={eventType.WORKSHOP}
-          imgSrc="/brand02.jpg"
+          imgSrc="/brand02.webp"
           imgAlt="Workshop with participants creating floral arrangements"
           colorScheme={ColorScheme.ROSE}
           reverse={true}
@@ -40,7 +40,7 @@ export default function EventsPage() {
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non congue augue. Proin vestibulum, magna eget placerat scelerisque, ante neque dapibus nisl, at mattis lorem neque eget ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla nisi."
           buttonLabel="Schedule a Corporate Event"
           eventType={eventType.CORPORATE}
-          imgSrc="/brand02.jpg"
+          imgSrc="/brand02.webp"
           imgAlt="Corporate event with elegant floral arrangements"
           colorScheme={ColorScheme.OLIVE}
           reverse={false}
@@ -132,7 +132,7 @@ function EventEntry({
           reverse ? "sm:order-1" : "sm:order-2"
         }`}
       >
-        <BlurImage
+        <WhimsyImage
           src={imgSrc}
           alt={imgAlt}
           fill

@@ -31,7 +31,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/bg-graphic.jpeg");
+  background-image: url("/bg-graphic.webp");
   background-repeat: repeat;
   background-position: center;
   opacity: 0.2;
@@ -46,7 +46,7 @@ nav::before {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("/bg-graphic.jpeg");
+  background-image: url("/bg-graphic.webp");
   background-repeat: repeat;
   background-position: center;
   opacity: 0.2;
@@ -58,7 +58,7 @@ aside#wf-nav-menu::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/bg-graphic.jpeg");
+  background-image: url("/bg-graphic.webp");
   background-repeat: repeat;
   background-position: center;
   opacity: 0.2;

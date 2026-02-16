@@ -11,7 +11,7 @@ export default function AboutPage() {
     <PageScaffold>
       <SubPageHeader
         title="About"
-        imgSrc="/home-lander-section-bg.png"
+        imgSrc="/home-lander-section-bg.webp"
         imgAlt="Wedding bouquet with white and blush roses and greenery"
       />
 
