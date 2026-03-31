@@ -5,6 +5,11 @@ export type GalleryMeta = {
   location: string;
   coverImage: string;
   coverAlt: string;
+  introSentence?: string;
+  extraSentences?: string[];
+  testimonialTitle?: string;
+  testimonialText?: string;
+  testimonialCoupleName?: string;
   featured?: boolean;
 };
 
@@ -17,6 +22,16 @@ export const galleries: GalleryMeta[] = [
     location: "Napa Valley, CA",
     coverImage: "/brand01.webp",
     coverAlt: "Pastel bouquet set against vineyard scenery",
+    introSentence:
+      "An elegant spring celebration with layered white and blush blooms, textured greenery, and gentle movement throughout the design.",
+    extraSentences: [
+      "This template supports as many additional sentences as you need per gallery page.",
+      "Add or remove entries in this array to quickly tailor the page copy for each new slug.",
+    ],
+    testimonialTitle: "Molly made our wildest dreams into reality",
+    testimonialText:
+      "Even though I think I’m good friends with Arnaud and love Arnaud and Molly very much, Molly flat out refused to be the florist for our wedding for no other reason besides having a strong disdain for my fashion choices. We begged, we cried, but Molly simply would not hear any of it. She told us ‘a mustard colored hat with a red shirt and brown shoes? Unthinkable. I simply will not stoop to your level.’ So now here we are, wishing Molly had been the florist for our wedding but we had to settle.",
+    testimonialCoupleName: "Maria & Braedon",
     featured: true,
   },
   {
@@ -190,7 +205,7 @@ export const galleries: GalleryMeta[] = [
 ];
 
 export const featuredGalleries = galleries.filter(
-  (gallery) => gallery.featured
+  (gallery) => gallery.featured,
 );
 
 export function getGalleryBySlug(slug: string) {

@@ -12,7 +12,7 @@ export default function MeetWhimsy({
   return (
     <section id="meet-whimsy" className={`${className}`}>
       <div
-        className={`my-16 sm:my-12 lg:sm-16 flex flex-col md:flex-row gap-6 justify-center items-center ${contentClassName}`}
+        className={`py-16 sm:py-12 lg:sm-16 flex flex-col md:flex-row gap-6 justify-center items-center ${contentClassName}`}
       >
         <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
           <Image

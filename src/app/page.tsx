@@ -1,15 +1,13 @@
 import WhimsyImage from "@/components/whimsyImage";
 import HorizontalList, { ImageItem } from "@/components/horizontalList";
-import PillButton, { OpenContactFormButton } from "@/components/pillButton";
+import { OpenContactFormButton } from "@/components/pillButton";
 import ServicesButton from "@/components/servicesButton";
-import FollowUsSection from "@/components/followUs";
-import Footer from "@/components/footer";
-import Link from "next/link";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
-import Navbar from "@/components/navbar";
 import MeetWhimsy from "@/components/meetWhimsy";
 import { featuredGalleries as featuredGalleryData } from "@/data/galleries";
 import PageScaffold from "@/components/pageScaffold";
+import TestimonialsSection from "@/components/testimonialsSection";
+import Link from "next/link";
 
 export default function Home() {
   const homeLanderImages: ImageItem[] = [
@@ -69,7 +67,35 @@ export default function Home() {
 
       <ServicesSection />
 
-      <TestimonialsSection />
+      <section id="testimonials" className="relative bg-(--blush)/25">
+        <div className="absolute z-[-1] top-0 left-0 w-full h-[25%] bg-(--blush)/25"></div>
+        <div className=" w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center pb-6">
+            <span className="uppercase text-background font-bold text-[18px] tracking-[-0.04em]">
+              Featured On
+            </span>
+            <ul className="py-4 flex gap-8 ">
+              <li className="w-[124px]">
+                <Link href="#">
+                  <WhimsyImage
+                    src="/brides.webp"
+                    alt="Brides logo"
+                    width={124}
+                    height={40}
+                    className="w-full h-auto"
+                    sizes="124px"
+                  />
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <TestimonialsSection
+            title="Molly made our wildest dreams into reality"
+            text="Even though I think I’m good friends with Arnaud and love Arnaud and Molly very much, Molly flat out refused to be the florist for our wedding for no other reason besides having a strong disdain for my fashion choices. We begged, we cried, but Molly simply would not hear any of it. She told us ‘a mustard colored hat with a red shirt and brown shoes? Unthinkable. I simply will not stoop to your level.’ So now here we are, wishing Molly had been the florist for our wedding but we had to settle."
+            coupleName="Maria & Braedon"
+          />
+        </div>
+      </section>
 
       <FeaturedGalleries galleries={featuredGalleries} />
     </PageScaffold>
@@ -147,76 +173,6 @@ function ServicesSection() {
             href={"/workshops"}
             className=""
           ></ServicesButton>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* Testimonials Section */
-function TestimonialsSection() {
-  return (
-    <section id="testimonials" className="relative bg-(--blush)/25">
-      <div className="absolute z-[-1] top-0 left-0 w-full h-[25%] bg-(--blush)/25"></div>
-      <div className=" w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center pb-6">
-          <span className="uppercase text-background font-bold text-[18px] tracking-[-0.04em]">
-            Featured On
-          </span>
-          <ul className="py-4 flex gap-8 ">
-            <li className="w-[124px]">
-              <Link href="#">
-                <WhimsyImage
-                  src="/brides.webp"
-                  alt="Brides logo"
-                  width={124}
-                  height={40}
-                  className="w-full h-auto"
-                  sizes="124px"
-                />
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
-          <h2 className="uppercase w-full text-center mb-12">
-            See what our couples are saying
-          </h2>
-          <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
-            <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
-              <WhimsyImage
-                src="/testimonials/testimonial-julia-mcguire.webp"
-                alt="Testimonial couple"
-                fill
-                sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-6 items-center text-center text-[14px]">
-              <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
-                Molly made our wildest dreams into reality
-              </h3>
-              <p className="text-[14px] leading-6">
-                Even though I think I’m good friends with Arnaud and love Arnaud
-                and Molly very much, Molly flat out refused to be the florist
-                for our wedding for no other reason besides having a strong
-                disdain for my fashion choices. We begged, we cried, but Molly
-                simply would not hear any of it. She told us ‘a mustard colored
-                hat with a red shirt and brown shoes? Unthinkable. I simply will
-                not stoop to your level.’ So now here we are, wishing Molly had
-                been the florist for our wedding but we had to settle.
-              </p>
-              <span className="text-(--blush) text-[14px]">
-                Maria & Braedon
-              </span>
-              <PillButton
-                label={"See more testimonials"}
-                color="maroon1"
-                className="mt-6 text-[16px]"
-              ></PillButton>
-            </div>
-          </div>
         </div>
       </div>
     </section>

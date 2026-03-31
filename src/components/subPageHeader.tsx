@@ -25,7 +25,7 @@ export default function SubPageHeader({
           className="absolute left-0 right-0 -translate-y-2 -z-100  object-cover"
         />
       </div>
-      <h1 className="font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--dark-olive)">
+      <h1 className="font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--dark-olive) text-center">
         {title}
       </h1>
     </section>
