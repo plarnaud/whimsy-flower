@@ -99,7 +99,7 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
   }
 
   return (
-    <section className="px-6 py-16 sm:hidden">
+    <section className="px-6 py-12 sm:hidden">
       <div className="flex flex-col gap-6">{rows}</div>
     </section>
   );
@@ -183,7 +183,7 @@ function DesktopLayout({ items }: { items: GalleryGridItem[] }) {
   }
 
   return (
-    <section className="hidden sm:block px-6 sm:px-12 lg:px-16 py-16">
+    <section className="hidden sm:block px-6 sm:px-12 lg:px-16 py-12 sm:py-16">
       <div className="flex flex-col gap-6">{cycles}</div>
     </section>
   );
