@@ -64,7 +64,6 @@ function GallerySection() {
                 location: gallery.location,
                 href: `/galleries/${gallery.slug}`,
               }}
-              showCTA={false}
             />
           </li>
         ))}
