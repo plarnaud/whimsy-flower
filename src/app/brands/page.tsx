@@ -64,6 +64,7 @@ function ProjectsSection() {
                 location: project.location,
                 href: `/brands/${project.slug}`,
               }}
+              showCTA={false}
             />
           </li>
         ))}
