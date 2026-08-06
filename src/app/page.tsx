@@ -124,16 +124,18 @@ function HeroSection({ images }: HeroSectionProps) {
 
         <div className="w-full h-full py-16 sm:py-24 px-6 flex flex-col justify-center items-center text-center ">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Bespoke wedding and event floral designer
+            Where flowers become the most memorable part of the room
           </h1>
           <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive) ">
-            Timeless Floral Design
+            Timeless Floral Artistry
           </h2>
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
-            Welcome to Whimsy Flower, where years of floral expertise and a
-            foundation in the visual arts come together to create a truly
-            distinctive experience. Our journey is all about infusing flowers
-            with feelings of love, sympathy, and pure fun.
+            At Whimsy Flower, we approach every project as an opportunity to
+            create something entirely original. From intimate weddings and
+            private celebrations to editorial productions and brand
+            experiences, our work is driven by thoughtful composition, seasonal
+            beauty, and the belief that flowers can transform not only a space,
+            but the way it is remembered.
           </span>
           <h3 className="uppercase">Artful, design-driven florals</h3>
           <OpenContactFormButton />
@@ -160,17 +162,17 @@ function ServicesSection() {
             className=""
           ></ServicesButton>
           <ServicesButton
-            label={"Events"}
+            label={"Private Events"}
             imgSrc={"/services/events.webp"}
-            imgAlt={"Events service"}
+            imgAlt={"Private events service"}
             href={"/events"}
             className=""
           ></ServicesButton>
           <ServicesButton
-            label={"Workshops"}
+            label={"Editorial & Brand Styling"}
             imgSrc={"/services/workshops.webp"}
-            imgAlt={"Workshops service"}
-            href={"/workshops"}
+            imgAlt={"Editorial and brand styling service"}
+            href={"/inquire"}
             className=""
           ></ServicesButton>
         </div>

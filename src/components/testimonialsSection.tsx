@@ -17,7 +17,7 @@ export default function TestimonialsSection({
   return (
     <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
       <h2 className="uppercase w-full text-center mb-12">
-        See what our couples are saying
+        See what our clients are saying
       </h2>
       <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:mb-12">
         <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
