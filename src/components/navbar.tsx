@@ -235,7 +235,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[1.5px] bg-(--clover) mt-1.5"></div>
+        <div className="w-full border-t-[1.5px] border-(--clover) mt-1.5"></div>
       </nav>
     </>
   );
