@@ -5,72 +5,67 @@ import SubPageHeader from "@/components/subPageHeader";
 import { SmallTestimonialSection } from "@/components/testimonialsSection";
 import GalleryGrid from "@/components/galleryGrid";
 import PaletteSection from "@/components/paletteSection";
-import {
-  featuredGalleries as featuredGalleryData,
-  galleries,
-  getGalleryBySlug,
-} from "@/data/galleries";
+import { brandProjects, getBrandProjectBySlug } from "@/data/brandProjects";
 import { getGalleryGridItems } from "@/lib/galleryAssets";
 import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
 
-type GalleryPageProps = {
+type BrandProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const galleryAssetFolderBySlug: Record<string, string> = {
-  "spring-wedding": "Lindsey & Fin 2025",
-  "coastal-ceremony": "Natalia & David 2025 (Thalia Photography)",
-  "garden-party": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
-  "autumn-soiree": "Brides Feature",
-};
+// Register image folders under /public here as brand project photos come in.
+const brandAssetFolderBySlug: Record<string, string> = {};
 
 export function generateStaticParams() {
-  return galleries.map(({ slug }) => ({ slug }));
+  return brandProjects.map(({ slug }) => ({ slug }));
 }
 
-export default async function GalleryPage({ params }: GalleryPageProps) {
+export default async function BrandProjectPage({
+  params,
+}: BrandProjectPageProps) {
   const { slug } = await params;
-  const gallery = getGalleryBySlug(slug);
+  const project = getBrandProjectBySlug(slug);
 
-  if (!gallery) {
+  if (!project) {
     return notFound();
   }
 
   const testimonialTitle =
-    gallery.testimonialTitle ??
-    `Design that felt true to ${gallery.coupleNames}`;
+    project.testimonialTitle ??
+    `Design that told the ${project.brandName} story`;
   const testimonialText =
-    gallery.testimonialText ??
-    `Whimsy Flower brought ${gallery.coupleNames}'s vision to life in ${gallery.location} with thoughtful details and seamless execution from concept to install.`;
-  const testimonialCoupleName =
-    gallery.testimonialCoupleName ?? gallery.coupleNames;
+    project.testimonialText ??
+    `Whimsy Flower shaped ${project.brandName}'s vision into an immersive floral concept in ${project.location}, carried from creative direction through final styling.`;
+  const testimonialClientName =
+    project.testimonialClientName ?? project.brandName;
 
-  const featuredGalleries: FeaturedGallery[] = featuredGalleryData.map(
-    (gallery) => ({
-      imgSrc: gallery.coverImage,
-      imgAlt: gallery.coverAlt,
-      coupleName: gallery.coupleNames,
-      galleryName: gallery.title,
-      location: gallery.location,
-      href: `/galleries/${gallery.slug}`,
-    }),
-  );
-  const galleryGridItems = await getGalleryGridItems(
-    galleryAssetFolderBySlug[gallery.slug],
-    gallery.title,
+  const moreProjects: FeaturedGallery[] = brandProjects
+    .filter((other) => other.slug !== project.slug)
+    .slice(0, 3)
+    .map((other) => ({
+      imgSrc: other.coverImage,
+      imgAlt: other.coverAlt,
+      coupleName: other.brandName,
+      galleryName: other.title,
+      location: other.location,
+      href: `/brands/${other.slug}`,
+    }));
+  const projectGridItems = await getGalleryGridItems(
+    brandAssetFolderBySlug[project.slug],
+    project.title,
   );
 
   return (
     <PageScaffold>
       <SubPageHeader
-        title={gallery.title}
-        imgSrc={gallery.coverImage}
-        imgAlt={gallery.coverAlt}
+        title={project.title}
+        imgSrc={project.coverImage}
+        imgAlt={project.coverAlt}
       />
 
-      <GalleryGrid items={galleryGridItems} />
+      <GalleryGrid items={projectGridItems} />
 
       <PaletteSection />
 
@@ -78,7 +73,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
           <WhimsyImage
             src="/home-lander-section-bg.webp"
-            alt="decorative background image of a flower wedding tablescape"
+            alt="decorative background image of a floral tablescape"
             fill
             sizes=""
             className="absolute left-0 right-0 -z-100  object-cover"
@@ -87,28 +82,28 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         <SmallTestimonialSection
           title={testimonialTitle}
           text={testimonialText}
-          coupleName={testimonialCoupleName}
+          coupleName={testimonialClientName}
         />
       </div>
 
-      <FeaturedGalleries galleries={featuredGalleries} />
+      <MoreProjects projects={moreProjects} />
 
       <InquireFormSection />
       <MeetWhimsy className="bg-(--clover)/25" />
     </PageScaffold>
   );
 
-  type FeaturesGalleriesProps = { galleries: FeaturedGallery[] };
-  /* Featured Galleries Section */
-  function FeaturedGalleries({ galleries }: FeaturesGalleriesProps) {
+  type MoreProjectsProps = { projects: FeaturedGallery[] };
+  /* More Projects Section */
+  function MoreProjects({ projects }: MoreProjectsProps) {
     return (
-      <section id="featured-galleries">
+      <section id="more-projects">
         <div className="flex flex-col justify-stretch items-stretch text-center pt-16 pb-12 px-6 md:px-12 lg:px-16">
           <h2 className="py-6 font-title text-(--dark-olive) text-[clamp(48px,6vw,64px)] leading-[clamp(56px,7vw,72px)] tracking-[-0.04em] text-center lg:text-left">
-            More Weddings
+            More Projects
           </h2>
           <ul className="flex flex-col sm:grid sm:grid-cols-3 pt-6 gap-12 sm:gap-6">
-            {galleries.map((item, i) => (
+            {projects.map((item, i) => (
               <li key={i}>
                 <GalleryButton gallery={item} className=""></GalleryButton>
               </li>

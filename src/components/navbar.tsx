@@ -15,24 +15,40 @@ const Navbar = () => {
     { label: "Home", href: "/" },
     { label: "Weddings", href: "/weddings" },
     { label: "Events", href: "/events" },
+    { label: "Editorial & Brands", href: "/brands" },
     { label: "About", href: "/about" },
     { label: "Inquire", href: "/inquire" },
   ];
 
-  // Measure navbar height so the menu/backdrop start below it
+  // Measure navbar height so the menu/backdrop start below it.
+  // A ResizeObserver keeps the value fresh when the nav's height settles
+  // after mount (logo/font loading, mobile browser chrome) — a one-shot
+  // measurement goes stale and the open menu overlaps the navbar.
   useEffect(() => {
-    const measure = () => {
-      if (navRef.current) {
-        setNavH(navRef.current.getBoundingClientRect().height);
-      }
-    };
+    const nav = navRef.current;
+    if (!nav) return;
+    const measure = () => setNavH(nav.getBoundingClientRect().height);
     measure();
+    const observer = new ResizeObserver(measure);
+    try {
+      // border-box so padding/border changes are caught too
+      observer.observe(nav, { box: "border-box" });
+    } catch {
+      observer.observe(nav);
+    }
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
-  // Handle body scroll when menu is open
+  // Handle body scroll when menu is open; re-measure on open so the menu
+  // always aligns with the navbar's current height.
   useEffect(() => {
+    if (isOpen && navRef.current) {
+      setNavH(navRef.current.getBoundingClientRect().height);
+    }
     document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";

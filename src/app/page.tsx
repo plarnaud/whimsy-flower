@@ -172,7 +172,7 @@ function ServicesSection() {
             label={"Editorial & Brand Styling"}
             imgSrc={"/services/workshops.webp"}
             imgAlt={"Editorial and brand styling service"}
-            href={"/inquire"}
+            href={"/brands"}
             className=""
           ></ServicesButton>
         </div>
