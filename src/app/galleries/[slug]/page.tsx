@@ -20,10 +20,10 @@ type GalleryPageProps = {
 };
 
 const galleryAssetFolderBySlug: Record<string, string> = {
-  "spring-wedding": "Lindsey & Fin 2025",
-  "coastal-ceremony": "Natalia & David 2025 (Thalia Photography)",
-  "garden-party": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
-  "autumn-soiree": "Brides Feature",
+  "brides-feature": "Brides Feature",
+  "lindsey-fin": "Lindsey & Fin 2025",
+  "natalia-david": "Natalia & David 2025 (Thalia Photography)",
+  "talea-erich": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
 };
 
 export function generateStaticParams() {
