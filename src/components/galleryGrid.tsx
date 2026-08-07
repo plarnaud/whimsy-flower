@@ -17,7 +17,9 @@ function mobileCount(total: number): number {
 }
 
 function desktopCount(total: number): number {
-  // Pattern: 7 per cycle (4 in line1 + 3 in line2)
+  // Pattern: 7 per cycle (4 in line1 + 3 in line2); galleries smaller than
+  // one cycle render a partial cycle instead of nothing
+  if (total < 7) return total;
   return Math.floor(total / 7) * 7;
 }
 
@@ -113,71 +115,65 @@ function DesktopLayout({ items }: { items: GalleryGridItem[] }) {
   const cycles: React.ReactNode[] = [];
 
   for (let i = 0; i < visible.length; i += 7) {
-    const big1 = visible[i];
-    const small1 = visible[i + 1];
-    const small2 = visible[i + 2];
-    const big2 = visible[i + 3];
-    const sq1 = visible[i + 4];
-    const sq2 = visible[i + 5];
-    const sq3 = visible[i + 6];
+    const chunk = visible.slice(i, i + 7);
+    const hasLine1 = chunk.length >= 4;
+    const [big1, small1, small2, big2] = chunk;
+    const squares = hasLine1 ? chunk.slice(4) : chunk;
 
     cycles.push(
-      <div key={`cycle-${big1.id}`} className="flex flex-col gap-6">
+      <div key={`cycle-${chunk[0].id}`} className="flex flex-col gap-6">
         {/* Line 1: Big + 2 Small stacked + Big */}
-        <div className="flex gap-6 items-stretch">
-          {/* Big left */}
-          <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
-            <WhimsyImage
-              src={big1.imgSrc}
-              alt={big1.imgAlt}
-              fill
-              sizes="(min-width: 1024px) 38vw, 38vw"
-              className="object-cover object-center"
-            />
+        {hasLine1 && (
+          <div className="flex gap-6 items-stretch">
+            {/* Big left */}
+            <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
+              <WhimsyImage
+                src={big1.imgSrc}
+                alt={big1.imgAlt}
+                fill
+                sizes="(min-width: 1024px) 38vw, 38vw"
+                className="object-cover object-center"
+              />
+            </div>
+            {/* Small column */}
+            <div className="flex-1 min-w-0 flex flex-col gap-6">
+              <ImageBox
+                item={small1}
+                aspectRatio="1.37 / 1"
+                sizes="(min-width: 1024px) 17vw, 17vw"
+              />
+              <ImageBox
+                item={small2}
+                aspectRatio="1.37 / 1"
+                sizes="(min-width: 1024px) 17vw, 17vw"
+              />
+            </div>
+            {/* Big right */}
+            <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
+              <WhimsyImage
+                src={big2.imgSrc}
+                alt={big2.imgAlt}
+                fill
+                sizes="(min-width: 1024px) 38vw, 38vw"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
-          {/* Small column */}
-          <div className="flex-1 min-w-0 flex flex-col gap-6">
-            <ImageBox
-              item={small1}
-              aspectRatio="1.37 / 1"
-              sizes="(min-width: 1024px) 17vw, 17vw"
-            />
-            <ImageBox
-              item={small2}
-              aspectRatio="1.37 / 1"
-              sizes="(min-width: 1024px) 17vw, 17vw"
-            />
-          </div>
-          {/* Big right */}
-          <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
-            <WhimsyImage
-              src={big2.imgSrc}
-              alt={big2.imgAlt}
-              fill
-              sizes="(min-width: 1024px) 38vw, 38vw"
-              className="object-cover object-center"
-            />
-          </div>
-        </div>
+        )}
 
-        {/* Line 2: 3 Squares */}
-        <div className="grid grid-cols-3 gap-6">
-          <ImageBox
-            item={sq1}
-            aspectRatio="1 / 1"
-            sizes="(min-width: 1024px) 30vw, 30vw"
-          />
-          <ImageBox
-            item={sq2}
-            aspectRatio="1 / 1"
-            sizes="(min-width: 1024px) 30vw, 30vw"
-          />
-          <ImageBox
-            item={sq3}
-            aspectRatio="1 / 1"
-            sizes="(min-width: 1024px) 30vw, 30vw"
-          />
-        </div>
+        {/* Line 2: up to 3 Squares */}
+        {squares.length > 0 && (
+          <div className="grid grid-cols-3 gap-6">
+            {squares.map((sq) => (
+              <ImageBox
+                key={sq.id}
+                item={sq}
+                aspectRatio="1 / 1"
+                sizes="(min-width: 1024px) 30vw, 30vw"
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
