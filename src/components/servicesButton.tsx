@@ -33,7 +33,7 @@ export default function ServicesButton({
           sizes="(min-width: 640px) 33vw, 90vw"
           className="object-cover"
         />
-        <div className="absolute bottom-0 left-0 w-full max-w-[45%] group-hover:max-w-full min-h-[2.3125rem] sm:min-h-[4.625rem] rounded-tr-3xl bg-background/80 group-hover:bg-(--dark-green) border border-(--clover) group-hover:border-transparent transition-all duration-300 pl-3 pr-4 py-0.75 sm:pl-6 sm:pr-8 sm:py-1.5 flex items-center justify-between">
+        <div className="absolute bottom-0 left-0 w-full max-w-[45%] group-hover:max-w-full min-h-[2.3125rem] sm:min-h-[4.625rem] rounded-tr-3xl bg-background/80 group-hover:bg-(--dark-green) border border-(--clover) group-hover:border-transparent transition-all duration-300 pl-3 pr-6 py-1.75 sm:pl-6 sm:pr-8 sm:py-1.5 flex items-center justify-between">
           <span className="italic uppercase text-[1rem] leading-5 text-left tracking-[-0.04em] text-(--dark-green) group-hover:text-background transition-colors duration-300">
             {label}
           </span>
