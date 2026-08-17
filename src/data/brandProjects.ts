@@ -70,6 +70,32 @@ export const brandProjects: BrandProjectMeta[] = [
   },
 ];
 
+// Brands shown in the scroller on the Editorial & Brands page — placeholder
+// names awaiting the real client list.
+export const brandNames = [
+  "Maison Lumière",
+  "Atelier Rosewood",
+  "Verdant & Co.",
+  "The Linen House",
+  "Studio Meridian",
+  "Fern + Field",
+];
+
+export type BrandGalleryPhoto = {
+  src: string;
+  alt: string;
+};
+
+// Mixed gallery on the Editorial & Brands page — placeholder photos cycling
+// the three brand images until real project imagery lands.
+export const brandGalleryPhotos: BrandGalleryPhoto[] = Array.from(
+  { length: 20 },
+  (_, i) => ({
+    src: `/brand0${(i % 3) + 1}.webp`,
+    alt: `Editorial and brand floral styling by Whimsy Flower, photo ${i + 1}`,
+  }),
+);
+
 export const featuredBrandProjects = brandProjects.filter(
   (project) => project.featured,
 );

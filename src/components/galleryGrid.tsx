@@ -8,6 +8,8 @@ type GalleryGridItem = {
 
 type GalleryGridProps = {
   items: GalleryGridItem[];
+  /* Rows of 3 squares after each big/small line on desktop (default 1). */
+  squareRows?: number;
 };
 
 function mobileCount(total: number): number {
@@ -16,11 +18,11 @@ function mobileCount(total: number): number {
   return Math.floor((total - 1) / 4) * 4 + 1;
 }
 
-function desktopCount(total: number): number {
-  // Pattern: 7 per cycle (4 in line1 + 3 in line2); galleries smaller than
-  // one cycle render a partial cycle instead of nothing
-  if (total < 7) return total;
-  return Math.floor(total / 7) * 7;
+function desktopCount(total: number, cycleLength: number): number {
+  // Pattern: cycleLength per cycle (4 in line1 + 3 per square row); galleries
+  // smaller than one cycle render a partial cycle instead of nothing
+  if (total < cycleLength) return total;
+  return Math.floor(total / cycleLength) * cycleLength;
 }
 
 type ImageBoxProps = {
@@ -107,15 +109,22 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
   );
 }
 
-function DesktopLayout({ items }: { items: GalleryGridItem[] }) {
-  const count = desktopCount(items.length);
+function DesktopLayout({
+  items,
+  squareRows,
+}: {
+  items: GalleryGridItem[];
+  squareRows: number;
+}) {
+  const cycleLength = 4 + 3 * squareRows;
+  const count = desktopCount(items.length, cycleLength);
   if (count === 0) return null;
   const visible = items.slice(0, count);
 
   const cycles: React.ReactNode[] = [];
 
-  for (let i = 0; i < visible.length; i += 7) {
-    const chunk = visible.slice(i, i + 7);
+  for (let i = 0; i < visible.length; i += cycleLength) {
+    const chunk = visible.slice(i, i + cycleLength);
     const hasLine1 = chunk.length >= 4;
     const [big1, small1, small2, big2] = chunk;
     const squares = hasLine1 ? chunk.slice(4) : chunk;
@@ -161,7 +170,7 @@ function DesktopLayout({ items }: { items: GalleryGridItem[] }) {
           </div>
         )}
 
-        {/* Line 2: up to 3 Squares */}
+        {/* Square rows: 3 per row, wrapping via the grid */}
         {squares.length > 0 && (
           <div className="grid grid-cols-3 gap-6">
             {squares.map((sq) => (
@@ -185,13 +194,13 @@ function DesktopLayout({ items }: { items: GalleryGridItem[] }) {
   );
 }
 
-export default function GalleryGrid({ items }: GalleryGridProps) {
+export default function GalleryGrid({ items, squareRows = 1 }: GalleryGridProps) {
   if (items.length === 0) return null;
 
   return (
     <>
       <MobileLayout items={items} />
-      <DesktopLayout items={items} />
+      <DesktopLayout items={items} squareRows={squareRows} />
     </>
   );
 }

@@ -72,3 +72,26 @@ aside#wf-nav-menu::before {
 .horizontal-scroll::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-marquee-track {
+  animation: brand-marquee 32s linear infinite;
+}
+
+.brand-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee-track {
+    animation: none;
+  }
+}
