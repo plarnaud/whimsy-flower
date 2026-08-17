@@ -38,9 +38,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     return notFound();
   }
 
-  const testimonialTitle =
-    gallery.testimonialTitle ??
-    `Design that felt true to ${gallery.coupleNames}`;
+  const testimonialTitle = "From the Couple";
   const testimonialText =
     gallery.testimonialText ??
     `Whimsy Flower brought ${gallery.coupleNames}'s vision to life in ${gallery.location} with thoughtful details and seamless execution from concept to install.`;
@@ -60,6 +58,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   const galleryGridItems = await getGalleryGridItems(
     galleryAssetFolderBySlug[gallery.slug],
     gallery.title,
+    { order: gallery.photoOrder, exclude: gallery.hiddenPhotos },
   );
 
   return (
@@ -72,7 +71,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
 
       <GalleryGrid items={galleryGridItems} />
 
-      <PaletteSection />
+      <PaletteSection colors={gallery.palette} text={gallery.paletteText} />
 
       <div className="relative overflow-hidden w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
         <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
@@ -88,6 +87,12 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
           title={testimonialTitle}
           text={testimonialText}
           coupleName={testimonialCoupleName}
+          imgSrc={gallery.testimonialImage}
+          imgAlt={
+            gallery.testimonialImage
+              ? `${gallery.coupleNames}'s wedding florals`
+              : undefined
+          }
         />
       </div>
 

@@ -50,14 +50,16 @@ export function SmallTestimonialSection({
   title,
   text,
   coupleName,
-}: TestimonialsSectionProps) {
+  imgSrc = "/testimonials/testimonial-julia-mcguire.webp",
+  imgAlt = "Testimonial couple",
+}: TestimonialsSectionProps & { imgSrc?: string; imgAlt?: string }) {
   return (
     <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
       <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center">
         <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
           <WhimsyImage
-            src="/testimonials/testimonial-julia-mcguire.webp"
-            alt="Testimonial couple"
+            src={imgSrc}
+            alt={imgAlt}
             fill
             sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
             className="object-cover"
@@ -67,7 +69,7 @@ export function SmallTestimonialSection({
           <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
             {title}
           </h3>
-          <p className="text-[14px] leading-6">{text}</p>
+          <p className="text-[14px] leading-6 whitespace-pre-line">{text}</p>
           <span className="text-(--blush) text-[14px]">{coupleName}</span>
         </div>
       </div>

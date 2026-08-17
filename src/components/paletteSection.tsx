@@ -1,16 +1,41 @@
 import WhimsyImage from "@/components/whimsyImage";
 
+export type PaletteColor = {
+  name: string;
+  mainColor: string;
+  borderColor: string;
+};
+
+const defaultColors: PaletteColor[] = [
+  { name: "Olive", mainColor: "(--olive)", borderColor: "--dark-green" },
+  { name: "Clover", mainColor: "(--clover)", borderColor: "--dark-clover" },
+  { name: "Rose", mainColor: "[#D8A48F]", borderColor: "#612E19" },
+  { name: "Peach", mainColor: "[#BB8588]", borderColor: "#4F1219" },
+];
+
+// Flowers breakdown hidden for now; flip back on to restore it.
+const showFlowers = false;
+
+const defaultText =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque sapien diam, eu dictum justo hendrerit eget. Aliquam elementum mattis felis sit amet mattis. Quisque dui neque, iaculis porta mauris at, ultrices commodo diam. Pellentesque sit amet odio a quam vulputate feugiat. Etiam vitae porta arcu, id dignissim leo.";
+
+type PaletteSectionProps = {
+  colors?: PaletteColor[];
+  text?: string;
+};
+
 /* Shared palette + flowers breakdown used by gallery and brand case study pages. */
-export default function PaletteSection() {
+export default function PaletteSection({ colors, text }: PaletteSectionProps) {
+  const paletteColors = colors ?? defaultColors;
+
   return (
     <section className="bg-(--clover)/25 px-6 md:px-12 lg:px-16 py-16 gap-16 flex flex-col justify-center items-center">
+      <p className="text-center text-[14px] leading-6 whitespace-pre-line w-full lg:max-w-[644px] sm:max-w-[610px]">
+        {text ?? defaultText}
+      </p>
+
       <div className=" w-full grid grid-cols-2 sm:grid-cols-4 gap-6">
-        {Object.entries({
-          Olive: { mainColor: "(--olive)", borderColor: "--dark-green" },
-          Clover: { mainColor: "(--clover)", borderColor: "--dark-clover" },
-          Rose: { mainColor: "[#D8A48F]", borderColor: "#612E19" },
-          Peach: { mainColor: "[#BB8588]", borderColor: "#4F1219" },
-        }).map(([name, { mainColor, borderColor }]) => (
+        {paletteColors.map(({ name, mainColor, borderColor }) => (
           <ColorPreview
             key={name}
             name={name}
@@ -20,46 +45,40 @@ export default function PaletteSection() {
         ))}
       </div>
 
-      <p className="text-center text-[14px] leading-6 w-full lg:max-w-[644px] sm:max-w-[610px]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-        pellentesque sapien diam, eu dictum justo hendrerit eget. Aliquam
-        elementum mattis felis sit amet mattis. Quisque dui neque, iaculis
-        porta mauris at, ultrices commodo diam. Pellentesque sit amet odio a
-        quam vulputate feugiat. Etiam vitae porta arcu, id dignissim leo.
-      </p>
-
-      <div className="flex flex-col md:flex-row gap-6 justify-center items-center w-full ">
-        {Object.entries({
-          Eucalyptus: {
-            subname: "Eucalyptus globulus (Blue Gum)",
-            imgSrc: "/brand01.webp",
-            imgAlt: "Olive flower",
-          },
-          Eucalyptus2: {
-            subname: "Eucalyptus globulus (Blue Gum)",
-            imgSrc: "/brand01.webp",
-            imgAlt: "Olive flower",
-          },
-          Eucalyptus3: {
-            subname: "Eucalyptus globulus (Blue Gum)",
-            imgSrc: "/brand01.webp",
-            imgAlt: "Olive flower",
-          },
-          Eucalyptus4: {
-            subname: "Eucalyptus globulus (Blue Gum)",
-            imgSrc: "/brand01.webp",
-            imgAlt: "Olive flower",
-          },
-        }).map(([name, { subname, imgSrc, imgAlt }]) => (
-          <FlowerPreview
-            key={name}
-            name={name}
-            subName={subname}
-            imgSrc={imgSrc}
-            imgAlt={imgAlt}
-          />
-        ))}
-      </div>
+      {showFlowers && (
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center w-full ">
+          {Object.entries({
+            Eucalyptus: {
+              subname: "Eucalyptus globulus (Blue Gum)",
+              imgSrc: "/brand01.webp",
+              imgAlt: "Olive flower",
+            },
+            Eucalyptus2: {
+              subname: "Eucalyptus globulus (Blue Gum)",
+              imgSrc: "/brand01.webp",
+              imgAlt: "Olive flower",
+            },
+            Eucalyptus3: {
+              subname: "Eucalyptus globulus (Blue Gum)",
+              imgSrc: "/brand01.webp",
+              imgAlt: "Olive flower",
+            },
+            Eucalyptus4: {
+              subname: "Eucalyptus globulus (Blue Gum)",
+              imgSrc: "/brand01.webp",
+              imgAlt: "Olive flower",
+            },
+          }).map(([name, { subname, imgSrc, imgAlt }]) => (
+            <FlowerPreview
+              key={name}
+              name={name}
+              subName={subname}
+              imgSrc={imgSrc}
+              imgAlt={imgAlt}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

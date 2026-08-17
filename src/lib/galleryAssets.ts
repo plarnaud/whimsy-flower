@@ -26,9 +26,17 @@ function encodePublicPath(pathValue: string) {
   return pathValue.split("/").map(encodeURIComponent).join("/");
 }
 
+export type GalleryPhotoArrangement = {
+  /* File names to pin to the front, in display order; the rest follow sorted. */
+  order?: string[];
+  /* File names to leave out of the grid (e.g. used elsewhere on the page). */
+  exclude?: string[];
+};
+
 export async function getGalleryGridItems(
   assetFolder: string | undefined,
   title: string,
+  arrangement?: GalleryPhotoArrangement,
 ): Promise<GalleryGridItem[]> {
   if (!assetFolder) {
     return [];
@@ -43,6 +51,11 @@ export async function getGalleryGridItems(
     return [];
   }
 
+  const excluded = new Set(arrangement?.exclude ?? []);
+  const orderIndex = new Map(
+    (arrangement?.order ?? []).map((name, index) => [name, index]),
+  );
+
   return entries
     .filter(
       (entry) =>
@@ -50,7 +63,15 @@ export async function getGalleryGridItems(
         galleryImageExtensions.has(path.extname(entry.name).toLowerCase()),
     )
     .map((entry) => entry.name)
-    .sort((a, b) => fileNameSorter.compare(a, b))
+    .filter((fileName) => !excluded.has(fileName))
+    .sort((a, b) => {
+      const aIndex = orderIndex.get(a);
+      const bIndex = orderIndex.get(b);
+      if (aIndex !== undefined && bIndex !== undefined) return aIndex - bIndex;
+      if (aIndex !== undefined) return -1;
+      if (bIndex !== undefined) return 1;
+      return fileNameSorter.compare(a, b);
+    })
     .map((fileName, index) => ({
       id: `${assetFolder}/${fileName}`,
       imgSrc: `/${encodePublicPath(assetFolder)}/${encodeURIComponent(fileName)}`,
