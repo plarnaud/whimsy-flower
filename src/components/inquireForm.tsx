@@ -73,9 +73,9 @@ export function LabeledTextArea({
         name={name}
         required={required}
         autoComplete={autoComplete}
-        className={inputFieldClasses}
+        className="w-full h-24 border-b-2 border-(--olive) text-[14px] text-(--dark-green)"
         placeholder={placeholder}
-        rows={1}
+        rows={3}
       />
     </label>
   );
@@ -83,13 +83,13 @@ export function LabeledTextArea({
 
 export function InquireFormSection({ forceSuccess }: InquireFormProps) {
   return (
-    <div className="relative overflow-hidden">
+    <div id="inquire" className="relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
           alt="decorative background image of a flower wedding tablescape"
           fill
-          sizes=""
+          sizes="100vw"
           className="absolute left-0 right-0 -z-100  object-cover"
         />
       </div>

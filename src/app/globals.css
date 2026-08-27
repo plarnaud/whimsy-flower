@@ -20,12 +20,21 @@
   --font-text: var(--font-libre-baskerville);
 }
 
+html {
+  scroll-behavior: smooth;
+  /* Nothing may pan the page sideways; clip (not hidden) keeps the
+     viewport as the scroll container. */
+  overflow-x: clip;
+}
+
 body {
   position: relative;
   background-color: var(--olive-petal);
   color: var(--dark-green);
   font-family: var(--font-libre-baskerville);
-  overflow-x: hidden;
+  /* clip, not hidden: a hidden box is still a scroll container that iOS
+     gestures can pan; clip forbids scrolling in any form. */
+  overflow-x: clip;
 }
 
 body::before {
@@ -83,7 +92,7 @@ aside#wf-nav-menu::before {
 }
 
 .brand-marquee-track {
-  animation: brand-marquee 32s linear infinite;
+  animation: brand-marquee 60s linear infinite;
 }
 
 .brand-marquee-track:hover {

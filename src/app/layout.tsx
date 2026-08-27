@@ -29,8 +29,12 @@ const libreBaskervilleItalic = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Whimsy Flower",
-  description: "Beskope floral designer for weddings and events",
+  title: {
+    default: "Whimsy Flower — Floral Design Studio",
+    template: "%s | Whimsy Flower",
+  },
+  description:
+    "Whimsy Flower is a bespoke floral design studio creating composed, sculptural florals for weddings, private events, and brand experiences.",
 };
 
 export default function RootLayout({

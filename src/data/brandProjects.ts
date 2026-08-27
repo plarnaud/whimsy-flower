@@ -5,10 +5,19 @@ export type BrandProjectMeta = {
   location: string;
   coverImage: string;
   coverAlt: string;
+  /* Full album shown in the modal gallery; falls back to [coverImage]. */
+  images?: string[];
   testimonialTitle?: string;
   testimonialText?: string;
   testimonialClientName?: string;
   featured?: boolean;
+};
+
+// Placeholder albums cycling the three brand photos until real project
+// imagery lands — each project's album starts on its own cover.
+const placeholderAlbum = (cover: string) => {
+  const all = ["/brand01.webp", "/brand02.webp", "/brand03.webp"];
+  return [cover, ...all.filter((src) => src !== cover)];
 };
 
 // Central place to register brand projects so routes and listings stay in sync.
@@ -20,6 +29,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "New York, NY",
     coverImage: "/brand01.webp",
     coverAlt: "Sculptural florals styled for a product launch",
+    images: placeholderAlbum("/brand01.webp"),
     testimonialTitle: "An installation our guests still talk about",
     testimonialText:
       "Whimsy Flower translated our brand into a floral concept that felt entirely our own — composed, atmospheric, and executed without a single detail out of place.",
@@ -33,6 +43,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "Los Angeles, CA",
     coverImage: "/brand02.webp",
     coverAlt: "Editorial floral composition with layered seasonal blooms",
+    images: placeholderAlbum("/brand02.webp"),
     featured: true,
   },
   {
@@ -42,6 +53,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "Chicago, IL",
     coverImage: "/brand03.webp",
     coverAlt: "Tablescape florals styled for an intimate press dinner",
+    images: placeholderAlbum("/brand03.webp"),
     featured: true,
   },
   {
@@ -51,6 +63,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "Hudson, NY",
     coverImage: "/brand01.webp",
     coverAlt: "Warm-toned florals styled for a seasonal lookbook",
+    images: placeholderAlbum("/brand01.webp"),
   },
   {
     slug: "studio-meridian-opening",
@@ -59,6 +72,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "Austin, TX",
     coverImage: "/brand02.webp",
     coverAlt: "Architectural entrance installation with seasonal blooms",
+    images: placeholderAlbum("/brand02.webp"),
   },
   {
     slug: "fern-field-campaign",
@@ -67,6 +81,7 @@ export const brandProjects: BrandProjectMeta[] = [
     location: "Portland, OR",
     coverImage: "/brand03.webp",
     coverAlt: "Campaign styling with textured spring florals",
+    images: placeholderAlbum("/brand03.webp"),
   },
 ];
 
@@ -86,15 +101,22 @@ export type BrandGalleryPhoto = {
   alt: string;
 };
 
-// Mixed gallery on the Editorial & Brands page — placeholder photos cycling
-// the three brand images until real project imagery lands.
-export const brandGalleryPhotos: BrandGalleryPhoto[] = Array.from(
-  { length: 20 },
-  (_, i) => ({
-    src: `/brand0${(i % 3) + 1}.webp`,
-    alt: `Editorial and brand floral styling by Whimsy Flower, photo ${i + 1}`,
-  }),
-);
+// Selected work on the Editorial & Brands page — the few brand photos we
+// have; add entries as real project imagery lands.
+export const brandGalleryPhotos: BrandGalleryPhoto[] = [
+  {
+    src: "/brand01.webp",
+    alt: "Sculptural florals styled for a product launch",
+  },
+  {
+    src: "/brand02.webp",
+    alt: "Editorial floral composition with layered seasonal blooms",
+  },
+  {
+    src: "/brand03.webp",
+    alt: "Tablescape florals styled for an intimate press dinner",
+  },
+];
 
 export const featuredBrandProjects = brandProjects.filter(
   (project) => project.featured,

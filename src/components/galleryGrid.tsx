@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import WhimsyImage from "@/components/whimsyImage";
+import Lightbox from "@/components/lightbox";
 
 type GalleryGridItem = {
   id: string;
@@ -10,6 +14,8 @@ type GalleryGridProps = {
   items: GalleryGridItem[];
   /* Rows of 3 squares after each big/small line on desktop (default 1). */
   squareRows?: number;
+  /* Photographer credit shown in the modal's bottom-right corner. */
+  photoCredit?: string;
 };
 
 function mobileCount(total: number): number {
@@ -30,12 +36,21 @@ type ImageBoxProps = {
   aspectRatio: string;
   sizes: string;
   className?: string;
+  onOpen: () => void;
 };
 
-function ImageBox({ item, aspectRatio, sizes, className = "" }: ImageBoxProps) {
+function ImageBox({
+  item,
+  aspectRatio,
+  sizes,
+  className = "",
+  onOpen,
+}: ImageBoxProps) {
   return (
-    <div
-      className={`relative overflow-hidden rounded-lg ${className}`}
+    <button
+      onClick={onOpen}
+      aria-label={`View ${item.imgAlt} full screen`}
+      className={`relative block w-full overflow-hidden rounded-lg cursor-pointer ${className}`}
       style={{ aspectRatio }}
     >
       <WhimsyImage
@@ -45,11 +60,16 @@ function ImageBox({ item, aspectRatio, sizes, className = "" }: ImageBoxProps) {
         sizes={sizes}
         className="object-cover object-center"
       />
-    </div>
+    </button>
   );
 }
 
-function MobileLayout({ items }: { items: GalleryGridItem[] }) {
+type LayoutProps = {
+  items: GalleryGridItem[];
+  onOpen: (index: number) => void;
+};
+
+function MobileLayout({ items, onOpen }: LayoutProps) {
   const count = mobileCount(items.length);
   if (count === 0) return null;
   const visible = items.slice(0, count);
@@ -59,12 +79,14 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
 
   while (i < visible.length) {
     // Big
+    const bigIndex = i;
     rows.push(
       <ImageBox
         key={visible[i].id}
         item={visible[i]}
         aspectRatio="1.5 / 1"
         sizes="calc(100vw - 48px)"
+        onOpen={() => onOpen(bigIndex)}
       />
     );
     i++;
@@ -72,17 +94,20 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
 
     // 2 Small side-by-side
     if (i + 1 < visible.length) {
+      const firstSmall = i;
       rows.push(
         <div key={`pair-${visible[i].id}`} className="grid grid-cols-2 gap-6">
           <ImageBox
             item={visible[i]}
             aspectRatio="1.37 / 1"
             sizes="calc((100vw - 72px) / 2)"
+            onOpen={() => onOpen(firstSmall)}
           />
           <ImageBox
             item={visible[i + 1]}
             aspectRatio="1.37 / 1"
             sizes="calc((100vw - 72px) / 2)"
+            onOpen={() => onOpen(firstSmall + 1)}
           />
         </div>
       );
@@ -91,12 +116,14 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
     if (i >= visible.length) break;
 
     // Square
+    const squareIndex = i;
     rows.push(
       <ImageBox
         key={visible[i].id}
         item={visible[i]}
         aspectRatio="1 / 1"
         sizes="calc(100vw - 48px)"
+        onOpen={() => onOpen(squareIndex)}
       />
     );
     i++;
@@ -112,10 +139,8 @@ function MobileLayout({ items }: { items: GalleryGridItem[] }) {
 function DesktopLayout({
   items,
   squareRows,
-}: {
-  items: GalleryGridItem[];
-  squareRows: number;
-}) {
+  onOpen,
+}: LayoutProps & { squareRows: number }) {
   const cycleLength = 4 + 3 * squareRows;
   const count = desktopCount(items.length, cycleLength);
   if (count === 0) return null;
@@ -124,10 +149,12 @@ function DesktopLayout({
   const cycles: React.ReactNode[] = [];
 
   for (let i = 0; i < visible.length; i += cycleLength) {
-    const chunk = visible.slice(i, i + cycleLength);
+    const cycleStart = i;
+    const chunk = visible.slice(cycleStart, cycleStart + cycleLength);
     const hasLine1 = chunk.length >= 4;
     const [big1, small1, small2, big2] = chunk;
     const squares = hasLine1 ? chunk.slice(4) : chunk;
+    const squaresOffset = hasLine1 ? cycleStart + 4 : cycleStart;
 
     cycles.push(
       <div key={`cycle-${chunk[0].id}`} className="flex flex-col gap-6">
@@ -135,7 +162,11 @@ function DesktopLayout({
         {hasLine1 && (
           <div className="flex gap-6 items-stretch">
             {/* Big left */}
-            <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
+            <button
+              onClick={() => onOpen(cycleStart)}
+              aria-label={`View ${big1.imgAlt} full screen`}
+              className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg cursor-pointer"
+            >
               <WhimsyImage
                 src={big1.imgSrc}
                 alt={big1.imgAlt}
@@ -143,22 +174,28 @@ function DesktopLayout({
                 sizes="(min-width: 1024px) 38vw, 38vw"
                 className="object-cover object-center"
               />
-            </div>
+            </button>
             {/* Small column */}
             <div className="flex-1 min-w-0 flex flex-col gap-6">
               <ImageBox
                 item={small1}
                 aspectRatio="1.37 / 1"
                 sizes="(min-width: 1024px) 17vw, 17vw"
+                onOpen={() => onOpen(cycleStart + 1)}
               />
               <ImageBox
                 item={small2}
                 aspectRatio="1.37 / 1"
                 sizes="(min-width: 1024px) 17vw, 17vw"
+                onOpen={() => onOpen(cycleStart + 2)}
               />
             </div>
             {/* Big right */}
-            <div className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg">
+            <button
+              onClick={() => onOpen(cycleStart + 3)}
+              aria-label={`View ${big2.imgAlt} full screen`}
+              className="relative flex-[2.2] min-w-0 overflow-hidden rounded-lg cursor-pointer"
+            >
               <WhimsyImage
                 src={big2.imgSrc}
                 alt={big2.imgAlt}
@@ -166,19 +203,20 @@ function DesktopLayout({
                 sizes="(min-width: 1024px) 38vw, 38vw"
                 className="object-cover object-center"
               />
-            </div>
+            </button>
           </div>
         )}
 
         {/* Square rows: 3 per row, wrapping via the grid */}
         {squares.length > 0 && (
           <div className="grid grid-cols-3 gap-6">
-            {squares.map((sq) => (
+            {squares.map((sq, sqIndex) => (
               <ImageBox
                 key={sq.id}
                 item={sq}
                 aspectRatio="1 / 1"
                 sizes="(min-width: 1024px) 30vw, 30vw"
+                onOpen={() => onOpen(squaresOffset + sqIndex)}
               />
             ))}
           </div>
@@ -194,13 +232,26 @@ function DesktopLayout({
   );
 }
 
-export default function GalleryGrid({ items, squareRows = 1 }: GalleryGridProps) {
+export default function GalleryGrid({
+  items,
+  squareRows = 1,
+  photoCredit,
+}: GalleryGridProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   if (items.length === 0) return null;
 
   return (
     <>
-      <MobileLayout items={items} />
-      <DesktopLayout items={items} squareRows={squareRows} />
+      <MobileLayout items={items} onOpen={setOpenIndex} />
+      <DesktopLayout items={items} squareRows={squareRows} onOpen={setOpenIndex} />
+      <Lightbox
+        items={items.map((item) => ({ src: item.imgSrc, alt: item.imgAlt }))}
+        index={openIndex}
+        onClose={() => setOpenIndex(null)}
+        onNavigate={setOpenIndex}
+        credit={photoCredit}
+      />
     </>
   );
 }

@@ -1,49 +1,86 @@
+import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
 import SubPageHeader from "@/components/subPageHeader";
-import WhimsyImage from "@/components/whimsyImage";
-import { ScheduleEventButton, eventType } from "@/components/pillButton";
+import PhotoStack, { StackPhoto } from "@/components/photoStack";
+import PillButton from "@/components/pillButton";
 import MeetWhimsy from "@/components/meetWhimsy";
 import { InquireFormSection } from "@/components/inquireForm";
+
+export const metadata: Metadata = {
+  title: "Private Events, Showers, Workshops & Flower Bars",
+  description:
+    "Bespoke floral design for private celebrations — bridal and baby showers, hands-on floral workshops, flower bars, and intimate gatherings, composed by Whimsy Flower.",
+};
 
 export default function EventsPage() {
   return (
     <PageScaffold followUsModifiers="bg-(--clover)/25">
       <SubPageHeader
-        title="Events"
+        title="Private Events"
         imgSrc="/home-lander-section-bg.webp"
-        imgAlt="Wedding bouquet with white and blush roses and greenery"
+        imgAlt="Floral tablescape for a private celebration"
       />
+
+      <section className="pt-16 px-6 flex flex-col items-center text-center">
+        <h2 className="text-[18px] tracking-[-0.04em] uppercase">
+          Showers, workshops, flower bars & every gathering in between
+        </h2>
+        <p className="max-w-[644px] py-6 text-[14px] leading-6">
+          Not every celebration is a wedding — and the ones in between deserve
+          the same artistry. From hands-on flower bars to intimate dinner
+          parties, we bring composed, seasonal florals to the moments you
+          gather the people you love.
+        </p>
+      </section>
 
       <ul>
         <EventEntry
           title="Flower Bars"
-          text="Choose your vibe, budget, and colors, and watch as guests create bouquets, capturing memorable moments. Perfect for bridal showers, birthdays, and events, our Flower Bars elevate any space with fresh blooms."
+          text="Choose your palette and seasonal blooms, and watch guests compose their own bouquets to carry home. A favorite for bridal showers, birthdays, and gatherings that deserve a hands-on moment — our flower bars turn any room into a working studio."
           buttonLabel="Schedule a Flower Bar"
-          eventType={eventType.FLOWER_BAR}
-          imgSrc="/brand02.webp"
-          imgAlt="Flower bar with various flowers and greenery"
+          photos={[
+            { src: "/brand02.webp", alt: "Flower bar with seasonal stems ready for guests" },
+            { src: "/brand03.webp", alt: "Guests composing their own arrangements" },
+            { src: "/brand01.webp", alt: "Seasonal blooms laid out for a flower bar" },
+          ]}
           colorScheme={ColorScheme.CLOVER}
           reverse={false}
         />
         <EventEntry
-          title="Whimsy Workshop"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non congue augue. Proin vestibulum, magna eget placerat scelerisque, ante neque dapibus nisl, at mattis lorem neque eget ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla nisi."
+          title="Whimsy Workshops"
+          text="Gather your people around a table of seasonal stems. Molly guides each session personally — teaching composition, movement, and texture while everyone builds an arrangement of their own. No experience needed; curiosity encouraged."
           buttonLabel="Schedule a Workshop"
-          eventType={eventType.WORKSHOP}
-          imgSrc="/brand02.webp"
-          imgAlt="Workshop with participants creating floral arrangements"
+          photos={[
+            { src: "/services/workshops.webp", alt: "Hands-on floral workshop led by Whimsy Flower" },
+            { src: "/brand01.webp", alt: "Workshop arrangement in progress" },
+            { src: "/brand03.webp", alt: "Seasonal stems prepared for a workshop" },
+          ]}
           colorScheme={ColorScheme.ROSE}
           reverse={true}
         />
         <EventEntry
-          title="Corporate Event"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non congue augue. Proin vestibulum, magna eget placerat scelerisque, ante neque dapibus nisl, at mattis lorem neque eget ipsum. Nulla ut libero tincidunt, mattis nibh et, fringilla nisi."
-          buttonLabel="Schedule a Corporate Event"
-          eventType={eventType.CORPORATE}
-          imgSrc="/brand02.webp"
-          imgAlt="Corporate event with elegant floral arrangements"
+          title="Bridal & Baby Showers"
+          text="Intimate celebrations deserve the same artistry as the main event. From sculptural tablescapes to atmospheric installations, we design showers that feel collected, personal, and unmistakably yours."
+          buttonLabel="Design My Shower"
+          photos={[
+            { src: "/brand01.webp", alt: "Sculptural shower florals by Whimsy Flower" },
+            { src: "/services/events.webp", alt: "Shower tablescape with seasonal florals" },
+            { src: "/brand02.webp", alt: "Atmospheric shower installation" },
+          ]}
           colorScheme={ColorScheme.OLIVE}
           reverse={false}
+        />
+        <EventEntry
+          title="Intimate Celebrations"
+          text="Birthdays, anniversaries, dinner parties, and every milestone in between — bespoke florals scaled to your space and your occasion, composed to make the evening feel remembered."
+          buttonLabel="Plan a Celebration"
+          photos={[
+            { src: "/services/events.webp", alt: "Intimate celebration florals by Whimsy Flower" },
+            { src: "/brand03.webp", alt: "Dinner party tablescape florals" },
+            { src: "/brand02.webp", alt: "Celebration arrangement with seasonal blooms" },
+          ]}
+          colorScheme={ColorScheme.CLOVER}
+          reverse={true}
         />
       </ul>
       <InquireFormSection />
@@ -62,9 +99,7 @@ type EventEntryProps = {
   title: string;
   text: string;
   buttonLabel: string;
-  eventType: eventType;
-  imgSrc: string;
-  imgAlt: string;
+  photos: StackPhoto[];
   colorScheme: ColorScheme;
   reverse: boolean;
 };
@@ -73,9 +108,7 @@ function EventEntry({
   title,
   text,
   buttonLabel,
-  eventType,
-  imgSrc,
-  imgAlt,
+  photos,
   colorScheme,
   reverse = false,
 }: EventEntryProps) {
@@ -106,38 +139,31 @@ function EventEntry({
     )[colorScheme] ?? "green1";
 
   return (
-    <li className="sm:grid sm:grid-cols-2 flex flex-col w-full items-center">
-      <div
-        className={`flex flex-col justify-start gap-4 sm:pl-16 sm:pr-12 px-6 sm:py-36 py-16 ${
-          reverse ? "sm:order-2" : "sm:order-1"
-        }`}
-      >
+    <li
+      className={`flex flex-col items-center justify-center gap-2 lg:gap-16 xl:gap-28 px-6 md:px-12 lg:px-16 pt-8 pb-20 lg:py-12 ${
+        reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+      }`}
+    >
+      <div className="flex flex-col justify-center items-start gap-4 py-8 lg:py-12 w-full lg:w-auto lg:max-w-[560px]">
         <h2
           className={`font-title sm:text-[48px] sm:leading-16 text-[48px] leading-16 ${titleColor}`}
         >
           {title}
         </h2>
-        <span className={`font-text text-[14px] leading-6 ${textColor}`}>
+        <p className={`font-text text-[14px] leading-6 ${textColor}`}>
           {text}
-        </span>
-        <ScheduleEventButton
+        </p>
+        <PillButton
           label={buttonLabel}
           color={buttonColor}
-          eventType={eventType}
+          href="#inquire"
           className="capitalize mt-4"
         />
       </div>
-      <div
-        className={`w-full sm:h-full h-[400px] relative ${
-          reverse ? "sm:order-1" : "sm:order-2"
-        }`}
-      >
-        <WhimsyImage
-          src={imgSrc}
-          alt={imgAlt}
-          fill
-          sizes=""
-          className="h-full object-cover"
+      <div className="w-full lg:w-auto flex justify-center py-6 shrink-0 order-first lg:order-none">
+        <PhotoStack
+          photos={photos}
+          className="w-full lg:w-[clamp(320px,34vw,480px)]"
         />
       </div>
     </li>

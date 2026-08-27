@@ -23,7 +23,7 @@ export default function ServicesButton({
       ${className}
       duration-200`}
     >
-      {/* overflow-hidden doubles as a mask so the label box never crosses
+      {/* overflow-hidden doubles as a mask so the label bar never crosses
           the image's rounded corners */}
       <div className="relative w-full aspect-square sm:aspect-[0.8] rounded-lg overflow-hidden">
         <WhimsyImage
@@ -31,13 +31,13 @@ export default function ServicesButton({
           alt={imgAlt}
           fill
           sizes="(min-width: 640px) 33vw, 90vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
-        <div className="absolute bottom-0 left-0 w-full max-w-[45%] group-hover:max-w-full min-h-[2.3125rem] sm:min-h-[4.625rem] rounded-tr-3xl bg-background/80 group-hover:bg-(--dark-green) border border-(--clover) group-hover:border-transparent transition-all duration-300 pl-3 pr-6 py-1.75 sm:pl-6 sm:pr-8 sm:py-1.5 flex items-center justify-between">
+        <div className="absolute inset-x-0 bottom-0 bg-background/85 backdrop-blur-sm group-hover:bg-(--dark-green) border-t border-(--clover) group-hover:border-transparent transition-colors duration-300 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3">
           <span className="italic uppercase text-[1rem] leading-5 text-left tracking-[-0.04em] text-(--dark-green) group-hover:text-background transition-colors duration-300">
             {label}
           </span>
-          <span className="overflow-hidden shrink-0 max-w-0 opacity-0 group-hover:max-w-[3rem] group-hover:opacity-100 group-hover:ml-4 text-background transition-all duration-300">
+          <span className="shrink-0 text-(--dark-green) group-hover:text-background opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
             <ArrowRight className="h-4 w-6" />
           </span>
         </div>

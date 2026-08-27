@@ -75,7 +75,7 @@ export default async function BrandProjectPage({
             src="/home-lander-section-bg.webp"
             alt="decorative background image of a floral tablescape"
             fill
-            sizes=""
+            sizes="100vw"
             className="absolute left-0 right-0 -z-100  object-cover"
           />
         </div>

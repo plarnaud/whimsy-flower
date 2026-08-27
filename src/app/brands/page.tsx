@@ -1,116 +1,200 @@
-"use client";
-
+import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
 import MeetWhimsy from "@/components/meetWhimsy";
-import SubPageHeader from "@/components/subPageHeader";
-import GalleryGrid from "@/components/galleryGrid";
+import WhimsyImage from "@/components/whimsyImage";
+import ArrowRight from "@/components/arrow";
+import SectionTitle from "@/components/sectionTitle";
+import WorkCollage, { CollageTile } from "@/components/workCollage";
 import PillButton from "@/components/pillButton";
 import { InquireFormSection } from "@/components/inquireForm";
-import { brandGalleryPhotos, brandNames } from "@/data/brandProjects";
-import { useMemo, useState } from "react";
+import { brandNames, brandProjects } from "@/data/brandProjects";
+
+export const metadata: Metadata = {
+  title: "Editorial & Brand Floral Design",
+  description:
+    "Bespoke floral design for brands — campaigns, product launches, press dinners, and corporate events. Sculptural, editorial floral styling composed around your brand's visual language.",
+};
 
 export default function BrandsPage() {
   return (
     <PageScaffold>
-      <SubPageHeader
-        title="Editorial & Brands"
-        imgSrc="/services/workshops.webp"
-        imgAlt="Editorial floral styling by Whimsy Flower"
-      />
-
-      <IntroSection />
+      <HeroSection />
 
       <BrandScroller />
 
-      <MixedGallerySection />
+      <SelectedWorkSection />
+
+      <ApproachSection />
+
+      <MeetWhimsy />
 
       <InquireFormSection />
-
-      <div className="bg-(--pale-yellow)/25 py-8">
-        <MeetWhimsy />
-      </div>
     </PageScaffold>
   );
 }
 
-function IntroSection() {
+/* Hero — same treatment as the home page's Timeless Floral Artistry
+   section: centered text over the low-opacity tablescape image. */
+function HeroSection() {
   return (
-    <section className="pt-12 lg:pt-16 px-6 flex flex-col items-center text-center">
-      <p className="max-w-[644px] text-[14px] leading-6">
-        Editorial and brand work is where our studio experiments most freely.
-        We partner with creative teams on campaigns, launches, press moments,
-        and shoots — building sculptural, atmospheric floral concepts composed
-        to speak each brand&rsquo;s own language.
-      </p>
-    </section>
-  );
-}
+    <section className="relative w-full overflow-hidden">
+      <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
+        <WhimsyImage
+          src="/home-lander-section-bg.webp"
+          alt="Floral tablescape by Whimsy Flower"
+          fill
+          sizes="100vw"
+          priority
+          className="absolute left-0 right-0 -z-100 object-cover object-center"
+        />
+      </div>
 
-/* Infinite marquee of brand names; the track holds two identical copies so
-   the -50% translate loops seamlessly. */
-function BrandScroller() {
-  return (
-    <section
-      aria-label="Brands we have worked with"
-      className="mt-12 lg:mt-16 py-8 border-y-[1.5px] border-(--clover) overflow-hidden"
-    >
-      <div className="brand-marquee-track flex w-max items-center">
-        {[0, 1].map((copy) => (
-          <ul
-            key={copy}
-            aria-hidden={copy === 1}
-            className="flex items-center"
-          >
-            {brandNames.map((name) => (
-              <li key={name} className="flex items-center whitespace-nowrap">
-                <span className="italic uppercase text-[18px] tracking-[-0.04em] text-(--dark-green)">
-                  {name}
-                </span>
-                <span aria-hidden className="mx-10 text-(--clover)">
-                  ·
-                </span>
-              </li>
-            ))}
-          </ul>
-        ))}
+      {/* CTA anchors to the bottom padding; the rest centers in the space
+          above it */}
+      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
+        <div className="flex-1 flex flex-col justify-center items-center">
+          <h1 className="text-[18px] tracking-[-0.04em] uppercase">
+            Floral design for brands, campaigns & corporate events
+          </h1>
+          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
+            Editorial & Brands
+          </h2>
+          <span className="max-w-[644px] py-6 text-[14px] leading-6">
+            Every brand has a visual language — a palette, a mood, a point of
+            view. Our studio translates yours into flowers: sculptural
+            installations, atmospheric tablescapes, and editorial styling
+            composed around your identity and the story your moment needs to
+            tell. Product launches, press dinners, campaign shoots, corporate
+            gatherings — each one designed as a bespoke collaboration, never a
+            template.
+          </span>
+        </div>
+        <a
+          href="#selected-work"
+          className="mt-8 flex flex-col items-center gap-4 uppercase text-[16px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4 transition-colors"
+        >
+          Explore Selected Work
+          <ArrowRight className="h-4 w-6 rotate-90" />
+        </a>
       </div>
     </section>
   );
 }
 
-const galleryItems = brandGalleryPhotos.map((photo, i) => ({
-  id: `brand-photo-${i + 1}`,
-  imgSrc: photo.src,
-  imgAlt: photo.alt,
-}));
-
-// One desktop cycle of the grid: big/small line (4) + two rows of 3 squares.
-const SHOW_MORE_STEP = 10;
-
-function MixedGallerySection() {
-  const [visibleCount, setVisibleCount] = useState(SHOW_MORE_STEP);
-
-  const visibleItems = useMemo(
-    () => galleryItems.slice(0, visibleCount),
-    [visibleCount],
-  );
+/* Infinite marquee of brand names. Each half repeats the list three times so
+   it stays wider than the viewport; the -50% translate loops seamlessly. */
+function BrandScroller() {
+  const marqueeRun = [...brandNames, ...brandNames, ...brandNames];
 
   return (
-    <div>
-      <GalleryGrid items={visibleItems} squareRows={2} />
-      {visibleCount < galleryItems.length && (
-        <div className="px-6 sm:px-12 lg:px-16 pb-12 lg:pb-16">
-          <PillButton
-            label="Show More"
-            className="w-full"
-            onClick={() =>
-              setVisibleCount((c) =>
-                Math.min(c + SHOW_MORE_STEP, galleryItems.length),
-              )
-            }
-          />
+    <section aria-label="Brands we have worked with">
+      <div className="py-8 border-y-[1.5px] border-(--clover) overflow-hidden">
+        <div className="brand-marquee-track flex w-max items-center">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              aria-hidden={copy === 1}
+              className="flex items-center"
+            >
+              {marqueeRun.map((name, i) => (
+                <li
+                  key={`${name}-${i}`}
+                  className="flex items-center whitespace-nowrap"
+                >
+                  <span className="italic uppercase text-[18px] tracking-[-0.04em] text-(--dark-green)">
+                    {name}
+                  </span>
+                  <span aria-hidden className="mx-10 text-(--clover)">
+                    ·
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
-      )}
-    </div>
+      </div>
+    </section>
+  );
+}
+
+function SelectedWorkSection() {
+  const tiles: CollageTile[] = brandProjects.map((project) => ({
+    label: project.brandName,
+    sublabel: project.title,
+    cover: project.coverImage,
+    coverAlt: project.coverAlt,
+    images: (project.images ?? [project.coverImage]).map((src, i) => ({
+      src,
+      alt: `${project.brandName} ${project.title} — photo ${i + 1}`,
+    })),
+  }));
+
+  return (
+    <section
+      id="selected-work"
+      className="scroll-mt-24 px-6 md:px-12 lg:px-16 pt-6 lg:pt-10 pb-16"
+    >
+      <SectionTitle title="Recent Collaborations" />
+      <WorkCollage tiles={tiles} className="pt-6" />
+    </section>
+  );
+}
+
+const approachSteps = [
+  {
+    title: "The Conversation",
+    text: "Every project begins with a conversation about atmosphere, brand identity, and the experience you want your audience to remember. Molly leads each commission personally, from the first call to the final installation.",
+  },
+  {
+    title: "Creative Direction",
+    text: "We translate your brief into a bespoke floral concept — custom design boards, sculptural forms, and a seasonal palette drawn directly from your brand's visual language.",
+  },
+  {
+    title: "Sourcing & Planning",
+    text: "Seasonal floral sourcing, venue walkthroughs, and detailed production planning ensure the design arrives exactly as imagined — on schedule and without surprises.",
+  },
+  {
+    title: "Installation & Styling",
+    text: "Our team handles the complete installation and on-set styling: composed, editorial arrangements made to be photographed, filmed, and remembered.",
+  },
+  {
+    title: "The Reveal & Breakdown",
+    text: "You host; we handle the rest. When the moment has passed, a discreet breakdown returns the space without a trace — the flowers simply appear, then gracefully exit.",
+  },
+];
+
+function ApproachSection() {
+  return (
+    <section className="bg-(--clover)/25 py-16 px-6 md:px-12 lg:px-16">
+      <SectionTitle kicker="The experience" title="Our Approach" />
+      <ol className="max-w-[900px] mx-auto mt-4 sm:mt-0 divide-y divide-(--clover) border-y border-(--clover)">
+        {approachSteps.map((step, i) => (
+          <li
+            key={step.title}
+            className="py-8 flex flex-col items-center gap-5 text-center sm:grid sm:grid-cols-[7rem_15rem_1fr] sm:gap-x-6 sm:items-center sm:text-left"
+          >
+            {/* Mobile: number + title as one centered row; sm:contents
+                dissolves the wrapper so both become grid cells on desktop */}
+            <div className="flex items-center justify-center gap-4 sm:contents">
+              {/* Beth Ellen digits sit low in their em box — the small upward
+                  nudge optically centers them against the row */}
+              <span
+                aria-hidden
+                className="font-title text-[48px] sm:text-[56px] leading-none -translate-y-2 text-(--dark-olive)"
+              >
+                0{i + 1}
+              </span>
+              <h4 className="italic uppercase text-[18px] tracking-[-0.04em] text-(--dark-green)">
+                {step.title}
+              </h4>
+            </div>
+            <p className="text-[14px] leading-6">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+      <div className="flex justify-center pt-12">
+        <PillButton label="Get in Touch" href="#inquire" />
+      </div>
+    </section>
   );
 }

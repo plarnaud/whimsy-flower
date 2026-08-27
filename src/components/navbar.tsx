@@ -98,12 +98,11 @@ const Navbar = () => {
         className={`
           fixed left-0 bottom-0 z-120 bg-background
           w-full lg:w-[485px]
-          transition-transform duration-300 ease-out
           transform
           ${
             isOpen
-              ? "translate-y-0 lg:translate-y-0 lg:translate-x-0"
-              : "-translate-y-full lg:translate-y-0 lg:-translate-x-full"
+              ? "visible translate-y-0 lg:translate-y-0 lg:translate-x-0 [transition:transform_300ms_ease-out,visibility_0s]"
+              : "invisible -translate-y-full lg:translate-y-0 lg:-translate-x-full [transition:transform_300ms_ease-out,visibility_0s_300ms]"
           }
         `}
         style={{ top: navH }}
@@ -111,9 +110,11 @@ const Navbar = () => {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        {/* Menu content */}
-        <div className="bg-(--clover)/25 h-full flex flex-col justify-between">
-          <ul className="flex flex-col gap-8 md:gap-12 pl-6 md:pl-12 pt-12 md:pt-16 lg:pt-8 italic uppercase text-[18px] tracking-[-0.04em] items-start">
+        {/* Menu content — vertical spacing scales with viewport height so
+            short windows compress the gaps instead of flattening the list
+            against the logo block; gap-6 keeps a floor between the two. */}
+        <div className="bg-(--clover)/25 h-full flex flex-col justify-between gap-6 overflow-y-auto">
+          <ul className="flex flex-col gap-[clamp(1.25rem,3.5dvh,3rem)] pl-6 md:pl-12 pt-[clamp(1.5rem,4dvh,4rem)] lg:pt-8 italic uppercase text-[18px] tracking-[-0.04em] items-start">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -127,14 +128,14 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="pb-6">
-            <div className="w-full pl-6 md:pl-12 pb-6 md:pb-8">
+          <div className="pb-6 shrink-0">
+            <div className="w-full pl-6 md:pl-12 pb-[clamp(1rem,2.5dvh,2rem)]">
               <Image
                 src="/logotype-yellow.svg"
                 alt="Whimsy Flower"
                 width={220}
                 height={64}
-                className="h-16 w-auto mb-6"
+                className="h-[clamp(2.5rem,6dvh,4rem)] w-auto mb-[clamp(0.75rem,2dvh,1.5rem)]"
                 sizes="220px"
                 priority
               />

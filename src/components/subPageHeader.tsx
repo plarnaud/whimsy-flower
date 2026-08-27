@@ -21,7 +21,8 @@ export default function SubPageHeader({
           src={imgSrc}
           alt={imgAlt}
           fill
-          sizes=""
+          sizes="100vw"
+          priority
           className="absolute left-0 right-0 -translate-y-2 -z-100  object-cover"
         />
       </div>

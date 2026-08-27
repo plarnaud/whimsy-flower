@@ -9,6 +9,8 @@ interface PillButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   size?: "default" | "form";
+  /* Renders an anchor instead of a button (e.g. in-page #section links). */
+  href?: string;
 }
 export default function PillButton({
   label,
@@ -18,6 +20,7 @@ export default function PillButton({
   type,
   disabled = false,
   size = "default",
+  href,
 }: PillButtonProps) {
   const colorMap: Record<string, string> = {
     green1: "bg-[#424319] hover:bg-[#2B2C0C]",
@@ -31,17 +34,26 @@ export default function PillButton({
   const sizeClasses =
     size === "form"
       ? "w-full px-6 py-3 text-[14px] uppercase tracking-[0.2em]"
-      : "px-12 py-8 sm:py-3";
+      : "px-12 py-4 sm:py-3";
+  const sharedClasses = `${sizeClasses} rounded-full text-background transition
+      ${colorMap[color]}
+      ${className} cursor-pointer
+      disabled:cursor-not-allowed disabled:opacity-70`;
+
+  if (href) {
+    return (
+      <a href={href} className={`inline-block text-center ${sharedClasses}`}>
+        {label}
+      </a>
+    );
+  }
 
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${sizeClasses} rounded-full text-background transition
-      ${colorMap[color]}
-      ${className} cursor-pointer
-      disabled:cursor-not-allowed disabled:opacity-70`}
+      className={sharedClasses}
     >
       {label}
     </button>

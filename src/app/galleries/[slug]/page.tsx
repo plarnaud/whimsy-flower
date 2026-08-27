@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import MeetWhimsy from "@/components/meetWhimsy";
 import PageScaffold from "@/components/pageScaffold";
 import { InquireFormSection } from "@/components/inquireForm";
@@ -28,6 +29,22 @@ const galleryAssetFolderBySlug: Record<string, string> = {
 
 export function generateStaticParams() {
   return galleries.map(({ slug }) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: GalleryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const gallery = getGalleryBySlug(slug);
+  if (!gallery) return {};
+
+  const firstSentence = gallery.paletteText?.split(/(?<=\.)\s/)[0];
+  return {
+    title: `${gallery.title} — Wedding Florals`,
+    description:
+      firstSentence ??
+      `${gallery.coupleNames}'s wedding florals, designed by Whimsy Flower.`,
+  };
 }
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
@@ -69,7 +86,15 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         imgAlt={gallery.coverAlt}
       />
 
-      <GalleryGrid items={galleryGridItems} />
+      <GalleryGrid items={galleryGridItems} photoCredit={gallery.photographer} />
+
+      {/* Credit sits in the gap under the last photos, 12px above the next
+          section, tinted to match that section's background */}
+      {gallery.photographer && galleryGridItems.length > 0 && (
+        <p className="px-6 sm:px-12 lg:px-16 -mt-10 sm:-mt-14 mb-3 text-right text-[12px] uppercase tracking-[0.08em] text-[color-mix(in_srgb,var(--clover)_25%,var(--olive-petal))]">
+          Photo by {gallery.photographer}
+        </p>
+      )}
 
       <PaletteSection colors={gallery.palette} text={gallery.paletteText} />
 
@@ -79,7 +104,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
             src="/home-lander-section-bg.webp"
             alt="decorative background image of a flower wedding tablescape"
             fill
-            sizes=""
+            sizes="100vw"
             className="absolute left-0 right-0 -z-100  object-cover"
           />
         </div>

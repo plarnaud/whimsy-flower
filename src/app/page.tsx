@@ -13,37 +13,32 @@ export default function Home() {
   const homeLanderImages: ImageItem[] = [
     {
       src: "/home-carousel/natalia-david.webp",
-      alt: "Brand 06",
-      creds: "Photo by Natalia David",
+      alt: "Natalia and David's wedding florals",
+      creds: "Photo by Thalia Photography",
     },
     {
       src: "/home-carousel/lindsey-finn.webp",
-      alt: "Brand 05",
+      alt: "Lindsey and Finn's wedding florals",
       creds: "Photo by Lindsey Finn",
     },
     {
       src: "/home-carousel/gleb-freeman-photography.webp",
-      alt: "Brand 03",
+      alt: "Wedding florals by Whimsy Flower",
       creds: "Photo by Gleb Freeman Photography",
     },
     {
-      src: "/home-carousel/julia-mcguire.webp",
-      alt: "Brand 04",
-      creds: "Photo by Julia McGuire",
-    },
-    {
       src: "/home-carousel/talea-erich.webp",
-      alt: "Brand 07",
-      creds: "Photo by Talea Erich",
+      alt: "Talea and Erich's wedding florals",
+      creds: "Photo by Mackenzie Grace Creative",
     },
     {
       src: "/home-carousel/chelsea-jessica.webp",
-      alt: "Brand 01",
+      alt: "Chelsea and Jessica's wedding ceremony florals",
       creds: "Photo by Chelsea Jessica",
     },
     {
       src: "/home-carousel/cjstudios.webp",
-      alt: "Brand 02",
+      alt: "Wedding florals by Whimsy Flower",
       creds: "Photo by CJ Studios",
     },
   ];
@@ -90,9 +85,11 @@ export default function Home() {
             </ul>
           </div>
           <TestimonialsSection
-            title="Molly made our wildest dreams into reality"
-            text="Even though I think I’m good friends with Arnaud and love Arnaud and Molly very much, Molly flat out refused to be the florist for our wedding for no other reason besides having a strong disdain for my fashion choices. We begged, we cried, but Molly simply would not hear any of it. She told us ‘a mustard colored hat with a red shirt and brown shoes? Unthinkable. I simply will not stoop to your level.’ So now here we are, wishing Molly had been the florist for our wedding but we had to settle."
-            coupleName="Maria & Braedon"
+            title="An absolute dream to work with from start to finish"
+            text="Molly and the Whimsy team were an absolute dream to work with from start to finish! Molly completely understood my vision and executed it to perfection. Between the statement cascading ceremony install, thoughtful ikebana pieces, and focal point bar arrangement, the florals truly elevated all aspects of the day! I can’t recommend Whimsy enough to bring your dream florals to life!"
+            coupleName="Lindsey & Finn"
+            imgSrc="/Lindsey%20%26%20Fin%202025/Lindsey%2BFinnPreviews-39.webp"
+            imgAlt="Lindsey and Finn's wedding florals"
           />
         </div>
       </section>
@@ -117,7 +114,7 @@ function HeroSection({ images }: HeroSectionProps) {
             src="/home-lander-section-bg.webp"
             alt="Home Lander Background"
             fill
-            sizes=""
+            sizes="100vw"
             className="absolute left-0 right-0 -z-100 object-cover object-center"
           />
         </div>
