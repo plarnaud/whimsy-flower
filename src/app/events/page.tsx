@@ -144,7 +144,7 @@ function EventEntry({
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
-      <div className="flex flex-col justify-center items-start gap-4 py-8 lg:py-12 w-full lg:w-auto lg:max-w-[560px]">
+      <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left gap-4 py-8 lg:py-12 w-full lg:w-auto lg:max-w-[560px]">
         <h2
           className={`font-title sm:text-[48px] sm:leading-16 text-[48px] leading-16 ${titleColor}`}
         >
