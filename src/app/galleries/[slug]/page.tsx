@@ -120,10 +120,10 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
 
       <GalleryGrid items={galleryGridItems} photoCredit={gallery.photographer} />
 
-      {/* Credit sits in the gap under the last photos, 12px above the next
-          section, tinted to match that section's background */}
+      {/* Credit sits in the gap under the last photos, 8px above the next
+          section, in that section's background color */}
       {gallery.photographer && galleryGridItems.length > 0 && (
-        <p className="px-6 sm:px-12 lg:px-16 -mt-10 sm:-mt-14 mb-3 text-right text-[12px] uppercase tracking-[0.08em] text-[color-mix(in_srgb,var(--clover)_25%,var(--olive-petal))]">
+        <p className="px-6 sm:px-12 lg:px-16 -mt-10 sm:-mt-14 mb-2 text-right text-[12px] uppercase tracking-[0.08em] text-[color-mix(in_srgb,var(--clover)_25%,var(--olive-petal))]">
           Photo by{" "}
           {gallery.photographerUrl ? (
             <a
