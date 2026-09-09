@@ -15,6 +15,10 @@ export type GalleryMeta = {
   testimonialImage?: string;
   /* Photographer credited under the gallery grid and in the modal. */
   photographer?: string;
+  /* Photographer's website, linked from the credit. */
+  photographerUrl?: string;
+  /* Written alt text per photo file name (see public/<folder>). */
+  photoAlts?: Record<string, string>;
   palette?: PaletteColor[];
   /* Paragraph shown above the palette colors on the gallery page. */
   paletteText?: string;
@@ -31,13 +35,29 @@ export type GalleryMeta = {
 export const galleries: GalleryMeta[] = [
   {
     slug: "brides-feature",
+    photoAlts: {
+      "02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp":
+        "Julia leans on a split-rail fence in a strapless gown and veil, holding a bouquet of white calla lilies and green amaranthus",
+      "08-julia-mcguire-exclusive-wedding-pennsylvania-new-york-ceremony-aisle-zai-laffitte-0625-c55fbefaccfc4e68a668fa42b9003bdc.webp":
+        "Wooden cross-back chairs frame a grass aisle to a low crescent of white delphinium planted into the lawn beneath tall trees",
+      "09-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-ceremony-florals-zai-laffitte-0625-096893bcb38e4393a542e71e06786a15.webp":
+        "Julia and Jackie exchange vows at the officiant's microphone, her veil trailing over grass amid spires of white delphinium",
+      "10-julia-mcguire-exclusive-wedding-pennsylvania-new-york-first-kiss-zai-laffitte-0625-8d43ced281734eab9d07edc6aaf426a2.webp":
+        "Julia and Jackie kiss in the garden, her cathedral veil sweeping the grass within a crescent of white delphinium spires",
+      "12-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-portrait-zai-laffitte-0625-690d5454839a42c79bcf3ffd6761029d.webp":
+        "Julia rests her head on Jackie's shoulder, holding a bouquet of white calla lilies, green poppy pods, and trailing amaranthus",
+      "20-julia-mcguire-exclusive-wedding-pennsylvania-new-york-trailing-centerpiece-zai-laffitte-0625-936a387757864684a3edb0aa397d2a55.webp":
+        "Gestural table arrangement of white calla lilies arcing from a low vessel, trailing amaranthus spilling onto a printed cloth",
+    },
     title: "Julia & Jackie",
     coupleNames: "Julia & Jackie",
-    location: "Pennsylvania",
+    location: "Doylestown, PA",
     photographer: "Zai Laffitte",
+    photographerUrl: "https://www.zaitography.com/",
     coverImage:
       "/Brides%20Feature/02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp",
-    coverAlt: "Bride portrait with cascading bouquet, photographed by Zai Laffitte",
+    coverAlt:
+      "Julia leans on a split-rail fence in a strapless gown and veil, holding a bouquet of white calla lilies and green amaranthus",
     palette: [
       { name: "Bright White", mainColor: "#F0F0EF", borderColor: "#6E6E6C" },
       { name: "Poppy Green", mainColor: "#B0C08D", borderColor: "#4D5C33" },
@@ -54,11 +74,40 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "lindsey-fin",
+    photoAlts: {
+      "Lindsey+FinnPreviews-120.webp":
+        "Lindsey and Finn exchange vows at the front door, white hydrangea massed like clouds along both sides of the steps",
+      "Lindsey+FinnPreviews-131.webp":
+        "Lindsey and Finn walk back up the gravel aisle through tossed white petals, her petite tweedia bouquet in hand",
+      "Lindsey+FinnPreviews-139.webp":
+        "Grilled crostini with heirloom tomato, burrata and microgreens carried on a silver tray at the reception",
+      "Lindsey+FinnPreviews-33 (1).webp":
+        "Lindsey holds her petite bouquet of white star-shaped tweedia, green buds and bare stems against a white satin gown",
+      "Lindsey+FinnPreviews-35 (1).webp":
+        "Finn faces Lindsey across the gravel courtyard as she stands on the front steps among massed white hydrangea",
+      "Lindsey+FinnPreviews-39.webp":
+        "Lindsey sits on the wooden front steps with her tweedia bouquet, white hydrangea massed in clouds around her",
+      "Lindsey+FinnPreviews-60 (1).webp":
+        "Focal bar arrangement of limelight hydrangea, nerine and blush blooms with fruit along the bar top, a second at its base",
+      "Lindsey+FinnPreviews-62 (1).webp":
+        "Bar arrangement in blush and chartreuse: limelight hydrangea, nerine, white ranunculus and trailing sweet pea beside pears",
+      "Lindsey+FinnPreviews-89.webp":
+        "Ceremony aisle under a clear tent, wooden benches leading to white hydrangea massed on the front steps and at the aisle ends",
+      "Lindsey+FinnPreviews-90 (1).webp":
+        "White hydrangea massed like clouds along both sides of the wooden front steps below arched double doors",
+      "Lindsey+FinnPreviews-94.webp":
+        "White sweet pea with curling tendrils rises from a cluster of green and red grapes and a lime on white linen",
+      "Lindsey+FinnPreviews-97.webp":
+        "A single cream pompon dahlia rests on a stack of stamped cocktail napkins on a silver tray, sweet pea trailing nearby",
+      "Lindsey+FinnPreviews-98.webp":
+        "White ranunculus in a small silver julep cup, green and red grapes scattered at its base, blush hydrangea at the edge",
+    },
     title: "Lindsey & Finn",
     coupleNames: "Lindsey & Finn",
     location: "2025",
     coverImage: "/Lindsey%20%26%20Fin%202025/Lindsey%2BFinnPreviews-39.webp",
-    coverAlt: "Lindsey and Finn's wedding florals",
+    coverAlt:
+      "Lindsey sits on the wooden front steps with her tweedia bouquet, white hydrangea massed in clouds around her",
     palette: [
       { name: "Blush", mainColor: "#E0C0B6", borderColor: "#6E4237" },
       { name: "Apple Green", mainColor: "#C8B947", borderColor: "#5A530F" },
@@ -77,13 +126,55 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "natalia-david",
+    photoAlts: {
+      "natalia-david-wedding-193.webp":
+        "Natalia holds a bouquet of anthurium, bells of Ireland and curling snake ball allium beside David's green anthurium boutonniere",
+      "natalia-david-wedding-198.webp":
+        "David kisses Natalia's temple beside a split-rail garden fence, her green bouquet trailing amaranthus and silk ribbon",
+      "natalia-david-wedding-233.webp":
+        "David gathers the trailing white ribbons of Natalia's gown against a white clapboard wall, a green anthurium at his lapel",
+      "natalia-david-wedding-258.webp":
+        "Natalia looks down at her bouquet of anthurium, bells of Ireland, snake ball allium and trailing amaranthus beneath a tree",
+      "natalia-david-wedding-300.webp":
+        "Natalia's pale green pointed pumps rest on the lawn among fallen yellow leaves beneath the hem of her white gown",
+      "natalia-david-wedding-354.webp":
+        "Natalia and her maid of honor in sage hold green bouquets of anthurium and trailing amaranthus before tall grasses",
+      "natalia-david-wedding-395.webp":
+        "Ikebana-inspired bells of Ireland, green anthurium and Phylica pubescens in a bud vase before a red leather banquette",
+      "natalia-david-wedding-417.webp":
+        "Deconstructed ceremony florals of white dahlias, bells of Ireland, Phylica pubescens and trailing amaranthus on the lawn",
+      "natalia-david-wedding-421.webp":
+        "Two white dahlia stems stand upright in dry grass beside a white folding chair, marking the ceremony aisle",
+      "natalia-david-wedding-487.webp":
+        "Natalia and David exchange vows before pines under a blue sky, deconstructed green and white florals grounding the ceremony",
+      "natalia-david-wedding-556.webp":
+        "Natalia and David hold hands beside a sculptural ceremony arrangement of bells of Ireland, white dahlias and amaranthus",
+      "natalia-david-wedding-570.webp":
+        "Natalia and David raise joined hands after the ceremony, deconstructed white dahlia and green arrangements flanking the aisle",
+      "natalia-david-wedding-579.webp":
+        "Natalia and David walk up the aisle past applauding guests, her green bouquet in hand, ceremony florals in the foreground",
+      "natalia-david-wedding-687.webp":
+        "Reception tablescape in a timber barn with single stems of bells of Ireland and green anthurium in bud vases among candles",
+      "natalia-david-wedding-689.webp":
+        "Long timber tables under string lights in a barn, set with bud vases of green anthurium and bells of Ireland",
+      "natalia-david-wedding-691.webp":
+        "Sweetheart table on a barrel framed by deconstructed arrangements of white dahlias, bells of Ireland and trailing amaranthus",
+      "natalia-david-wedding-715.webp":
+        "Guests raise cocktails across a long table dressed with candles, trailing foliage and textural Phylica pubescens in bud vases",
+      "natalia-david-wedding-854.webp":
+        "Natalia and David duck through an arch of guests' raised arms, David's green anthurium boutonniere catching the light",
+      "natalia-david-wedding-882.webp":
+        "Natalia's bridal flowers tumble midair against a pale sky, trailing green amaranthus and ribbon streaming below the anthurium",
+    },
     title: "Natalia & David",
     coupleNames: "Natalia & David",
     location: "2025",
     photographer: "Thalia Photography",
+    photographerUrl: "https://thaliacameraist.com/",
     coverImage:
       "/Natalia%20%26%20David%202025%20(Thalia%20Photography)/natalia-david-wedding-193.webp",
-    coverAlt: "Natalia and David's wedding florals, photographed by Thalia Photography",
+    coverAlt:
+      "Natalia holds a bouquet of anthurium, bells of Ireland and curling snake ball allium beside David's green anthurium boutonniere",
     palette: [
       { name: "Dark Green", mainColor: "#434D26", borderColor: "#20260F" },
       { name: "Light Green", mainColor: "#7B834B", borderColor: "#3A3F20" },
@@ -107,13 +198,51 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "talea-erich",
+    photoAlts: {
+      "TaleaErichWeddingSneakPeeks-140.webp":
+        "Talea holds a small bouquet of orange dahlia, blue delphinium and sandersonia with trailing blue ribbon beside Erich",
+      "TaleaErichWeddingSneakPeeks-147 (1).webp":
+        "Talea and Erich walk hand in hand past a green hedge, her bouquet of orange dahlia and blue delphinium trailing ribbon",
+      "TaleaErichWeddingSneakPeeks-162.webp":
+        "Talea raises her bouquet of orange dahlia, ranunculus and blue delphinium from a vintage convertible under open sky",
+      "TaleaErichWeddingSneakPeeks-165.webp":
+        "Sheer veil scattered with white fabric blossoms drapes over the chrome emblem of a pale blue vintage convertible",
+      "TaleaErichWeddingSneakPeeks-184 (2).webp":
+        "Detail of a ceremony arrangement, orange pompon dahlias among gestural lavender clematis, pink snowberry and wild grasses",
+      "TaleaErichWeddingSneakPeeks-194.webp":
+        "Talea walks a sand path between dune grasses toward a wooden oceanfront pavilion filled with waiting guests",
+      "TaleaErichWeddingSneakPeeks-199.webp":
+        "Talea and Erich exchange vows beneath an oceanfront pavilion, tall blue delphinium arrangements framing the couple",
+      "TaleaErichWeddingSneakPeeks-204.webp":
+        "Soft blue sky over the ocean as small waves break on a pale sand beach, the coastal setting for the ceremony",
+      "TaleaErichWeddingSneakPeeks-207 (1).webp":
+        "Talea and Erich kiss at the altar between sculptural blue delphinium, grasses and orange dahlias on mirror plinths",
+      "TaleaErichWeddingSneakPeeks-210.webp":
+        "Erich dips Talea in a kiss on the pavilion deck as guests cheer, her bouquet in hand, orange dahlias and delphinium behind",
+      "TaleaErichWeddingSneakPeeks-216.webp":
+        "Black and white recessional, Talea and Erich raise joined hands and her ribboned bouquet along a beachside boardwalk",
+      "TaleaErichWeddingSneakPeeks-223 (1).webp":
+        "Talea lifts her bouquet of orange dahlia, clematis and sandersonia, ribbon streaming, seated with Erich in a blue convertible",
+      "TaleaErichWeddingSneakPeeks-225 (1).webp":
+        "Compote table arrangement of blue delphinium, orange dahlias, ranunculus and arching sandersonia before string lights",
+      "TaleaErichWeddingSneakPeeks-230.webp":
+        "Bud vase tablescape with orange dahlias, arching sandersonia, blue delphinium and chamomile beside a table number card",
+      "TaleaErichWeddingSneakPeeks-232 (1).webp":
+        "Welcome sign flanked by tall blue delphinium, pampas grass, cream dahlias and lavender clematis above a vintage blue bicycle",
+      "TaleaErichWeddingSneakPeeks-263.webp":
+        "Guests raise glasses along a candlelit table with pink dahlias in glass cylinders as Talea and Erich toast beyond",
+      "TaleaErichWeddingSneakPeeks-265.webp":
+        "Talea feeds Erich a bite of cake beside a small white cake dressed with ranunculus, orange dahlias and clematis",
+    },
     title: "Talea & Erich",
     coupleNames: "Talea & Erich",
     location: "2025",
     photographer: "Mackenzie Grace Creative",
+    photographerUrl: "https://www.mackenziegracecreative.com/",
     coverImage:
       "/Talea%20%26%20Erich%202025%20folder%20(Mackenzie%20Grace%20Creative)/TaleaErichWeddingSneakPeeks-207%20(1).webp",
-    coverAlt: "Talea and Erich's wedding florals, photographed by Mackenzie Grace Creative",
+    coverAlt:
+      "Talea and Erich kiss at the altar between sculptural blue delphinium, grasses and orange dahlias on mirror plinths",
     palette: [
       { name: "Orange", mainColor: "#C74F10", borderColor: "#4A1D06" },
       { name: "Blue", mainColor: "#95B3F6", borderColor: "#1F3B7A" },

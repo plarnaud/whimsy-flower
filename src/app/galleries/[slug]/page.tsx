@@ -15,6 +15,27 @@ import { getGalleryGridItems } from "@/lib/galleryAssets";
 import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
+import JsonLd from "@/components/jsonLd";
+import PillButton from "@/components/pillButton";
+import { baseOpenGraph } from "@/lib/siteConfig";
+import { galleryGraph } from "@/lib/structuredData";
+
+/* Real places only; some entries still hold a year or nothing in the slot. */
+function galleryPlace(location: string) {
+  return location && !/^\d{4}$/.test(location) ? location : undefined;
+}
+
+/* Written alt for a photo path, falling back to a generic line. */
+function photoAlt(
+  gallery: { photoAlts?: Record<string, string>; coupleNames: string },
+  src: string | undefined,
+) {
+  if (!src) return undefined;
+  const file = decodeURIComponent(src.split("/").pop() ?? "");
+  return (
+    gallery.photoAlts?.[file] ?? `${gallery.coupleNames}'s wedding florals`
+  );
+}
 
 type GalleryPageProps = {
   params: Promise<{ slug: string }>;
@@ -39,11 +60,18 @@ export async function generateMetadata({
   if (!gallery) return {};
 
   const firstSentence = gallery.paletteText?.split(/(?<=\.)\s/)[0];
+  const place = galleryPlace(gallery.location);
   return {
-    title: `${gallery.title} — Wedding Florals`,
+    title: place
+      ? `${gallery.title} Wedding Florals in ${place}`
+      : `${gallery.title} Wedding Florals`,
     description:
       firstSentence ??
-      `${gallery.coupleNames}'s wedding florals, designed by Whimsy Flower.`,
+      `${gallery.coupleNames}'s wedding florals, designed by Whimsy Flower in Hudson, NY.`,
+    openGraph: {
+      ...baseOpenGraph,
+      images: [{ url: gallery.coverImage, alt: gallery.coverAlt }],
+    },
   };
 }
 
@@ -75,15 +103,48 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   const galleryGridItems = await getGalleryGridItems(
     galleryAssetFolderBySlug[gallery.slug],
     gallery.title,
-    { order: gallery.photoOrder, exclude: gallery.hiddenPhotos },
+    {
+      order: gallery.photoOrder,
+      exclude: gallery.hiddenPhotos,
+      alts: gallery.photoAlts,
+      photographer: gallery.photographer,
+    },
   );
+  const place = galleryPlace(gallery.location);
+  const photographerCredit = gallery.photographer ? (
+    <>
+      Photographed by{" "}
+      {gallery.photographerUrl ? (
+        <a
+          href={gallery.photographerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 hover:text-(--darker-green)"
+        >
+          {gallery.photographer}
+        </a>
+      ) : (
+        gallery.photographer
+      )}
+    </>
+  ) : null;
+  const subtitle =
+    place || photographerCredit ? (
+      <>
+        {place && <span>Wedding florals in {place}</span>}
+        {place && photographerCredit && <span aria-hidden> · </span>}
+        {photographerCredit}
+      </>
+    ) : undefined;
 
   return (
     <PageScaffold>
+      <JsonLd data={galleryGraph(gallery, galleryGridItems)} />
       <SubPageHeader
         title={gallery.title}
         imgSrc={gallery.coverImage}
         imgAlt={gallery.coverAlt}
+        subtitle={subtitle}
       />
 
       <GalleryGrid items={galleryGridItems} photoCredit={gallery.photographer} />
@@ -102,7 +163,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
           <WhimsyImage
             src="/home-lander-section-bg.webp"
-            alt="decorative background image of a flower wedding tablescape"
+            alt=""
             fill
             sizes="100vw"
             className="absolute left-0 right-0 -z-100  object-cover"
@@ -113,11 +174,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
           text={testimonialText}
           coupleName={testimonialCoupleName}
           imgSrc={gallery.testimonialImage}
-          imgAlt={
-            gallery.testimonialImage
-              ? `${gallery.coupleNames}'s wedding florals`
-              : undefined
-          }
+          imgAlt={photoAlt(gallery, gallery.testimonialImage)}
         />
       </div>
 
@@ -144,6 +201,9 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
               </li>
             ))}
           </ul>
+          <div className="flex justify-center pt-4">
+            <PillButton label="View All Weddings" href="/weddings" />
+          </div>
         </div>
       </section>
     );

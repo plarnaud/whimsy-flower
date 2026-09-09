@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import MeetWhimsy from "@/components/meetWhimsy";
 import PageScaffold from "@/components/pageScaffold";
 import { InquireFormSection } from "@/components/inquireForm";
@@ -20,6 +21,22 @@ const brandAssetFolderBySlug: Record<string, string> = {};
 
 export function generateStaticParams() {
   return brandProjects.map(({ slug }) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: BrandProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getBrandProjectBySlug(slug);
+  if (!project) return {};
+
+  return {
+    title: `${project.brandName} ${project.title}, Editorial Florals in ${project.location}`,
+    description: `Editorial floral design and styling for ${project.brandName}'s ${project.title.toLowerCase()} in ${project.location}, composed by Whimsy Flower, a floral design studio in Hudson, NY.`,
+    // Placeholder projects: keep out of search until real client work lands,
+    // then drop this and add the slugs back to the sitemap.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function BrandProjectPage({
@@ -73,7 +90,7 @@ export default async function BrandProjectPage({
         <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
           <WhimsyImage
             src="/home-lander-section-bg.webp"
-            alt="decorative background image of a floral tablescape"
+            alt=""
             fill
             sizes="100vw"
             className="absolute left-0 right-0 -z-100  object-cover"

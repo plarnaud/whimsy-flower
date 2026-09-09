@@ -17,8 +17,9 @@ export default function MeetWhimsy({
         <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
           <Image
             src="/whimsy-about-pic.webp"
-            alt="Molly, founder and creative director of Whimsy Flower"
+            alt="Molly, founder and creative director of Whimsy Flower, arranges foxglove and veronica at a linen-draped table under a willow"
             fill
+            sizes="(min-width: 640px) 477px, 100vw"
             className="object-cover rounded-lg"
           />
         </div>
@@ -30,17 +31,19 @@ export default function MeetWhimsy({
             Meet the Creative Director
           </h3>
           <p className="max-w-[477px] pt-6 text-[14px] leading-6 ">
-            I&apos;m Molly, founder and creative director of Whimsy Flower. I
-            created the studio with the belief that the most memorable floral
-            design begins by listening. Every commission starts with
+            I&apos;m Molly, founder and creative director of Whimsy Flower, a
+            floral design studio in Hudson, New York. I created the studio
+            with the belief that the most memorable floral design begins by
+            listening. Every commission starts with
             understanding the people, place, and purpose behind it, allowing
             each design to feel deeply connected to its setting rather than
             simply placed within it.
           </p>
           <p className="max-w-[477px] pt-6 text-[14px] leading-6">
-            Working with a select number of clients each year allows me to be
-            hands-on through every stage of the creative process, from the
-            earliest concepts to the final installation. The result is a highly
+            Working with a select number of clients each year, from the Hudson
+            Valley and the Catskills to New York City, allows me to be hands-on
+            through every stage of the creative process, from the earliest
+            concepts to the final installation. The result is a highly
             personal experience and floral work that reflects not only your
             vision, but the feeling you want to leave behind.
           </p>

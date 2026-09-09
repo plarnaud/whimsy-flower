@@ -62,11 +62,7 @@ export default function PillButton({
 
 export function OpenContactFormButton() {
   return (
-    <PillButton
-      label="Contact us!"
-      className="mt-12"
-      onClick={() => console.log("Contact us clicked")}
-    ></PillButton>
+    <PillButton label="Contact us!" className="mt-12" href="/inquire" />
   );
 }
 

@@ -16,9 +16,6 @@ const defaultColors: PaletteColor[] = [
 // Flowers breakdown hidden for now; flip back on to restore it.
 const showFlowers = false;
 
-const defaultText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque sapien diam, eu dictum justo hendrerit eget. Aliquam elementum mattis felis sit amet mattis. Quisque dui neque, iaculis porta mauris at, ultrices commodo diam. Pellentesque sit amet odio a quam vulputate feugiat. Etiam vitae porta arcu, id dignissim leo.";
-
 type PaletteSectionProps = {
   colors?: PaletteColor[];
   text?: string;
@@ -30,9 +27,12 @@ export default function PaletteSection({ colors, text }: PaletteSectionProps) {
 
   return (
     <section className="bg-(--clover)/25 px-6 md:px-12 lg:px-16 py-16 gap-16 flex flex-col justify-center items-center">
-      <p className="text-center text-[14px] leading-6 whitespace-pre-line w-full lg:max-w-[644px] sm:max-w-[610px]">
-        {text ?? defaultText}
-      </p>
+      {/* No filler copy: pages without a story simply show the palette */}
+      {text && (
+        <p className="text-center text-[14px] leading-6 whitespace-pre-line w-full lg:max-w-[644px] sm:max-w-[610px]">
+          {text}
+        </p>
+      )}
 
       <div className=" w-full grid grid-cols-2 sm:grid-cols-4 gap-6">
         {paletteColors.map(({ name, mainColor, borderColor }) => (

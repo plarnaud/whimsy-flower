@@ -7,17 +7,22 @@ import SectionTitle from "@/components/sectionTitle";
 import WorkCollage, { CollageTile } from "@/components/workCollage";
 import PillButton from "@/components/pillButton";
 import { InquireFormSection } from "@/components/inquireForm";
+import JsonLd from "@/components/jsonLd";
+import { breadcrumbGraph } from "@/lib/structuredData";
 import { brandNames, brandProjects } from "@/data/brandProjects";
 
 export const metadata: Metadata = {
-  title: "Editorial & Brand Floral Design",
+  title: "Editorial & Brand Floral Design, Hudson Valley to NYC",
   description:
-    "Bespoke floral design for brands — campaigns, product launches, press dinners, and corporate events. Sculptural, editorial floral styling composed around your brand's visual language.",
+    "Editorial and brand floral styling for shops, brands, and businesses from the Hudson Valley to Manhattan: campaigns, launches, press dinners, and corporate events composed by Whimsy Flower, a floral design studio in Hudson, NY.",
 };
 
 export default function BrandsPage() {
   return (
     <PageScaffold>
+      <JsonLd
+        data={breadcrumbGraph([{ name: "Editorial & Brands", path: "/brands" }])}
+      />
       <HeroSection />
 
       <BrandScroller />
@@ -41,10 +46,11 @@ function HeroSection() {
       <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
-          alt="Floral tablescape by Whimsy Flower"
+          alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
           fill
           sizes="100vw"
           priority
+          fetchPriority="high"
           className="absolute left-0 right-0 -z-100 object-cover object-center"
         />
       </div>
@@ -54,19 +60,21 @@ function HeroSection() {
       <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
         <div className="flex-1 flex flex-col justify-center items-center">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Floral design for brands, campaigns & corporate events
+            Floral design for brands, campaigns & corporate events, from the
+            Hudson Valley to Manhattan
           </h1>
           <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
             Editorial & Brands
           </h2>
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
             Every brand has a visual language — a palette, a mood, a point of
-            view. Our studio translates yours into flowers: sculptural
-            installations, atmospheric tablescapes, and editorial styling
-            composed around your identity and the story your moment needs to
-            tell. Product launches, press dinners, campaign shoots, corporate
-            gatherings — each one designed as a bespoke collaboration, never a
-            template.
+            view. From our studio in Hudson, New York, we translate yours into
+            flowers for shops, brands, and businesses from Albany to Manhattan:
+            sculptural installations, atmospheric tablescapes, and editorial
+            styling composed around your identity and the story your moment
+            needs to tell. Product launches, press dinners, campaign shoots,
+            corporate gatherings — each one designed as a bespoke
+            collaboration, never a template.
           </span>
         </div>
         <a
@@ -125,7 +133,7 @@ function SelectedWorkSection() {
     coverAlt: project.coverAlt,
     images: (project.images ?? [project.coverImage]).map((src, i) => ({
       src,
-      alt: `${project.brandName} ${project.title} — photo ${i + 1}`,
+      alt: `${project.brandName} ${project.title}, photo ${i + 1}`,
     })),
   }));
 

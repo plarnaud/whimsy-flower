@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import PillButton from "@/components/pillButton";
 import WhimsyImage from "@/components/whimsyImage";
 
@@ -14,7 +12,7 @@ export default function TestimonialsSection({
   text,
   coupleName,
   imgSrc = "/testimonials/testimonial-julia-mcguire.webp",
-  imgAlt = "Testimonial couple",
+  imgAlt = "Julia and Jackie kiss on a garden lawn among drifts of white delphinium set into the grass, her veil trailing behind",
 }: TestimonialsSectionProps & { imgSrc?: string; imgAlt?: string }) {
   return (
     <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
@@ -37,9 +35,11 @@ export default function TestimonialsSection({
           </h3>
           <p className="text-[14px] leading-6">{text}</p>
           <span className="text-(--blush) text-[14px]">{coupleName}</span>
+          {/* Each wedding gallery carries its couple's words */}
           <PillButton
             label={"See more testimonials"}
             color="maroon1"
+            href="/weddings"
             className="mt-6 text-[16px]"
           ></PillButton>
         </div>
@@ -53,7 +53,7 @@ export function SmallTestimonialSection({
   text,
   coupleName,
   imgSrc = "/testimonials/testimonial-julia-mcguire.webp",
-  imgAlt = "Testimonial couple",
+  imgAlt = "Julia and Jackie kiss on a garden lawn among drifts of white delphinium set into the grass, her veil trailing behind",
 }: TestimonialsSectionProps & { imgSrc?: string; imgAlt?: string }) {
   return (
     <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">

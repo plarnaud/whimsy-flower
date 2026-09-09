@@ -36,6 +36,8 @@ type ImageBoxProps = {
   aspectRatio: string;
   sizes: string;
   className?: string;
+  /* First above-the-fold photo: eager + high fetch priority (it is the LCP). */
+  priority?: boolean;
   onOpen: () => void;
 };
 
@@ -44,6 +46,7 @@ function ImageBox({
   aspectRatio,
   sizes,
   className = "",
+  priority = false,
   onOpen,
 }: ImageBoxProps) {
   return (
@@ -58,6 +61,8 @@ function ImageBox({
         alt={item.imgAlt}
         fill
         sizes={sizes}
+        priority={priority}
+        fetchPriority={priority ? "high" : undefined}
         className="object-cover object-center"
       />
     </button>
@@ -86,6 +91,7 @@ function MobileLayout({ items, onOpen }: LayoutProps) {
         item={visible[i]}
         aspectRatio="1.5 / 1"
         sizes="calc(100vw - 48px)"
+        priority={bigIndex === 0}
         onOpen={() => onOpen(bigIndex)}
       />
     );
@@ -172,6 +178,8 @@ function DesktopLayout({
                 alt={big1.imgAlt}
                 fill
                 sizes="(min-width: 1024px) 38vw, 38vw"
+                priority={cycleStart === 0}
+                fetchPriority={cycleStart === 0 ? "high" : undefined}
                 className="object-cover object-center"
               />
             </button>

@@ -31,6 +31,10 @@ export type GalleryPhotoArrangement = {
   order?: string[];
   /* File names to leave out of the grid (e.g. used elsewhere on the page). */
   exclude?: string[];
+  /* Written alt text per file name; files without one get a descriptive fallback. */
+  alts?: Record<string, string>;
+  /* Credited photographer, folded into the fallback alt text. */
+  photographer?: string;
 };
 
 export async function getGalleryGridItems(
@@ -55,6 +59,10 @@ export async function getGalleryGridItems(
   const orderIndex = new Map(
     (arrangement?.order ?? []).map((name, index) => [name, index]),
   );
+  const alts = arrangement?.alts ?? {};
+  const credit = arrangement?.photographer
+    ? `, photographed by ${arrangement.photographer}`
+    : "";
 
   return entries
     .filter(
@@ -75,6 +83,8 @@ export async function getGalleryGridItems(
     .map((fileName, index) => ({
       id: `${assetFolder}/${fileName}`,
       imgSrc: `/${encodePublicPath(assetFolder)}/${encodeURIComponent(fileName)}`,
-      imgAlt: `${title} gallery image ${index + 1}`,
+      imgAlt:
+        alts[fileName] ??
+        `${title} wedding florals by Whimsy Flower${credit}, photo ${index + 1}`,
     }));
 }

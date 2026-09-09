@@ -5,20 +5,24 @@ import PhotoStack, { StackPhoto } from "@/components/photoStack";
 import PillButton from "@/components/pillButton";
 import MeetWhimsy from "@/components/meetWhimsy";
 import { InquireFormSection } from "@/components/inquireForm";
+import JsonLd from "@/components/jsonLd";
+import { breadcrumbGraph } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "Private Events, Showers, Workshops & Flower Bars",
+  title: "Private Events & Floral Workshops, Hudson Valley",
   description:
-    "Bespoke floral design for private celebrations — bridal and baby showers, hands-on floral workshops, flower bars, and intimate gatherings, composed by Whimsy Flower.",
+    "Bespoke floral design for private celebrations across the Hudson Valley and New York City: bridal and baby showers, hands-on floral workshops, flower bars, and intimate gatherings, composed by Whimsy Flower in Hudson, NY.",
 };
 
 export default function EventsPage() {
   return (
     <PageScaffold followUsModifiers="bg-(--clover)/25">
+      <JsonLd data={breadcrumbGraph([{ name: "Events", path: "/events" }])} />
       <SubPageHeader
         title="Private Events"
         imgSrc="/home-lander-section-bg.webp"
-        imgAlt="Floral tablescape for a private celebration"
+        imgAlt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
+        subtitle="Showers, workshops & flower bars across the Hudson Valley and New York City"
       />
 
       <section className="pt-16 px-6 flex flex-col items-center text-center">
@@ -29,7 +33,9 @@ export default function EventsPage() {
           Not every celebration is a wedding — and the ones in between deserve
           the same artistry. From hands-on flower bars to intimate dinner
           parties, we bring composed, seasonal florals to the moments you
-          gather the people you love.
+          gather the people you love, from our studio in Hudson, New York to
+          celebrations across the Hudson Valley, the Catskills, and New York
+          City.
         </p>
       </section>
 
@@ -39,9 +45,9 @@ export default function EventsPage() {
           text="Choose your palette and seasonal blooms, and watch guests compose their own bouquets to carry home. A favorite for bridal showers, birthdays, and gatherings that deserve a hands-on moment — our flower bars turn any room into a working studio."
           buttonLabel="Schedule a Flower Bar"
           photos={[
-            { src: "/brand02.webp", alt: "Flower bar with seasonal stems ready for guests" },
-            { src: "/brand03.webp", alt: "Guests composing their own arrangements" },
-            { src: "/brand01.webp", alt: "Seasonal blooms laid out for a flower bar" },
+            { src: "/brand02.webp", alt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch" },
+            { src: "/brand03.webp", alt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons" },
+            { src: "/brand01.webp", alt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills" },
           ]}
           colorScheme={ColorScheme.CLOVER}
           reverse={false}
@@ -51,9 +57,9 @@ export default function EventsPage() {
           text="Gather your people around a table of seasonal stems. Molly guides each session personally — teaching composition, movement, and texture while everyone builds an arrangement of their own. No experience needed; curiosity encouraged."
           buttonLabel="Schedule a Workshop"
           photos={[
-            { src: "/services/workshops.webp", alt: "Hands-on floral workshop led by Whimsy Flower" },
-            { src: "/brand01.webp", alt: "Workshop arrangement in progress" },
-            { src: "/brand03.webp", alt: "Seasonal stems prepared for a workshop" },
+            { src: "/services/workshops.webp", alt: "A woman in white lifts a tall stem of cream foxglove beside buckets of white delphinium, sheltered under a willow tree" },
+            { src: "/brand01.webp", alt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills" },
+            { src: "/brand03.webp", alt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons" },
           ]}
           colorScheme={ColorScheme.ROSE}
           reverse={true}
@@ -63,9 +69,9 @@ export default function EventsPage() {
           text="Intimate celebrations deserve the same artistry as the main event. From sculptural tablescapes to atmospheric installations, we design showers that feel collected, personal, and unmistakably yours."
           buttonLabel="Design My Shower"
           photos={[
-            { src: "/brand01.webp", alt: "Sculptural shower florals by Whimsy Flower" },
-            { src: "/services/events.webp", alt: "Shower tablescape with seasonal florals" },
-            { src: "/brand02.webp", alt: "Atmospheric shower installation" },
+            { src: "/brand01.webp", alt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills" },
+            { src: "/services/events.webp", alt: "Two women arrange white cosmos, daisies and yarrow in fluted white vessels on a plywood flower stand beneath orchard trees" },
+            { src: "/brand02.webp", alt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch" },
           ]}
           colorScheme={ColorScheme.OLIVE}
           reverse={false}
@@ -75,9 +81,9 @@ export default function EventsPage() {
           text="Birthdays, anniversaries, dinner parties, and every milestone in between — bespoke florals scaled to your space and your occasion, composed to make the evening feel remembered."
           buttonLabel="Plan a Celebration"
           photos={[
-            { src: "/services/events.webp", alt: "Intimate celebration florals by Whimsy Flower" },
-            { src: "/brand03.webp", alt: "Dinner party tablescape florals" },
-            { src: "/brand02.webp", alt: "Celebration arrangement with seasonal blooms" },
+            { src: "/services/events.webp", alt: "Two women arrange white cosmos, daisies and yarrow in fluted white vessels on a plywood flower stand beneath orchard trees" },
+            { src: "/brand03.webp", alt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons" },
+            { src: "/brand02.webp", alt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch" },
           ]}
           colorScheme={ColorScheme.CLOVER}
           reverse={true}

@@ -87,7 +87,7 @@ export function InquireFormSection({ forceSuccess }: InquireFormProps) {
       <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
-          alt="decorative background image of a flower wedding tablescape"
+          alt=""
           fill
           sizes="100vw"
           className="absolute left-0 right-0 -z-100  object-cover"
