@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
 import MeetWhimsy from "@/components/meetWhimsy";
-import SubPageHeader from "@/components/subPageHeader";
+import WhimsyImage from "@/components/whimsyImage";
+import ArrowRight from "@/components/arrow";
 import SectionTitle from "@/components/sectionTitle";
 import PillButton from "@/components/pillButton";
 import { InquireFormSection } from "@/components/inquireForm";
@@ -21,13 +22,7 @@ export default function WeddingsPage() {
       <JsonLd
         data={breadcrumbGraph([{ name: "Weddings", path: "/weddings" }])}
       />
-      <SubPageHeader
-        title="Hudson Valley Weddings"
-        imgSrc="/home-lander-section-bg.webp"
-        imgAlt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-      />
-
-      <IntroSection />
+      <HeroSection />
 
       <GallerySection />
 
@@ -46,22 +41,51 @@ export default function WeddingsPage() {
   );
 }
 
-function IntroSection() {
+/* Same hero treatment as the Editorial & Brands page: centered text over
+   the low-opacity tablescape image, with a link down to the galleries. */
+function HeroSection() {
   return (
-    <section className="pt-16 px-6 flex flex-col items-center text-center">
-      <h2 className="text-[18px] tracking-[-0.04em] uppercase">
-        Wedding floral design across the Hudson Valley, the Catskills & New
-        York City
-      </h2>
-      <p className="max-w-[644px] py-6 text-[14px] leading-6">
-        From our studio in Hudson, New York, we compose wedding florals for
-        celebrations throughout the Hudson Valley and the Catskills: historic
-        estates and barns in Columbia and Dutchess counties, mountain weddings
-        in Greene and Ulster, and gatherings in Manhattan and Brooklyn. Each
-        commission is designed from the ground up: sculptural ceremony
-        installations, atmospheric reception tablescapes, and personal flowers
-        composed around the season, the setting, and the two of you.
-      </p>
+    <section className="relative w-full overflow-hidden">
+      <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
+        <WhimsyImage
+          src="/home-lander-section-bg.webp"
+          alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
+          fill
+          sizes="100vw"
+          priority
+          fetchPriority="high"
+          className="absolute left-0 right-0 -z-100 object-cover object-center"
+        />
+      </div>
+
+      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
+        <div className="flex-1 flex flex-col justify-center items-center">
+          <h1 className="text-[18px] tracking-[-0.04em] uppercase">
+            Wedding floral design across the Hudson Valley, the Catskills & New
+            York City
+          </h1>
+          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
+            Hudson Valley Weddings
+          </h2>
+          <span className="max-w-[644px] py-6 text-[14px] leading-6">
+            From our studio in Hudson, New York, we compose wedding florals for
+            celebrations throughout the Hudson Valley and the Catskills:
+            historic estates and barns in Columbia and Dutchess counties,
+            mountain weddings in Greene and Ulster, and gatherings in Manhattan
+            and Brooklyn. Each commission is designed from the ground up:
+            sculptural ceremony installations, atmospheric reception
+            tablescapes, and personal flowers composed around the season, the
+            setting, and the two of you.
+          </span>
+        </div>
+        <a
+          href="#recent-weddings"
+          className="mt-8 flex flex-col items-center gap-4 uppercase text-[16px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4 transition-colors"
+        >
+          Explore Recent Weddings
+          <ArrowRight className="h-4 w-6 rotate-90" />
+        </a>
+      </div>
     </section>
   );
 }

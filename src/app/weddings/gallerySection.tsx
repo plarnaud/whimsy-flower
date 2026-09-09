@@ -27,7 +27,10 @@ export default function GallerySection() {
   );
 
   return (
-    <div className="py-12 lg:py-16 px-6 sm:px-12 lg:px-16 ">
+    <div
+      id="recent-weddings"
+      className="scroll-mt-24 py-12 lg:py-16 px-6 sm:px-12 lg:px-16"
+    >
       <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-y-12 gap-x-6">
         {visibleGalleries.map((gallery) => (
           <li key={gallery.slug}>
