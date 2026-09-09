@@ -163,3 +163,7 @@ Each item carries the observation it rests on, what it unblocks or depends on, a
 | Apple touch icon | **Done**: 180px icon from the logo | `src/app/apple-icon.png` |
 | Titles | **Done**: no em dashes; pattern "Page, qualifier | Whimsy Flower" | all pages |
 | Still owner-side | Domain DNS, Google Business Profile, Knot/WeddingWire city update, public phone/email, three gallery venues, Brides article URL, CJ Studios website (ambiguous, left unlinked). Home carousel credits "Photo by Lindsey Finn" and "Photo by Chelsea Jessica" look like couple names rather than photographers; confirm. | |
+
+## Round 3 corrections (same day)
+
+Per the owner: content rewrites stay, layout additions do not. Reverted from round 2: the Inquire intro block, gallery header subtitles and the "View All Weddings" button, the mobile header Inquire pill, the Follow-us Instagram link and tile links (the real wedding photos stay), the footer Instagram and TikTok text links, and the home services sentence. Kept: the About studio section, restructured to mirror "Meet the Creative Director" with the image on the right; the weddings page process, Investment and FAQ sections (kicker renamed FAQ); the footer location line, now on two lines; photographer credits linked in place under each gallery. The weddings page now opens with the same hero treatment as Editorial & Brands. All em dashes were removed from site copy, including the original gallery stories.
