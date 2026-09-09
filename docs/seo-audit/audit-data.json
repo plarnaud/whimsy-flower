@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "health_score": 38,
+    "business_type": "Local Service — luxury wedding & event floral design studio (service-area model), Hudson NY; secondary Agency/portfolio profile",
+    "audited_url": "https://whimsy-flower.vercel.app",
+    "audit_date": "2026-09-09",
+    "top_findings": [
+      "Custom domain whimsyflower.com has no DNS; site lives only on a vercel.app subdomain",
+      "Zero geographic signal on the live site (fixed in working tree: titles, H1s, intros, footer, bio)",
+      "NAP conflict: The Knot / WeddingWire / whimsyflower.love list the studio in Hoboken–Jersey City NJ with phone 551-264-4181 and 'from $3,000'; new site says Hudson NY",
+      "Six /brands/{slug} pages expose fictional brands, stock photos and Lorem ipsum, and are orphaned",
+      "No robots.txt, sitemap.xml, canonical, Open Graph, or JSON-LD anywhere"
+    ],
+    "quick_wins": [
+      "Deploy the location copy changes already made (12 files, build verified)",
+      "Add app/robots.ts and app/sitemap.ts (code drafted in findings/sitemap.md)",
+      "Add the Florist/LocalBusiness + WebSite + Person + Service JSON-LD graph (findings/schema.md)",
+      "Fix href=\"\" social icons (Instagram @whimsy_flower, TikTok @whimsyflower) and the href=\"#\" Brides logo",
+      "Add Inquire CTA to the mobile header; eager-load first gallery photo to cut homepage mobile LCP from 4.4s"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "weight": 0.22,
+      "score": 48,
+      "what_works": [
+        "Full server-side prerendering (no SPA gap)",
+        "HTTPS with preload-eligible HSTS",
+        "Clean kebab-case URLs, single-hop trailing-slash redirects",
+        "Self-hosted fonts with font-display: swap",
+        "100% image alt coverage; semantic HTML scored 100/100"
+      ],
+      "findings": [
+        {"title": "No DNS for whimsyflower.com", "severity": "Critical", "description": "dig returns no A/CNAME/NS records; only whimsy-flower.vercel.app resolves.", "recommendation": "Add the domain in Vercel as production, redirect vercel.app, set metadataBase and canonical."},
+        {"title": "robots.txt and sitemap.xml return 404", "severity": "Critical", "description": "sitemap_discovery.py found no declared or fallback sitemaps.", "recommendation": "Add app/robots.ts and app/sitemap.ts importing galleries; exclude placeholder brand pages; submit in GSC."},
+        {"title": "No canonical tags on any page", "severity": "Critical", "description": "No <link rel=canonical> on any of 8+ templates checked.", "recommendation": "Set metadataBase and alternates.canonical in layout.tsx."},
+        {"title": "8 URLs inherited the homepage title/description", "severity": "High", "description": "/about, /inquire and six /brands/{slug} pages had no page-level metadata.", "recommendation": "Fixed in working tree via page metadata and generateMetadata."},
+        {"title": "No Open Graph / Twitter Card tags", "severity": "High", "description": "Link previews render blank for a visual brand.", "recommendation": "Add openGraph and twitter metadata with a 1200x630 credited photo."},
+        {"title": "Footer omits /brands", "severity": "High", "description": "Footer links: Home, Weddings, Events, About, Inquire only.", "recommendation": "Add Editorial & Brands to the footer list."},
+        {"title": "Missing security headers", "severity": "Medium", "description": "Only HSTS present; no CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy; ACAO * on HTML.", "recommendation": "Add headers() in next.config.ts."},
+        {"title": "Dead links", "severity": "Medium", "description": "4x href=\"\" social icons, 1x href=\"#\" Brides logo, non-functional See more testimonials button.", "recommendation": "Wire to real Instagram/TikTok/Brides URLs."},
+        {"title": "No llms.txt, manifest, apple-touch-icon; case-variant URLs 404", "severity": "Low", "description": "Minor hygiene items.", "recommendation": "Backlog after domain launch."}
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "weight": 0.23,
+      "score": 28,
+      "what_works": [
+        "Homepage intro and Talea & Erich case study are strong editorial writing",
+        "Brand-voice discipline is clean (no banned words in studio copy)",
+        "Founder-led positioning is a real E-E-A-T asset"
+      ],
+      "findings": [
+        {"title": "Zero geographic signal", "severity": "Critical", "description": "No page mentioned Hudson, Hudson Valley, Catskills or New York.", "recommendation": "Fixed in working tree; deploy."},
+        {"title": "Boilerplate-dominated pages", "severity": "Critical", "description": "Identical 78-word bio block on 6 of 7 templates; /weddings had 116 words with none unique; /inquire 39 words.", "recommendation": "Build /weddings into a service page: experience/process, investment, FAQ, venues (Action Plan 2.3)."},
+        {"title": "Lorem ipsum and fictional brands live on six URLs", "severity": "Critical", "description": "/brands/{slug} pages render placeholder brands, stock photos, templated testimonials and PaletteSection default Lorem ipsum.", "recommendation": "noindex or remove until real projects exist."},
+        {"title": "Gallery location slot shows a year", "severity": "High", "description": "Lindsey & Finn, Natalia & David, Talea & Erich show '2025'; Trisha & Jim is blank.", "recommendation": "Fill real venue/town; gallery titles will pick it up automatically."},
+        {"title": "Unlinked press claim", "severity": "High", "description": "'Featured On: Brides' logo links to #.", "recommendation": "Link the Brides Julia McGuire exclusive."},
+        {"title": "No visible phone/email", "severity": "Medium", "description": "Only a form; placeholder (555) 123-4567 visible in markup.", "recommendation": "Publish the chosen contact details in the footer."}
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "weight": 0.20,
+      "score": 22,
+      "what_works": ["Unique titles/descriptions on home, weddings, events, brands hub and all six galleries (pre-edit)"],
+      "findings": [
+        {"title": "H1s carried no search intent", "severity": "High", "description": "'Weddings', 'About', 'Product Launch'; /inquire had no H1.", "recommendation": "Fixed for home ('Wedding & event floral design studio in Hudson, New York'), weddings ('Hudson Valley Weddings'), brands."},
+        {"title": "Duplicate titles/descriptions", "severity": "High", "description": "/, /about, /inquire and brand slugs shared the default title.", "recommendation": "Fixed in working tree."},
+        {"title": "'florist' keyword tradeoff", "severity": "Medium", "description": "Brand brief bans 'florist'; directory competitors rank on the exact token.", "recommendation": "Keep out of visible copy; allow in schema @type, GBP category, alt text, and one FAQ question if Molly agrees."}
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "weight": 0.10,
+      "score": 5,
+      "what_works": [],
+      "findings": [
+        {"title": "No Organization/LocalBusiness entity", "severity": "Critical", "description": "block_count 0 on every page, raw and rendered.", "recommendation": "Add Florist (LocalBusiness) graph with areaServed, sameAs, founder."},
+        {"title": "No Service markup", "severity": "Critical", "description": "Wedding, event and editorial services are unmarked.", "recommendation": "Three Service nodes referencing the Florist provider."},
+        {"title": "No WebSite, BreadcrumbList, ImageGallery", "severity": "High", "description": "Photography-driven site with no image or breadcrumb markup.", "recommendation": "Add per findings/schema.md."},
+        {"title": "No Person for Molly", "severity": "Medium", "description": "Founder is unmarked.", "recommendation": "Person node linked as founder."}
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "weight": 0.10,
+      "score": 90,
+      "what_works": ["CLS 0.000 everywhere", "TBT/INP proxy 10-15ms mobile", "Desktop Lighthouse 100 on all four pages", "No third-party scripts detected"],
+      "findings": [
+        {"title": "Homepage mobile LCP 4.4s (Poor)", "severity": "High", "description": "Lab, Lighthouse 13.4.1. /weddings 3.0s, /galleries/talea-erich 3.8s, /brands 2.4s.", "recommendation": "Eager-load first gallery photo; fetchpriority=high on hero LCP image."},
+        {"title": "Oversized image variants", "severity": "Medium", "description": "whimsy-about-pic.webp sizes=100vw at 364-546px render; wf-logo.webp 256x413 for 59-80px; brand02.webp ~22KB headroom.", "recommendation": "Fix sizes attributes and source dimensions."},
+        {"title": "/brands TTFB 1.0s", "severity": "Low", "description": "Other pages 0.2-0.4s.", "recommendation": "Check for cold serverless path or caching gap."}
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "weight": 0.10,
+      "score": 38,
+      "what_works": ["Fully SSR; AI crawlers can read all content without JS"],
+      "findings": [
+        {"title": "No citable entity facts", "severity": "Critical", "description": "No location, service area, founder facts or structured data for answer engines to quote.", "recommendation": "Working-tree copy adds who/where/for-whom; add schema; add llms.txt after domain launch."},
+        {"title": "No off-site corroboration pointing at this host", "severity": "High", "description": "Dead social links; press unlinked; directories point at NJ.", "recommendation": "Fix links; update directories to Hudson NY; link Brides."}
+      ]
+    },
+    {
+      "name": "Images",
+      "weight": 0.05,
+      "score": 60,
+      "what_works": ["100% alt coverage", "AVIF/WebP via next/image"],
+      "findings": [
+        {"title": "Placeholder and generic alts", "severity": "Medium", "description": "Follow-us grid repeats brand03.webp x5 with alt 'Brand 03'; gallery alts are 'X gallery image N'.", "recommendation": "Descriptive alts naming flower, setting, venue/region; real Instagram imagery in Follow-us."}
+      ]
+    },
+    {
+      "name": "Local SEO (unweighted)",
+      "weight": 0,
+      "score": 22,
+      "what_works": ["Real, well-reviewed identity exists: WeddingWire 5.0 from 9 reviews"],
+      "findings": [
+        {"title": "NAP conflict Hoboken/Jersey City NJ vs Hudson NY", "severity": "Critical", "description": "The Knot and WeddingWire list Hoboken NJ; whimsyflower.love says Jersey City; phone 551-264-4181; 'from $3,000' vs brief's $8k minimum.", "recommendation": "Move GBP/Knot/WeddingWire/socials to Hudson NY; 301 old site; reconcile price."},
+        {"title": "No Google Business Profile found for Hudson NY", "severity": "Critical", "description": "Not found in search; verify in GBP Manager.", "recommendation": "Claim as service-area business, category Florist."},
+        {"title": "Name collision with Whimsy Flowers (Kerhonkson NY)", "severity": "High", "description": "Different business already ranking in the target market.", "recommendation": "Consistent 'Whimsy Flower · Hudson, NY' + sameAs everywhere."},
+        {"title": "No outbound co-citation links", "severity": "High", "description": "Photographers credited but never linked.", "recommendation": "Link credits; request reciprocal vendor credits."}
+      ]
+    },
+    {
+      "name": "Search Experience / SXO (unweighted)",
+      "weight": 0,
+      "score": 31,
+      "what_works": ["/brands has a real 5-step process section to port"],
+      "findings": [
+        {"title": "/weddings is an index page where a service page ranks", "severity": "Critical", "description": "~46% of ranking pages are studio service pages with process, minimums, service area, FAQ; benchmark competitor discloses $10k/$7k minimums and an 80-mile radius.", "recommendation": "Action Plan 2.3."},
+        {"title": "Inquiry friction", "severity": "High", "description": "Form requires date and budget with no disclosed minimum and no phone/email anywhere.", "recommendation": "Publish Investment section and contact details."}
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Critical Fixes", "timeframe": "Week 1", "items": [
+        "Go live on whimsyflower.com; redirect vercel.app; metadataBase + canonical; verify GSC",
+        "Commit and deploy the location copy changes in the working tree",
+        "Add robots.ts and sitemap.ts; submit sitemap",
+        "noindex or remove the six placeholder brand project pages",
+        "Resolve NAP: claim GBP for Hudson NY, update Knot/WeddingWire/socials, 301 whimsyflower.love, reconcile price, publish phone/email",
+        "Fix dead social/Brides/testimonial links"
+      ]},
+      {"name": "Phase 2: High-Impact Improvements", "timeframe": "Weeks 2-3", "items": [
+        "Add Florist/LocalBusiness + WebSite + Person + Service + BreadcrumbList + ImageGallery JSON-LD",
+        "Add Open Graph / Twitter cards",
+        "Build /weddings into a service page: Experience, Investment, FAQ (content only), venues, linked photographers",
+        "Mobile Inquire CTA; eager first gallery image; fetchpriority on hero; fix sizes and logo dimensions",
+        "Footer link to /brands; internal links from home to weddings",
+        "Fill real gallery venues/towns; feature NY-area weddings first",
+        "Security headers"
+      ]},
+      {"name": "Phase 3: Content & Authority", "timeframe": "Month 2", "items": [
+        "Journal: investment/cost, seasonal garden-style flowers, flower bar guide, workshop guide",
+        "Two /weddings spokes: elopements & micro-weddings; ceremony installations",
+        "Citations: Zola, Style Me Pretty, Hudson Valley Weddings; photographer/venue co-citations; link Brides",
+        "Reviews to the new GBP; replace dead testimonials button with review links",
+        "Entity disambiguation from Whimsy Flowers (Kerhonkson)"
+      ]},
+      {"name": "Phase 4: Monitoring & Iteration", "timeframe": "Ongoing", "items": [
+        "Drift baseline after deploy; compare after each release",
+        "Configure Google API key + GSC OAuth for field data",
+        "Monthly GSC location-query and GBP tracking; quarterly gallery additions"
+      ]}
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "full_report": "FULL-AUDIT-REPORT.md",
+    "action_plan": "ACTION-PLAN.md"
+  }
+}
