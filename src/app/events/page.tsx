@@ -22,7 +22,6 @@ export default function EventsPage() {
         title="Private Events"
         imgSrc="/home-lander-section-bg.webp"
         imgAlt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-        subtitle="Showers, workshops & flower bars across the Hudson Valley and New York City"
       />
 
       <section className="pt-16 px-6 flex flex-col items-center text-center">

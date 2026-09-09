@@ -16,7 +16,6 @@ import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
 import JsonLd from "@/components/jsonLd";
-import PillButton from "@/components/pillButton";
 import { baseOpenGraph } from "@/lib/siteConfig";
 import { galleryGraph } from "@/lib/structuredData";
 
@@ -110,33 +109,6 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
       photographer: gallery.photographer,
     },
   );
-  const place = galleryPlace(gallery.location);
-  const photographerCredit = gallery.photographer ? (
-    <>
-      Photographed by{" "}
-      {gallery.photographerUrl ? (
-        <a
-          href={gallery.photographerUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:text-(--darker-green)"
-        >
-          {gallery.photographer}
-        </a>
-      ) : (
-        gallery.photographer
-      )}
-    </>
-  ) : null;
-  const subtitle =
-    place || photographerCredit ? (
-      <>
-        {place && <span>Wedding florals in {place}</span>}
-        {place && photographerCredit && <span aria-hidden> · </span>}
-        {photographerCredit}
-      </>
-    ) : undefined;
-
   return (
     <PageScaffold>
       <JsonLd data={galleryGraph(gallery, galleryGridItems)} />
@@ -144,7 +116,6 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         title={gallery.title}
         imgSrc={gallery.coverImage}
         imgAlt={gallery.coverAlt}
-        subtitle={subtitle}
       />
 
       <GalleryGrid items={galleryGridItems} photoCredit={gallery.photographer} />
@@ -153,7 +124,19 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
           section, tinted to match that section's background */}
       {gallery.photographer && galleryGridItems.length > 0 && (
         <p className="px-6 sm:px-12 lg:px-16 -mt-10 sm:-mt-14 mb-3 text-right text-[12px] uppercase tracking-[0.08em] text-[color-mix(in_srgb,var(--clover)_25%,var(--olive-petal))]">
-          Photo by {gallery.photographer}
+          Photo by{" "}
+          {gallery.photographerUrl ? (
+            <a
+              href={gallery.photographerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2"
+            >
+              {gallery.photographer}
+            </a>
+          ) : (
+            gallery.photographer
+          )}
         </p>
       )}
 
@@ -201,9 +184,6 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
               </li>
             ))}
           </ul>
-          <div className="flex justify-center pt-4">
-            <PillButton label="View All Weddings" href="/weddings" />
-          </div>
         </div>
       </section>
     );

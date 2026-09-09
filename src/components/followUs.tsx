@@ -1,6 +1,6 @@
 import WhimsyImage from "@/components/whimsyImage";
+import { ImageItem } from "@/components/horizontalList";
 import { getGalleryBySlug } from "@/data/galleries";
-import { siteConfig } from "@/lib/siteConfig";
 
 type FollowUsSectionProps = {
   className?: string;
@@ -14,7 +14,7 @@ const folderBySlug: Record<string, string> = {
   "talea-erich": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
 };
 
-/* Eight recent photos, two per wedding, in the order they read best. */
+/* Eight recent photos, two per wedding. */
 const picks: Array<{ slug: string; file: string }> = [
   { slug: "talea-erich", file: "TaleaErichWeddingSneakPeeks-225 (1).webp" },
   { slug: "lindsey-fin", file: "Lindsey+FinnPreviews-90 (1).webp" },
@@ -35,14 +35,14 @@ const picks: Array<{ slug: string; file: string }> = [
 export default function FollowUsSection({
   className = "",
 }: FollowUsSectionProps) {
-  const photos = picks.map(({ slug, file }) => {
+  const followUsImages: ImageItem[] = picks.map(({ slug, file }) => {
     const gallery = getGalleryBySlug(slug);
     return {
       src: `/${encodeURIComponent(folderBySlug[slug])}/${encodeURIComponent(file)}`,
       alt:
         gallery?.photoAlts?.[file] ??
         `${gallery?.coupleNames ?? "Wedding"} florals by Whimsy Flower`,
-      href: `/galleries/${slug}`,
+      creds: "",
     };
   });
 
@@ -51,34 +51,21 @@ export default function FollowUsSection({
       id="follow-us"
       className={`flex flex-col py-16 px-6 md:px-12 lg:px-16 gap-6 ${className}`}
     >
-      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-        <h2 className="font-title text-(--dark-olive) text-[48px] leading-16 tracking-[-0.04em]">
-          Follow us
-        </h2>
-        <a
-          href={siteConfig.social.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="italic uppercase text-[14px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4"
-        >
-          @whimsy_flower on Instagram
-        </a>
-      </div>
+      <h2 className="font-title text-(--dark-olive) text-[48px] leading-16 tracking-[-0.04em]">
+        Follow us
+      </h2>
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        {photos.map((item) => (
-          <li key={item.src}>
-            <a
-              href={item.href}
-              className="group relative block aspect-square rounded-lg overflow-hidden"
-            >
+        {followUsImages.map((item, i) => (
+          <li key={i}>
+            <div className="relative aspect-square rounded-lg overflow-hidden">
               <WhimsyImage
                 src={item.src}
                 alt={item.alt}
                 fill
                 sizes="(min-width: 640px) 25vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                className="object-cover"
               />
-            </a>
+            </div>
           </li>
         ))}
       </ul>

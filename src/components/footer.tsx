@@ -35,8 +35,10 @@ export default function FollowUsSection() {
           ©{siteConfig.copyrightYear} {siteConfig.legalName}
         </span>
         <span className="text-(--dark-olive) text-[14px] pt-1 px-6 text-center">
-          Hudson, New York · Serving the Hudson Valley, the Catskills & New
-          York City
+          Hudson, New York
+        </span>
+        <span className="text-(--dark-olive) text-[14px] pt-1 px-6 text-center">
+          Serving the Hudson Valley, the Catskills & New York City
         </span>
 
         <ul className="flex flex-wrap justify-center w-full px-8 sm:px-16 lg:px-[212px] pt-16 italic text-[18px] tracking-[-0.04em]">
@@ -45,27 +47,6 @@ export default function FollowUsSection() {
               <Link href={item.href}>{item.label}</Link>
             </li>
           ))}
-        </ul>
-
-        <ul className="flex flex-wrap justify-center w-full px-8 pb-10 text-[14px] tracking-[-0.04em] text-(--dark-green)">
-          <li className="mx-4">
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </li>
-          <li className="mx-4">
-            <a
-              href={siteConfig.social.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TikTok
-            </a>
-          </li>
         </ul>
 
         <div className="w-full h-2 border-y-[1.5px] border-(--pale-yellow)"></div>

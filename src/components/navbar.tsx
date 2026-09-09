@@ -222,13 +222,6 @@ const Navbar = () => {
 
           {/* Right actions */}
           <div className="order-1 md:order-3">
-            {/* Mobile: the primary action stays visible without opening the menu */}
-            <Link
-              href="/inquire"
-              className="md:hidden inline-block rounded-full bg-(--dark-green) hover:bg-(--darker-green) text-background px-4 py-2 text-[12px] uppercase tracking-[0.12em] transition-colors"
-            >
-              Inquire
-            </Link>
             <div className="hidden md:flex items-center gap-6 justfiy-self-start md:justify-self-end">
               <a
                 href={siteConfig.social.instagram}

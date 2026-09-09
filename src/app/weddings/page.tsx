@@ -25,7 +25,6 @@ export default function WeddingsPage() {
         title="Hudson Valley Weddings"
         imgSrc="/home-lander-section-bg.webp"
         imgAlt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-        subtitle="Floral design from Hudson, New York, across the Hudson Valley, the Catskills & New York City"
       />
 
       <IntroSection />
@@ -183,7 +182,7 @@ const faqs = [
 function FaqSection() {
   return (
     <section className="bg-(--blush)/25 py-16 px-6 md:px-12 lg:px-16">
-      <SectionTitle kicker="Questions" title="Good to Know" />
+      <SectionTitle kicker="FAQ" title="Good to Know" />
       <dl className="max-w-[900px] mx-auto mt-4 sm:mt-0 divide-y divide-(--clover) border-y border-(--clover)">
         {faqs.map(({ question, answer }) => (
           <div
