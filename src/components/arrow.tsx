@@ -2,7 +2,7 @@ type ArrowProps = {
   className?: string;
 };
 
-/* Arrow ported from frenchfrystudio.com — strokes follow currentColor. */
+/* Arrow ported from frenchfrystudio.com; strokes follow currentColor. */
 export default function ArrowRight({
   className = "h-3 w-[1.125rem]",
 }: ArrowProps) {

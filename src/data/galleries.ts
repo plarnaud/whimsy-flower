@@ -115,7 +115,7 @@ export const galleries: GalleryMeta[] = [
       { name: "White", mainColor: "#E1D9C8", borderColor: "#675E48" },
     ],
     paletteText:
-      "Set at Lindsey’s family home, the design transformed a deeply familiar setting into something fresh, chic, and timeless. Inspired by her love of fashion, food, and hydrangea, we embraced the flower en masse—creating a ceremony entirely of white hydrangea that felt like clouds settling across the front steps.\n\nLindsey’s petite bouquet of white stars, tweedia, was finished with a silver cuff, echoing the family’s silver collection woven throughout the backyard. As guests moved from ceremony to reception, the palette shifted into blush and chartreuse, creating a sense of discovery. Cascading arrangements, statement florals, and individually composed ikebana centerpieces made flowers the main character. Every arrangement revealed a new combination to discover, yet together they formed one cohesive collection of exceptional blooms.",
+      "Set at Lindsey’s family home, the design transformed a deeply familiar setting into something fresh, chic, and timeless. Inspired by her love of fashion, food, and hydrangea, we embraced the flower en masse, creating a ceremony entirely of white hydrangea that felt like clouds settling across the front steps.\n\nLindsey’s petite bouquet of white stars, tweedia, was finished with a silver cuff, echoing the family’s silver collection woven throughout the backyard. As guests moved from ceremony to reception, the palette shifted into blush and chartreuse, creating a sense of discovery. Cascading arrangements, statement florals, and individually composed ikebana centerpieces made flowers the main character. Every arrangement revealed a new combination to discover, yet together they formed one cohesive collection of exceptional blooms.",
     flowers: ["Limelight Hydrangea", "Sweet Pea", "Nerine", "Tweedia"],
     testimonialText:
       "Molly and the Whimsy team were an absolute dream to work with from start to finish! Molly completely understood my vision and executed it to perfection. Between the statement cascading ceremony install, thoughtful ikebana pieces, and focal point bar arrangement, the florals truly elevated all aspects of the day! I can’t recommend Whimsy enough to bring your dream florals to life!",
@@ -182,7 +182,7 @@ export const galleries: GalleryMeta[] = [
       { name: "Green White", mainColor: "#DFDCCD", borderColor: "#63604E" },
     ],
     paletteText:
-      "A monochromatic green palette became an invitation to push beyond traditional greenery. We explored uncommon blooms and botanicals for their sculptural lines, unexpected textures, and sense of movement—Bells of Ireland for its fluid verticality, green amaranthus for timeless elegance, and Phylica pubescens for its extraordinary seeded texture.\n\nNatalia’s bridal bouquet became a floral sculpture in its own right, punctuated by two snake ball alliums dancing and intertwining through the blooms. Paired with deconstructed ceremony and sweetheart designs, the florals transformed the rustic setting into a lush, artful garden—balancing rustic charm with modern sensibility.",
+      "A monochromatic green palette became an invitation to push beyond traditional greenery. We explored uncommon blooms and botanicals for their sculptural lines, unexpected textures, and sense of movement: Bells of Ireland for its fluid verticality, green amaranthus for timeless elegance, and Phylica pubescens for its extraordinary seeded texture.\n\nNatalia’s bridal bouquet became a floral sculpture in its own right, punctuated by two snake ball alliums dancing and intertwining through the blooms. Paired with deconstructed ceremony and sweetheart designs, the florals transformed the rustic setting into a lush, artful garden—balancing rustic charm with modern sensibility.",
     flowers: [
       "Anthurium",
       "Bells of Ireland",
@@ -277,7 +277,7 @@ export const galleries: GalleryMeta[] = [
       "Molly and her team at Whimsy were an absolute DREAM to work with. I first met Molly at a pop-up in Hoboken and knew that I needed her for my wedding. From the very first call, Molly was so detail-oriented, creative, and KIND. She carefully crafted up a beautiful proposal and brought my vision to life. I especially loved her ideas, that I would've never thought of myself, like the mirror plinths we used for the ceremony. I have truly never seen more beautiful arrangements than the ones made by Whimsy.\n\nShe communicated so well and arrived promptly on the day. She put a great deal of effort in to making sure the flowers stayed fresh and looked beautiful. She delivered personals, set up the ceremony, broke down the ceremony, set up the reception, and broke down the reception, all with a smile on her face.\n\nYou will not find a more thoughtful, creative, kind, dependable, or amazing florist. There are not enough positive words to say about Whimsy. Book with them!!",
     featured: true,
   },
-  // Shayna & Evan and Trisha & Jim have no photo folders yet — their covers
+  // Shayna & Evan and Trisha & Jim have no photo folders yet; their covers
   // are placeholders and their photo grids stay empty until photos arrive.
   {
     slug: "shayna-evan",

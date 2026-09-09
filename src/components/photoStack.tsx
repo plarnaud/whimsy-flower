@@ -21,7 +21,7 @@ const depthStyles = [
   "z-10 rotate-[-2deg] -translate-x-3 translate-y-3 opacity-100",
 ];
 
-/* A stack of photos styled like a pile of prints — click, swipe, or use the
+/* A stack of photos styled like a pile of prints. Click, swipe, or use the
    arrows to send the top photo to the back and reveal the next one. */
 export default function PhotoStack({ photos, className = "" }: PhotoStackProps) {
   const [current, setCurrent] = useState(0);
@@ -58,7 +58,7 @@ export default function PhotoStack({ photos, className = "" }: PhotoStackProps) 
               onClick={() => advance(1)}
               aria-label={
                 depth === 0
-                  ? `${photo.alt} — show next photo`
+                  ? `${photo.alt}. Show next photo`
                   : photo.alt
               }
               tabIndex={depth === 0 ? 0 : -1}

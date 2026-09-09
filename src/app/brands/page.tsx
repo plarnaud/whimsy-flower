@@ -38,7 +38,7 @@ export default function BrandsPage() {
   );
 }
 
-/* Hero — same treatment as the home page's Timeless Floral Artistry
+/* Hero: same treatment as the home page's Timeless Floral Artistry
    section: centered text over the low-opacity tablescape image. */
 function HeroSection() {
   return (
@@ -67,13 +67,13 @@ function HeroSection() {
             Editorial & Brands
           </h2>
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
-            Every brand has a visual language — a palette, a mood, a point of
+            Every brand has a visual language: a palette, a mood, a point of
             view. From our studio in Hudson, New York, we translate yours into
             flowers for shops, brands, and businesses from Albany to Manhattan:
             sculptural installations, atmospheric tablescapes, and editorial
             styling composed around your identity and the story your moment
             needs to tell. Product launches, press dinners, campaign shoots,
-            corporate gatherings — each one designed as a bespoke
+            corporate gatherings. Each one is designed as a bespoke
             collaboration, never a template.
           </span>
         </div>
@@ -155,11 +155,11 @@ const approachSteps = [
   },
   {
     title: "Creative Direction",
-    text: "We translate your brief into a bespoke floral concept — custom design boards, sculptural forms, and a seasonal palette drawn directly from your brand's visual language.",
+    text: "We translate your brief into a bespoke floral concept: custom design boards, sculptural forms, and a seasonal palette drawn directly from your brand's visual language.",
   },
   {
     title: "Sourcing & Planning",
-    text: "Seasonal floral sourcing, venue walkthroughs, and detailed production planning ensure the design arrives exactly as imagined — on schedule and without surprises.",
+    text: "Seasonal floral sourcing, venue walkthroughs, and detailed production planning ensure the design arrives exactly as imagined, on schedule and without surprises.",
   },
   {
     title: "Installation & Styling",
@@ -167,7 +167,7 @@ const approachSteps = [
   },
   {
     title: "The Reveal & Breakdown",
-    text: "You host; we handle the rest. When the moment has passed, a discreet breakdown returns the space without a trace — the flowers simply appear, then gracefully exit.",
+    text: "You host; we handle the rest. When the moment has passed, a discreet breakdown returns the space without a trace. The flowers simply appear, then gracefully exit.",
   },
 ];
 
@@ -184,7 +184,7 @@ function ApproachSection() {
             {/* Mobile: number + title as one centered row; sm:contents
                 dissolves the wrapper so both become grid cells on desktop */}
             <div className="flex items-center justify-center gap-4 sm:contents">
-              {/* Beth Ellen digits sit low in their em box — the small upward
+              {/* Beth Ellen digits sit low in their em box; the small upward
                   nudge optically centers them against the row */}
               <span
                 aria-hidden

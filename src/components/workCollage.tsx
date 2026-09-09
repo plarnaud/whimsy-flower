@@ -22,7 +22,7 @@ type WorkCollageProps = {
 
 /* Gallery-wall placement on a 13-column, gapless grid: paired tiles sit at
    columns 2-6 and 8-12, leaving exactly one column of space left, middle,
-   and right — equal gaps that scale with the page width. Pairs stagger
+   and right: equal gaps that scale with the page width. Pairs stagger
    hard on Y, and every third row is a single larger landscape hung
    centered. */
 const wallPattern = [

@@ -164,11 +164,6 @@ function ServicesSection() {
         <h2 className="font-title text-5xl text-(--dark-olive) leading-16 text-center sm:text-left">
           Our Services
         </h2>
-        <p className="pt-4 text-[14px] leading-6 text-center sm:text-left max-w-[644px]">
-          Wedding, private event, and editorial floral design from our studio
-          in Hudson, New York, for celebrations and brands across the Hudson
-          Valley, the Catskills, and New York City.
-        </p>
         <div className="flex flex-col sm:grid sm:grid-cols-3 items-stretch justify-stretch w-full pt-6 gap-6">
           <ServicesButton
             label={"Weddings"}

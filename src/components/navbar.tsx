@@ -23,7 +23,7 @@ const Navbar = () => {
 
   // Measure navbar height so the menu/backdrop start below it.
   // A ResizeObserver keeps the value fresh when the nav's height settles
-  // after mount (logo/font loading, mobile browser chrome) — a one-shot
+  // after mount (logo/font loading, mobile browser chrome); a one-shot
   // measurement goes stale and the open menu overlaps the navbar.
   useEffect(() => {
     const nav = navRef.current;
@@ -111,7 +111,7 @@ const Navbar = () => {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        {/* Menu content — vertical spacing scales with viewport height so
+        {/* Menu content: vertical spacing scales with viewport height so
             short windows compress the gaps instead of flattening the list
             against the logo block; gap-6 keeps a floor between the two. */}
         <div className="bg-(--clover)/25 h-full flex flex-col justify-between gap-6 overflow-y-auto">

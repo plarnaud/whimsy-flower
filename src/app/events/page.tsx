@@ -30,7 +30,7 @@ export default function EventsPage() {
           Showers, workshops, flower bars & every gathering in between
         </h2>
         <p className="max-w-[644px] py-6 text-[14px] leading-6">
-          Not every celebration is a wedding — and the ones in between deserve
+          Not every celebration is a wedding, and the ones in between deserve
           the same artistry. From hands-on flower bars to intimate dinner
           parties, we bring composed, seasonal florals to the moments you
           gather the people you love, from our studio in Hudson, New York to
@@ -42,7 +42,7 @@ export default function EventsPage() {
       <ul>
         <EventEntry
           title="Flower Bars"
-          text="Choose your palette and seasonal blooms, and watch guests compose their own bouquets to carry home. A favorite for bridal showers, birthdays, and gatherings that deserve a hands-on moment — our flower bars turn any room into a working studio."
+          text="Choose your palette and seasonal blooms, and watch guests compose their own bouquets to carry home. A favorite for bridal showers, birthdays, and gatherings that deserve a hands-on moment. Our flower bars turn any room into a working studio."
           buttonLabel="Schedule a Flower Bar"
           photos={[
             { src: "/brand02.webp", alt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch" },
@@ -54,7 +54,7 @@ export default function EventsPage() {
         />
         <EventEntry
           title="Whimsy Workshops"
-          text="Gather your people around a table of seasonal stems. Molly guides each session personally — teaching composition, movement, and texture while everyone builds an arrangement of their own. No experience needed; curiosity encouraged."
+          text="Gather your people around a table of seasonal stems. Molly guides each session personally, teaching composition, movement, and texture while everyone builds an arrangement of their own. No experience needed; curiosity encouraged."
           buttonLabel="Schedule a Workshop"
           photos={[
             { src: "/services/workshops.webp", alt: "A woman in white lifts a tall stem of cream foxglove beside buckets of white delphinium, sheltered under a willow tree" },
@@ -78,7 +78,7 @@ export default function EventsPage() {
         />
         <EventEntry
           title="Intimate Celebrations"
-          text="Birthdays, anniversaries, dinner parties, and every milestone in between — bespoke florals scaled to your space and your occasion, composed to make the evening feel remembered."
+          text="Birthdays, anniversaries, dinner parties, and every milestone in between: bespoke florals scaled to your space and your occasion, composed to make the evening feel remembered."
           buttonLabel="Plan a Celebration"
           photos={[
             { src: "/services/events.webp", alt: "Two women arrange white cosmos, daisies and yarrow in fluted white vessels on a plywood flower stand beneath orchard trees" },

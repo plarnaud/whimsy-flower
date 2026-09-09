@@ -14,7 +14,7 @@ export type BrandProjectMeta = {
 };
 
 // Placeholder albums cycling the three brand photos until real project
-// imagery lands — each project's album starts on its own cover.
+// imagery lands; each project's album starts on its own cover.
 const placeholderAlbum = (cover: string) => {
   const all = ["/brand01.webp", "/brand02.webp", "/brand03.webp"];
   return [cover, ...all.filter((src) => src !== cover)];
@@ -32,7 +32,7 @@ export const brandProjects: BrandProjectMeta[] = [
     images: placeholderAlbum("/brand01.webp"),
     testimonialTitle: "An installation our guests still talk about",
     testimonialText:
-      "Whimsy Flower translated our brand into a floral concept that felt entirely our own — composed, atmospheric, and executed without a single detail out of place.",
+      "Whimsy Flower translated our brand into a floral concept that felt entirely our own: composed, atmospheric, and executed without a single detail out of place.",
     testimonialClientName: "Maison Lumière",
     featured: true,
   },
@@ -85,7 +85,7 @@ export const brandProjects: BrandProjectMeta[] = [
   },
 ];
 
-// Brands shown in the scroller on the Editorial & Brands page — placeholder
+// Brands shown in the scroller on the Editorial & Brands page: placeholder
 // names awaiting the real client list.
 export const brandNames = [
   "Maison Lumière",
@@ -101,7 +101,7 @@ export type BrandGalleryPhoto = {
   alt: string;
 };
 
-// Selected work on the Editorial & Brands page — the few brand photos we
+// Selected work on the Editorial & Brands page: the few brand photos we
 // have; add entries as real project imagery lands.
 export const brandGalleryPhotos: BrandGalleryPhoto[] = [
   {
