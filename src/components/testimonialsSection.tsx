@@ -48,6 +48,15 @@ export default function TestimonialsSection({
   );
 }
 
+/* Long testimonials step the type down one notch so the column stays close
+   to the photo's height; the photo then stretches to fill whatever remains.
+   12px is the floor. */
+function testimonialTypeClasses(text: string) {
+  if (text.length > 1700) return "text-[12px] leading-5";
+  if (text.length > 1200) return "text-[13px] leading-[22px]";
+  return "text-[14px] leading-6";
+}
+
 export function SmallTestimonialSection({
   title,
   text,
@@ -57,8 +66,11 @@ export function SmallTestimonialSection({
 }: TestimonialsSectionProps & { imgSrc?: string; imgAlt?: string }) {
   return (
     <div className="bg-background rounded-lg px-6 md:px-12 py-12 text-(--dark-rose)">
-      <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center">
-        <div className="relative w-full aspect-[0.68] rounded-lg overflow-hidden">
+      {/* Desktop: the photo stretches to the row height, so the card padding
+          above and below it always matches the text column. The minimum keeps
+          the portrait proportion when the testimonial is short. */}
+      <div className="relative flex flex-col md:grid md:grid-cols-2 lg:grid-cols-[repeat(2,429px)] gap-6 items-center md:items-stretch">
+        <div className="relative w-full aspect-[0.68] md:aspect-auto md:min-h-[480px] lg:min-h-[631px] rounded-lg overflow-hidden">
           <WhimsyImage
             src={imgSrc}
             alt={imgAlt}
@@ -67,11 +79,13 @@ export function SmallTestimonialSection({
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col gap-6 items-center text-center text-[14px]">
+        <div className="flex flex-col gap-6 items-center justify-center text-center">
           <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
             {title}
           </h3>
-          <p className="text-[14px] leading-6 whitespace-pre-line">{text}</p>
+          <p className={`${testimonialTypeClasses(text)} whitespace-pre-line`}>
+            {text}
+          </p>
           <span className="text-(--blush) text-[14px]">{coupleName}</span>
         </div>
       </div>
