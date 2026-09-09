@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Beth_Ellen, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import JsonLd from "@/components/jsonLd";
+import { baseOpenGraph, siteConfig, siteUrl } from "@/lib/siteConfig";
+import { organizationGraph } from "@/lib/structuredData";
 
 const bethEllen = Beth_Ellen({
   variable: "--font-beth-ellen",
@@ -15,26 +18,25 @@ const libreBaskerville = Libre_Baskerville({
   weight: "400",
 });
 
-const libreBaskervilleBold = Libre_Baskerville({
-  variable: "--font-libre-baskerville-bold",
-  subsets: ["latin"],
-  weight: "700",
-});
-
-const libreBaskervilleItalic = Libre_Baskerville({
-  variable: "--font-libre-baskerville-italic",
-  subsets: ["latin"],
-  weight: "400",
-  style: "italic",
-});
-
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Whimsy Flower — Floral Design Studio",
+    default: siteConfig.title,
     template: "%s | Whimsy Flower",
   },
-  description:
-    "Whimsy Flower is a bespoke floral design studio creating composed, sculptural florals for weddings, private events, and brand experiences.",
+  description: siteConfig.description,
+  // "./" resolves against each page's own path, so every route gets a
+  // self-referencing canonical on the production host.
+  alternates: { canonical: "./" },
+  openGraph: {
+    ...baseOpenGraph,
+    images: [siteConfig.ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [siteConfig.ogImage.url],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -47,7 +49,9 @@ export default function RootLayout({
       <body
         className={`${bethEllen.variable} ${libreBaskerville.variable} antialiased`}
       >
+        <JsonLd data={organizationGraph()} />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );

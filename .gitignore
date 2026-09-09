@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# SEO audit screenshots (19MB of PNGs, regenerable)
+/docs/seo-audit/screenshots/
