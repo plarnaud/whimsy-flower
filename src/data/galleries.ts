@@ -182,7 +182,7 @@ export const galleries: GalleryMeta[] = [
       { name: "Green White", mainColor: "#DFDCCD", borderColor: "#63604E" },
     ],
     paletteText:
-      "A monochromatic green palette became an invitation to push beyond traditional greenery. We explored uncommon blooms and botanicals for their sculptural lines, unexpected textures, and sense of movement: Bells of Ireland for its fluid verticality, green amaranthus for timeless elegance, and Phylica pubescens for its extraordinary seeded texture.\n\nNatalia’s bridal bouquet became a floral sculpture in its own right, punctuated by two snake ball alliums dancing and intertwining through the blooms. Paired with deconstructed ceremony and sweetheart designs, the florals transformed the rustic setting into a lush, artful garden—balancing rustic charm with modern sensibility.",
+      "A monochromatic green palette became an invitation to push beyond traditional greenery. We explored uncommon blooms and botanicals for their sculptural lines, unexpected textures, and sense of movement: Bells of Ireland for its fluid verticality, green amaranthus for timeless elegance, and Phylica pubescens for its extraordinary seeded texture.\n\nNatalia’s bridal bouquet became a floral sculpture in its own right, punctuated by two snake ball alliums dancing and intertwining through the blooms. Paired with deconstructed ceremony and sweetheart designs, the florals transformed the rustic setting into a lush, artful garden, balancing rustic charm with modern sensibility.",
     flowers: [
       "Anthurium",
       "Bells of Ireland",
