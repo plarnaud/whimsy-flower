@@ -99,9 +99,9 @@ export async function POST(request: NextRequest) {
 
   if (!response.ok) {
     const errorText = await response.text().catch(() => "");
-    if (process.env.NODE_ENV !== "production") {
-      console.error("Resend error:", response.status, errorText);
-    }
+    // Server log only (visible in Vercel function logs); the visitor still
+    // sees the generic message below.
+    console.error("Resend error:", response.status, errorText);
     const errorMessage =
       process.env.NODE_ENV !== "production" && errorText
         ? `Resend error (${response.status}): ${errorText}`
