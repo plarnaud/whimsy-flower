@@ -17,9 +17,15 @@ export const metadata: Metadata = {
 };
 
 /* Every photo in a portfolio folder, with the chosen leads first. */
-function stackPhotos(folder: string, lead: string[]): StackPhoto[] {
+function stackPhotos(
+  folder: string,
+  lead: string[],
+  onlyLead = false,
+): StackPhoto[] {
   const alts = portfolioAlts[folder] ?? {};
-  const files = [...lead, ...Object.keys(alts).filter((f) => !lead.includes(f))];
+  const files = onlyLead
+    ? lead
+    : [...lead, ...Object.keys(alts).filter((f) => !lead.includes(f))];
   return files
     .filter((f) => alts[f])
     .map((f) => ({
@@ -48,7 +54,11 @@ export default function EventsPage() {
           title="Custom Engagements"
           text="A proposal deserves more than a bouquet. We create custom floral environments that turn a meaningful location into something extraordinary, thoughtfully designed around your story, your setting, and the moment you’re about to share."
           buttonLabel="Design My Proposal"
-          photos={stackPhotos("custom-engagement", ["Image-124.webp", "Image-10.webp", "Image-125.webp"])}
+          photos={stackPhotos(
+            "custom-engagement",
+            ["Image-124.webp", "Image-10.webp", "Image-125.webp", "Image-12.webp", "Image-16.webp", "Image-18.webp", "Image-19.webp", "Image-196.webp", "Image-24.webp"],
+            true,
+          )}
           colorScheme={ColorScheme.ROSE}
           reverse={true}
         />
