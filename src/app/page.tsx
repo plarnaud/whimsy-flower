@@ -132,7 +132,7 @@ function HeroSection({ images }: HeroSectionProps) {
 
         <div className="w-full h-full py-16 sm:py-24 px-6 flex flex-col justify-center items-center text-center ">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Wedding & event floral design studio in Hudson, New York
+            Wedding & Event Floral Design in the Hudson Valley
           </h1>
           <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive) ">
             Timeless Floral Artistry
@@ -140,11 +140,11 @@ function HeroSection({ images }: HeroSectionProps) {
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
             From our studio in Hudson, New York, we approach every project as
             an opportunity to create something entirely original. From intimate
-            weddings across the Hudson Valley and the Catskills to editorial
-            productions and brand experiences from Albany to Manhattan, our
-            work is driven by thoughtful composition, seasonal beauty, and the
-            belief that flowers can transform not only a space, but the way it
-            is remembered.
+            weddings across the Hudson Valley to editorial productions and
+            brand experiences from Albany to Manhattan, our work is driven by
+            thoughtful composition, seasonal beauty, and the belief that
+            flowers can transform not only a space, but the way it is
+            remembered.
           </span>
           <h3 className="uppercase">
             Where flowers become the most memorable part of the room
