@@ -56,6 +56,58 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAALM9GpN1xGAmYA/r0+LsODrvJrym2/VvmxiEU2vkgpADpXP1cPHH75bBBxjzAqc4JoD21rxg9JTAofm86nWBzxM/aN4XXklR0/Qeyx4qZQxJ40QtH8u7maPyEPAAA=",
   "/portfolio/brides-feature/27-julia-mcguire-exclusive-wedding-pennsylvania-new-york-cake-cutting-zai-laffitte-0625-0f16084a381f45878b00c2d96e1d9b78.webp":
     "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAHOAGoVHhakLYFYAPXOWKV0LOOaEm6oCFlH+I2t4tzqFYuKBPe2xNcfr9soI356FDnbxy1YXle1R4Nk6hpEBAckFD/6yhiaQ2HGOSoXAAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-115.webp":
+    "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAALTvXrq2yCAAD+zoC1WlYSc4yWBCk1iIcNrjai03eloxual9fhjnf3tfZCSKlXkcu/KeZU0o9/xFEmxmltRQF/V/XDw7be7qE/JKFKqzttfPwi/I7PMDvt4bAgAAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-118.webp":
+    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwAAXiKTe9MvaM6Lu7pYAP7jE5zO/ZL+NxDPArPA+CN1Ka/K32mnnix02hk4NIP3QmxT+ly0aeQqpPDTunpc742j3TfjUzGIRWlwZavNJQnJhFKnk5YosT2Gt++4GE0AAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-119.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBfnAYBZxpszkSIdAAD+zXbOxYaLT8gDwgrpieIg+P8hUapNudqRZsJQ1EtqGAdeLAT7zD0BpOCu7/76HPbPRGyh/j4IPF0oufGe7glRAY1EA22MsVSsqJmqC9AVhdntbANAAAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-120.webp":
+    "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYwAAW+y3UaDuTMQi4GlQAP7ozB38RqOe9CeEKV402wRwxSrDv+4vhzA8+9SNMlnHzlWUoksZnFM7OrGRqxlk1ZcAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-138.webp":
+    "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsABUB8JYgC7ADbqf7yhGgA/sAMJDt8jf9ALKDhVwWou09G1BJlEx2qO/ufyWvedbkKDtBrKqEUwGKzoXt2EE8ZqQxo1g5V1VqNYPQUsAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-140.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwAARqvR4+W7GW7mjAAA/nWA8PG2RBMDVq8uh3rCld42RNGFJ/W8OA5LyY6qU6C+tMFvvU+AMODDj1o3TVWVKCyOcdTHcbE6/KRqftlHy2VQ16HkrEVxTpZDx1Nu6uyWQAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-141.webp":
+    "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAAIZbMobIx/xCoAAPA9Fgf/rpjqfqR8Ja/1abbwpnH0UaR7TahA9c7vs1MulUU0qH89B6HqTib0DUqPWBxUnytcjaGgUTshZrdbmFvpI+QDg2Q4N5d+vtFAoAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-142.webp":
+    "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJYwC7ABoIRqqenHKOXzOYIAD+op5VKdorINQxCUAlxQlBzC9l/v8+23OYgyaOy998x/brzu8oH3RpF78OtJnGABFlCQ3tFlx0DsQprpduzZjNOSeJptOML5o0WW3acWK+SJa1ZiHdR88cb6YUg0EBXAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-144.webp":
+    "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAsABUB8JQAASuKcjWbsoAD+vJBLyw8+5vnUHrOT8+HUB/G9b7ycf0qLcH9BViP+q7aJbaIjhqIphIGrzPGTLP/jc+4WUAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-145.webp":
+    "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAQCdASoQAAsABUB8JQAASvAlQIAA/qa7DBA5liogZwXDaNoUdvnouBkYwwKOV9b2zLuGjmobqIqJa4aRRfLhz/ZsRE3T3CygAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-150.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwDCgCDTYVnsDjS7gAD+4vKo5UvFn3v7XSptnsZ/RAMfe1Q8V578Lb4UoyTd8M7lYdaAIk5eLEuihhS5LdTYsYKhndPZobrP66c9nGhk8X22XEJ+/I4e6/zV53gvzK+1AAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-152.webp":
+    "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBhQBC5DKW17Z6cjlX+AAP7jsiS1OuXZyao4ZCvIYV6WjTxhnGfW1xG7LTuQ0l/o234K7iM4I2BzAyTYtR6U9XqLqmytSMg072Ym9bMyot9Pm2oiAUDhq/Jt+QjpxWT0bsNFZgAAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-159.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQBOgAvZ/JpVYQSjF+jSAAP26EQt8KzhKoq6ynkvuWUkl5PAJIxVABQ5w2SJT98eRyv9Nk7nhyZxFwTRmGQcxZEmdc89KuU43elRSDZhtlStPI0uzKqXE8bkMfUANt48h9AAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-161.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBhQBFCZLkLNcYGA/wAA/ujbhzWtzwey3h7+UZDLxSkEBWfsxojqTEy0Ix+uYL2Kb16o43UFK53TfyQltrvFdFGiQZUIhSozVVTGFwVhA3dJnmsoQRJKBavkH/CTMyuAbVJPvBc3+fSgAAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-167.webp":
+    "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCsAYy8l7zG46lzMaskAPRK3rk+7AOf71giGP9ZZHbw+EE8y3fBCDnepfIwftxciiNZ6yMc/lvADA5/FmBJJdvViwS0YWe4t8F7MCaD8dEpojqOVdHMUVjxFfaU0wxqy3XhW29NLyRphWWWawUu5xEuE5DbygAAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-194.webp":
+    "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZAC7ACB2MeinMPlDf4AA/idur9AmpgYZBcHeFzTEbwyQjv16q/fgzlSI/XVaB8iLCPKjbnK0OEoxDw4tPSnASvEN9+67OImMfK3TFYr9Al9CknbJozUfsG86CAZZW1RWTgZ/FclpheQQyyvG2sFl2mJkmjK9KAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-240.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZAAAP/nE7r+vFUJK+ADxFhhmEAMMiMUcYtBx4MRg67i4khZdMque8tnCoYodFkfftxeGnniwf9+j4bQ6G7BQnPzBn68iNGQoD+tcb7OUHIKFfm15XZDHgysb8LhlchiXQAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-251.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBhQBBWGlyyCk3fAAAD+6Nsm/pKRhjJaS2A1kzyhrYbVVNKaMYlWL/SthojDACxqJDnf51j8228a1rbpDXZr1orG1UpMI9Bj5uMGq7PJfR6GeMBxu4PzS7JHzC4X+EodOyigAAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-252.webp":
+    "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoQAAsABUB8JZAAAcsO/vGMAP7p4GNwSvGvpfSw2mKb9HpuRfmBQyEQEyZSzal9u709E90RYcFrSqkdxxzyMrechvFcd6X572XgAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-260.webp":
+    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwAAWMJGeZrrEJ6Zl9AA/ujbhPaa8Qf5exJDzEPDiHBqd8nhIvSn8b42JLMuwvkUxzFG+wBse2m2qx/26OjGrR6ayb5Cxf2p3Cw113vvAOc+VscterxPHr40Djyq/dXDaqv7WRMwODbyULLr86Yg7vYAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-268.webp":
+    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwC7ACHHxbNR/4uzgAD+6MjIKYXAPhvSU1DJpUlIS3b0o1+SSRz7Idpxi5ftm1nzHpFNt+Ulbjlb9guRr/zb6y+e0xdNpzvNnE7FfWK6bEJoEuDIOo74WKgAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-277.webp":
+    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZQAASrfL84ijlsl5kVQAAP6McHrABmFEVxUGExFjL83oa9qBeYbgDiRRM1O91rdV3sJcLqgvmiG+mslKTGkIP2/Znsqa79QhkrIYU1VV4OCPLe9jffNkRDQJSv2zkSJNmMan0fm7u4IH68KUFniQEnIAAA==",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-326.webp":
+    "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABwBACdASoQABgAPzmEuVOvKKWisAgB4CcJYgCw7CL4jT+bn2Hxp3bXodayXAD+0Bvu+Tl79SBJqYoc5cZmJNRivDlx/KU+7QxqP7/Lmk+2XdurC79Nn3DHS6/z8R091YDMPexxs01wtK9+3HnehpJyfVMxPxf0HbfxIe0TZYUsN9FjPFvJK9MEm4bjziyGmatNLAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-330.webp":
+    "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgC06CLwFs5CEGfFshvAAP6fLQBDJZocp4ZGMlp5KICZ9xLjwADm64zdYlPAV6tDHazBGVLRzoh1YoDexwJdVtvNvD3kQpkApKopaBi9bCNbyIXqwAAA",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-333.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwDCgBxKyesFDdqSwf4croYAAP7Q1hQ5Tm4eKQTuRlfYP8rNAXsnVZ5B11o8GP7tVhdCceSbSzlmlMenXZGvjEervdpFnMyTPFStR3Aq2o6trTBwINkAg8ap5UwOSyle3okAAAA=",
+  "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-406.webp":
+    "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwAAXKo/z+5NYmaAn5c6gADxqaojmobEhB2To0BxvOsru9HQdwjDk+B18Icpfb+d9tID3qhnZbbO41sn8AgPr59YOXYAxpjCdVtz8mhrTF6AiIEPo2e4h/sVRtoEL3XBFW0RVl1X1wn2SiaigAAA",
   "/portfolio/custom-engagement/Image-10.webp":
     "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCsAywAIxshFPVQAMVCg9pR9fND/uJCQG1ojN8PVrgUfRyjASX5KbQRdAjYSeLfhKmQIM6tjADo3k/qLVLxnC5nF+v3q1kuzPZFmeq7TqmCV+1xAAAA",
   "/portfolio/custom-engagement/Image-11.webp":
@@ -140,6 +192,68 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJbACdMoACRt6bWyCOGhoegAD+v/EB/EWSp90DIYTLwGOVuKHKJmT4zEesklnvYxXJBKzMlucX9QLZ3ENUw98WfZdABx7snmdZcqWaxeV7gchV2rUZN7iOSvYt/OUhkcAAAA==",
   "/portfolio/custom-engagement/whimsy-5.webp":
     "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoQABgAPzmIuVQvKSWjMAgB4CcJQAALdwQx+S5okkyLlYyqCAD+5xPBIlF3xNoNxQo2icqygjuT3ObrknOi3D33Exe1Kxknc2Zv0c2SxxUwVa3rVpcyFw/in48hl8SZBrHBMKvLW0WWOgt1VYAAAA==",
+  "/portfolio/dan-sabrina/IMG_1065.webp":
+    "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZQAALPHcjMe/Bw9qDQAA9x7mUdW8WxU2Wug4b94iPDacJQW9kn2/Tb+ETVLfUlxZBuxQpytEyjnLuaQAAA==",
+  "/portfolio/dan-sabrina/IMG_1341.webp":
+    "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAwCdASoQABgAPzmGulQvKSWjMAgB4CcJYwCzgAplw+XvyAByQuHVY+Ha1Z+ZJjtBf1fQVSw/ylPwXEbRw+X3NEX/euAXH/y29Ida0ocCgAAA",
+  "/portfolio/dan-sabrina/IMG_1372.webp":
+    "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYwAAW+fsMJUSHm4F0EAA/tQatuWGpshqKMYdBpgcTsznYYywXkdb53PkAZ/3mmotV04Wctl8kVqfcrTOJTaUj+7dgJLFPKJDgAAA",
+  "/portfolio/dan-sabrina/PXL_20250427_185557141.NIGHT.webp":
+    "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoQABUAPzmEuVOvKKWisAgB4CcJQBOmUAzgAb4/9YCDy2FXAAD3QyBiWczdVBpV25+jxJdwe4NPOnitY2Ko4MbtNBOu998tRREXctE04GNGeO7vhvEVikA/3993z/pwoU4iwAAA",
+  "/portfolio/dan-sabrina/WuWedding-156.webp":
+    "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAsABUB8JZQCw7CRcHm4AN+2wEL7RhZE6c0ooCps+Ui+L+ZrVvoD2JKHJyhm+oN1zHf/SI/oycAA",
+  "/portfolio/dan-sabrina/WuWedding-178.webp":
+    "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAsABUB8JZwAAusitgAA/sURjn78nYFdNnBDvsbN8UZUhwAAAA==",
+  "/portfolio/dan-sabrina/WuWedding-179.webp":
+    "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABwAQCdASoQAAsABUB8JQAAXAMIAAD+sP5KGzrp3D8ZJGAR6eiWgnmAa2iAb2TmHgRRYzypt94BWAAA",
+  "/portfolio/dan-sabrina/WuWedding-183.webp":
+    "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAQCdASoQAAsABUB8JQBWABKY8xgA+UsTiiffR6wAFtd5138A4AgIQB89Wdp00vISRb3uQyaV7YVz0N+/XAAA",
+  "/portfolio/dan-sabrina/WuWedding-345.webp":
+    "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAQCdASoQAAsABUB8JQBdgCC02MAA/o+1sdFa4L2jrNbqMbJbl05nQJ/ZN4qV2Td8Uml+sqk9WfUW08jlctMUS8zTlC1aDgAAAA==",
+  "/portfolio/dan-sabrina/WuWedding-356.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwDCgCHh0yzafOJ6LDnaoNNAAP7De6aTufxzCVGXo4ESE7ivO0IjktW3lKJcWT3QKfJ8VNSuyU00cq4+BxRErOqo2PZPf3SKY3JA7zh6WKNoWkShlQpBwAA=",
+  "/portfolio/dan-sabrina/WuWedding-360.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZQDCgBtmE5DKFbf9l3IQAAD94lUi8pTsbVHn2kn4zxUVVffznWuetJoZZy2vkec595M+QGVU4THuVUFVQBIdsT2ScsXB/K/KZSjmD5SNCO7EejopLPDQAAA=",
+  "/portfolio/dan-sabrina/WuWedding-380.webp":
+    "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABwAQCdASoQAAsABUB8JZwAAoRIqAD+3wAQ2qbkY5FPk1m2d14Mor1Glu+HcJVUZqR3qCBzjE8gWzmItpEYBgIAAAA=",
+  "/portfolio/dan-sabrina/WuWedding-546.webp":
+    "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoQAAsABUB8JQBdgCGu+KoBAAD81GnUozyCdBFePNp4fiGh/4JHO5vozmc3hEWDr0yAAA==",
+  "/portfolio/dan-sabrina/WuWedding-6.webp":
+    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZQAAXGU9Zy2jC/QcvfF/AAD+30DzPAXOuEY3IIwG2AKW6xMjs1ZeX9XEfXZu8j5HK5s00J1+lTGn6ePJS85UKpijE8hlYMtHBsmpjlRLfN8GFaOsHp6hsS8AAA==",
+  "/portfolio/erica-alex/GlebFreemanPhotography-103.webp":
+    "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJZQDA3Yt81f87MfcEhjNc7KAAzG94j2kZn0NI10Q6nwKRi3v1RjbQGP+Lmp104jWitmERdyY46AdCG1wRrl1mA3KZQArM0X9BjEAA",
+  "/portfolio/erica-alex/GlebFreemanPhotography-104.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYwCsACHClhjtVjeN2AD17lIPVJBspV+0xH4D1c3b1T0PJvu2lX81Fq20PHkAWC/SpG1vOFpa+9jVxRI/u1fH3RDVAku44GtxICpAAAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-105.webp":
+    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABgAPzmIulQvKSWjMAgB4CcJZQAAQcucinnHc+gJAAD+RiKlt1JwNC11FimQ805kyuwZMOHbVzUyx5oup9zquU6oPGUSt5XystYFlOQfuK++KYsR4iCy5HPFlt9ydoDOmvFAAAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-107.webp":
+    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJZgC7AAiLNNv/EMgA93ZRPpeHhANCDDMgvBdIMtwr9PewwZzWdyq5i6XYs6x8WIDYc0JNPLcaSY+Ekzjr+JoKVlMWWs7a/P93t2ucn2NjQaCcJWh7R5JfDnQAAA==",
+  "/portfolio/erica-alex/GlebFreemanPhotography-108.webp":
+    "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJZQAAHhLQm9qYAPzcGMhPEJx48Ql6FV/pukbCLXAg5bCCqpuAF+2cvH7UrNe6rsSJNJqArKRwkm7JD8q45Q5sJGQnpetfp2GT4p1Ikb6BiDIMJjSaBd53JH5gegAA",
+  "/portfolio/erica-alex/GlebFreemanPhotography-112.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBYdgxeP3TFGVioXx/gA/NvQykDdOwAhX+v5PSF3EMIw1Z6vlmKfx/MixxAnnp6DOJk+b7xYVOTX6fxRC4jPHc5dY4Ix7pbK2BnitTu6FQJ83aiYTLE+AAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-117.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwCsABkLYTmavegAAPZNsE/YFIwQ27mYhzpWqa/vYBzFfwggJB1k3UZmoN6tN2KZ0ihaWN9xnKX+3A8BBDtRVcCB00WHCLkf8y9AAAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-119.webp":
+    "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwC06CPjgsUTECAAAP5ZPGZdrKTkTkF8csUYwMo1zIqp65bBLB/JJKxIuSI+9b0CLWlv4nPuofqXXiY0blNZJMl+H9OFAAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-120.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABgAPzmGulQvKSWjMAgB4CcJYgCdAB47wB3XGcdgSSAA+nDz78VeBtTGMb7POoat348uyRWMGfdl/+c/8F7n9DSSjLm0aQmyKymKzzMHvsYmem5dPv4Lc0yeyQnWWSPGyxKEEugkio8IAAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-128.webp":
+    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJZQAAW+PTnTvmg2HhjgtbOAD+rnh0jQbK11cfgTMzqOzhqcda4NEa7+gqLNUV7Jl6ks7KVQyNVyVxyueLdpYLWgtF+4Ouq//CbHM4Z3rfJxfzrQqYskyJ1qSGptZHb/SAAA==",
+  "/portfolio/erica-alex/GlebFreemanPhotography-13.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJQBWAAqDYI/Xu5GPjqxqQAAD+APg3hGx7Wpba7ZmiCLbtLsaKwiN1CDuTrPryc9yLj5+nvpXq6TnqxvXmINPSm5mvaeSM/5QyP3tkeOH+yIInnRF9VipPaw2VmACmhd0qKAAA",
+  "/portfolio/erica-alex/GlebFreemanPhotography-25.webp":
+    "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJZQDKACLtV4uPkeAjMgAA/uc5moYkIDUPcPhjtJbaQn/dLg/Sffc/aB2hvVFB/Cb5vEltms9eF82cTHMSAAAA",
+  "/portfolio/erica-alex/GlebFreemanPhotography-37.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBYdhFVcEAsNyiSMxnPQAP4Y7oSVYDQM/Gwp8l+K1xZSlIh0p9ZHQm71PbKV78bevCkP1c6LXwJ1XAfiK63NdfOq//Cts1chIGKACZlhlr2frmN37fSyguD8QwD3ue8hREq38AA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-40.webp":
+    "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAwCdASoQABgAPzmGulQvKSWjMAgB4CcJZQCdACG1ZzfYH+wuCKTgAPwmfGz4YXuTLcdjRQ07py+vdVNAtHdJ5EA1ffhirYe7eDHna9nKn/pT+mn/ojNxFuDWbUPCObc8q0gQmBHT/qMTzcDYQcwzibpcw1YOQHq9vraSCDqmAA==",
+  "/portfolio/erica-alex/GlebFreemanPhotography-56.webp":
+    "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZwAAW4Dkn/z4YxUgAP7DUTvlCJnewS8UFjhJpIzo8yjPxsuKibMuBIZRHpNa6C+WOEc0iMVmEzMRJbs8qi4R+z8xH8v0ljR2lMMj2i63FgAA",
+  "/portfolio/erica-alex/GlebFreemanPhotography-58.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJQBdgA+49nkzeVbMT71yRyAD+28qkgm1va6OYLzI80UVqjmOi008gMGWXKhZ/5wi2L2KNNWeEhgBp53opPc2L6FkPVh+3Wm12M1YC/MLxj5v80fZwsewsMnDJDKMf5eCz44Y5AAA=",
+  "/portfolio/erica-alex/GlebFreemanPhotography-78.webp":
+    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwCdAB9RX/P5woOGaVWpoAD+qGXcV2BY1+VeFxfXqJzmJbG/9JeG1rn4jY9oF9YiMvALZHfBKRNnbf+AlA/BG5uHy2E8KUz6kdVZe7gmKuaBB7EZ9cmsIjilZJqeH5REAA==",
   "/portfolio/flower-bar/Image-10.webp":
     "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJbACdMoAC/rxj2x3TYAD+4Gw3D5QR7ml6zjBRoMBEcAxauG//4VVnrBmbqhEzkzqzrOksDNoN64gfkwxxyccHcIqF27wKIgdUxa4iKhAAAA==",
   "/portfolio/flower-bar/Image-11.webp":
@@ -152,6 +266,92 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAsABUB8JbACdADbBCXMAAD7G1kZx2RiEscE3yBWJa/Vz1demnLf3vYnF+Q7J+Ez51pLrfGJP3dlQQAAAA==",
   "/portfolio/flower-bar/Image-9.webp":
     "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYgC06B6M4QePPWY7Qx47XAD+aIZBV1t6d4X3XHKL/LciaDwyhkPj6ZvpHnJ/k0OE0X34Y/9v9T+SNvOwu6bwaAZ0GQCVeuxyvegm58Qe34Be7XI7BHcTO7pKEfk/E4DQAA==",
+  "/portfolio/julia-matt/Julia_Matt-046.webp":
+    "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoQABgAPzmGuVOvKSWisAgB4CcJbACsAB4UE4i3ZippYk6FSZgA/udApBCqF/Iruu9cLA85L6/2lRbpxujXiQOuIFXW7a1FNcdvpGfrORGLJJtsW1c832PXYyEZlzfIIEAAAA==",
+  "/portfolio/julia-matt/Julia_Matt-057.webp":
+    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJagC2yCHfYVFqbvzEbY54kAD+3oNXQHcLH6Z1ApJu5pzlDPF6zuNQ0XicvPP23qswB/QybQTVNN7ExS73GA6pa5JR0d2u5z7+p11H+FB21gzblAAAAA==",
+  "/portfolio/julia-matt/Julia_Matt-076.webp":
+    "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQAAKX5rv7KHOsK1yfAD84U8PrU25elXmkmGXuEA+Cn+kgFDITg74f+U1aAAjGRuRWHmitaVA8bMvAiWP4j4QqJ/mf7FwiIgAAA==",
+  "/portfolio/julia-matt/Julia_Matt-155.webp":
+    "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJZgCsAywTngaXcoc1uBKiAP7ft4GaTUPoRAlz534ufwYhgUQA68EXJ29UUQboH+ovWr4+uta0vqkPwu7TsGVvkXajfCfi3aLf0MjJU1x/OYTAIk9NgqTQANNdmUYROWn+l6uP/YDb5a4A",
+  "/portfolio/julia-matt/Julia_Matt-160.webp":
+    "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAQCdASoQAAsABUB8JQBOgAv8HYAA+UB244WhHmbQxuesbPNB9JlboQZdeSvzJoZi8DCo4IcgYbHh5Q+78hwE36bGfMC5EcwnfgF3phR09AAA",
+  "/portfolio/julia-matt/Julia_Matt-180.webp":
+    "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJQAALjuJT8tM8YREPe9p7tcAA/rCgrxzHdMmjWBdHJWR/K6PGmFUCaQuK3CIQSHH57JEPmmiq0HT4+jjTeR5advyf5X3Ju4m++vpMqujyaJtKbc7WucSNxwb4BSKoLB6T2OIPPorgAA==",
+  "/portfolio/julia-matt/Julia_Matt-215.webp":
+    "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgAAGdysU4Yo4eAA/ucjQGkez8rPEchZpOkDgqEFeHtl3f8w9e8n6wC+nsGancWMe776pNYUiPyopnzvcIb11xJsfI7H8IDBgPPhWFtvWUr+jJ7XemjAJBxMtc64AAA=",
+  "/portfolio/julia-matt/Julia_Matt-217.webp":
+    "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAAJ20ibOyEhgAD+umlc+01y7tkwe6+RHlItdkIfdd/ki34PP89PDmWargEGhHhTFTSEJAdyEZhgAAA=",
+  "/portfolio/julia-matt/Julia_Matt-218.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJagC06BeIROuPhmdp1s5RgAD+ou5ZgJGzm0/q4nNcM3m0PXFjd418uuVCKsQ2UVhltoe63PZFTRysZi2LhOJHUV+MwZ6ajhoZpS0uTrZnQ3eeJTsLOhfy+tDCJ8t/GRULFv4YZZCasT/s4gA=",
+  "/portfolio/julia-matt/Julia_Matt-219.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJbACdAAeqnzDW/Gz74ADgNR8kwWuJMQBmTBhPf5tMA+IV3+ls5ynFyS6C4tli4ubwcY9npwgrJK99utOq90PybbMknwCIZa27H3LyLsf8y9s/n7Q5ZSSUvMPIqx0tnP76rHXIaDDN4qJYAAA=",
+  "/portfolio/julia-matt/Julia_Matt-220.webp":
+    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZgCsABDGcz5YDdZg96bgwAD+GZEFPQrvKgwHduJf3aHU99f1Eso29WRcEA2d0FlsWmWbj879YQjDV4XsxcK4cCKzZSltkV7kb5hDbahpGCEzDjnj4XgtdQi2P7g4bvTCrRV+AA49MFBWxYjCrolg734AAA==",
+  "/portfolio/julia-matt/Julia_Matt-278.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZAAAO2cSty1k8Uvx44AA8QDNXNbqCxlfsFlPQbFm9Bw+bBvhjhPw/LcOCXlREuFWRv11k81Mkl9ycmeMEzsH4eHacwHCanqYv3Y9Nkr8C6klZz+0bE1BFTLdY2MdflQmsWWcIb16nMv5wAA=",
+  "/portfolio/julia-matt/Julia_Matt-280.webp":
+    "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsABUB8JQAAVD0ktXI9CuAA/pojAG9rKiHKrIv5G7NJVOW/bzuMpMG7UnVh8/UiNq4nKZzE/js/PTPAAA==",
+  "/portfolio/julia-matt/Julia_Matt-281.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQAAKVvscsLJFl/keB1rAAP7hcCxHjJB70rA6DiYtpYdkbhpt01iJcvOdksI0gFo5xC32H9RQaXxomzch6zxdDQWMU1YlFAsyLZxQAAA=",
+  "/portfolio/julia-matt/Julia_Matt-297.webp":
+    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZAC06BLctQAxcpMmAAD+01xQIvEtHinFAWyq6E6LjQPcXS25Y2cRsiYQiqjrWaoaB4L0CngGj4UQqx6f21KObzzcnE1cSiohOZvMfmrOvTlgAAA=",
+  "/portfolio/julia-matt/Julia_Matt-307.webp":
+    "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAsABUB8JZAC7AEDYHe9YAD+qfRGBeWB2Zg8WKl2rNNoeYyVCdVIQtV4xiOhfqEpnCktB0dSlRPKXYrF5xwAAAA=",
+  "/portfolio/julia-matt/Julia_Matt-310.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJaACo9BxHG1Tae6NZHPHFQADNmrgieoql6fqUNYbQtPDdAC2vkuIT4N/BQSIc6VGQSI9wfocS6R2GEYhGVFir9JHYXWx41qR5186yQLxleE2qtjZksvIvE1fJpAFBVPjtfpul1GcSMDS5oAA=",
+  "/portfolio/julia-matt/Julia_Matt-313.webp":
+    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZgC7AAsQ92K8pTd+NlAAzaD+iZyTVUa7AHoaQITN8S/4+IHAaHdhyFcDlHOzKIPtsDw7+MJmGdymJKue+7QpXdfEp879XQwPp1EhHCk2AJY8RLyj9cBHgzDAAA==",
+  "/portfolio/julia-matt/Julia_Matt-315.webp":
+    "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoQAAsABUB8JYgC7AC7YQAA/rw5vK4ZqG8PMQAU0SVpU9jB9rg+xuRfszfX5iRfapHRKUKCWI6HNbxtSu0uUVkuSAA=",
+  "/portfolio/julia-matt/Julia_Matt-318.webp":
+    "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsABUB8JYgAAi+a/YcuMwQA/jLesLIJBNtEIx/zux3DkeuOqmiNcpp27i8OTMj+JyelRmu6DLLssYOpn+shRWQAAA==",
+  "/portfolio/julia-matt/Julia_Matt-336.webp":
+    "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoQAAsABUB8JQBYdhUX0vIAAP7HdyGLxj9vzJ+78Xmp8fVjE+o44+IijHojnGF+1myVlJ0tnR6n9A7Fl23ua+GYvik8y89F+/29NS9r4DFAwQAA",
+  "/portfolio/julia-matt/Julia_Matt-398.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwDE2B9Sx5Zd5BslGfzoAAD8jj0o6Mp+H6EOxs57w2MxYKFq4v3vr0U7RdC2meCBQQgsDVSEXEYXycv9xbPpKsNSUKfsvhRxvQb3AAA=",
+  "/portfolio/julia-matt/Julia_Matt-417.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZACdMoACrHQPiBgUCIiL1/GAAP51f7iMtf+BLdaYtcitMlc+NnE/2XUxCVQVMgMXKI8b0FKZUgiGiuy7qEvC7/drtXTN5OjwkIvYPVK3uSJCMoyZLWLU4Aju4zgrOqpQFLAA",
+  "/portfolio/julia-matt/Julia_Matt-418.webp":
+    "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoQABgAPzmGuVOvKSWisAgB4CcJZgCdABjt1ARfP0WKXG1XccAA/av0q32ql00HtvOpFwokcsGDAnQi0yHG/SiefBP17Y+uxvXBdRKGJ0qa/neydhciWGn7wWiSr3vQTg0ZFTp+YAX2BRYu+7phcC41aAGpF2q6pBK6kpGgAAA=",
+  "/portfolio/julia-matt/Julia_Matt-419.webp":
+    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCdACIcmK4U9P73HrQA/svEY/BeX2i5f/FgiBImj+GxB76HAdIfRFDI9ArnVvqgW1g+tnhu0rX2A5jId0cYuIwt4GTapq4GwMKjmRBg39zuOrWiNdzvJ54wvz0Cr0taHR6It4ig+gGMz8phQjfuycAAAA==",
+  "/portfolio/julia-matt/Julia_Matt-420.webp":
+    "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZgCdMoGv/gPHGXPb+LtyvANbYDQA/s1MjPxuIU5DDezZKodLMyy4xK6+kOduZ+Nvrkm3h9sAQsbs7gOjUfvY10fB5Ka3jB44UalEGpVrT6QrcG1nhiX0V5xLFbgdYN6PfS+jtxmnq0W2OX3V8hlCAbvT5RQAAAA=",
+  "/portfolio/julia-matt/Julia_Matt-422.webp":
+    "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJagCdMoADg/uk1aBz9BqU+uAA/tpRlIqEbNovs8yo55wsRImpxa6IuJidV5PLaPd/VqVGq/ju9AIrXovtmyq31wG/KHqq8mGKcRz28VNFBjVK7ndyG/QznpdoqO1ToV86UCzdnSuBQwM1x1UMKw4AAAA=",
+  "/portfolio/julia-matt/Julia_Matt-423.webp":
+    "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACwAwCdASoQABgAPzmGuVOvKKWisAgB4CcJQAALSOiDUabPXQK8AAD+2dFJUboDit/b34kt9iYqyCYj/FScUtwNw93SInLVwcePtO3D6nsNr6oha6glVLnisL8+SAXPRb5S6jPUjpZQjWA7kvXmEJkjJdwJ9XaLUcEoMM2dLtrsc0AA",
+  "/portfolio/julia-matt/Julia_Matt-426.webp":
+    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZACdABZSi7IvVE4lGg/0AAD+y/6YGyP4OwmP+NQzo+6axOWqzK1LuC21dupQRkyAPEfYJQa+aVbiOfv7R0T7HuD5XZs18EOWUqxnMn5ShtIuK1UxVg3o8uT64eXeQmnfw/oYbTeKWHB0M2lgqqnxZgZAAA==",
+  "/portfolio/julia-matt/Julia_Matt-428.webp":
+    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQBOmUABp1l61/fIYy9KsAP7i7FQmKqXKKh2T0u4SmJ9uW0En7ipcQwD1DVX8Fk8vb642QaFnfVyN/pUp8dDyK3anm1ggma/c+ZFNMYH7HFczg/4GZT8zqjKcuNWEaUAAAA==",
+  "/portfolio/julia-matt/Julia_Matt-429.webp":
+    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZACdMoADTEEVVFl7kgAA/uMPyQlmMS66L+jsH51SdVkSvfnVSiMsOe6epZuxlIoHx5JeyX8B5oPeirRn5UMns1/DuewgMqY06/RSCHT1ORxAqMnLQecuOv15FN4EYNC6wORE3AA=",
+  "/portfolio/julia-matt/Julia_Matt-430.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoQABgAPzmKulQvKaWjMAgB4CcJaACdMoR3ACkPzXuHEmLI0SZvAAD+5Y10fjCT/TBQndni0mvVqL+hYzzW4W+GFqqPIp+C6RIjpbsHPN68ef1VBtBw9POH0Rqb508I3UBST3qlybGai/GDz0eMhdvr2TA8UWwA",
+  "/portfolio/julia-matt/Julia_Matt-436.webp":
+    "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCdABBeBpJXKcyGcAD4/ZkFT91PK1qUvmoVjZ+aV/b8UxxpdQAPj58uadO0alYoEfC3sUe3RcByZZJA3ramjsCy22kIyllxTw+pT2+pq69AMTtXerFP75aIqConYJHAyxK5SBZUoAAA",
+  "/portfolio/julia-matt/Julia_Matt-438.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZgCdABn3fohcWl2Vu4ytRgD+5B/fpuFwlfyt+RmEp41wWWILly4KMA2LegG/J3icWkpwJdp4I6Yo9l3ErLwGShco3PIekVSe93RUzzPcCAfG7WGpUnukAAA=",
+  "/portfolio/julia-matt/Julia_Matt-443.webp":
+    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJaACdMoAB3hqYld367BaAmAD83DKWXApissFxbfASTBB/vBrug6MVpCwtESYiMdiUx1ZeZ8X3p+VbVdbkANS89meM4DLUb84hVQ6zr0q+iK/gAAA=",
+  "/portfolio/julia-matt/Julia_Matt-444.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJbACdMoADZYzh7Q2qtAYuPnlAAP7E5N62iDrVAmIMJFRQewPwnkTk6fN4blc9sCZ5xbkAwI0XQJaf4TItGbcbPKWszYljZtnHLBgkk3qhaG2yq1LPQGvsJntNt2DlJ/RU4AAA",
+  "/portfolio/julia-matt/Julia_Matt-447.webp":
+    "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJaACdMoACalCNkPk5rggAAP6e/cfk1MIhsmAQ6GPK6oLvCgQIEUR7L0vbGoD0NM+c2Ti/DjadAQi7WJuFPqbLitvsT/t1vds4gFpo8xzePokH7qA/TPEuf2i1iEbyNLNPSQc4Qg7MmHMGxIxPhwAA",
+  "/portfolio/julia-matt/Julia_Matt-450.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZACdG1/AQ6Wd6Y92luCSgZBupAAA/tlYSQ2G5YvLSSfGuCjUSmtyVZzylpGFwW5HZqIxA+N9FbsLCVcRsXKKZVgexJXEz+e9iTP0xmLv+aH/dF26B+Z/UeN0Dn7FvCxOAAAA",
+  "/portfolio/julia-matt/Julia_Matthew_Highlight-12.webp":
+    "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJagCdMoADS822j4gRMYyVAAD+UvWqgCMScnJS0O161FForL8OKUAfU+CslXqIl6DTFzbTVqu1bN7szAra9I3zdbLVR2HEv0njTcgJhiA5yN7mZX5i8KwOAAA=",
+  "/portfolio/julia-matt/Julia_Matthew_Highlight-17.webp":
+    "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZgAAYcPzAPHKlvjEccrAAP5VIE2/E0JRkgRA2x4urdZDa19oZQHXWYddgf/esdLDhoqID/NtBGqJSWNrmHpKS1pSvb6u/egAAA==",
+  "/portfolio/julia-matt/Julia_Matthew_Highlight-19.webp":
+    "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgC/OBrVuArK1xo1gAD+jTJzPCGMbdleKrcFCPwdlL3bZ3ac82yZYLpwux5igbdy1Lldq8WMdI2TmyOW9QU4AI2Q2xNW29wuFkHniXOOXQZTOOTRAAAA",
+  "/portfolio/julia-matt/Julia_Matthew_Highlight-27.webp":
+    "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBhQAug12LV5qUBq69VwAP7fFhkgKHEv1d404riOUMHXrensVMu+UFWvJCZAhlLYxNOsmhi6v+PQvPEqF5/XrQfgRzkMRtrbIwzIWYKWF+15s4iGNQav1F2Tdh/R6EvxTwq+vUjSjwAA",
+  "/portfolio/julia-matt/Julia_Matthew_Highlight-30.webp":
+    "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAsABUB8JYwAAux9znATUwAA/t/xOHHBwYrYMC/2tKHVi8tTPmoleWrNP6hVMJFBM5/aTDfDw9KdDXQOhogUFnotNIBsmHgfF1g0Ks8vjnLrAAA=",
   "/portfolio/lindsey-fin/L+FWeddingGallery-100.webp":
     "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJbACuI2pQR7Ue1EYh0IzL/AAA/q+OcWEQBxzsqp3+Tv2kaKaya0yRG2kV+hEl4p4HeXmf0TY5yxIOqCsveXDkrnbUYmEbEIdVTLhXh8sxVu4sHSOU5iltpCFDzzCaMgwKiAAA",
   "/portfolio/lindsey-fin/L+FWeddingGallery-101.webp":
@@ -366,6 +566,48 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACQAwCdASoQABQAPzmGuVOvKSWisAgB4CcJYwCw7BH2c5PVG2jAAP6XTkg2P7b1NBwES4VHYrOm3JzTyUER+UslBNWda8ClyVZC6A9ZxRhKqXOqGU/443EAAAA=",
   "/portfolio/sail-to-sable/IMG_8066.webp":
     "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABQAPzmEuVOvKKWisAgB4CcJaACdMoAC5Ct+XJd7a39f4HAA/tlO0XqaFh1obcq08UEEI6JrBIQ59rg5ljyLqDx32zPD08SjYP+CD5EYtXLfu1MOjydsTZGeM/7ydId4BAZlMjEC89EaBRGU3mCiRBrAAA==",
+  "/portfolio/sarah-dan/SarahandDan-107.webp":
+    "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwBACdASoQABgAPzmEuVOvKKWisAgB4CcJQBWGUDX/wHmzK77auu7Gn35KHAD+NDA0nNh2ttLefaQ3QBfQ9fIzXULmAIWsCIFDZ2xbGR82swpZprs4myWXrJX2Ud/42fhwjtUmo4xjJ7gEyGs5FImD2nFCZ4GEPEsU2MaiESFTNI1PymvgAA==",
+  "/portfolio/sarah-dan/SarahandDan-204.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwAAV5AQwYCz5MqaAAD+zQX+ZnRRK8E9UPeFaQvp080XmlJCvO9aImjZExxj1nSQWbqm0+LIcoMvPGSP1qmpWaudwQ6D8J0KX8IAAAA=",
+  "/portfolio/sarah-dan/SarahandDan-205.webp":
+    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYwAAWpm74p5O3wobdAAA+OMXKgJAAfaQPjyiaaRnHttqgGqOWIncqsOR2fRP+cxPBp29uXMW4/T4Pu5xt2XefQ6Fc+/kElA9kktCgAA=",
+  "/portfolio/sarah-dan/SarahandDan-26.webp":
+    "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwC7AYwwtI19WDKW3qAciQAA/ozq0ZiCMiQKScEAQS+8E5BguDeBgEX8Xz33K9s8sPv2BRzjsGUFy4h6AJ+MyK/W0zzISpKDhw0W9navOi3tGukU9tZu+x2hcgSKKM9FSsgA",
+  "/portfolio/sarah-dan/SarahandDan-27.webp":
+    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoQABgAPzmGuVOvKSWisAgB4CcJYwDG9CKKvLjw1oIEhIUSumAA/HhuYTZuBL5Xhica6hoQefZoqto5d33FgC6oxrRVQ0yC+unzIWFSMYBKwWXVIOP0JarsS8Aiejdcx4Js2rt+gAA=",
+  "/portfolio/sarah-dan/SarahandDan-283.webp":
+    "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAsABUB8JQAAXPB7Lbp3oAD331M93uSGoGSktbKlpUMIZilMr+yWoykp7kHZDuYaRxupyt4FQAAA",
+  "/portfolio/sarah-dan/SarahandDan-290.webp":
+    "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoQABgAPzmGu1QvKSYjMAgB4CcJYwDG9CHe0ABuIQcQAAD+rpUqLkB4xLSchCRfsZlCNe42TlnTh/XVo91mS3Sksw6zzeupfLKwOqiopbk2ZC+AAAA=",
+  "/portfolio/sarah-dan/SarahandDan-344.webp":
+    "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAsABUB8JZACdAB40I6agADhgLZhEqBhBq+G4d9jgeIglIXA1H4GRymvCxKusGMiL0yMbDapq/m4qXAAAA==",
+  "/portfolio/sarah-dan/SarahandDan-346.webp":
+    "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsABUB8JQBOgBb4jSd72YAA/okQcTDSO5B/9+zr7v/zNK5E5vneyAIuQH16vxlL1AuJD7X2VKBnLgAAAA==",
+  "/portfolio/sarah-dan/SarahandDan-348.webp":
+    "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZVe6YAxz8y53cvF9rGAA/s/v/ZXDfbzMlOAcK7UzYxc1sT0MLg72VT65Z5SSw6tvONVXEB9pvhrI1BcpqrIl8aCvE7YS/uqVFZ+ETBTW/gn1B6LfZjB1JtmPxgAA",
+  "/portfolio/sarah-dan/SarahandDan-352.webp":
+    "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYwC+SBdXUo3Og6UBxsAA/duamGUYEiq3n15oFTMmgzPlg2sP3z5JjT9PXfXTZ2WmEV4LOzbAON6PesERmPdIBzHf5DkAAAA=",
+  "/portfolio/sarah-dan/SarahandDan-357.webp":
+    "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAsABUB8JQBOgB9HbQkAAP7T6A0tXKCX/TN6+ufsDvh921AlaPfCIObwQybBq9rYS6X69fFZ66WpEa6sbwAA",
+  "/portfolio/sarah-dan/SarahandDan-367.webp":
+    "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBadA6OqbNOkeLNbAAD8tAWRHEZouRZcGW7hFyW6vmUXDYDazKglCNyyuCxmQJHQnJ3dPN4gk31gG/POvl3Pzc3dNWuEb6+5dCCzFoMqd8F5EXMA6CokbtcCJbQgMqftMf4LnmH28eOHmrSgAA==",
+  "/portfolio/sarah-dan/SarahandDan-374.webp":
+    "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAsABUB8JZQCdADQlNM4AAD+l5tPkMJkowvtbCE75C5++Nx0/bE9vAFsSFSaJiupRmFZfdw4ZL3bA/c94vdo2GEeVX2l4AA=",
+  "/portfolio/sarah-dan/SarahandDan-378.webp":
+    "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsABUB8JYgCdADRZF/kyAAA/HjfswVj42d3BhbgnmdeW/PVBR9XsiW9oGQjHmxyGGbG+6LPxpempOD0ug+BP3wzAAAA",
+  "/portfolio/sarah-dan/SarahandDan-61.webp":
+    "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoQABgAPzmGuVQvKSWjMAgB4CcJYwCuHCPPsjvwr578GkW1YAD+oPhCSogMNvjlFPzewv8eGiJ0ZnMabsjCYQIRq8fVMxnbnv6J4+PY0fyi4/xSvdo4AA==",
+  "/portfolio/sarah-dan/SarahandDan-65.webp":
+    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgC7AB0/sZMORuv5CDFgAMxS9sFHtZ68hqhwumRyZ1gbqj0DzSfS1ipdnHp2gSA9ytbroYbwzclZXV5OjR/EniMRv+sgW+iV7SAgPlEvB5ANpmDwwTA6iuAAAA==",
+  "/portfolio/sarah-dan/SarahandDan-69.webp":
+    "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABgAPzmGulQvKSWjMAgB4CcJZQDG9CFqvJaCvs9ozXi2AAD8jtv1wFWDJNs4opOd1sQLkLc6VmWi9kh1aivSO5TaHQeTnZg1WK4CDMvkrEn1SE4odsIpqq6Shdwj10Q41jWpBEAw7NThYbiGeAAA",
+  "/portfolio/sarah-dan/SarahandDan-77.webp":
+    "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBfnA9Fv84UB/MvvlhXkAP5ZnyTrA6zyJNSfY6lNCxuCtoxXSImDYHHP3rkm57SYR5TOurK+GRpdF5EyQYFEdAkrk1XEX5Rtgf4dC7jvg+LgXEDcr0nJI+nLegrpQAA=",
+  "/portfolio/sarah-dan/SarahandDan-98.webp":
+    "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAsABUB8JQBOgCG1+cd3WoAA/LOiriWpiBC0+k/YbvUjiQh7S2UyFqTRm3TE4susZrJo8cNJJ85s6hAfKe8U1gjWiUS8ksAAAA==",
+  "/portfolio/sarah-dan/SarahandDan-99.webp":
+    "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJQBUehFnULX3qCiUgzvVC5AD+lChQ+5/3BbQ9BHYMXUIsAKJU7CmrXgXqX1432h+qRSL7iBcCHl/Mdpzz+JzDU/EBdALxd7lgUH0OZixaVkQ17e9FslsPMd7lWGgmUT3ilFrulIGfR/foB4nbpTRgAAA=",
   "/portfolio/shayna-evan/shayna-evan-wedding-155.webp":
     "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJaAAACHvwdwUAAP61n0xxKK9MTf3jivO8SsQBowItLIZfzCqw1RgzxSqzEa9B/h3nUmpBZzRVrJB7XTKNuTUK1ZZSgt5lWGeDjkv8jHQsWIcCJVAAAA==",
   "/portfolio/shayna-evan/shayna-evan-wedding-181.webp":
