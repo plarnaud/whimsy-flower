@@ -80,9 +80,9 @@ export function SmallTestimonialSection({
           />
         </div>
         <div className="flex flex-col gap-6 items-center justify-center text-center">
-          <h3 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
+          <h2 className="text-(--blush) text-[32px] leading-auto tracking-[-0.04em]">
             {title}
-          </h3>
+          </h2>
           <p className={`${testimonialTypeClasses(text)} whitespace-pre-line`}>
             {text}
           </p>

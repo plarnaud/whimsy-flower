@@ -50,22 +50,22 @@ export default function PaletteSection({ colors, text }: PaletteSectionProps) {
           {Object.entries({
             Eucalyptus: {
               subname: "Eucalyptus globulus (Blue Gum)",
-              imgSrc: "/brand01.webp",
+              imgSrc: "/services/workshops.webp",
               imgAlt: "Olive flower",
             },
             Eucalyptus2: {
               subname: "Eucalyptus globulus (Blue Gum)",
-              imgSrc: "/brand01.webp",
+              imgSrc: "/services/workshops.webp",
               imgAlt: "Olive flower",
             },
             Eucalyptus3: {
               subname: "Eucalyptus globulus (Blue Gum)",
-              imgSrc: "/brand01.webp",
+              imgSrc: "/services/workshops.webp",
               imgAlt: "Olive flower",
             },
             Eucalyptus4: {
               subname: "Eucalyptus globulus (Blue Gum)",
-              imgSrc: "/brand01.webp",
+              imgSrc: "/services/workshops.webp",
               imgAlt: "Olive flower",
             },
           }).map(([name, { subname, imgSrc, imgAlt }]) => (

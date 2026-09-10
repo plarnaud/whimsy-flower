@@ -10,7 +10,6 @@ import {
 } from "@/data/galleries";
 import PageScaffold from "@/components/pageScaffold";
 import TestimonialsSection from "@/components/testimonialsSection";
-import Link from "next/link";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Home() {
@@ -52,7 +51,7 @@ export default function Home() {
       imgSrc: gallery.coverImage,
       imgAlt: gallery.coverAlt,
       coupleName: gallery.coupleNames,
-      galleryName: gallery.title,
+      year: gallery.year,
       location: gallery.location,
       href: `/galleries/${gallery.slug}`,
     }),
@@ -75,9 +74,11 @@ export default function Home() {
             </span>
             <ul className="py-4 flex gap-8 ">
               <li className="w-[124px]">
-                <Link
+                <a
                   href={siteConfig.bridesFeatureUrl}
-                  aria-label="Whimsy Flower featured in Brides"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Read the Whimsy Flower feature in Brides"
                 >
                   <WhimsyImage
                     src="/brides.webp"
@@ -87,7 +88,7 @@ export default function Home() {
                     className="w-full h-auto"
                     sizes="124px"
                   />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -95,11 +96,13 @@ export default function Home() {
             title="An absolute dream to work with from start to finish"
             text="Molly and the Whimsy team were an absolute dream to work with from start to finish! Molly completely understood my vision and executed it to perfection. Between the statement cascading ceremony install, thoughtful ikebana pieces, and focal point bar arrangement, the florals truly elevated all aspects of the day! I can’t recommend Whimsy enough to bring your dream florals to life!"
             coupleName="Lindsey & Finn"
-            imgSrc="/Lindsey%20%26%20Fin%202025/Lindsey%2BFinnPreviews-39.webp"
+            imgSrc={
+              getGalleryBySlug("lindsey-fin")?.coverImage ??
+              "/portfolio/lindsey-fin/L+FWeddingGallery-100.webp"
+            }
             imgAlt={
-              getGalleryBySlug("lindsey-fin")?.photoAlts?.[
-                "Lindsey+FinnPreviews-39.webp"
-              ] ?? "Lindsey and Finn's wedding florals"
+              getGalleryBySlug("lindsey-fin")?.coverAlt ??
+              "Lindsey and Finn's wedding florals"
             }
           />
         </div>
@@ -126,6 +129,7 @@ function HeroSection({ images }: HeroSectionProps) {
             alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
             fill
             sizes="100vw"
+            quality={50}
             className="absolute left-0 right-0 -z-100 object-cover object-center"
           />
         </div>

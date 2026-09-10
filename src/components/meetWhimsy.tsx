@@ -16,8 +16,8 @@ export default function MeetWhimsy({
       >
         <div className="relative aspect-square md:aspect-auto md:h-[686px] w-full sm:w-[477px] flex justify-center items-center">
           <Image
-            src="/whimsy-about-pic.webp"
-            alt="Molly, founder and creative director of Whimsy Flower, arranges foxglove and veronica at a linen-draped table under a willow"
+            src="/molly-portrait-meadow.webp"
+            alt="Molly, founder and creative director of Whimsy Flower, walks a hilltop meadow with a bouquet of daisies and her terrier at her heels"
             fill
             sizes="(min-width: 640px) 477px, 100vw"
             className="object-cover rounded-lg"
@@ -41,9 +41,9 @@ export default function MeetWhimsy({
           </p>
           <p className="max-w-[477px] pt-6 text-[14px] leading-6">
             Working with a select number of clients each year, from the Hudson
-            Valley and the Catskills to New York City, allows me to be hands-on
-            through every stage of the creative process, from the earliest
-            concepts to the final installation. The result is a highly
+            Valley and beyond, allows me to be hands-on through every stage of
+            the creative process, from the earliest concepts to the final
+            installation. The result is a highly
             personal experience and floral work that reflects not only your
             vision, but the feeling you want to leave behind.
           </p>

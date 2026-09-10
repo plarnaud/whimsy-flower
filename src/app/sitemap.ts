@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { galleries } from "@/data/galleries";
+import { brandProjects } from "@/data/brandProjects";
 import { siteUrl } from "@/lib/siteConfig";
 
 const staticRoutes: Array<{
@@ -15,8 +16,6 @@ const staticRoutes: Array<{
   { path: "/inquire", priority: 0.6, changeFrequency: "yearly" },
 ];
 
-// Brand project pages (/brands/[slug]) stay out of the sitemap, and carry
-// noindex, until real client work replaces the placeholder projects.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -32,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly" as const,
       priority: 0.7,
+    })),
+    ...brandProjects.map((project) => ({
+      url: `${siteUrl}/brands/${project.slug}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
     })),
   ];
 }

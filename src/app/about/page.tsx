@@ -10,8 +10,11 @@ import { aboutGraph } from "@/lib/structuredData";
 export const metadata: Metadata = {
   title: "About Molly, Floral Designer in Hudson, NY",
   description:
-    "Meet Molly, founder and creative director of Whimsy Flower, a bespoke floral design studio in Hudson, New York composing weddings, events, and brand florals across the Hudson Valley, the Catskills, and New York City.",
+    "Meet Molly, founder and creative director of Whimsy Flower, a bespoke floral design studio in Hudson, New York, serving the Hudson Valley and beyond.",
 };
+
+// Flip on to show the studio section (planned for v2).
+const showStudioSection = false;
 
 export default function AboutPage() {
   return (
@@ -25,7 +28,8 @@ export default function AboutPage() {
 
       <MeetWhimsy />
 
-      <StudioSection />
+      {/* Studio section held for v2 */}
+      {showStudioSection && <StudioSection />}
 
       <InquireFormSection />
     </PageScaffold>

@@ -38,7 +38,7 @@ export default function FollowUsSection() {
           Hudson, New York
         </span>
         <span className="text-(--dark-olive) text-[14px] pt-1 px-6 text-center">
-          Serving the Hudson Valley, the Catskills & New York City
+          Serving the Hudson Valley and beyond
         </span>
 
         <ul className="flex flex-wrap justify-center w-full px-8 sm:px-16 lg:px-[212px] pt-16 italic text-[18px] tracking-[-0.04em]">

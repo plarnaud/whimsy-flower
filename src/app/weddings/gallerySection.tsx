@@ -39,7 +39,7 @@ export default function GallerySection() {
                 imgSrc: gallery.coverImage,
                 imgAlt: gallery.coverAlt,
                 coupleName: gallery.coupleNames,
-                galleryName: gallery.title,
+                year: gallery.year,
                 location: gallery.location,
                 href: `/galleries/${gallery.slug}`,
               }}

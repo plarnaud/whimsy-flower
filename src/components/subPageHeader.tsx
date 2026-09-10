@@ -22,6 +22,7 @@ export default function SubPageHeader({
           alt={imgAlt}
           fill
           sizes="100vw"
+          quality={50}
           priority
           fetchPriority="high"
           className="absolute left-0 right-0 -translate-y-2 -z-100  object-cover"

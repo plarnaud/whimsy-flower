@@ -20,6 +20,8 @@ type InquirePayload = {
 
 type InquireFormProps = {
   forceSuccess?: boolean;
+  /* "h1" on the inquire page itself, "h2" when the form sits inside another page. */
+  headingLevel?: "h1" | "h2";
 };
 
 type LabeledInputProps = {
@@ -81,7 +83,10 @@ export function LabeledTextArea({
   );
 }
 
-export function InquireFormSection({ forceSuccess }: InquireFormProps) {
+export function InquireFormSection({
+  forceSuccess,
+  headingLevel = "h2",
+}: InquireFormProps) {
   return (
     <div id="inquire" className="relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
@@ -90,6 +95,7 @@ export function InquireFormSection({ forceSuccess }: InquireFormProps) {
           alt=""
           fill
           sizes="100vw"
+          quality={50}
           className="absolute left-0 right-0 -z-100  object-cover"
         />
       </div>
@@ -97,7 +103,7 @@ export function InquireFormSection({ forceSuccess }: InquireFormProps) {
       <div className="px-6 md:px-12 py-12 lg:py-24">
         <div className="rounded-lg p-1.5 bg-background">
           <div className="border-2 border-(--clover) rounded-sm ">
-            <InquireForm forceSuccess={forceSuccess} />
+            <InquireForm forceSuccess={forceSuccess} headingLevel={headingLevel} />
           </div>
         </div>
       </div>
@@ -107,7 +113,9 @@ export function InquireFormSection({ forceSuccess }: InquireFormProps) {
 
 export default function InquireForm({
   forceSuccess = false,
+  headingLevel = "h2",
 }: InquireFormProps) {
+  const Heading = headingLevel;
   const formRef = useRef<HTMLFormElement | null>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -169,9 +177,9 @@ export default function InquireForm({
         }`}
         aria-hidden={showSuccess}
       >
-        <h2 className="pb-4 text-[48px] text-center sm:text-left leading-16 text-(--dark-olive) font-title">
+        <Heading className="pb-4 text-[48px] text-center sm:text-left leading-16 text-(--dark-olive) font-title">
           Get in touch!
-        </h2>
+        </Heading>
 
         <div className="grid gap-8 md:grid-cols-2">
           <LabeledInput
