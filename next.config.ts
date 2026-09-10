@@ -25,6 +25,23 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      // The production alias on vercel.app should not serve a second copy
+      // of the site once the custom domain is live.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "whimsy-flower.vercel.app" }],
+        destination: "https://www.whimsyflower.love/:path*",
+        permanent: true,
+      },
+      // Retail pages from the previous site that search engines still know.
+      { source: "/shop", destination: "/", permanent: true },
+      { source: "/shop/:path*", destination: "/", permanent: true },
+      { source: "/product/:path*", destination: "/", permanent: true },
+      { source: "/checkout", destination: "/", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
