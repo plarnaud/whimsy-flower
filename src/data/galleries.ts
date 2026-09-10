@@ -38,28 +38,14 @@ export type GalleryMeta = {
 export const galleries: GalleryMeta[] = [
   {
     slug: "brides-feature",
-    photoAlts: {
-      "02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp":
-        "Julia leans on a split-rail fence in a strapless gown and veil, holding a bouquet of white calla lilies and green amaranthus",
-      "08-julia-mcguire-exclusive-wedding-pennsylvania-new-york-ceremony-aisle-zai-laffitte-0625-c55fbefaccfc4e68a668fa42b9003bdc.webp":
-        "Wooden cross-back chairs frame a grass aisle to a low crescent of white delphinium planted into the lawn beneath tall trees",
-      "09-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-ceremony-florals-zai-laffitte-0625-096893bcb38e4393a542e71e06786a15.webp":
-        "Julia and Jackie exchange vows at the officiant's microphone, her veil trailing over grass amid spires of white delphinium",
-      "10-julia-mcguire-exclusive-wedding-pennsylvania-new-york-first-kiss-zai-laffitte-0625-8d43ced281734eab9d07edc6aaf426a2.webp":
-        "Julia and Jackie kiss in the garden, her cathedral veil sweeping the grass within a crescent of white delphinium spires",
-      "12-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-portrait-zai-laffitte-0625-690d5454839a42c79bcf3ffd6761029d.webp":
-        "Julia rests her head on Jackie's shoulder, holding a bouquet of white calla lilies, green poppy pods, and trailing amaranthus",
-      "20-julia-mcguire-exclusive-wedding-pennsylvania-new-york-trailing-centerpiece-zai-laffitte-0625-936a387757864684a3edb0aa397d2a55.webp":
-        "Gestural table arrangement of white calla lilies arcing from a low vessel, trailing amaranthus spilling onto a printed cloth",
-    },
+    photoAlts: portfolioAlts["brides-feature"],
     title: "Julia & Jackie",
     year: "2025",
     coupleNames: "Julia & Jackie",
     location: "Private Residence, Doylestown, PA",
     photographer: "Zai Laffitte",
     photographerUrl: "https://www.zaitography.com/",
-    coverImage:
-      "/Brides%20Feature/02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp",
+    coverImage: "/portfolio/brides-feature/02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp",
     coverAlt:
       "Julia leans on a split-rail fence in a strapless gown and veil, holding a bouquet of white calla lilies and green amaranthus",
     palette: [

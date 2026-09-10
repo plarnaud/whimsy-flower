@@ -856,4 +856,34 @@ export const portfolioAlts: Record<string, Record<string, string>> = {
     "DSC03545.webp":
       "Footed white vessel of blush lisianthus, cream ranunculus, sweet pea and dahlias beside a sage taper on white linen",
   },
+  "brides-feature": {
+    "02-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-portrait-zai-laffitte-0625-da5c91133dbc4a80abbdd3c3a995dcb1.webp":
+      "Julia leans on a split-rail fence in a strapless gown and veil, holding a bouquet of white calla lilies and green amaranthus",
+    "03-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-veil-bouquet-zai-laffitte-0625-8d0935fbd8904e34994ba6073dc80f6a.webp":
+      "Julia looks back through a cathedral veil on the lawn, holding white calla lilies and pale green hydrangea in a satin gown",
+    "07-julia-mcguire-exclusive-wedding-pennsylvania-new-york-ceremony-aerial-zai-laffitte-0625-decd07505fa640fb8bd5fe7a95630656.webp":
+      "Aerial view of the garden ceremony, cross-back chairs facing a crescent of white delphinium planted into the lawn",
+    "08-julia-mcguire-exclusive-wedding-pennsylvania-new-york-ceremony-aisle-zai-laffitte-0625-c55fbefaccfc4e68a668fa42b9003bdc.webp":
+      "Wooden cross-back chairs frame a grass aisle to a low crescent of white delphinium planted into the lawn beneath tall trees",
+    "09-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-ceremony-florals-zai-laffitte-0625-096893bcb38e4393a542e71e06786a15.webp":
+      "Julia and Jackie exchange vows at the officiant's microphone, her veil trailing over grass amid spires of white delphinium",
+    "10-julia-mcguire-exclusive-wedding-pennsylvania-new-york-first-kiss-zai-laffitte-0625-8d43ced281734eab9d07edc6aaf426a2.webp":
+      "Julia and Jackie kiss in the garden, her cathedral veil sweeping the grass within a crescent of white delphinium spires",
+    "11-julia-mcguire-exclusive-wedding-pennsylvania-new-york-post-ceremony-portrait-zai-laffitte-0625-e286e1538df94aa1a47f3b0a15a0c218.webp":
+      "Julia and Jackie walk across the lawn after the ceremony, her white calla lily bouquet trailing green amaranthus",
+    "12-julia-mcguire-exclusive-wedding-pennsylvania-new-york-bride-groom-portrait-zai-laffitte-0625-690d5454839a42c79bcf3ffd6761029d.webp":
+      "Julia rests her head on Jackie's shoulder, holding a bouquet of white calla lilies, green poppy pods, and trailing amaranthus",
+    "17-julia-mcguire-exclusive-wedding-pennsylvania-new-york-reception-tables-zai-laffitte-0625-752ffb5b40394526a03896374d8c63ea.webp":
+      "Long reception tables in green and white block-print linen on the terrace, bud vases of white blooms down the center",
+    "18-julia-mcguire-exclusive-wedding-pennsylvania-new-york-reception-zai-laffitte-0625-ae7230be50ee46f5b1ddf63b2cea65b1.webp":
+      "Reception tables seen through blue delphinium and ferns, white calla lilies and allium rising from bud vases along the linen",
+    "19-julia-mcguire-exclusive-wedding-pennsylvania-new-york-centerpieces-zai-laffitte-0625-681bfddc490b4476832ba7b4f6e233ac.webp":
+      "White ranunculus and trailing greenery in a low vessel on a green and white patterned tablecloth, wooden chairs beyond",
+    "20-julia-mcguire-exclusive-wedding-pennsylvania-new-york-trailing-centerpiece-zai-laffitte-0625-936a387757864684a3edb0aa397d2a55.webp":
+      "Gestural table arrangement of white calla lilies arcing from a low vessel, trailing amaranthus spilling onto a printed cloth",
+    "26-julia-mcguire-exclusive-wedding-pennsylvania-new-york-one-tier-floral-cake-zai-laffitte-0625-ad09b67089504843821520e960c5c6f1.webp":
+      "Single-tier cake topped with a peach dahlia and ranunculus beside an urn of white ranunculus, larkspur and trailing amaranthus",
+    "27-julia-mcguire-exclusive-wedding-pennsylvania-new-york-cake-cutting-zai-laffitte-0625-0f16084a381f45878b00c2d96e1d9b78.webp":
+      "Julia and Jackie laugh as they cut a small white cake topped with a peach dahlia, an urn of white ranunculus beside them",
+  },
 };

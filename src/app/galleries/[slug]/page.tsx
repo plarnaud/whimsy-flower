@@ -38,13 +38,9 @@ type GalleryPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-/* Photos live under public/portfolio/<slug>; the Brides set keeps its own folder. */
-const galleryAssetFolderBySlug: Record<string, string> = {
-  "brides-feature": "Brides Feature",
-};
-
+/* Photos live under public/portfolio/<slug>. */
 function galleryAssetFolder(slug: string) {
-  return galleryAssetFolderBySlug[slug] ?? `portfolio/${slug}`;
+  return `portfolio/${slug}`;
 }
 
 export function generateStaticParams() {
