@@ -6,11 +6,7 @@ import SubPageHeader from "@/components/subPageHeader";
 import { SmallTestimonialSection } from "@/components/testimonialsSection";
 import GalleryGrid from "@/components/galleryGrid";
 import PaletteSection from "@/components/paletteSection";
-import {
-  featuredGalleries as featuredGalleryData,
-  galleries,
-  getGalleryBySlug,
-} from "@/data/galleries";
+import { galleries, getGalleryBySlug } from "@/data/galleries";
 import { getGalleryGridItems } from "@/lib/galleryAssets";
 import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
@@ -19,9 +15,11 @@ import JsonLd from "@/components/jsonLd";
 import { baseOpenGraph } from "@/lib/siteConfig";
 import { galleryGraph } from "@/lib/structuredData";
 
-/* Real places only; some entries still hold a year or nothing in the slot. */
+/* Town and state for titles: "Venue, Town, ST" becomes "Town, ST". */
 function galleryPlace(location: string) {
-  return location && !/^\d{4}$/.test(location) ? location : undefined;
+  if (!location || /^\d{4}$/.test(location)) return undefined;
+  const parts = location.split(",").map((part) => part.trim());
+  return parts.length >= 3 ? parts.slice(-2).join(", ") : location;
 }
 
 /* Written alt for a photo path, falling back to a generic line. */
@@ -40,12 +38,14 @@ type GalleryPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+/* Photos live under public/portfolio/<slug>; the Brides set keeps its own folder. */
 const galleryAssetFolderBySlug: Record<string, string> = {
   "brides-feature": "Brides Feature",
-  "lindsey-fin": "Lindsey & Fin 2025",
-  "natalia-david": "Natalia & David 2025 (Thalia Photography)",
-  "talea-erich": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
 };
+
+function galleryAssetFolder(slug: string) {
+  return galleryAssetFolderBySlug[slug] ?? `portfolio/${slug}`;
+}
 
 export function generateStaticParams() {
   return galleries.map(({ slug }) => ({ slug }));
@@ -58,15 +58,16 @@ export async function generateMetadata({
   const gallery = getGalleryBySlug(slug);
   if (!gallery) return {};
 
-  const firstSentence = gallery.paletteText?.split(/(?<=\.)\s/)[0];
   const place = galleryPlace(gallery.location);
+  const venue = place ? ` at ${gallery.location}` : "";
+  const credit = gallery.photographer
+    ? ` and photographed by ${gallery.photographer}`
+    : "";
   return {
     title: place
       ? `${gallery.title} Wedding Florals in ${place}`
       : `${gallery.title} Wedding Florals`,
-    description:
-      firstSentence ??
-      `${gallery.coupleNames}'s wedding florals, designed by Whimsy Flower in Hudson, NY.`,
+    description: `${gallery.coupleNames}'s wedding florals${venue}, designed by Whimsy Flower of Hudson, NY${credit}.`,
     openGraph: {
       ...baseOpenGraph,
       images: [{ url: gallery.coverImage, alt: gallery.coverAlt }],
@@ -83,24 +84,27 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   }
 
   const testimonialTitle = "From the Couple";
-  const testimonialText =
-    gallery.testimonialText ??
-    `Whimsy Flower brought ${gallery.coupleNames}'s vision to life in ${gallery.location} with thoughtful details and seamless execution from concept to install.`;
+  const testimonialText = gallery.testimonialText;
   const testimonialCoupleName =
     gallery.testimonialCoupleName ?? gallery.coupleNames;
 
-  const featuredGalleries: FeaturedGallery[] = featuredGalleryData.map(
-    (gallery) => ({
-      imgSrc: gallery.coverImage,
-      imgAlt: gallery.coverAlt,
-      coupleName: gallery.coupleNames,
-      galleryName: gallery.title,
-      location: gallery.location,
-      href: `/galleries/${gallery.slug}`,
-    }),
-  );
+  // Three other weddings, featured ones first, never the one being viewed
+  const featuredGalleries: FeaturedGallery[] = [
+    ...galleries.filter((g) => g.featured),
+    ...galleries.filter((g) => !g.featured),
+  ]
+    .filter((other) => other.slug !== gallery.slug)
+    .slice(0, 3)
+    .map((other) => ({
+      imgSrc: other.coverImage,
+      imgAlt: other.coverAlt,
+      coupleName: other.coupleNames,
+      year: other.year,
+      location: other.location,
+      href: `/galleries/${other.slug}`,
+    }));
   const galleryGridItems = await getGalleryGridItems(
-    galleryAssetFolderBySlug[gallery.slug],
+    galleryAssetFolder(gallery.slug),
     gallery.title,
     {
       order: gallery.photoOrder,
@@ -142,24 +146,27 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
 
       <PaletteSection colors={gallery.palette} text={gallery.paletteText} />
 
-      <div className="relative overflow-hidden w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
-        <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
-          <WhimsyImage
-            src="/home-lander-section-bg.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            className="absolute left-0 right-0 -z-100  object-cover"
+      {testimonialText && (
+        <div className="relative overflow-hidden w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
+          <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
+            <WhimsyImage
+              src="/home-lander-section-bg.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              quality={50}
+              className="absolute left-0 right-0 -z-100  object-cover"
+            />
+          </div>
+          <SmallTestimonialSection
+            title={testimonialTitle}
+            text={testimonialText}
+            coupleName={testimonialCoupleName}
+            imgSrc={gallery.testimonialImage}
+            imgAlt={photoAlt(gallery, gallery.testimonialImage)}
           />
         </div>
-        <SmallTestimonialSection
-          title={testimonialTitle}
-          text={testimonialText}
-          coupleName={testimonialCoupleName}
-          imgSrc={gallery.testimonialImage}
-          imgAlt={photoAlt(gallery, gallery.testimonialImage)}
-        />
-      </div>
+      )}
 
       <FeaturedGalleries galleries={featuredGalleries} />
 

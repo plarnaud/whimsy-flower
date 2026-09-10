@@ -16,8 +16,6 @@ type BrandProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-// Register image folders under /public here as brand project photos come in.
-const brandAssetFolderBySlug: Record<string, string> = {};
 
 export function generateStaticParams() {
   return brandProjects.map(({ slug }) => ({ slug }));
@@ -31,11 +29,10 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
-    title: `${project.brandName} ${project.title}, Editorial Florals in ${project.location}`,
-    description: `Editorial floral design and styling for ${project.brandName}'s ${project.title.toLowerCase()} in ${project.location}, composed by Whimsy Flower, a floral design studio in Hudson, NY.`,
-    // Placeholder projects: keep out of search until real client work lands,
-    // then drop this and add the slugs back to the sitemap.
-    robots: { index: false, follow: true },
+    title: `${project.brandName}: ${project.title}`,
+    description: `Florals by Whimsy Flower for ${project.brandName}'s ${project.title.toLowerCase()}${
+      project.location ? ` in ${project.location}` : ""
+    }: editorial floral design and styling from a studio in Hudson, NY.`,
   };
 }
 
@@ -52,9 +49,7 @@ export default async function BrandProjectPage({
   const testimonialTitle =
     project.testimonialTitle ??
     `Design that told the ${project.brandName} story`;
-  const testimonialText =
-    project.testimonialText ??
-    `Whimsy Flower shaped ${project.brandName}'s vision into an immersive floral concept in ${project.location}, carried from creative direction through final styling.`;
+  const testimonialText = project.testimonialText;
   const testimonialClientName =
     project.testimonialClientName ?? project.brandName;
 
@@ -65,13 +60,14 @@ export default async function BrandProjectPage({
       imgSrc: other.coverImage,
       imgAlt: other.coverAlt,
       coupleName: other.brandName,
-      galleryName: other.title,
+      year: other.title,
       location: other.location,
       href: `/brands/${other.slug}`,
     }));
   const projectGridItems = await getGalleryGridItems(
-    brandAssetFolderBySlug[project.slug],
+    `portfolio/${project.slug}`,
     project.title,
+    { alts: project.photoAlts, photographer: project.photographer },
   );
 
   return (
@@ -86,22 +82,25 @@ export default async function BrandProjectPage({
 
       <PaletteSection />
 
-      <div className="relative overflow-hidden w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
-        <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
-          <WhimsyImage
-            src="/home-lander-section-bg.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            className="absolute left-0 right-0 -z-100  object-cover"
+      {testimonialText && (
+        <div className="relative overflow-hidden w-full py-16 px-6 md:px-12 lg:px-16 flex flex-col justify-center items-center">
+          <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
+            <WhimsyImage
+              src="/home-lander-section-bg.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              quality={50}
+              className="absolute left-0 right-0 -z-100  object-cover"
+            />
+          </div>
+          <SmallTestimonialSection
+            title={testimonialTitle}
+            text={testimonialText}
+            coupleName={testimonialClientName}
           />
         </div>
-        <SmallTestimonialSection
-          title={testimonialTitle}
-          text={testimonialText}
-          coupleName={testimonialClientName}
-        />
-      </div>
+      )}
 
       <MoreProjects projects={moreProjects} />
 

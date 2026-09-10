@@ -20,23 +20,19 @@ type WorkCollageProps = {
   className?: string;
 };
 
-/* Gallery-wall placement on a 13-column, gapless grid: paired tiles sit at
-   columns 2-6 and 8-12, leaving exactly one column of space left, middle,
-   and right: equal gaps that scale with the page width. Pairs stagger
-   hard on Y, and every third row is a single larger landscape hung
-   centered. */
+/* Gallery-wall placement on a 13-column, gapless grid. The rhythm is a
+   centered landscape hung across columns 3-11, then a staggered pair at
+   columns 2-6 and 8-12 (one column of space left, middle and right), then
+   another landscape. With four tiles that reads landscape, pair, landscape. */
 const wallPattern = [
-  { position: "lg:col-start-2 lg:col-span-5", offset: "lg:mt-0", aspect: "aspect-[0.8]" },
+  { position: "lg:col-start-3 lg:col-span-9", offset: "lg:mt-0", aspect: "aspect-[1.7]" },
+  { position: "lg:col-start-2 lg:col-span-5", offset: "lg:mt-8", aspect: "aspect-[0.8]" },
   { position: "lg:col-start-8 lg:col-span-5", offset: "lg:mt-28", aspect: "aspect-[0.85]" },
-  { position: "lg:col-start-3 lg:col-span-9", offset: "lg:mt-16", aspect: "aspect-[1.7]" },
-  { position: "lg:col-start-2 lg:col-span-5", offset: "lg:mt-12", aspect: "aspect-square" },
-  { position: "lg:col-start-8 lg:col-span-5", offset: "lg:mt-32", aspect: "aspect-[0.8]" },
-  { position: "lg:col-start-3 lg:col-span-9", offset: "lg:mt-16", aspect: "aspect-[1.7]" },
 ];
 
-/* Cycle slots 0 and 3 open a left/right pair; a last tile landing there
-   would hang alone, so it gets re-hung as a centered landscape instead. */
-const pairOpeningSlots = new Set([0, 3]);
+/* Cycle slot 1 opens a left/right pair; a last tile landing there would hang
+   alone, so it gets re-hung as a centered landscape instead. */
+const pairOpeningSlots = new Set([1]);
 
 const centeredFinale = {
   position: "lg:col-start-3 lg:col-span-9",
@@ -97,7 +93,7 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                   <span className="text-[18px] leading-6 text-(--dark-green)">
                     {tile.label}
                   </span>
-                  <span className="text-[11px] uppercase tracking-[0.12em] leading-4 text-(--dark-olive) text-right shrink-0">
+                  <span className="text-[11px] uppercase tracking-[0.12em] leading-4 text-(--dark-olive) text-right shrink min-w-0">
                     {tile.sublabel}
                   </span>
                 </figcaption>

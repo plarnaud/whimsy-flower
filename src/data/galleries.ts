@@ -1,9 +1,12 @@
 import type { PaletteColor } from "@/components/paletteSection";
+import { portfolioAlts } from "@/data/portfolioAlts";
 
 export type GalleryMeta = {
   slug: string;
   title: string;
   coupleNames: string;
+  /* Shown top right on gallery cards. */
+  year?: string;
   location: string;
   coverImage: string;
   coverAlt: string;
@@ -50,8 +53,9 @@ export const galleries: GalleryMeta[] = [
         "Gestural table arrangement of white calla lilies arcing from a low vessel, trailing amaranthus spilling onto a printed cloth",
     },
     title: "Julia & Jackie",
+    year: "2025",
     coupleNames: "Julia & Jackie",
-    location: "Doylestown, PA",
+    location: "Private Residence, Doylestown, PA",
     photographer: "Zai Laffitte",
     photographerUrl: "https://www.zaitography.com/",
     coverImage:
@@ -74,40 +78,16 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "lindsey-fin",
-    photoAlts: {
-      "Lindsey+FinnPreviews-120.webp":
-        "Lindsey and Finn exchange vows at the front door, white hydrangea massed like clouds along both sides of the steps",
-      "Lindsey+FinnPreviews-131.webp":
-        "Lindsey and Finn walk back up the gravel aisle through tossed white petals, her petite tweedia bouquet in hand",
-      "Lindsey+FinnPreviews-139.webp":
-        "Grilled crostini with heirloom tomato, burrata and microgreens carried on a silver tray at the reception",
-      "Lindsey+FinnPreviews-33 (1).webp":
-        "Lindsey holds her petite bouquet of white star-shaped tweedia, green buds and bare stems against a white satin gown",
-      "Lindsey+FinnPreviews-35 (1).webp":
-        "Finn faces Lindsey across the gravel courtyard as she stands on the front steps among massed white hydrangea",
-      "Lindsey+FinnPreviews-39.webp":
-        "Lindsey sits on the wooden front steps with her tweedia bouquet, white hydrangea massed in clouds around her",
-      "Lindsey+FinnPreviews-60 (1).webp":
-        "Focal bar arrangement of limelight hydrangea, nerine and blush blooms with fruit along the bar top, a second at its base",
-      "Lindsey+FinnPreviews-62 (1).webp":
-        "Bar arrangement in blush and chartreuse: limelight hydrangea, nerine, white ranunculus and trailing sweet pea beside pears",
-      "Lindsey+FinnPreviews-89.webp":
-        "Ceremony aisle under a clear tent, wooden benches leading to white hydrangea massed on the front steps and at the aisle ends",
-      "Lindsey+FinnPreviews-90 (1).webp":
-        "White hydrangea massed like clouds along both sides of the wooden front steps below arched double doors",
-      "Lindsey+FinnPreviews-94.webp":
-        "White sweet pea with curling tendrils rises from a cluster of green and red grapes and a lime on white linen",
-      "Lindsey+FinnPreviews-97.webp":
-        "A single cream pompon dahlia rests on a stack of stamped cocktail napkins on a silver tray, sweet pea trailing nearby",
-      "Lindsey+FinnPreviews-98.webp":
-        "White ranunculus in a small silver julep cup, green and red grapes scattered at its base, blush hydrangea at the edge",
-    },
-    title: "Lindsey & Finn",
-    coupleNames: "Lindsey & Finn",
-    location: "2025",
-    coverImage: "/Lindsey%20%26%20Fin%202025/Lindsey%2BFinnPreviews-39.webp",
+    photoAlts: portfolioAlts["lindsey-fin"],
+    coverImage: "/portfolio/lindsey-fin/L+FWeddingGallery-226.webp",
     coverAlt:
-      "Lindsey sits on the wooden front steps with her tweedia bouquet, white hydrangea massed in clouds around her",
+      "Lindsey stands centered before the front steps, white hydrangea massed like clouds along both sides",
+    testimonialImage: "/portfolio/lindsey-fin/L+FWeddingGallery-210.webp",
+    hiddenPhotos: ["L+FWeddingGallery-210.webp"],
+    title: "Lindsey & Finn",
+    year: "2025",
+    coupleNames: "Lindsey & Finn",
+    location: "Private Residence, Mantoloking, NJ",
     palette: [
       { name: "Blush", mainColor: "#E0C0B6", borderColor: "#6E4237" },
       { name: "Apple Green", mainColor: "#C8B947", borderColor: "#5A530F" },
@@ -119,62 +99,22 @@ export const galleries: GalleryMeta[] = [
     flowers: ["Limelight Hydrangea", "Sweet Pea", "Nerine", "Tweedia"],
     testimonialText:
       "Molly and the Whimsy team were an absolute dream to work with from start to finish! Molly completely understood my vision and executed it to perfection. Between the statement cascading ceremony install, thoughtful ikebana pieces, and focal point bar arrangement, the florals truly elevated all aspects of the day! I can’t recommend Whimsy enough to bring your dream florals to life!",
-    testimonialImage:
-      "/Lindsey%20%26%20Fin%202025/Lindsey%2BFinnPreviews-35%20(1).webp",
-    hiddenPhotos: ["Lindsey+FinnPreviews-35 (1).webp"],
     featured: true,
   },
   {
     slug: "natalia-david",
-    photoAlts: {
-      "natalia-david-wedding-193.webp":
-        "Natalia holds a bouquet of anthurium, bells of Ireland and curling snake ball allium beside David's green anthurium boutonniere",
-      "natalia-david-wedding-198.webp":
-        "David kisses Natalia's temple beside a split-rail garden fence, her green bouquet trailing amaranthus and silk ribbon",
-      "natalia-david-wedding-233.webp":
-        "David gathers the trailing white ribbons of Natalia's gown against a white clapboard wall, a green anthurium at his lapel",
-      "natalia-david-wedding-258.webp":
-        "Natalia looks down at her bouquet of anthurium, bells of Ireland, snake ball allium and trailing amaranthus beneath a tree",
-      "natalia-david-wedding-300.webp":
-        "Natalia's pale green pointed pumps rest on the lawn among fallen yellow leaves beneath the hem of her white gown",
-      "natalia-david-wedding-354.webp":
-        "Natalia and her maid of honor in sage hold green bouquets of anthurium and trailing amaranthus before tall grasses",
-      "natalia-david-wedding-395.webp":
-        "Ikebana-inspired bells of Ireland, green anthurium and Phylica pubescens in a bud vase before a red leather banquette",
-      "natalia-david-wedding-417.webp":
-        "Deconstructed ceremony florals of white dahlias, bells of Ireland, Phylica pubescens and trailing amaranthus on the lawn",
-      "natalia-david-wedding-421.webp":
-        "Two white dahlia stems stand upright in dry grass beside a white folding chair, marking the ceremony aisle",
-      "natalia-david-wedding-487.webp":
-        "Natalia and David exchange vows before pines under a blue sky, deconstructed green and white florals grounding the ceremony",
-      "natalia-david-wedding-556.webp":
-        "Natalia and David hold hands beside a sculptural ceremony arrangement of bells of Ireland, white dahlias and amaranthus",
-      "natalia-david-wedding-570.webp":
-        "Natalia and David raise joined hands after the ceremony, deconstructed white dahlia and green arrangements flanking the aisle",
-      "natalia-david-wedding-579.webp":
-        "Natalia and David walk up the aisle past applauding guests, her green bouquet in hand, ceremony florals in the foreground",
-      "natalia-david-wedding-687.webp":
-        "Reception tablescape in a timber barn with single stems of bells of Ireland and green anthurium in bud vases among candles",
-      "natalia-david-wedding-689.webp":
-        "Long timber tables under string lights in a barn, set with bud vases of green anthurium and bells of Ireland",
-      "natalia-david-wedding-691.webp":
-        "Sweetheart table on a barrel framed by deconstructed arrangements of white dahlias, bells of Ireland and trailing amaranthus",
-      "natalia-david-wedding-715.webp":
-        "Guests raise cocktails across a long table dressed with candles, trailing foliage and textural Phylica pubescens in bud vases",
-      "natalia-david-wedding-854.webp":
-        "Natalia and David duck through an arch of guests' raised arms, David's green anthurium boutonniere catching the light",
-      "natalia-david-wedding-882.webp":
-        "Natalia's bridal flowers tumble midair against a pale sky, trailing green amaranthus and ribbon streaming below the anthurium",
-    },
+    photoAlts: portfolioAlts["natalia-david"],
+    coverImage: "/portfolio/natalia-david/natalia-david-wedding-193.webp",
+    coverAlt:
+      "Bride holds a green bouquet of anthurium, bells of Ireland, and trailing amaranthus beside the groom's anthurium boutonniere",
+    testimonialImage: "/portfolio/natalia-david/natalia-david-wedding-197.webp",
+    hiddenPhotos: ["natalia-david-wedding-197.webp"],
     title: "Natalia & David",
+    year: "2025",
     coupleNames: "Natalia & David",
-    location: "2025",
+    location: "Perona Farms, Andover, NJ",
     photographer: "Thalia Photography",
     photographerUrl: "https://thaliacameraist.com/",
-    coverImage:
-      "/Natalia%20%26%20David%202025%20(Thalia%20Photography)/natalia-david-wedding-193.webp",
-    coverAlt:
-      "Natalia holds a bouquet of anthurium, bells of Ireland and curling snake ball allium beside David's green anthurium boutonniere",
     palette: [
       { name: "Dark Green", mainColor: "#434D26", borderColor: "#20260F" },
       { name: "Light Green", mainColor: "#7B834B", borderColor: "#3A3F20" },
@@ -191,58 +131,22 @@ export const galleries: GalleryMeta[] = [
     ],
     testimonialText:
       "Working with Molly was one of the most special parts of our wedding. From the very beginning, I knew I wanted to work with someone who was thoughtful and ethical about flower sourcing and who embraced wildflowers and blooms with texture, movement, and character. Molly understood that vision so completely and made it even more beautiful than I could have imagined.\n\nShe created the most extraordinary monochromatic green bouquet for me, along with a stunning bouquet for my maid of honor. When Molly handed me my bouquet before the ceremony, I genuinely almost started crying and had the chills. I had never seen anything so perfect. It felt like a piece of art that should be displayed at the MET. I swear. The bouquet brought my entire bridal look together, adding so much personality and dimension to it.\n\nEvery floral detail throughout the ceremony, cocktail hour, and reception was divine. The arrangements felt organic, sculptural, and thoughtfully composed, with ikebana-inspired pieces that were especially breathtaking. Everything felt so timeless rather than overly styled or trendy, and the flowers brought so much life to the entire day.\n\nMolly and her team have remarkable talent for creating florals that feel both beautifully instinctive yet intentional. They took what I had envisioned and brought it to life in a way that felt completely unique to us. I truly could not recommend Whimsy Flower enough!!",
-    testimonialImage:
-      "/Natalia%20%26%20David%202025%20(Thalia%20Photography)/natalia-david-wedding-198.webp",
-    hiddenPhotos: ["natalia-david-wedding-198.webp"],
     featured: true,
   },
   {
     slug: "talea-erich",
-    photoAlts: {
-      "TaleaErichWeddingSneakPeeks-140.webp":
-        "Talea holds a small bouquet of orange dahlia, blue delphinium and sandersonia with trailing blue ribbon beside Erich",
-      "TaleaErichWeddingSneakPeeks-147 (1).webp":
-        "Talea and Erich walk hand in hand past a green hedge, her bouquet of orange dahlia and blue delphinium trailing ribbon",
-      "TaleaErichWeddingSneakPeeks-162.webp":
-        "Talea raises her bouquet of orange dahlia, ranunculus and blue delphinium from a vintage convertible under open sky",
-      "TaleaErichWeddingSneakPeeks-165.webp":
-        "Sheer veil scattered with white fabric blossoms drapes over the chrome emblem of a pale blue vintage convertible",
-      "TaleaErichWeddingSneakPeeks-184 (2).webp":
-        "Detail of a ceremony arrangement, orange pompon dahlias among gestural lavender clematis, pink snowberry and wild grasses",
-      "TaleaErichWeddingSneakPeeks-194.webp":
-        "Talea walks a sand path between dune grasses toward a wooden oceanfront pavilion filled with waiting guests",
-      "TaleaErichWeddingSneakPeeks-199.webp":
-        "Talea and Erich exchange vows beneath an oceanfront pavilion, tall blue delphinium arrangements framing the couple",
-      "TaleaErichWeddingSneakPeeks-204.webp":
-        "Soft blue sky over the ocean as small waves break on a pale sand beach, the coastal setting for the ceremony",
-      "TaleaErichWeddingSneakPeeks-207 (1).webp":
-        "Talea and Erich kiss at the altar between sculptural blue delphinium, grasses and orange dahlias on mirror plinths",
-      "TaleaErichWeddingSneakPeeks-210.webp":
-        "Erich dips Talea in a kiss on the pavilion deck as guests cheer, her bouquet in hand, orange dahlias and delphinium behind",
-      "TaleaErichWeddingSneakPeeks-216.webp":
-        "Black and white recessional, Talea and Erich raise joined hands and her ribboned bouquet along a beachside boardwalk",
-      "TaleaErichWeddingSneakPeeks-223 (1).webp":
-        "Talea lifts her bouquet of orange dahlia, clematis and sandersonia, ribbon streaming, seated with Erich in a blue convertible",
-      "TaleaErichWeddingSneakPeeks-225 (1).webp":
-        "Compote table arrangement of blue delphinium, orange dahlias, ranunculus and arching sandersonia before string lights",
-      "TaleaErichWeddingSneakPeeks-230.webp":
-        "Bud vase tablescape with orange dahlias, arching sandersonia, blue delphinium and chamomile beside a table number card",
-      "TaleaErichWeddingSneakPeeks-232 (1).webp":
-        "Welcome sign flanked by tall blue delphinium, pampas grass, cream dahlias and lavender clematis above a vintage blue bicycle",
-      "TaleaErichWeddingSneakPeeks-263.webp":
-        "Guests raise glasses along a candlelit table with pink dahlias in glass cylinders as Talea and Erich toast beyond",
-      "TaleaErichWeddingSneakPeeks-265.webp":
-        "Talea feeds Erich a bite of cake beside a small white cake dressed with ranunculus, orange dahlias and clematis",
-    },
+    photoAlts: portfolioAlts["talea-erich"],
+    coverImage: "/portfolio/talea-erich/ErichTaleaWedding-819.webp",
+    coverAlt:
+      "Talea and Erich hold hands at the altar between arrangements on mirror plinths, delphinium and dahlias by the sea",
+    testimonialImage: "/portfolio/talea-erich/TaleaErichWeddingSneakPeeks-142.webp",
+    hiddenPhotos: ["TaleaErichWeddingSneakPeeks-142.webp"],
     title: "Talea & Erich",
+    year: "2025",
     coupleNames: "Talea & Erich",
-    location: "2025",
+    location: "Parkers Garage, Beach Haven, NJ",
     photographer: "Mackenzie Grace Creative",
     photographerUrl: "https://www.mackenziegracecreative.com/",
-    coverImage:
-      "/Talea%20%26%20Erich%202025%20folder%20(Mackenzie%20Grace%20Creative)/TaleaErichWeddingSneakPeeks-207%20(1).webp",
-    coverAlt:
-      "Talea and Erich kiss at the altar between sculptural blue delphinium, grasses and orange dahlias on mirror plinths",
     palette: [
       { name: "Orange", mainColor: "#C74F10", borderColor: "#4A1D06" },
       { name: "Blue", mainColor: "#95B3F6", borderColor: "#1F3B7A" },
@@ -252,40 +156,24 @@ export const galleries: GalleryMeta[] = [
     flowers: ["Dahlia", "Delphinium", "Sandersonia", "Clematis"],
     paletteText:
       "For Talea and Eric, the floral design was inspired by the meeting of three things: September’s seasonal blooms, the coastal setting, and the couple’s unmistakably joyful spirit. We wanted the flowers to feel refined and elevated, while still carrying a sense of movement, spontaneity, and fun.\n\nDeep blue-to-white delphinium echoed the frothy rhythm of the waves beyond the celebration, creating a sense of water and atmosphere within the arrangements. Playful flashes of orange from dahlias brought warmth and whimsy, while gestural textures of clematis, snowberry, and sandersonia introduced a more unexpected coastal language, like tiny orange jellyfish suspended among the flowers.\n\nThe result was a coastal palette interpreted through a more artful lens: sophisticated without feeling precious, playful without losing its elegance.",
-    testimonialImage:
-      "/Talea%20%26%20Erich%202025%20folder%20(Mackenzie%20Grace%20Creative)/TaleaErichWeddingSneakPeeks-140.webp",
-    // Header photo leads the grid; -165 and -204 sit in the small windows;
-    // the photos the small windows used to hold render large in both layouts.
-    photoOrder: [
-      "TaleaErichWeddingSneakPeeks-207 (1).webp",
-      "TaleaErichWeddingSneakPeeks-165.webp",
-      "TaleaErichWeddingSneakPeeks-204.webp",
-      "TaleaErichWeddingSneakPeeks-147 (1).webp",
-      "TaleaErichWeddingSneakPeeks-162.webp",
-      "TaleaErichWeddingSneakPeeks-184 (2).webp",
-      "TaleaErichWeddingSneakPeeks-194.webp",
-      "TaleaErichWeddingSneakPeeks-210.webp",
-      "TaleaErichWeddingSneakPeeks-199.webp",
-      "TaleaErichWeddingSneakPeeks-216.webp",
-      "TaleaErichWeddingSneakPeeks-223 (1).webp",
-      "TaleaErichWeddingSneakPeeks-225 (1).webp",
-      "TaleaErichWeddingSneakPeeks-230.webp",
-      "TaleaErichWeddingSneakPeeks-232 (1).webp",
-    ],
-    hiddenPhotos: ["TaleaErichWeddingSneakPeeks-140.webp"],
     testimonialText:
       "Molly and her team at Whimsy were an absolute DREAM to work with. I first met Molly at a pop-up in Hoboken and knew that I needed her for my wedding. From the very first call, Molly was so detail-oriented, creative, and KIND. She carefully crafted up a beautiful proposal and brought my vision to life. I especially loved her ideas, that I would've never thought of myself, like the mirror plinths we used for the ceremony. I have truly never seen more beautiful arrangements than the ones made by Whimsy.\n\nShe communicated so well and arrived promptly on the day. She put a great deal of effort in to making sure the flowers stayed fresh and looked beautiful. She delivered personals, set up the ceremony, broke down the ceremony, set up the reception, and broke down the reception, all with a smile on her face.\n\nYou will not find a more thoughtful, creative, kind, dependable, or amazing florist. There are not enough positive words to say about Whimsy. Book with them!!",
     featured: true,
   },
-  // Shayna & Evan and Trisha & Jim have no photo folders yet; their covers
-  // are placeholders and their photo grids stay empty until photos arrive.
   {
     slug: "shayna-evan",
+    photoAlts: portfolioAlts["shayna-evan"],
+    coverImage: "/portfolio/shayna-evan/shayna-evan-wedding-628.webp",
+    coverAlt:
+      "Shayna and Evan at the sweetheart table before a curtain of lights, bud vases and tapers on the runner, blooms massed below",
+    testimonialImage: "/portfolio/shayna-evan/shayna-evan-wedding-361.webp",
+    hiddenPhotos: ["shayna-evan-wedding-361.webp"],
+    photographer: "Rachel Leiner Photography",
+    photographerUrl: "https://rachelleiner.com/",
     title: "Shayna & Evan",
+    year: "2025",
     coupleNames: "Shayna & Evan",
-    location: "Waterloo Village",
-    coverImage: "/services/weddings.webp",
-    coverAlt: "Shayna and Evan's wedding florals",
+    location: "Waterloo Village, Stanhope, NJ",
     paletteText:
       "Set against the pastoral landscape and historic architecture of Waterloo Village, this wedding was designed as an extension of the natural world surrounding it. Guided by the couple’s love of nature and affinity for the color green, our approach was grounded, textural, and intentionally abundant, allowing the flowers to feel as though they belonged to the landscape rather than having simply been placed within it.\n\nFor the ceremony, lush and layered groupings of delphinium, allium, ranunculus, strawflower, and larkspur framed the aisle and gathered into a crescent shaped floral installation around the couple. A palette of sky blue, soft blush, buttery yellow, white, and a rich range of textural greens created a garden inspired composition that felt both romantic and untamed.\n\nInside the reception, the floral language shifted into something more sculptural and considered. Drawing from the principles of ikebana, arrangements explored asymmetry, movement, and negative space, while disconnected floral runners moved organically across the length of the tables. The result was a reception landscape that felt layered and immersive, with each composition contributing to a larger sense of place.\n\nThroughout the celebration, flowers were treated as an integral part of the environment, creating a seamless dialogue between the historic setting, the natural landscape, and the celebration unfolding within it.",
     flowers: ["Nigella", "Larkspur", "Spray Delphinium", "White Allium"],
@@ -294,11 +182,18 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "trisha-jim",
+    photoAlts: portfolioAlts["trisha-jim"],
+    coverImage: "/portfolio/trisha-jim/DSC03415.webp",
+    coverAlt:
+      "Jim kisses Trisha's temple as she holds her bouquet of white peonies, sweet pea and lace flower tied with silk ribbon",
+    testimonialImage: "/portfolio/trisha-jim/DSC03499.webp",
+    hiddenPhotos: ["DSC03499.webp"],
+    photographer: "Isabel Henry Photo",
+    photographerUrl: "https://isabelhenryphoto.com/",
     title: "Trisha & Jim",
+    year: "2024",
     coupleNames: "Trisha & Jim",
-    location: "",
-    coverImage: "/home-lander-section-bg.webp",
-    coverAlt: "Trisha and Jim's wedding tablescape florals",
+    location: "Valley Rock Inn, Sloatsburg, NY",
     paletteText:
       "For Trisha and Jim’s intimate celebration, we approached the reception table as the heart of the gathering. With their closest family and friends seated together at one long table, flowers became an opportunity to transform a single shared space into an abundant and immersive landscape for the evening.\n\nA sprawling, disconnected floral composition moved organically along the length of the table, bringing together spring’s most expressive blooms in a series of clustered bud vases and ikebana inspired vessels. Rather than creating one continuous runner, each arrangement was given space to breathe, allowing moments of negative space, shifting heights, and unexpected details to shape the composition. Baby peaches were woven throughout the tablescape, adding a playful sense of seasonality and texture amongst the flowers, while sculptural twisted candles brought warmth and atmosphere as daylight faded into evening.\n\nFor Trisha’s bouquet, we centered the design around her favorite flower, the peony, paired with delicate sweet pea in the softest shades of lavender and blush. Petite in scale yet rich in texture and movement, the bouquet echoed the same sense of seasonality and thoughtful composition carried throughout the celebration.\n\nThe result was an intimate gathering where every guest was immersed in the floral experience, proving that a smaller celebration can still make room for an ambitious and deeply considered design.",
     flowers: [
@@ -311,6 +206,74 @@ export const galleries: GalleryMeta[] = [
     ],
     testimonialText:
       "I found Whimsy Flower and Molly on Instagram and knew she would be the right fit to carry out the wedding florals that I imagined with seasonal, airy designs. She deserves the highest accolades and recommendation!\n\nMolly has been an absolute pleasure to work with from the very beginning. She is quick to respond to emails, listened to my ideas and provided detailed proposals with transparent pricing, and followed through with the most beautiful floral and candle arrangement with her masterful touch of whimsy and magic. Molly is a true professional and artist.",
+  },
+  {
+    slug: "chelsea-jessica",
+    photoAlts: portfolioAlts["chelsea-jessica"],
+    title: "Chelsea & Jessica",
+    year: "2024",
+    coupleNames: "Chelsea & Jessica",
+    location: "",
+    photographer: "Rachel Leiner Photography",
+    photographerUrl: "https://rachelleiner.com/",
+    coverImage: "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-251.webp",
+    coverAlt:
+      "First kiss beneath the birch chuppah, the corner installation of white dahlias, cosmos and mauve sedum at their side",
+    testimonialImage: "/portfolio/chelsea-jessica/chelsea-jessica-ceremony-326.webp",
+    hiddenPhotos: ["chelsea-jessica-ceremony-326.webp"],
+  },
+  {
+    slug: "dan-sabrina",
+    photoAlts: portfolioAlts["dan-sabrina"],
+    title: "Dan & Sabrina",
+    coupleNames: "Dan & Sabrina",
+    location: "",
+    coverImage: "/portfolio/dan-sabrina/WuWedding-360.webp",
+    coverAlt:
+      "Dan and Sabrina kiss beneath a blush and plum arch of ranunculus, tulips and blossom branches on a pergola over the river",
+    testimonialImage: "/portfolio/dan-sabrina/WuWedding-179.webp",
+    hiddenPhotos: ["WuWedding-179.webp"],
+  },
+  {
+    slug: "erica-alex",
+    photoAlts: portfolioAlts["erica-alex"],
+    title: "Erica & Alex",
+    year: "2025",
+    coupleNames: "Erica & Alex",
+    location: "",
+    photographer: "Gleb Freeman Photography",
+    photographerUrl: "https://www.glebfreeman.com/",
+    coverImage: "/portfolio/erica-alex/GlebFreemanPhotography-104.webp",
+    coverAlt:
+      "Mantel installation of blue delphinium, plum hellebores, peach garden roses and trailing jasmine on a carved stone fireplace",
+    testimonialImage: "/portfolio/erica-alex/GlebFreemanPhotography-128.webp",
+    hiddenPhotos: ["GlebFreemanPhotography-128.webp"],
+  },
+  {
+    slug: "julia-matt",
+    photoAlts: portfolioAlts["julia-matt"],
+    title: "Julia & Matt",
+    coupleNames: "Julia & Matt",
+    location: "",
+    coverImage: "/portfolio/julia-matt/Julia_Matt-218.webp",
+    coverAlt:
+      "Mirrored plinths in dappled light hold coral pompon dahlias, white poppies and pale yellow marigolds in ceramic vessels",
+    testimonialImage: "/portfolio/julia-matt/Julia_Matthew_Highlight-12.webp",
+    hiddenPhotos: ["Julia_Matthew_Highlight-12.webp"],
+  },
+  {
+    slug: "sarah-dan",
+    photoAlts: portfolioAlts["sarah-dan"],
+    title: "Sarah & Dan",
+    coupleNames: "Sarah & Dan",
+    location: "",
+    photographer: "Shiloh Leath Photography",
+    photographerUrl: "https://shilohleath.com/",
+    coverImage: "/portfolio/sarah-dan/SarahandDan-99.webp",
+    coverAlt:
+      "Sarah and Dan at the altar beneath burgundy and chartreuse foliage, the aisle lined with orange dahlias and purple larkspur",
+    testimonialImage: "/portfolio/sarah-dan/SarahandDan-204.webp",
+    hiddenPhotos: ["SarahandDan-204.webp"],
   },
 ];
 

@@ -1,3 +1,5 @@
+import { portfolioAlts } from "@/data/portfolioAlts";
+
 export type BrandProjectMeta = {
   slug: string;
   title: string;
@@ -5,95 +7,120 @@ export type BrandProjectMeta = {
   location: string;
   coverImage: string;
   coverAlt: string;
-  /* Full album shown in the modal gallery; falls back to [coverImage]. */
+  /* Album shown in the modal gallery on the Editorial & Brands page. */
   images?: string[];
+  /* Written alt text per photo file name under public/portfolio/<slug>. */
+  photoAlts?: Record<string, string>;
+  /* Photographer credited on the project page. */
+  photographer?: string;
+  photographerUrl?: string;
+  /* Files kept out of the project page grid. */
+  hiddenPhotos?: string[];
   testimonialTitle?: string;
   testimonialText?: string;
   testimonialClientName?: string;
   featured?: boolean;
 };
 
-// Placeholder albums cycling the three brand photos until real project
-// imagery lands; each project's album starts on its own cover.
-const placeholderAlbum = (cover: string) => {
-  const all = ["/brand01.webp", "/brand02.webp", "/brand03.webp"];
-  return [cover, ...all.filter((src) => src !== cover)];
-};
-
 // Central place to register brand projects so routes and listings stay in sync.
 export const brandProjects: BrandProjectMeta[] = [
   {
-    slug: "maison-lumiere-launch",
-    title: "Product Launch",
-    brandName: "Maison Lumière",
-    location: "New York, NY",
-    coverImage: "/brand01.webp",
-    coverAlt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills",
-    images: placeholderAlbum("/brand01.webp"),
-    testimonialTitle: "An installation our guests still talk about",
-    testimonialText:
-      "Whimsy Flower translated our brand into a floral concept that felt entirely our own: composed, atmospheric, and executed without a single detail out of place.",
-    testimonialClientName: "Maison Lumière",
+    slug: "mackenzie-childs-gray-malin",
+    title: "Collection Launch Party",
+    brandName: "MacKenzie-Childs x Gray Malin",
+    location: "",
+    coverImage: "/portfolio/mackenzie-childs-gray-malin/J72A6802_websize.webp",
+    coverAlt:
+      "A cascading arrangement of anemones, delphinium and trailing greenery spills from the corner of the branded cocktail bar",
+    images: [
+      "/portfolio/mackenzie-childs-gray-malin/J72A6707_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A6726_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A6778_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A6802_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A6968_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A7556_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A7398_websize.webp",
+      "/portfolio/mackenzie-childs-gray-malin/J72A7271_websize.webp",
+    ],
+    photoAlts: portfolioAlts["mackenzie-childs-gray-malin"],
+    photographer: "Phillip Van Nostrand",
+    photographerUrl: "https://phillipvn.com/",
     featured: true,
   },
   {
-    slug: "atelier-rosewood-editorial",
-    title: "Editorial Shoot",
-    brandName: "Atelier Rosewood",
-    location: "Kingston, NY",
-    coverImage: "/brand02.webp",
-    coverAlt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch",
-    images: placeholderAlbum("/brand02.webp"),
+    slug: "printfresh-mackenzie-childs",
+    title: "Collaboration Launch Party",
+    brandName: "Printfresh x MacKenzie-Childs",
+    location: "",
+    coverImage: "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-50.webp",
+    coverAlt:
+      "Guests in Printfresh pajamas talk by a rolling rack as a loose arrangement of ranunculus and cosmos fills the foreground",
+    images: [
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-7.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-192.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-9.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-5.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-50.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-13.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-11.webp",
+      "/portfolio/printfresh-mackenzie-childs/MacKenziexPrintfresh_11.05.25-14.webp",
+    ],
+    photoAlts: portfolioAlts["printfresh-mackenzie-childs"],
+    photographer: "Kaitlyn Schnorbus",
+    photographerUrl: "https://www.instagram.com/kait.schnorbus/",
     featured: true,
   },
   {
-    slug: "verdant-press-dinner",
-    title: "Press Dinner",
-    brandName: "Verdant & Co.",
-    location: "Albany, NY",
-    coverImage: "/brand03.webp",
-    coverAlt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons",
-    images: placeholderAlbum("/brand03.webp"),
+    slug: "sail-to-sable",
+    title: "Collaboration Launch Brunch",
+    brandName: "Sail to Sable",
+    location: "",
+    coverImage: "/portfolio/sail-to-sable/IMG_8059.webp",
+    coverAlt:
+      "Vine and white rose canopy trails over pendant lamps above a long brunch table set with bud vases of calla lilies and tulips",
+    images: [
+      "/portfolio/sail-to-sable/IMG_8059.webp",
+      "/portfolio/sail-to-sable/IMG_8060.webp",
+      "/portfolio/sail-to-sable/IMG_8065.webp",
+      "/portfolio/sail-to-sable/IMG_8062.webp",
+      "/portfolio/sail-to-sable/IMG_8063.webp",
+      "/portfolio/sail-to-sable/IMG_8066.webp",
+    ],
+    photoAlts: portfolioAlts["sail-to-sable"],
+    hiddenPhotos: ["IMG_8061.webp", "IMG_8064.webp"],
     featured: true,
   },
   {
-    slug: "linen-house-lookbook",
-    title: "Autumn Lookbook",
-    brandName: "The Linen House",
-    location: "Hudson, NY",
-    coverImage: "/brand01.webp",
-    coverAlt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills",
-    images: placeholderAlbum("/brand01.webp"),
-  },
-  {
-    slug: "studio-meridian-opening",
-    title: "Boutique Opening",
-    brandName: "Studio Meridian",
-    location: "Rhinebeck, NY",
-    coverImage: "/brand02.webp",
-    coverAlt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch",
-    images: placeholderAlbum("/brand02.webp"),
-  },
-  {
-    slug: "fern-field-campaign",
-    title: "Spring Campaign",
-    brandName: "Fern + Field",
-    location: "Beacon, NY",
-    coverImage: "/brand03.webp",
-    coverAlt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons",
-    images: placeholderAlbum("/brand03.webp"),
+    slug: "some-shelly-chandelier-cocktail-courier",
+    title: "Styled Editorial Shoot",
+    brandName: "Some Shelly x Chandelier Cocktail Courier",
+    location: "",
+    coverImage: "/portfolio/some-shelly-chandelier-cocktail-courier/Image-41.webp",
+    coverAlt:
+      "White ranunculus, tulips, stock and calla lilies rest on a marble vanity beside a lemon twist martini and two rings",
+    images: [
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-41.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-47.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-49.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-59.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-65.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-69.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-82.webp",
+      "/portfolio/some-shelly-chandelier-cocktail-courier/Image-24.webp",
+    ],
+    photoAlts: portfolioAlts["some-shelly-chandelier-cocktail-courier"],
+    featured: true,
   },
 ];
 
-// Brands shown in the scroller on the Editorial & Brands page: placeholder
-// names awaiting the real client list.
+// Brands shown in the scroller on the Editorial & Brands page.
 export const brandNames = [
-  "Maison Lumière",
-  "Atelier Rosewood",
-  "Verdant & Co.",
-  "The Linen House",
-  "Studio Meridian",
-  "Fern + Field",
+  "MacKenzie-Childs",
+  "Gray Malin",
+  "Printfresh",
+  "Sail to Sable",
+  "Some Shelly",
+  "Chandelier Cocktail Courier",
 ];
 
 export type BrandGalleryPhoto = {
@@ -101,22 +128,10 @@ export type BrandGalleryPhoto = {
   alt: string;
 };
 
-// Selected work on the Editorial & Brands page: the few brand photos we
-// have; add entries as real project imagery lands.
-export const brandGalleryPhotos: BrandGalleryPhoto[] = [
-  {
-    src: "/brand01.webp",
-    alt: "Two women in white linen laugh in a tall-grass meadow, holding armfuls of white scabiosa and veronica against hazy hills",
-  },
-  {
-    src: "/brand02.webp",
-    alt: "A woman with long auburn hair reaches up to hang stems of white delphinium suspended by fine wire from a willow branch",
-  },
-  {
-    src: "/brand03.webp",
-    alt: "Two women glance back beside a river, each holding a small bouquet of white daisies tied with long trailing silk ribbons",
-  },
-];
+// Covers of the brand projects, for compact listings.
+export const brandGalleryPhotos: BrandGalleryPhoto[] = brandProjects.map(
+  (project) => ({ src: project.coverImage, alt: project.coverAlt }),
+);
 
 export const featuredBrandProjects = brandProjects.filter(
   (project) => project.featured,

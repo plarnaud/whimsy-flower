@@ -12,9 +12,9 @@ import { breadcrumbGraph } from "@/lib/structuredData";
 import { brandNames, brandProjects } from "@/data/brandProjects";
 
 export const metadata: Metadata = {
-  title: "Editorial & Brand Floral Design, Hudson Valley to NYC",
+  title: "Editorial & Brand Florals, Hudson Valley to NYC",
   description:
-    "Editorial and brand floral styling for shops, brands, and businesses from the Hudson Valley to Manhattan: campaigns, launches, press dinners, and corporate events composed by Whimsy Flower, a floral design studio in Hudson, NY.",
+    "Editorial and brand floral styling for shops, brands, and businesses from the Hudson Valley to Manhattan: launches, press dinners, campaigns, and events.",
 };
 
 export default function BrandsPage() {
@@ -49,6 +49,7 @@ function HeroSection() {
           alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
           fill
           sizes="100vw"
+          quality={50}
           priority
           fetchPriority="high"
           className="absolute left-0 right-0 -z-100 object-cover object-center"
@@ -60,21 +61,21 @@ function HeroSection() {
       <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
         <div className="flex-1 flex flex-col justify-center items-center">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Floral design for brands, campaigns & corporate events, from the
-            Hudson Valley to Manhattan
+            Floral design for brands, campaigns & corporate events
           </h1>
           <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
             Editorial & Brands
           </h2>
           <span className="max-w-[644px] py-6 text-[14px] leading-6">
             Every brand has a visual language: a palette, a mood, a point of
-            view. From our studio in Hudson, New York, we translate yours into
-            flowers for shops, brands, and businesses from Albany to Manhattan:
-            sculptural installations, atmospheric tablescapes, and editorial
-            styling composed around your identity and the story your moment
-            needs to tell. Product launches, press dinners, campaign shoots,
-            corporate gatherings. Each one is designed as a bespoke
-            collaboration, never a template.
+            view. From our studio in Hudson, New York, we translate your voice
+            into flowers for shops, brands, and businesses: sculptural
+            installations, atmospheric set design, and editorial styling
+            composed around your identity and the story your moment needs to
+            tell. Product launches, press dinners, campaign shoots, corporate
+            gatherings, and more. Each one is designed as a bespoke
+            collaboration, where we create something that becomes uniquely
+            yours.
           </span>
         </div>
         <a

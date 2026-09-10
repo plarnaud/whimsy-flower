@@ -4,9 +4,12 @@ import WhimsyImage from "@/components/whimsyImage";
 export type FeaturedGallery = {
   imgSrc: string;
   imgAlt: string;
+  /* Top left: the couple, or the brand on project cards. */
   coupleName: string;
-  galleryName: string;
-  location: string;
+  /* Top right: the year, or the project type on brand cards. */
+  year?: string;
+  /* Bottom left. */
+  location?: string;
   href: string;
 };
 
@@ -43,15 +46,15 @@ export default function GalleryButton({
           <div className="rounded-t-[1.125rem] rounded-b-[0.125rem] border-[0.09375rem] border-(--olive) text-(--dark-green) group-hover:text-(--darker-green) transition-colors duration-300 p-3 flex flex-col gap-4 text-left">
             <div className="flex justify-between items-baseline gap-3">
               <span className="italic text-[1.125rem] tracking-[-0.04em] uppercase">
-                {gallery.galleryName}
+                {gallery.coupleName}
               </span>
-              <span className="text-[0.875rem] text-right shrink-0">
-                {gallery.location}
+              <span className="text-[0.875rem] text-right shrink min-w-0">
+                {gallery.year}
               </span>
             </div>
-            <div className="flex justify-between items-baseline gap-3">
+            <div className="flex justify-between items-baseline gap-3 min-h-[1.25rem]">
               <span className="text-[0.875rem] tracking-[-0.04em] text-[#a1a280] group-hover:text-(--darker-green) transition-colors duration-300">
-                {gallery.coupleName}
+                {gallery.location}
               </span>
               <span className="italic text-[0.875rem] tracking-[-0.04em] uppercase shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 View Gallery <span className="not-italic">&gt;</span>
