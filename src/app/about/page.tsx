@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     "Meet Molly, founder and creative director of Whimsy Flower, a bespoke floral design studio in Hudson, New York, serving the Hudson Valley and beyond.",
 };
 
-// Flip on to show the studio section (planned for v2).
-const showStudioSection = false;
+// Shown on the preview branch; held back on main until v2.
+const showStudioSection = true;
 
 export default function AboutPage() {
   return (
