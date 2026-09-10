@@ -61,3 +61,7 @@ The site is ready to deploy. Every page returns 200, has a unique title and desc
 3. **Instagram feed.** Create the Meta app and paste `INSTAGRAM_ACCESS_TOKEN` into Vercel per `docs/INSTAGRAM.md`; the section shows wedding covers until then.
 4. **Search Console.** Verify the domain and submit `/sitemap.xml`.
 5. **Google Business Profile** for Hudson, NY (category Florist), and update The Knot and WeddingWire from Hoboken to Hudson so the NAP matches.
+
+## Gallery scope at launch
+
+Main shows the six weddings with complete photos, venue, and year: Julia & Jackie, Lindsey & Finn, Natalia & David, Talea & Erich, Shayna & Evan, Trisha & Jim. The other five (Chelsea & Jessica, Dan & Sabrina, Erica & Alex, Julia & Matt, Sarah & Dan) live on the `staging` branch until their details are confirmed.
