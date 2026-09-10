@@ -155,20 +155,6 @@ const Navbar = () => {
                     className="w-6 h-6"
                   />
                 </a>
-                <a
-                  href={siteConfig.social.tiktok}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Whimsy Flower on TikTok"
-                >
-                  <WhimsyImage
-                    src="/tiktok-logo.svg"
-                    alt="TikTok"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6"
-                  />
-                </a>
               </div>
               <span className="italic uppercase text-[14px] tracking-[-0.04em]">
                 ©{siteConfig.copyrightYear} Whimsy Flower, llc
@@ -232,20 +218,6 @@ const Navbar = () => {
                 <WhimsyImage
                   src="/instagram-logo.svg"
                   alt="Instagram"
-                  width={20}
-                  height={20}
-                  className="min-w-5 h-5 w-5"
-                />
-              </a>
-              <a
-                href={siteConfig.social.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Whimsy Flower on TikTok"
-              >
-                <WhimsyImage
-                  src="/tiktok-logo.svg"
-                  alt="TikTok"
                   width={20}
                   height={20}
                   className="min-w-5 h-5 w-5"

@@ -16,7 +16,7 @@ export const siteConfig = {
   url: siteUrl,
   title: "Floral Design Studio in Hudson, NY | Whimsy Flower",
   description:
-    "A bespoke floral design studio in Hudson, NY. Sculptural, seasonal florals for weddings, events, and brands across the Hudson Valley, the Catskills, and New York City.",
+    "A bespoke floral design studio in Hudson, NY. Sculptural, seasonal florals for weddings, events, and brands across the Hudson Valley and beyond.",
   founder: {
     name: "Molly",
     jobTitle: "Founder & Creative Director",
@@ -37,16 +37,15 @@ export const siteConfig = {
   ],
   social: {
     instagram: "https://www.instagram.com/whimsy_flower/",
-    tiktok: "https://www.tiktok.com/@whimsyflower",
   },
-  // TODO: swap for the canonical brides.com article URL (Julia McGuire
-  // two-part wedding exclusive) once confirmed; the gallery stands in until then.
-  bridesFeatureUrl: "/galleries/brides-feature",
+  // Brides exclusive on Julia & Jackie's two-part wedding (florals by the studio).
+  bridesFeatureUrl:
+    "https://www.brides.com/influencer-julia-mcguire-pennsylvania-new-york-two-part-wedding-zai-laffitte-11760249",
   ogImage: {
-    url: "/og-image.jpg",
-    width: 1100,
-    height: 576,
-    alt: "Floral tablescape composed by Whimsy Flower, Hudson, NY",
+    url: "/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: "Whimsy Flower logo and wordmark, a floral design studio in Hudson, New York",
   },
   copyrightYear: 2026,
 };

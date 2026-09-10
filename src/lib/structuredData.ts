@@ -37,7 +37,7 @@ export function organizationGraph() {
         },
         areaServed,
         founder: { "@id": founderId },
-        sameAs: [siteConfig.social.instagram, siteConfig.social.tiktok],
+        sameAs: [siteConfig.social.instagram],
       },
       {
         "@type": "WebSite",

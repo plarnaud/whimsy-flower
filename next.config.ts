@@ -11,8 +11,16 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // A stray lockfile in the home directory otherwise makes Turbopack treat
+  // the home folder as the workspace root.
+  turbopack: { root: __dirname },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Instagram feed thumbnails (see docs/INSTAGRAM.md)
+    remotePatterns: [
+      { protocol: "https", hostname: "**.cdninstagram.com" },
+      { protocol: "https", hostname: "**.fbcdn.net" },
+    ],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

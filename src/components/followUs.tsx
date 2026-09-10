@@ -1,50 +1,36 @@
 import WhimsyImage from "@/components/whimsyImage";
-import { ImageItem } from "@/components/horizontalList";
-import { getGalleryBySlug } from "@/data/galleries";
+import { featuredGalleries, galleries } from "@/data/galleries";
+import { getInstagramPosts } from "@/lib/instagram";
+import { siteConfig } from "@/lib/siteConfig";
 
 type FollowUsSectionProps = {
   className?: string;
 };
 
-/* Gallery folder under /public for each wedding slug. */
-const folderBySlug: Record<string, string> = {
-  "brides-feature": "Brides Feature",
-  "lindsey-fin": "Lindsey & Fin 2025",
-  "natalia-david": "Natalia & David 2025 (Thalia Photography)",
-  "talea-erich": "Talea & Erich 2025 folder (Mackenzie Grace Creative)",
-};
-
-/* Eight recent photos, two per wedding. */
-const picks: Array<{ slug: string; file: string }> = [
-  { slug: "talea-erich", file: "TaleaErichWeddingSneakPeeks-225 (1).webp" },
-  { slug: "lindsey-fin", file: "Lindsey+FinnPreviews-90 (1).webp" },
-  { slug: "natalia-david", file: "natalia-david-wedding-395.webp" },
-  {
-    slug: "brides-feature",
-    file: "20-julia-mcguire-exclusive-wedding-pennsylvania-new-york-trailing-centerpiece-zai-laffitte-0625-936a387757864684a3edb0aa397d2a55.webp",
-  },
-  { slug: "talea-erich", file: "TaleaErichWeddingSneakPeeks-232 (1).webp" },
-  { slug: "lindsey-fin", file: "Lindsey+FinnPreviews-62 (1).webp" },
-  { slug: "natalia-david", file: "natalia-david-wedding-882.webp" },
-  {
-    slug: "brides-feature",
-    file: "08-julia-mcguire-exclusive-wedding-pennsylvania-new-york-ceremony-aisle-zai-laffitte-0625-c55fbefaccfc4e68a668fa42b9003bdc.webp",
-  },
-];
-
-export default function FollowUsSection({
+/* Three-column grid of the six latest Instagram posts, each linking to the
+   post itself. Until an access token is configured (docs/INSTAGRAM.md), the
+   grid shows six wedding covers linking to the profile instead. */
+export default async function FollowUsSection({
   className = "",
 }: FollowUsSectionProps) {
-  const followUsImages: ImageItem[] = picks.map(({ slug, file }) => {
-    const gallery = getGalleryBySlug(slug);
-    return {
-      src: `/${encodeURIComponent(folderBySlug[slug])}/${encodeURIComponent(file)}`,
-      alt:
-        gallery?.photoAlts?.[file] ??
-        `${gallery?.coupleNames ?? "Wedding"} florals by Whimsy Flower`,
-      creds: "",
-    };
-  });
+  const posts = await getInstagramPosts(6);
+  const live = posts !== null;
+
+  // Featured covers already appear above this section on the home page, so
+  // lead with the other weddings.
+  const fallback = [
+    ...galleries.filter((g) => !g.featured),
+    ...featuredGalleries,
+  ]
+    .slice(0, 6)
+    .map((gallery) => ({
+      id: gallery.slug,
+      href: siteConfig.social.instagram,
+      src: gallery.coverImage,
+      alt: gallery.coverAlt,
+    }));
+
+  const tiles = posts ?? fallback;
 
   return (
     <section
@@ -54,18 +40,29 @@ export default function FollowUsSection({
       <h2 className="font-title text-(--dark-olive) text-[48px] leading-16 tracking-[-0.04em]">
         Follow us
       </h2>
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        {followUsImages.map((item, i) => (
-          <li key={i}>
-            <div className="relative aspect-square rounded-lg overflow-hidden">
+      <ul className="grid grid-cols-3 gap-3 sm:gap-6">
+        {tiles.map((tile) => (
+          <li key={tile.id}>
+            <a
+              href={tile.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={
+                live
+                  ? `Open this post on Instagram: ${tile.alt}`
+                  : "Whimsy Flower on Instagram"
+              }
+              className="relative block aspect-square rounded-lg overflow-hidden"
+            >
               <WhimsyImage
-                src={item.src}
-                alt={item.alt}
+                src={tile.src}
+                alt={tile.alt}
                 fill
-                sizes="(min-width: 640px) 25vw, 50vw"
+                sizes="(min-width: 1024px) 30vw, 33vw"
                 className="object-cover"
+                unoptimized={live}
               />
-            </div>
+            </a>
           </li>
         ))}
       </ul>

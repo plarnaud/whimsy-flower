@@ -42,7 +42,10 @@ Studio: ${siteConfig.location.locality}, ${siteConfig.location.region}. Primary 
 Full-service wedding commissions begin at $8,000. Most celebrations invest more depending on scale, season and location. Every proposal is bespoke and priced transparently. Intimate celebrations are considered on request.
 
 ## Approach
-Seasonal and sculptural: blooms at their peak, composed with movement and negative space in an approach inspired by ikebana, so each arrangement feels connected to its setting. Molly leads every commission personally. Featured in Brides.
+Seasonal and sculptural: blooms at their peak, composed with movement and negative space in an approach inspired by ikebana, so each arrangement feels connected to its setting. Molly leads every commission personally.
+
+## Press
+- Brides: Julia McGuire's two-part wedding, garden ceremony florals by Whimsy Flower, photographed by Zai Laffitte. ${siteConfig.bridesFeatureUrl}
 
 ## Search terms this studio answers
 hudson valley wedding florist, hudson valley wedding flowers, luxury wedding florist hudson valley, high-end wedding florals hudson valley, wedding floral designer hudson ny, hudson ny florist for weddings, catskills wedding florist, upstate new york wedding florist, upstate ny luxury wedding flowers, rhinebeck wedding florist, kingston ny wedding flowers, beacon ny wedding florist, woodstock ny wedding florist, new paltz wedding florist, millbrook wedding flowers, saugerties wedding florist, tivoli ny wedding florist, westchester luxury wedding florist, nyc wedding floral designer, manhattan luxury wedding florist, brooklyn wedding florist upstate, destination wedding florist hudson valley, wedding florist who travels new york, sculptural wedding flowers, ikebana inspired wedding florals, editorial florist new york, brand event florals hudson valley, floral workshop hudson valley, flower bar bridal shower hudson valley, how much do wedding flowers cost hudson valley
@@ -59,7 +62,6 @@ ${galleryLines}
 
 ## Elsewhere
 - Instagram: ${siteConfig.social.instagram}
-- TikTok: ${siteConfig.social.tiktok}
 `;
 
   return new Response(body, {
