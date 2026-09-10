@@ -104,7 +104,9 @@ export default function Lightbox({
             priority
             placeholder="blur"
             blurDataURL={item.blurDataURL ?? defaultBlurDataURL}
-            className="object-contain"
+            // Inline object-fit so the blurred preview is fitted like the photo
+            // instead of stretched to cover the modal
+            style={{ objectFit: "contain" }}
           />
         </div>
         {/* Next and previous photos load in the background so the arrows respond at once */}
@@ -117,7 +119,7 @@ export default function Lightbox({
               fill
               sizes="100vw"
               priority
-              className="object-contain"
+              style={{ objectFit: "contain" }}
             />
           ))}
         </div>
