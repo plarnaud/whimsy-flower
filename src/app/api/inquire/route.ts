@@ -20,11 +20,19 @@ function formatLine(label: string, value?: string) {
   return `<p><strong>${label}:</strong> ${escapeHtml(value)}</p>`;
 }
 
+/* Values pasted into a hosting dashboard sometimes keep their quotes or a
+   trailing space; either would make Resend reject the address. */
+function cleanEnv(value?: string) {
+  const trimmed = value?.trim().replace(/^["']+|["']+$/g, "").trim();
+  return trimmed || undefined;
+}
+
 export async function POST(request: NextRequest) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.INQUIRE_TO_EMAIL;
+  const apiKey = cleanEnv(process.env.RESEND_API_KEY);
+  const toEmail = cleanEnv(process.env.INQUIRE_TO_EMAIL);
   const fromEmail =
-    process.env.INQUIRE_FROM_EMAIL || "Whimsy Flower <inquire@whimsyflower.com>";
+    cleanEnv(process.env.INQUIRE_FROM_EMAIL) ||
+    "Whimsy Flower <inquire@whimsyflower.love>";
 
   if (!apiKey || !toEmail) {
     return NextResponse.json(
