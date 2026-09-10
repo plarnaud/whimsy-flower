@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 interface PillButtonProps {
   label: string;
   color?: string;
@@ -41,6 +43,14 @@ export default function PillButton({
       disabled:cursor-not-allowed disabled:opacity-70`;
 
   if (href) {
+    const isInternal = href.startsWith("/");
+    if (isInternal) {
+      return (
+        <Link href={href} className={`inline-block text-center ${sharedClasses}`}>
+          {label}
+        </Link>
+      );
+    }
     return (
       <a href={href} className={`inline-block text-center ${sharedClasses}`}>
         {label}

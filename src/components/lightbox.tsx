@@ -59,6 +59,9 @@ export default function Lightbox({
 
   if (!isOpen) return null;
   const item = items[index];
+  const neighbours = items.length > 1
+    ? [items[(index + 1) % items.length], items[(index - 1 + items.length) % items.length]]
+    : [];
 
   return (
     <div
@@ -98,10 +101,25 @@ export default function Lightbox({
             alt={item.alt}
             fill
             sizes="100vw"
+            priority
             placeholder="blur"
             blurDataURL={item.blurDataURL ?? defaultBlurDataURL}
             className="object-contain"
           />
+        </div>
+        {/* Next and previous photos load in the background so the arrows respond at once */}
+        <div aria-hidden className="absolute inset-0 -z-10 opacity-0 pointer-events-none">
+          {neighbours.map((n) => (
+            <Image
+              key={n.src}
+              src={n.src}
+              alt=""
+              fill
+              sizes="100vw"
+              priority
+              className="object-contain"
+            />
+          ))}
         </div>
 
         {items.length > 1 && (
