@@ -80,7 +80,7 @@ function HeroSection() {
         </div>
         <a
           href="#selected-work"
-          className="mt-8 flex flex-col items-center gap-4 uppercase text-[16px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4 transition-colors"
+          className="mt-8 flex flex-col items-center justify-center gap-4 min-h-12 uppercase text-[16px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4 transition-colors"
         >
           Explore Selected Work
           <ArrowRight className="h-4 w-6 rotate-90" />

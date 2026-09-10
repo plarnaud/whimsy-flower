@@ -81,7 +81,7 @@ export default function Lightbox({
         <button
           aria-label="Close gallery"
           onClick={onClose}
-          className="text-background/80 hover:text-background text-[28px] leading-none px-3 py-1 cursor-pointer transition-colors"
+          className="flex items-center justify-center min-w-12 min-h-12 text-background/80 hover:text-background text-[28px] leading-none cursor-pointer transition-colors"
         >
           &times;
         </button>
