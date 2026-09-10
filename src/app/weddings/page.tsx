@@ -9,6 +9,9 @@ import { InquireFormSection } from "@/components/inquireForm";
 import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
 import GallerySection from "./gallerySection";
+import { galleries } from "@/data/galleries";
+import type { FeaturedGallery } from "@/components/galleryButton";
+import { blurFor } from "@/lib/blur";
 
 export const metadata: Metadata = {
   title: "Hudson Valley Wedding Floral Design",
@@ -17,6 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function WeddingsPage() {
+  const cards: FeaturedGallery[] = galleries.map((gallery) => ({
+    imgSrc: gallery.coverImage,
+    imgAlt: gallery.coverAlt,
+    imgBlur: blurFor(gallery.coverImage),
+    coupleName: gallery.coupleNames,
+    year: gallery.year,
+    location: gallery.location,
+    href: `/galleries/${gallery.slug}`,
+  }));
+
   return (
     <PageScaffold>
       <JsonLd
@@ -24,7 +37,7 @@ export default function WeddingsPage() {
       />
       <HeroSection />
 
-      <GallerySection />
+      <GallerySection cards={cards} />
 
       <ExperienceSection />
 
@@ -49,6 +62,7 @@ function HeroSection() {
       <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
           alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
           fill
           sizes="100vw"

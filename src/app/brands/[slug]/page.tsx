@@ -11,6 +11,7 @@ import { getGalleryGridItems } from "@/lib/galleryAssets";
 import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
+import { blurFor } from "@/lib/blur";
 
 type BrandProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -59,6 +60,7 @@ export default async function BrandProjectPage({
     .map((other) => ({
       imgSrc: other.coverImage,
       imgAlt: other.coverAlt,
+      imgBlur: blurFor(other.coverImage),
       coupleName: other.brandName,
       year: other.title,
       location: other.location,
@@ -87,6 +89,7 @@ export default async function BrandProjectPage({
           <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
             <WhimsyImage
               src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
               alt=""
               fill
               sizes="100vw"

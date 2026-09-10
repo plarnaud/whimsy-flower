@@ -1,11 +1,13 @@
 import { readdir } from "node:fs/promises";
 import type { Dirent } from "node:fs";
 import path from "node:path";
+import { blurFor } from "@/lib/blur";
 
 export type GalleryGridItem = {
   id: string;
   imgSrc: string;
   imgAlt: string;
+  blurDataURL?: string;
 };
 
 const galleryImageExtensions = new Set([
@@ -83,6 +85,7 @@ export async function getGalleryGridItems(
     .map((fileName, index) => ({
       id: `${assetFolder}/${fileName}`,
       imgSrc: `/${encodePublicPath(assetFolder)}/${encodeURIComponent(fileName)}`,
+      blurDataURL: blurFor(`/${assetFolder}/${fileName}`),
       imgAlt:
         alts[fileName] ??
         `${title} wedding florals by Whimsy Flower${credit}, photo ${index + 1}`,

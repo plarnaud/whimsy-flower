@@ -7,6 +7,7 @@ import Lightbox from "@/components/lightbox";
 export type StackPhoto = {
   src: string;
   alt: string;
+  blurDataURL?: string;
 };
 
 type PhotoStackProps = {
@@ -72,6 +73,7 @@ export default function PhotoStack({ photos, className = "" }: PhotoStackProps) 
                 <WhimsyImage
                   src={photo.src}
                   alt={photo.alt}
+                  blurDataURL={photo.blurDataURL}
                   fill
                   sizes="(min-width: 640px) 400px, 80vw"
                   className="object-cover"
@@ -104,14 +106,16 @@ export default function PhotoStack({ photos, className = "" }: PhotoStackProps) 
         </div>
       )}
 
+      {/* The stack holds still while the modal is open and catches up to the
+          last photo viewed once it closes. */}
       <Lightbox
         items={photos}
         index={open}
-        onClose={() => setOpen(null)}
-        onNavigate={(index) => {
-          setOpen(index);
-          setCurrent(index);
+        onClose={() => {
+          if (open !== null) setCurrent(open);
+          setOpen(null);
         }}
+        onNavigate={setOpen}
       />
     </div>
   );

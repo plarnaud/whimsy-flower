@@ -1,4 +1,5 @@
 import WhimsyImage from "./whimsyImage";
+import { blurFor } from "@/lib/blur";
 
 type SubPageHeaderProps = {
   title: string;
@@ -20,6 +21,7 @@ export default function SubPageHeader({
         <WhimsyImage
           src={imgSrc}
           alt={imgAlt}
+          blurDataURL={blurFor(imgSrc)}
           fill
           sizes="100vw"
           quality={50}

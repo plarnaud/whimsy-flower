@@ -10,6 +10,7 @@ import { InquireFormSection } from "@/components/inquireForm";
 import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
 import { brandNames, brandProjects } from "@/data/brandProjects";
+import { blurFor } from "@/lib/blur";
 
 export const metadata: Metadata = {
   title: "Editorial & Brand Florals, Hudson Valley to NYC",
@@ -46,6 +47,7 @@ function HeroSection() {
       <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
           alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
           fill
           sizes="100vw"
@@ -132,9 +134,13 @@ function SelectedWorkSection() {
     sublabel: project.title,
     cover: project.coverImage,
     coverAlt: project.coverAlt,
+    coverBlur: blurFor(project.coverImage),
     images: (project.images ?? [project.coverImage]).map((src, i) => ({
       src,
-      alt: `${project.brandName} ${project.title}, photo ${i + 1}`,
+      alt:
+        project.photoAlts?.[decodeURIComponent(src.split("/").pop() ?? "")] ??
+        `${project.brandName} ${project.title}, photo ${i + 1}`,
+      blurDataURL: blurFor(src),
     })),
   }));
 

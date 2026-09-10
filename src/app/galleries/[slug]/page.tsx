@@ -14,6 +14,7 @@ import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
 import JsonLd from "@/components/jsonLd";
 import { baseOpenGraph } from "@/lib/siteConfig";
 import { galleryGraph } from "@/lib/structuredData";
+import { blurFor } from "@/lib/blur";
 
 /* Town and state for titles: "Venue, Town, ST" becomes "Town, ST". */
 function galleryPlace(location: string) {
@@ -94,6 +95,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     .map((other) => ({
       imgSrc: other.coverImage,
       imgAlt: other.coverAlt,
+      imgBlur: blurFor(other.coverImage),
       coupleName: other.coupleNames,
       year: other.year,
       location: other.location,
@@ -147,6 +149,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
           <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
             <WhimsyImage
               src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
               alt=""
               fill
               sizes="100vw"

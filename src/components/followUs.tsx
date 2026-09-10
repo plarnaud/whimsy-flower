@@ -2,6 +2,7 @@ import WhimsyImage from "@/components/whimsyImage";
 import { featuredGalleries, galleries } from "@/data/galleries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { siteConfig } from "@/lib/siteConfig";
+import { blurFor } from "@/lib/blur";
 
 type FollowUsSectionProps = {
   className?: string;
@@ -28,9 +29,11 @@ export default async function FollowUsSection({
       href: siteConfig.social.instagram,
       src: gallery.coverImage,
       alt: gallery.coverAlt,
+      blur: blurFor(gallery.coverImage),
     }));
 
-  const tiles = posts ?? fallback;
+  const tiles: Array<{ id: string; href: string; src: string; alt: string; blur?: string }> =
+    posts ?? fallback;
 
   return (
     <section
@@ -57,6 +60,7 @@ export default async function FollowUsSection({
               <WhimsyImage
                 src={tile.src}
                 alt={tile.alt}
+                blurDataURL={tile.blur}
                 fill
                 sizes="(min-width: 1024px) 30vw, 33vw"
                 className="object-cover"

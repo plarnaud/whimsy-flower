@@ -1,4 +1,5 @@
 import WhimsyImage from "@/components/whimsyImage";
+import { blurFor } from "@/lib/blur";
 
 export type ImageItem = {
   src: string;
@@ -32,6 +33,7 @@ export default function HorizontalList({
             <WhimsyImage
               src={item.src}
               alt={item.alt}
+              blurDataURL={blurFor(item.src)}
               fill
               sizes="(min-width: 1024px) 434px, 326px"
               priority={i < 2}

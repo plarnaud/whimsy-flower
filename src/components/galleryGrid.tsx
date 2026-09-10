@@ -8,6 +8,7 @@ type GalleryGridItem = {
   id: string;
   imgSrc: string;
   imgAlt: string;
+  blurDataURL?: string;
 };
 
 type GalleryGridProps = {
@@ -61,6 +62,7 @@ function ImageBox({
         alt={item.imgAlt}
         fill
         sizes={sizes}
+        blurDataURL={item.blurDataURL}
         priority={priority}
         fetchPriority={priority ? "high" : undefined}
         className="object-cover object-center"
@@ -176,6 +178,7 @@ function DesktopLayout({
               <WhimsyImage
                 src={big1.imgSrc}
                 alt={big1.imgAlt}
+                blurDataURL={big1.blurDataURL}
                 fill
                 sizes="(min-width: 1024px) 38vw, 38vw"
                 priority={cycleStart === 0}
@@ -207,6 +210,7 @@ function DesktopLayout({
               <WhimsyImage
                 src={big2.imgSrc}
                 alt={big2.imgAlt}
+                blurDataURL={big2.blurDataURL}
                 fill
                 sizes="(min-width: 1024px) 38vw, 38vw"
                 className="object-cover object-center"
@@ -254,7 +258,11 @@ export default function GalleryGrid({
       <MobileLayout items={items} onOpen={setOpenIndex} />
       <DesktopLayout items={items} squareRows={squareRows} onOpen={setOpenIndex} />
       <Lightbox
-        items={items.map((item) => ({ src: item.imgSrc, alt: item.imgAlt }))}
+        items={items.map((item) => ({
+          src: item.imgSrc,
+          alt: item.imgAlt,
+          blurDataURL: item.blurDataURL,
+        }))}
         index={openIndex}
         onClose={() => setOpenIndex(null)}
         onNavigate={setOpenIndex}

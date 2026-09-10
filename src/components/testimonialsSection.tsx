@@ -1,5 +1,6 @@
 import PillButton from "@/components/pillButton";
 import WhimsyImage from "@/components/whimsyImage";
+import { blurFor } from "@/lib/blur";
 
 type TestimonialsSectionProps = {
   title: string;
@@ -24,6 +25,7 @@ export default function TestimonialsSection({
           <WhimsyImage
             src={imgSrc}
             alt={imgAlt}
+            blurDataURL={blurFor(imgSrc)}
             fill
             sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
             className="object-cover"
@@ -74,6 +76,7 @@ export function SmallTestimonialSection({
           <WhimsyImage
             src={imgSrc}
             alt={imgAlt}
+            blurDataURL={blurFor(imgSrc)}
             fill
             sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
             className="object-cover"

@@ -7,6 +7,7 @@ import { defaultBlurDataURL } from "@/lib/blurDataUrl";
 export type LightboxItem = {
   src: string;
   alt: string;
+  blurDataURL?: string;
 };
 
 type LightboxProps = {
@@ -98,7 +99,7 @@ export default function Lightbox({
             fill
             sizes="100vw"
             placeholder="blur"
-            blurDataURL={defaultBlurDataURL}
+            blurDataURL={item.blurDataURL ?? defaultBlurDataURL}
             className="object-contain"
           />
         </div>
