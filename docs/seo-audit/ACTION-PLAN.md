@@ -167,3 +167,7 @@ Each item carries the observation it rests on, what it unblocks or depends on, a
 ## Round 3 corrections (same day)
 
 Per the owner: content rewrites stay, layout additions do not. Reverted from round 2: the Inquire intro block, gallery header subtitles and the "View All Weddings" button, the mobile header Inquire pill, the Follow-us Instagram link and tile links (the real wedding photos stay), the footer Instagram and TikTok text links, and the home services sentence. Kept: the About studio section, restructured to mirror "Meet the Creative Director" with the image on the right; the weddings page process, Investment and FAQ sections (kicker renamed FAQ); the footer location line, now on two lines; photographer credits linked in place under each gallery. The weddings page now opens with the same hero treatment as Editorial & Brands. All em dashes were removed from site copy, including the original gallery stories.
+
+## Status, 2026-09-10
+
+Portfolio photos, real brand projects, Instagram feed integration, branded share image and icons, and the launch audit fixes are in. See `LAUNCH-READINESS.md` for the audit results and the remaining owner checklist.
