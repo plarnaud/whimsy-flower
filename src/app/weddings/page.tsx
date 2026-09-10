@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
 import MeetWhimsy from "@/components/meetWhimsy";
-import WhimsyImage from "@/components/whimsyImage";
-import ArrowRight from "@/components/arrow";
 import SectionTitle from "@/components/sectionTitle";
 import PillButton from "@/components/pillButton";
 import { InquireFormSection } from "@/components/inquireForm";
@@ -12,6 +10,7 @@ import GallerySection from "./gallerySection";
 import { galleries } from "@/data/galleries";
 import type { FeaturedGallery } from "@/components/galleryButton";
 import { blurFor } from "@/lib/blur";
+import PageHero from "@/components/pageHero";
 
 export const metadata: Metadata = {
   title: "Hudson Valley Wedding Floral Design",
@@ -54,69 +53,38 @@ export default function WeddingsPage() {
   );
 }
 
-/* Same hero treatment as the Editorial & Brands page: centered text over
-   the low-opacity tablescape image, with a link down to the galleries. */
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden border-b-[1.5px] border-(--clover)">
-      <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
-        <WhimsyImage
-          src="/home-lander-section-bg.webp"
-            blurDataURL={blurFor("/home-lander-section-bg.webp")}
-          alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-          fill
-          sizes="100vw"
-          quality={50}
-          priority
-          fetchPriority="high"
-          className="absolute left-0 right-0 -z-100 object-cover object-center"
-        />
-      </div>
-
-      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
-        <div className="flex-1 flex flex-col justify-center items-center">
-          <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Wedding floral design across the Hudson Valley, the Catskills, New
-            York City, and beyond
-          </h1>
-          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
-            Hudson Valley Weddings
-          </h2>
-          <div className="max-w-[644px] py-6 text-[14px] leading-6 flex flex-col gap-4">
-            <p>
-              Your wedding should feel like an expression of you, not a
-              collection of things you&apos;ve seen before.
-            </p>
-            <p>
-              At Whimsy Flower, we create floral design with a point of view.
-              We look beyond the bouquet and centerpiece to consider the entire
-              visual experience, from the setting and architecture to the
-              season, the way your guests move through the space, and the
-              details that make the day unmistakably yours. We work closely
-              with our couples to develop a floral vision that feels
-              considered, unexpected, and completely personal.
-            </p>
-            <p>
-              Our full service wedding work is for couples who care deeply
-              about design and want more than beautiful flowers. We take on a
-              limited number of celebrations each year so that every event
-              receives our full creative attention, from the first conversation
-              through installation. If you&apos;re looking for a floral designer
-              who will bring a fresh perspective, push an idea a little
-              further, and create something that could only belong to your
-              wedding, we&apos;d love to hear from you.
-            </p>
-          </div>
-        </div>
-        <a
-          href="#recent-weddings"
-          aria-label="Scroll to recent weddings"
-          className="mt-8 flex flex-col items-center justify-center min-h-12 min-w-12 text-(--dark-green) hover:text-(--darker-green) transition-colors"
-        >
-          <ArrowRight className="h-4 w-6 rotate-90" />
-        </a>
-      </div>
-    </section>
+    <PageHero
+      kicker="Wedding floral design across the Hudson Valley, the Catskills, New York City, and beyond"
+      title="Hudson Valley Weddings"
+      scrollTo="#recent-weddings"
+      scrollLabel="Scroll to recent weddings"
+      rule
+    >
+      <p>
+        Your wedding should feel like an expression of you, not a collection
+        of things you&apos;ve seen before.
+      </p>
+      <p>
+        At Whimsy Flower, we create floral design with a point of view. We
+        look beyond the bouquet and centerpiece to consider the entire visual
+        experience, from the setting and architecture to the season, the way
+        your guests move through the space, and the details that make the day
+        unmistakably yours. We work closely with our couples to develop a
+        floral vision that feels considered, unexpected, and completely
+        personal.
+      </p>
+      <p>
+        Our full service wedding work is for couples who care deeply about
+        design and want more than beautiful flowers. We take on a limited
+        number of celebrations each year so that every event receives our full
+        creative attention, from the first conversation through installation.
+        If you&apos;re looking for a floral designer who will bring a fresh
+        perspective, push an idea a little further, and create something that
+        could only belong to your wedding, we&apos;d love to hear from you.
+      </p>
+    </PageHero>
   );
 }
 

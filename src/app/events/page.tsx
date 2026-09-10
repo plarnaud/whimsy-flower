@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
-import WhimsyImage from "@/components/whimsyImage";
-import ArrowRight from "@/components/arrow";
 import PhotoStack, { StackPhoto } from "@/components/photoStack";
 import PillButton from "@/components/pillButton";
 import MeetWhimsy from "@/components/meetWhimsy";
@@ -10,6 +8,7 @@ import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
 import { portfolioAlts } from "@/data/portfolioAlts";
 import { blurFor } from "@/lib/blur";
+import PageHero from "@/components/pageHero";
 
 export const metadata: Metadata = {
   title: "Private Events & Flower Bars, Hudson Valley",
@@ -73,50 +72,22 @@ export default function EventsPage() {
   );
 }
 
-/* Same hero treatment as the Editorial & Brands page: centered text over
-   the low-opacity tablescape image, with an arrow down to the celebrations. */
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden border-b-[1.5px] border-(--clover)">
-      <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
-        <WhimsyImage
-          src="/home-lander-section-bg.webp"
-            blurDataURL={blurFor("/home-lander-section-bg.webp")}
-          alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-          fill
-          sizes="100vw"
-          quality={50}
-          priority
-          fetchPriority="high"
-          className="absolute left-0 right-0 -z-100 object-cover object-center"
-        />
-      </div>
-
-      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
-        <div className="flex-1 flex flex-col justify-center items-center">
-          <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Showers, engagements, flower bars & every gathering in between
-          </h1>
-          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
-            Private Events
-          </h2>
-          <span className="max-w-[644px] py-6 text-[14px] leading-6">
-            Not every celebration is a wedding, and the ones in between deserve
-            the same artistry. From hands-on flower bars to intimate dinner
-            parties, we bring composed, seasonal florals to the moments you
-            gather the people you love, from our studio in Hudson, New York and
-            beyond.
-          </span>
-        </div>
-        <a
-          href="#celebrations"
-          aria-label="Scroll to celebrations"
-          className="mt-8 flex flex-col items-center justify-center min-h-12 min-w-12 text-(--dark-green) hover:text-(--darker-green) transition-colors"
-        >
-          <ArrowRight className="h-4 w-6 rotate-90" />
-        </a>
-      </div>
-    </section>
+    <PageHero
+      kicker="Showers, engagements, flower bars & every gathering in between"
+      title="Private Events"
+      scrollTo="#celebrations"
+      scrollLabel="Scroll to celebrations"
+      rule
+    >
+      <p>
+        Not every celebration is a wedding, and the ones in between deserve
+        the same artistry. From hands-on flower bars to intimate dinner
+        parties, we bring composed, seasonal florals to the moments you gather
+        the people you love, from our studio in Hudson, New York and beyond.
+      </p>
+    </PageHero>
   );
 }
 

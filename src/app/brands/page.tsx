@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import PageScaffold from "@/components/pageScaffold";
 import MeetWhimsy from "@/components/meetWhimsy";
-import WhimsyImage from "@/components/whimsyImage";
-import ArrowRight from "@/components/arrow";
 import SectionTitle from "@/components/sectionTitle";
 import WorkCollage, { CollageTile } from "@/components/workCollage";
 import PillButton from "@/components/pillButton";
@@ -11,6 +9,7 @@ import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
 import { brandNames, brandProjects } from "@/data/brandProjects";
 import { blurFor } from "@/lib/blur";
+import PageHero from "@/components/pageHero";
 
 export const metadata: Metadata = {
   title: "Editorial & Brand Florals, Hudson Valley to NYC",
@@ -39,56 +38,25 @@ export default function BrandsPage() {
   );
 }
 
-/* Hero: same treatment as the home page's Timeless Floral Artistry
-   section: centered text over the low-opacity tablescape image. */
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden">
-      <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
-        <WhimsyImage
-          src="/home-lander-section-bg.webp"
-            blurDataURL={blurFor("/home-lander-section-bg.webp")}
-          alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
-          fill
-          sizes="100vw"
-          quality={50}
-          priority
-          fetchPriority="high"
-          className="absolute left-0 right-0 -z-100 object-cover object-center"
-        />
-      </div>
-
-      {/* CTA anchors to the bottom padding; the rest centers in the space
-          above it */}
-      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
-        <div className="flex-1 flex flex-col justify-center items-center">
-          <h1 className="text-[18px] tracking-[-0.04em] uppercase">
-            Floral design for brands, campaigns & corporate events
-          </h1>
-          <h2 className="py-6 font-title sm:text-[64px] sm:leading-[72px] text-[48px] leading-16 text-(--olive)">
-            Editorial & Brands
-          </h2>
-          <span className="max-w-[644px] py-6 text-[14px] leading-6">
-            Every brand has a visual language: a palette, a mood, a point of
-            view. From our studio in Hudson, New York, we translate your voice
-            into flowers for shops, brands, and businesses: sculptural
-            installations, atmospheric set design, and editorial styling
-            composed around your identity and the story your moment needs to
-            tell. Product launches, press dinners, campaign shoots, corporate
-            gatherings, and more. Each one is designed as a bespoke
-            collaboration, where we create something that becomes uniquely
-            yours.
-          </span>
-        </div>
-        <a
-          href="#selected-work"
-          className="mt-8 flex flex-col items-center justify-center gap-4 min-h-12 uppercase text-[16px] tracking-[-0.04em] text-(--dark-green) hover:text-(--darker-green) hover:underline underline-offset-4 transition-colors"
-        >
-          Explore Selected Work
-          <ArrowRight className="h-4 w-6 rotate-90" />
-        </a>
-      </div>
-    </section>
+    <PageHero
+      kicker="Floral design for brands, campaigns & corporate events"
+      title="Editorial & Brands"
+      scrollTo="#selected-work"
+      scrollText="Explore Selected Work"
+    >
+      <p>
+        Every brand has a visual language: a palette, a mood, a point of view.
+        From our studio in Hudson, New York, we translate your voice into
+        flowers for shops, brands, and businesses: sculptural installations,
+        atmospheric set design, and editorial styling composed around your
+        identity and the story your moment needs to tell. Product launches,
+        press dinners, campaign shoots, corporate gatherings, and more. Each
+        one is designed as a bespoke collaboration, where we create something
+        that becomes uniquely yours.
+      </p>
+    </PageHero>
   );
 }
 
