@@ -44,7 +44,12 @@ export default function FollowUsSection() {
         <ul className="flex flex-wrap justify-center w-full px-8 sm:px-16 lg:px-[212px] pt-16 italic text-[18px] tracking-[-0.04em]">
           {followUsImages.map((item, i) => (
             <li key={i} className="mx-8 mb-6">
-              <Link href={item.href}>{item.label}</Link>
+              <Link
+                href={item.href}
+                className="relative inline-block after:absolute after:inset-x-0 after:-inset-y-3 after:content-['']"
+              >
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>

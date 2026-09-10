@@ -130,7 +130,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
               href={gallery.photographerUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2"
+              className="relative inline-block underline underline-offset-2 after:absolute after:inset-x-0 after:-inset-y-4 after:content-['']"
             >
               {gallery.photographer}
             </a>

@@ -97,7 +97,7 @@ function HeroSection() {
         <a
           href="#recent-weddings"
           aria-label="Scroll to recent weddings"
-          className="mt-8 flex flex-col items-center text-(--dark-green) hover:text-(--darker-green) transition-colors"
+          className="mt-8 flex flex-col items-center justify-center min-h-12 min-w-12 text-(--dark-green) hover:text-(--darker-green) transition-colors"
         >
           <ArrowRight className="h-4 w-6 rotate-90" />
         </a>

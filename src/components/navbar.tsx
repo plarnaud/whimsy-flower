@@ -146,6 +146,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Whimsy Flower on Instagram"
+                  className="relative inline-flex after:absolute after:-inset-3 after:content-['']"
                 >
                   <WhimsyImage
                     src="/instagram-logo.svg"
@@ -173,7 +174,7 @@ const Navbar = () => {
         <div className="grid grid-cols-3 w-full border-y-[1.5px] border-(--clover) py-2 px-4 sm:px-8 lg:px-12 items-center">
           {/* Toggle button */}
           <button
-            className={`order-3 md:order-1 justify-self-end md:justify-self-start flex flex-col gap-3 relative duration-300 transform transition-all
+            className={`order-3 md:order-1 justify-self-end md:justify-self-start flex flex-col justify-center gap-3 min-h-12 relative duration-300 transform transition-all
               ${isOpen ? "rotate-45" : ""} cursor-pointer`}
             onClick={() => setIsOpen((v) => !v)}
             aria-controls="wf-nav-menu"
@@ -214,6 +215,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Whimsy Flower on Instagram"
+                className="relative inline-flex after:absolute after:-inset-3.5 after:content-['']"
               >
                 <WhimsyImage
                   src="/instagram-logo.svg"

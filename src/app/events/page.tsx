@@ -8,12 +8,22 @@ import MeetWhimsy from "@/components/meetWhimsy";
 import { InquireFormSection } from "@/components/inquireForm";
 import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
+import { portfolioAlts } from "@/data/portfolioAlts";
 
 export const metadata: Metadata = {
   title: "Private Events & Flower Bars, Hudson Valley",
   description:
     "Floral design for private celebrations in the Hudson Valley and beyond: bridal showers, custom engagements, flower bars, and intimate gatherings.",
 };
+
+/* Every photo in a portfolio folder, with the chosen leads first. */
+function stackPhotos(folder: string, lead: string[]): StackPhoto[] {
+  const alts = portfolioAlts[folder] ?? {};
+  const files = [...lead, ...Object.keys(alts).filter((f) => !lead.includes(f))];
+  return files
+    .filter((f) => alts[f])
+    .map((f) => ({ src: `/portfolio/${folder}/${f}`, alt: alts[f] }));
+}
 
 export default function EventsPage() {
   return (
@@ -26,11 +36,7 @@ export default function EventsPage() {
           title="Flower Bars"
           text="Share your palette and we’ll choose the best seasonal blooms. Enjoy watching guests compose their own bouquets to carry home. A favorite for bridal showers, birthdays, brand events, and gatherings that deserve a hands-on moment."
           buttonLabel="Schedule a Flower Bar"
-          photos={[
-            { src: "/portfolio/flower-bar/Image-7.webp", alt: "A guest in white linen lifts white scabiosa and pink yarrow from fluted vases on a plywood flower bar beneath an apple tree" },
-            { src: "/portfolio/flower-bar/Image-9.webp", alt: "Two women laugh behind a plywood flower bar, gathering daisies, scabiosa and pink yarrow from white fluted vases" },
-            { src: "/portfolio/flower-bar/Image-12.webp", alt: "Two women behind a canvas-fronted wooden flower bar under an apple tree, each holding a small hand-tied bouquet" },
-          ]}
+          photos={stackPhotos("flower-bar", ["Image-7.webp", "Image-9.webp", "Image-12.webp"])}
           colorScheme={ColorScheme.CLOVER}
           reverse={false}
         />
@@ -38,11 +44,7 @@ export default function EventsPage() {
           title="Custom Engagements"
           text="A proposal deserves more than a bouquet. We create custom floral environments that turn a meaningful location into something extraordinary, thoughtfully designed around your story, your setting, and the moment you’re about to share."
           buttonLabel="Design My Proposal"
-          photos={[
-            { src: "/portfolio/custom-engagement/Image-124.webp", alt: "Lauren looks down at the ring on her hand, bouquet in the other, Will smiling behind her beside a blush ground arrangement" },
-            { src: "/portfolio/custom-engagement/Image-10.webp", alt: "Eucalyptus and blush lisianthus trail from the capital of a slender cast-iron column beneath ornate pavilion fretwork" },
-            { src: "/portfolio/custom-engagement/Image-125.webp", alt: "Lauren's hand with an emerald-cut ring hovers above a soft blur of blush and cream blooms in her bouquet" },
-          ]}
+          photos={stackPhotos("custom-engagement", ["Image-124.webp", "Image-10.webp", "Image-125.webp"])}
           colorScheme={ColorScheme.ROSE}
           reverse={true}
         />
@@ -103,7 +105,7 @@ function HeroSection() {
         <a
           href="#celebrations"
           aria-label="Scroll to celebrations"
-          className="mt-8 flex flex-col items-center text-(--dark-green) hover:text-(--darker-green) transition-colors"
+          className="mt-8 flex flex-col items-center justify-center min-h-12 min-w-12 text-(--dark-green) hover:text-(--darker-green) transition-colors"
         >
           <ArrowRight className="h-4 w-6 rotate-90" />
         </a>
