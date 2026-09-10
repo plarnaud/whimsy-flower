@@ -77,7 +77,7 @@ export default function EventsPage() {
    the low-opacity tablescape image, with an arrow down to the celebrations. */
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden border-b-[1.5px] border-(--clover)">
       <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
@@ -92,8 +92,7 @@ function HeroSection() {
         />
       </div>
 
-      {/* Desktop: the hero ends about three quarters down the viewport (navbar is 8.5rem) */}
-      <div className="w-full py-10 sm:py-12 px-6 lg:h-[calc(75dvh-8.5rem)] lg:py-6 flex flex-col items-center text-center">
+      <div className="w-full py-10 sm:py-12 px-6 lg:min-h-[480px] flex flex-col items-center text-center">
         <div className="flex-1 flex flex-col justify-center items-center">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
             Showers, engagements, flower bars & every gathering in between

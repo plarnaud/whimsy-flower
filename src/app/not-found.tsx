@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-/* Full-height block on the page background, closed by the same rule as the weddings hero. */
+/* Plain block on the page background, sized to end near 75% of the viewport. */
 export default function NotFound() {
   return (
     <PageScaffold>
-      <section className="w-full border-b-[1.5px] border-(--clover)">
-        {/* Fills the viewport below the navbar (8.5rem spacer) */}
-        <div className="w-full min-h-[calc(100dvh-8.5rem)] py-16 sm:py-24 px-6 flex flex-col items-center justify-center text-center">
+      <section className="w-full">
+        {/* Ends about three quarters down the viewport (navbar spacer is 8.5rem) */}
+        <div className="w-full min-h-[calc(75dvh-8.5rem)] py-16 sm:py-24 px-6 flex flex-col items-center justify-center text-center">
           <h1 className="text-[18px] tracking-[-0.04em] uppercase">
             Page not found
           </h1>
