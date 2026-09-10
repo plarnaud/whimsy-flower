@@ -11,6 +11,7 @@ export type CollageTile = {
   sublabel: string;
   cover: string;
   coverAlt: string;
+  coverBlur?: string;
   /* Full album opened in the modal gallery. */
   images: LightboxItem[];
 };
@@ -73,6 +74,7 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                   <WhimsyImage
                     src={tile.cover}
                     alt={tile.coverAlt}
+                    blurDataURL={tile.coverBlur}
                     width={1600}
                     height={1200}
                     sizes="calc(100vw - 48px)"
@@ -83,6 +85,7 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                     <WhimsyImage
                       src={tile.cover}
                       alt={tile.coverAlt}
+                      blurDataURL={tile.coverBlur}
                       fill
                       sizes="45vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

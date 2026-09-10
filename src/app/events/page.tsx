@@ -9,6 +9,7 @@ import { InquireFormSection } from "@/components/inquireForm";
 import JsonLd from "@/components/jsonLd";
 import { breadcrumbGraph } from "@/lib/structuredData";
 import { portfolioAlts } from "@/data/portfolioAlts";
+import { blurFor } from "@/lib/blur";
 
 export const metadata: Metadata = {
   title: "Private Events & Flower Bars, Hudson Valley",
@@ -22,7 +23,11 @@ function stackPhotos(folder: string, lead: string[]): StackPhoto[] {
   const files = [...lead, ...Object.keys(alts).filter((f) => !lead.includes(f))];
   return files
     .filter((f) => alts[f])
-    .map((f) => ({ src: `/portfolio/${folder}/${f}`, alt: alts[f] }));
+    .map((f) => ({
+      src: `/portfolio/${folder}/${f}`,
+      alt: alts[f],
+      blurDataURL: blurFor(`/portfolio/${folder}/${f}`),
+    }));
 }
 
 export default function EventsPage() {
@@ -76,6 +81,7 @@ function HeroSection() {
       <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
         <WhimsyImage
           src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
           alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
           fill
           sizes="100vw"
@@ -187,7 +193,10 @@ function EventEntry({
       </div>
       <div className="w-full lg:w-auto flex justify-center py-6 shrink-0 order-first lg:order-none">
         <PhotoStack
-          photos={photos}
+          photos={photos.map((photo) => ({
+            ...photo,
+            blurDataURL: photo.blurDataURL ?? blurFor(photo.src),
+          }))}
           className="w-full lg:w-[clamp(320px,34vw,480px)]"
         />
       </div>

@@ -4,6 +4,7 @@ import WhimsyImage from "@/components/whimsyImage";
 export type FeaturedGallery = {
   imgSrc: string;
   imgAlt: string;
+  imgBlur?: string;
   /* Top left: the couple, or the brand on project cards. */
   coupleName: string;
   /* Top right: the year, or the project type on brand cards. */
@@ -32,6 +33,7 @@ export default function GalleryButton({
           <WhimsyImage
             src={gallery.imgSrc}
             alt={gallery.imgAlt}
+            blurDataURL={gallery.imgBlur}
             fill
             sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw"
             className="object-cover"

@@ -11,6 +11,7 @@ import {
 import PageScaffold from "@/components/pageScaffold";
 import TestimonialsSection from "@/components/testimonialsSection";
 import { siteConfig } from "@/lib/siteConfig";
+import { blurFor } from "@/lib/blur";
 
 export default function Home() {
   const homeLanderImages: ImageItem[] = [
@@ -50,6 +51,7 @@ export default function Home() {
     (gallery) => ({
       imgSrc: gallery.coverImage,
       imgAlt: gallery.coverAlt,
+      imgBlur: blurFor(gallery.coverImage),
       coupleName: gallery.coupleNames,
       year: gallery.year,
       location: gallery.location,
@@ -126,6 +128,7 @@ function HeroSection({ images }: HeroSectionProps) {
         <div className="absolute top-0 left-0 -z-100 w-full h-full opacity-[.165]">
           <WhimsyImage
             src="/home-lander-section-bg.webp"
+            blurDataURL={blurFor("/home-lander-section-bg.webp")}
             alt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
             fill
             sizes="100vw"

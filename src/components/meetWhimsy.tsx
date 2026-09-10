@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/lib/blur";
 
 type MeetWhimsyProps = {
   className?: string;
@@ -20,6 +21,8 @@ export default function MeetWhimsy({
             alt="Molly, founder and creative director of Whimsy Flower, walks a hilltop meadow with a bouquet of daisies and her terrier at her heels"
             fill
             sizes="(min-width: 640px) 477px, 100vw"
+            placeholder="blur"
+            blurDataURL={blurFor("/molly-portrait-meadow.webp")}
             className="object-cover rounded-lg"
           />
         </div>

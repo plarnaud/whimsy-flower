@@ -1,6 +1,7 @@
 import Link from "next/link";
 import WhimsyImage from "@/components/whimsyImage";
 import ArrowRight from "@/components/arrow";
+import { blurFor } from "@/lib/blur";
 
 interface ServicesButtonProps {
   label: string;
@@ -29,6 +30,7 @@ export default function ServicesButton({
         <WhimsyImage
           src={imgSrc}
           alt={imgAlt}
+          blurDataURL={blurFor(imgSrc)}
           fill
           sizes="(min-width: 640px) 33vw, 90vw"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
