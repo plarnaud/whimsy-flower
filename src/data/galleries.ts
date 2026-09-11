@@ -74,6 +74,8 @@ export const galleries: GalleryMeta[] = [
     year: "2025",
     coupleNames: "Lindsey & Finn",
     location: "Private Residence, Mantoloking, NJ",
+    photographer: "Rachel Koudellou",
+    photographerUrl: "https://www.instagram.com/rachelkoudellouphoto/",
     palette: [
       { name: "Blush", mainColor: "#E0C0B6", borderColor: "#6E4237" },
       { name: "Apple Green", mainColor: "#C8B947", borderColor: "#5A530F" },

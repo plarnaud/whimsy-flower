@@ -23,7 +23,7 @@ export default function Home() {
     {
       src: "/home-carousel/lindsey-finn.webp",
       alt: "Lindsey sits on the steps of a shingled porch among sculptural mounds of white hydrangea, holding a small tweedia bouquet",
-      creds: "Photo by Lindsey Finn",
+      creds: "Photo by Rachel Koudellou",
     },
     {
       src: "/home-carousel/gleb-freeman-photography.webp",
