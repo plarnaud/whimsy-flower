@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Beth_Ellen, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/jsonLd";
 import { baseOpenGraph, siteConfig, siteUrl } from "@/lib/siteConfig";
 import { organizationGraph } from "@/lib/structuredData";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <JsonLd data={organizationGraph()} />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
