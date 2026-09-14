@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 
   const name = String(body.name || "").trim();
   const email = String(body.email || "").trim();
-  const phone = String(body.phone || "").trim();
+  const location = String(body.location || "").trim();
   const occasion = String(body.occasion || "").trim();
   const date = String(body.date || "").trim();
   const budget = String(body.budget || "").trim();
@@ -63,9 +63,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!name || !email || !occasion || !date || !budget) {
+  if (!name || !email || !occasion || !location || !date || !budget) {
     return NextResponse.json(
-      { error: "Name, email, occasion, date, and budget are required." },
+      {
+        error:
+          "Name, email, occasion, location, date, and budget are required.",
+      },
       { status: 400 }
     );
   }
@@ -81,8 +84,8 @@ export async function POST(request: NextRequest) {
     <div style="font-family: Arial, sans-serif; line-height: 1.6;">
       <h2>New inquiry from ${escapeHtml(name)}</h2>
       ${formatLine("Email", email)}
-      ${formatLine("Phone", phone)}
       ${formatLine("Occasion", occasion)}
+      ${formatLine("Location", location)}
       ${formatLine("Date", date)}
       ${formatLine("Budget", budget)}
       ${formatLine("How they heard about us", referralSource)}

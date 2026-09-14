@@ -9,7 +9,7 @@ type FormStatus = "idle" | "loading" | "success" | "error";
 type InquirePayload = {
   name: string;
   email: string;
-  phone?: string;
+  location: string;
   occasion: string;
   date: string;
   budget: string;
@@ -83,6 +83,19 @@ export function LabeledTextArea({
   );
 }
 
+/* Where the event takes place. Required everywhere the inquire form appears. */
+export function LocationInput() {
+  return (
+    <LabeledInput
+      label="Location"
+      name="location"
+      required
+      autoComplete="address-level2"
+      placeholder="Hudson, NY, or the venue name"
+    />
+  );
+}
+
 export function InquireFormSection({
   forceSuccess,
   headingLevel = "h2",
@@ -131,7 +144,7 @@ export default function InquireForm({
     const payload: InquirePayload = {
       name: String(formData.get("name") || "").trim(),
       email: String(formData.get("email") || "").trim(),
-      phone: String(formData.get("phone") || "").trim(),
+      location: String(formData.get("location") || "").trim(),
       occasion: String(formData.get("occasion") || "").trim(),
       date: String(formData.get("date") || "").trim(),
       budget: String(formData.get("budget") || "").trim(),
@@ -205,12 +218,7 @@ export default function InquireForm({
             placeholder="name@email.com"
           />
 
-          <LabeledInput
-            label="Phone"
-            name="phone"
-            type="tel"
-            placeholder="(555) 123-4567"
-          />
+          <LocationInput />
         </div>
         <div className="grid gap-8 md:grid-cols-2">
           <LabeledInput
