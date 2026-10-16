@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Beth_Ellen, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -39,6 +40,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// Google Analytics 4 (also feeds French Fry Dash). Production only, so the
+// staging site's visits stay out of the numbers. Enhanced measurement counts
+// client-side route changes from browser history events.
+const GA_MEASUREMENT_ID = "G-ML3SEK0K5V";
+const isProduction = process.env.VERCEL_ENV === "production";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,6 +59,20 @@ export default function RootLayout({
         <JsonLd data={organizationGraph()} />
         {children}
         <SpeedInsights />
+        {isProduction ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "${GA_MEASUREMENT_ID}");`}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );
