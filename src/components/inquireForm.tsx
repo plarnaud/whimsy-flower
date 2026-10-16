@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import WhimsyImage from "./whimsyImage";
 import PillButton from "./pillButton";
+import { track } from "@/lib/analytics";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -161,6 +162,11 @@ export default function InquireForm({
       });
 
       if (!response.ok) {
+        track("form_error", {
+          form_name: "inquiry",
+          form_location: window.location.pathname,
+          error_type: response.status === 400 ? "validation" : `server_${response.status}`,
+        });
         const errorBody = await response.json().catch(() => null);
         const message =
           errorBody?.error || "Something went wrong. Please try again.";
@@ -169,10 +175,27 @@ export default function InquireForm({
         return;
       }
 
+      // Only which optional fields were filled, never what was typed. A filled
+      // honeypot is a bot the server quietly accepted: not a lead.
+      if (!payload.website) track("generate_lead", {
+        form_name: "inquiry",
+        form_location: window.location.pathname,
+        lead_detail: [
+          payload.referralSource ? "has_referral_source" : "",
+          payload.notes ? "has_notes" : "",
+        ]
+          .filter(Boolean)
+          .join(",") || "required_only",
+      });
       setStatus("success");
       formRef.current?.reset();
     } catch (error) {
       console.error(error);
+      track("form_error", {
+        form_name: "inquiry",
+        form_location: window.location.pathname,
+        error_type: "network",
+      });
       setErrorMessage("We could not send your request. Please try again.");
       setStatus("error");
     }

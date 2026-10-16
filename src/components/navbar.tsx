@@ -225,7 +225,13 @@ const Navbar = () => {
                   className="min-w-5 h-5 w-5"
                 />
               </a>
-              <Link href="/inquire">
+              <Link
+                href="/inquire"
+                data-track="cta_click"
+                data-track-cta-text="Inquire"
+                data-track-cta-location="navbar"
+                data-track-link-url="/inquire"
+              >
                 <PillButton label="Inquire" className="" />
               </Link>
             </div>

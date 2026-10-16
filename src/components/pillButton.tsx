@@ -44,15 +44,21 @@ export default function PillButton({
 
   if (href) {
     const isInternal = href.startsWith("/");
+    // Link CTAs are counted as cta_click by the site-wide listener.
+    const trackProps = {
+      "data-track": "cta_click",
+      "data-track-cta-text": label,
+      "data-track-link-url": href,
+    };
     if (isInternal) {
       return (
-        <Link href={href} className={`inline-block text-center ${sharedClasses}`}>
+        <Link href={href} className={`inline-block text-center ${sharedClasses}`} {...trackProps}>
           {label}
         </Link>
       );
     }
     return (
-      <a href={href} className={`inline-block text-center ${sharedClasses}`}>
+      <a href={href} className={`inline-block text-center ${sharedClasses}`} {...trackProps}>
         {label}
       </a>
     );

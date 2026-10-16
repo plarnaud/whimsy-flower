@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import WhimsyImage from "@/components/whimsyImage";
+import { track } from "@/lib/analytics";
 import Lightbox, { LightboxItem } from "@/components/lightbox";
 
 export type CollageTile = {
@@ -66,7 +67,10 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
             >
               <figure className="group">
                 <button
-                  onClick={() => setOpen({ tile: i, index: 0 })}
+                  onClick={() => {
+                    track("select_content", { content_type: "gallery", item_id: tile.label });
+                    setOpen({ tile: i, index: 0 });
+                  }}
                   aria-label={`View the ${tile.label} ${tile.sublabel} gallery`}
                   className="relative block w-full overflow-hidden rounded-lg cursor-pointer"
                 >

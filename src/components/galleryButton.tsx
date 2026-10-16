@@ -26,6 +26,9 @@ export default function GalleryButton({
   return (
     <Link
       href={gallery.href}
+      data-track="select_content"
+      data-track-content-type="gallery"
+      data-track-item-id={gallery.href}
       className={`group relative flex flex-col w-full cursor-pointer group-hover:z-10 hover:z-10 ${className}`}
     >
       <div className="relative w-full transition-transform duration-300 group-hover:scale-105">

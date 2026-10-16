@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import WhimsyImage from "@/components/whimsyImage";
+import { track } from "@/lib/analytics";
 import Lightbox from "@/components/lightbox";
 
 type GalleryGridItem = {
@@ -253,10 +254,18 @@ export default function GalleryGrid({
 
   if (items.length === 0) return null;
 
+  const openPhoto = (index: number) => {
+    track("select_content", {
+      content_type: "photo",
+      item_id: `${window.location.pathname}#${index + 1}`,
+    });
+    setOpenIndex(index);
+  };
+
   return (
     <>
-      <MobileLayout items={items} onOpen={setOpenIndex} />
-      <DesktopLayout items={items} squareRows={squareRows} onOpen={setOpenIndex} />
+      <MobileLayout items={items} onOpen={openPhoto} />
+      <DesktopLayout items={items} squareRows={squareRows} onOpen={openPhoto} />
       <Lightbox
         items={items.map((item) => ({
           src: item.imgSrc,

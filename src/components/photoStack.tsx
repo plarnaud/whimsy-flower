@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import WhimsyImage from "@/components/whimsyImage";
+import { track } from "@/lib/analytics";
 import Lightbox from "@/components/lightbox";
 
 export type StackPhoto = {
@@ -62,7 +63,14 @@ export default function PhotoStack({ photos, className = "" }: PhotoStackProps) 
           return (
             <button
               key={photo.src}
-              onClick={() => (depth === 0 ? setOpen(index) : advance(depth))}
+              onClick={() => {
+                if (depth !== 0) return advance(depth);
+                track("select_content", {
+                  content_type: "photo",
+                  item_id: `${window.location.pathname}#${index + 1}`,
+                });
+                setOpen(index);
+              }}
               aria-label={
                 depth === 0 ? `${photo.alt}. Open full size` : photo.alt
               }
