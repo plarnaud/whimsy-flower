@@ -49,7 +49,7 @@ export default function PageHero({
           fill
           sizes="100vw"
           quality={50}
-          priority
+          preload
           fetchPriority="high"
           className="absolute left-0 right-0 -z-100 object-cover object-center"
         />

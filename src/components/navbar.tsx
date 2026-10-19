@@ -138,7 +138,9 @@ const Navbar = () => {
                 height={64}
                 className="h-[clamp(2.5rem,6dvh,4rem)] w-auto mb-[clamp(0.75rem,2dvh,1.5rem)]"
                 sizes="220px"
-                priority
+                // Lives in the closed slide-out menu, off screen until it is
+                // opened, so it is lazy (Next's default) and never competes
+                // with the page's LCP image.
               />
               <div className="flex gap-6 mb-4">
                 <a
@@ -203,7 +205,12 @@ const Navbar = () => {
               width={80}
               height={80}
               className="w-[80px] h-auto"
-              priority
+              // Renders 59px wide (the link's width); without `sizes` the 2x
+              // candidate was a 256px-wide file.
+              sizes="59px"
+              // Above the fold, so eager. No Next `preload`: the hero image is
+              // the only one that should get a preload with high priority.
+              loading="eager"
             />
           </Link>
 

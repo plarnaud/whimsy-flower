@@ -411,8 +411,6 @@ export const portfolioAlts: Record<string, Record<string, string>> = {
   "custom-engagement": {
     "Image-10.webp":
       "Eucalyptus and blush lisianthus trail from the capital of a slender cast-iron column beneath ornate pavilion fretwork",
-    "Image-11.webp":
-      "Ornate cast-iron pavilion with a pitched roof beside a park lake, two ground arrangements marking its entrance",
     "Image-12.webp":
       "Cast-iron pavilion with fretwork eaves and finials, its entrance framed by two ground arrangements of pastel blooms",
     "Image-124.webp":
@@ -423,76 +421,12 @@ export const portfolioAlts: Record<string, Record<string, string>> = {
       "A gold champagne gift box stands on flagstone before a ground arrangement of blush lisianthus, peach zinnias and eucalyptus",
     "Image-18.webp":
       "Lauren holds a bouquet of blush lisianthus, cream zinnias and eucalyptus inside the pavilion, Will smiling behind her",
-    "Image-181.webp":
-      "Will pours champagne into a flute as Lauren laughs beside him beneath the pavilion's iron fretwork",
     "Image-19.webp":
       "Lauren and Will face each other between two cast-iron columns dressed with pink lisianthus, ground arrangements at their feet",
-    "Image-193.webp":
-      "Lauren and Will hold champagne flutes at the pavilion edge, ground arrangements at their feet and a lake behind",
     "Image-196.webp":
       "Lauren shows off her ring with an open-mouthed laugh beside Will, flutes in hand, above a spill of cream and blush blooms",
-    "Image-197.webp":
-      "Will rests his forehead against Lauren's temple as she shows her ring, flutes in hand, between lisianthus-dressed capitals",
-    "Image-2.webp":
-      "White lisianthus, pale hydrangea and green zinnias spill with trailing eucalyptus along a cast-iron railing onto flagstone",
-    "Image-204.webp":
-      "Two champagne flutes held close, Lauren's emerald-cut ring catching light against Will's pale blue blazer",
-    "Image-21.webp":
-      "Lauren and Will stand close beneath the pavilion eaves, flower-dressed capitals above and pastel ground arrangements below",
-    "Image-212.webp":
-      "Lauren and Will touch noses with champagne flutes in hand, ground arrangements of hydrangea and lisianthus flanking them",
-    "Image-213.webp":
-      "Will kisses Lauren's temple beneath the pavilion roof, pastel ground arrangements flanking them and a lake beyond",
-    "Image-216.webp":
-      "Lauren and Will rest forehead to forehead, champagne flutes touching, her ring catching the light",
-    "Image-217.webp":
-      "Lauren and Will smile at the railing with champagne flutes, a ground arrangement of blush zinnias and eucalyptus below",
-    "Image-221.webp":
-      "Will kisses Lauren's cheek as she shows her ring, flutes in hand, column capitals dressed with lisianthus on either side",
     "Image-24.webp":
       "Lauren covers her mouth in tears as Will faces her inside the pavilion, her bouquet lowered at her side",
-    "Image-26.webp":
-      "Lauren presses a hand to her chest, tearful, as Will speaks to her beneath columns dressed with blush lisianthus",
-    "Image-29.webp":
-      "Will kneels with a ring box as Lauren crouches to meet him, the pavilion floor framed by two pastel ground arrangements",
-    "Image-292.webp":
-      "Lauren grins and shows her ring beside Will, holding a bouquet of blush lisianthus, zinnias and eucalyptus by a balustrade",
-    "Image-3.webp":
-      "Blush lisianthus and eucalyptus tucked into the fluted capital of a pale cast-iron column beneath an ornate pavilion roof",
-    "Image-30.webp":
-      "Will on one knee holding a ring box while Lauren leans toward him, bouquet in hand, between lisianthus-dressed columns",
-    "Image-31.webp":
-      "Will kneels and opens a ring box before Lauren, who holds her bouquet, pastel arrangements framing the pavilion entrance",
-    "Image-37.webp":
-      "Will's hand holds an open blush velvet box with an emerald-cut ring against the pale blue of his blazer",
-    "Image-38.webp":
-      "Will kneels on the pavilion floor, smiling upward with an open ring box in hand, cast-iron lattice railing behind him",
-    "Image-4.webp":
-      "Two low arrangements of lisianthus, hydrangea and eucalyptus flank a cast-iron pavilion step, a small vessel between them",
-    "Image-47.webp":
-      "Lauren and Will kiss, both kneeling on the pavilion floor, her bouquet beside them and pastel arrangements framing the scene",
-    "Image-5.webp":
-      "Cast-iron columns dressed with pink lisianthus rise above two ground arrangements framing a pavilion step and small vessel",
-    "Image-56.webp":
-      "Will slips the ring onto Lauren's finger inside the pavilion, her bouquet resting on the stone floor beside them",
-    "Image-68.webp":
-      "Lauren and Will kiss inside the pavilion, hands clasped, her bouquet set on the floor beside columns dressed with lisianthus",
-    "Image-7.webp":
-      "Blush lisianthus, cream zinnias and eucalyptus gathered in a pleated tan paper vessel on flagstone beside a column base",
-    "Image-8.webp":
-      "Peach lisianthus blooms and silver eucalyptus woven through the diamond lattice of a white cast-iron railing in low sun",
-    "Image-9.webp":
-      "Cream hydrangea panicles, white lisianthus and green zinnias trail with eucalyptus from a railing base onto worn flagstone",
-    "whimsy-10.webp":
-      "Lauren in a pearl headband and sheer gloves looks down at a bouquet of white lisianthus, pink blooms and eucalyptus",
-    "whimsy-12.webp":
-      "Lauren and Will kiss beside a spraying fountain, she in a pearl headband holding a bouquet of blush and cream blooms",
-    "whimsy-13.webp":
-      "Lauren holds a bouquet of white and blush lisianthus, cream zinnias and eucalyptus between herself and Will",
-    "whimsy-4.webp":
-      "Close view of a hand-tied bouquet of white lisianthus, pale pink blooms, cream zinnias and eucalyptus held in sheer gloves",
-    "whimsy-5.webp":
-      "Lauren leans against a fountain rim in low sun, holding a bouquet of white and blush blooms as spray catches the light",
   },
   "mackenzie-childs-gray-malin": {
     "J72A6696_websize.webp":

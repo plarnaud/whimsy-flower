@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
   turbopack: { root: __dirname },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Next 16 only serves the qualities listed here and rounds any other
+    // `quality` prop to the nearest one. 50 is used by the low-opacity
+    // background images (page heroes, sub-page headers, inquire form).
+    qualities: [50, 75],
     // Instagram feed thumbnails (see docs/INSTAGRAM.md)
     remotePatterns: [
       { protocol: "https", hostname: "**.cdninstagram.com" },

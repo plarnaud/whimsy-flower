@@ -78,6 +78,20 @@ aside#wf-nav-menu::before {
   pointer-events: none;
 }
 
+/* Paper texture as AVIF (31 KB vs 86 KB WebP) where the browser can pick by
+   type. Kept in @supports so the build's CSS minifier can't merge away the
+   plain WebP url() above, which older browsers still need. */
+@supports (background-image: image-set(url("/bg-graphic.avif") type("image/avif"))) {
+  body::before,
+  nav::before,
+  aside#wf-nav-menu::before {
+    background-image: image-set(
+      url("/bg-graphic.avif") type("image/avif"),
+      url("/bg-graphic.webp") type("image/webp")
+    );
+  }
+}
+
 .horizontal-scroll::-webkit-scrollbar {
   display: none;
 }

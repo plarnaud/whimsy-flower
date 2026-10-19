@@ -38,7 +38,7 @@ export default function GalleryButton({
             alt={gallery.imgAlt}
             blurDataURL={gallery.imgBlur}
             fill
-            sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw"
+            sizes="(min-width: 1024px) calc((100vw - 176px) / 3), (min-width: 768px) calc((100vw - 144px) / 3), (min-width: 640px) calc((100vw - 96px) / 3), calc(100vw - 48px)"
             className="object-cover"
           />
         </div>

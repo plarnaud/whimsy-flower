@@ -26,7 +26,7 @@ export default function AboutPage() {
         imgAlt="Long wooden table with bud vases of coral poppies, white spirea and sweet pea among taper candles, climbing roses behind"
       />
 
-      <MeetWhimsy />
+      <MeetWhimsy preloadImage />
 
       {/* Studio section held for v2 */}
       {showStudioSection && <StudioSection />}

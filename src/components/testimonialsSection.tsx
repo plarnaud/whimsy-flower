@@ -27,7 +27,7 @@ export default function TestimonialsSection({
             alt={imgAlt}
             blurDataURL={blurFor(imgSrc)}
             fill
-            sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
+            sizes="(min-width: 1024px) 429px, (min-width: 768px) calc((100vw - 216px) / 2), calc(100vw - 96px)"
             className="object-cover"
           />
         </div>
@@ -78,7 +78,7 @@ export function SmallTestimonialSection({
             alt={imgAlt}
             blurDataURL={blurFor(imgSrc)}
             fill
-            sizes="(min-width: 1024px) 429px, (min-width: 768px) 50vw, 90vw"
+            sizes="(min-width: 1024px) 429px, (min-width: 768px) calc((100vw - 216px) / 2), calc(100vw - 96px)"
             className="object-cover"
           />
         </div>

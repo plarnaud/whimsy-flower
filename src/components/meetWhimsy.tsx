@@ -4,11 +4,14 @@ import { blurFor } from "@/lib/blur";
 type MeetWhimsyProps = {
   className?: string;
   contentClassName?: string;
+  /* Set where the portrait is above the fold and the page's LCP (/about). */
+  preloadImage?: boolean;
 };
 
 export default function MeetWhimsy({
   className = "",
   contentClassName = "px-6 sm:px-12",
+  preloadImage = false,
 }: MeetWhimsyProps) {
   return (
     <section id="meet-whimsy" className={`${className}`}>
@@ -20,9 +23,11 @@ export default function MeetWhimsy({
             src="/molly-portrait-meadow.webp"
             alt="Molly, founder and creative director of Whimsy Flower, walks a hilltop meadow with a bouquet of daisies and her terrier at her heels"
             fill
-            sizes="(min-width: 640px) 477px, 100vw"
+            sizes="(min-width: 640px) 477px, calc(100vw - 48px)"
             placeholder="blur"
             blurDataURL={blurFor("/molly-portrait-meadow.webp")}
+            preload={preloadImage}
+            fetchPriority={preloadImage ? "high" : undefined}
             className="object-cover rounded-lg"
           />
         </div>

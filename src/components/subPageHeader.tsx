@@ -25,8 +25,12 @@ export default function SubPageHeader({
           fill
           sizes="100vw"
           quality={50}
-          priority
-          fetchPriority="high"
+          // Decorative 33%-opacity backdrop. On every page that uses this
+          // header the LCP is the content below it (first gallery photo,
+          // founder portrait), so keep it out of the high-priority preloads:
+          // eager so it shows at once, low priority so it yields bandwidth.
+          loading="eager"
+          fetchPriority="low"
           className="absolute left-0 right-0 -translate-y-2 -z-100  object-cover"
         />
       </div>

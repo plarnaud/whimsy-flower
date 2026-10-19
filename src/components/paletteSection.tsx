@@ -156,7 +156,7 @@ function FlowerPreview({ name, subName, imgSrc, imgAlt }: FlowerPreviewProps) {
           src={imgSrc}
           alt={imgAlt}
           fill
-          sizes="310px, 214px, 380px"
+          sizes="(min-width: 1024px) 25vw, (min-width: 768px) 214px, calc(100vw - 48px)"
           className="object-cover object-center"
         />
       </div>

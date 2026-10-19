@@ -123,20 +123,6 @@ export const brandNames = [
   "Chandelier Cocktail Courier",
 ];
 
-export type BrandGalleryPhoto = {
-  src: string;
-  alt: string;
-};
-
-// Covers of the brand projects, for compact listings.
-export const brandGalleryPhotos: BrandGalleryPhoto[] = brandProjects.map(
-  (project) => ({ src: project.coverImage, alt: project.coverAlt }),
-);
-
-export const featuredBrandProjects = brandProjects.filter(
-  (project) => project.featured,
-);
-
 export function getBrandProjectBySlug(slug: string) {
   return brandProjects.find((project) => project.slug === slug);
 }

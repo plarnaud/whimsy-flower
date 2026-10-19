@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 interface PillButtonProps {
@@ -79,33 +77,5 @@ export default function PillButton({
 export function OpenContactFormButton() {
   return (
     <PillButton label="Contact us!" className="mt-12" href="/inquire" />
-  );
-}
-
-export enum eventType {
-  FLOWER_BAR = "flower bar",
-  WORKSHOP = "workshop",
-  CORPORATE = "corporate",
-}
-interface ScheduleEventButtonProps {
-  eventType: eventType;
-  label: string;
-  color: string;
-  className?: string;
-}
-
-export function ScheduleEventButton({
-  eventType,
-  label,
-  className,
-  color,
-}: ScheduleEventButtonProps) {
-  return (
-    <PillButton
-      label={label}
-      color={color}
-      onClick={() => console.log(`${eventType} us clicked`)}
-      className={className}
-    ></PillButton>
   );
 }

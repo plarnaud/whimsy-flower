@@ -39,7 +39,7 @@ const labelClasses =
 const inputFieldClasses =
   "w-full h-12 border-b-2 border-(--olive) text-[14px] text-(--dark-green)";
 
-export function LabeledInput({
+function LabeledInput({
   label,
   name,
   type = "text",
@@ -62,7 +62,7 @@ export function LabeledInput({
   );
 }
 
-export function LabeledTextArea({
+function LabeledTextArea({
   label,
   name,
   required = false,
@@ -85,7 +85,7 @@ export function LabeledTextArea({
 }
 
 /* Where the event takes place. Required everywhere the inquire form appears. */
-export function LocationInput() {
+function LocationInput() {
   return (
     <LabeledInput
       label="Location"
@@ -101,6 +101,9 @@ export function InquireFormSection({
   forceSuccess,
   headingLevel = "h2",
 }: InquireFormProps) {
+  // On /inquire (h1) the form is the page and its backdrop is the LCP
+  // element, so preload it there; elsewhere it sits far below the fold.
+  const isPageContent = headingLevel === "h1";
   return (
     <div id="inquire" className="relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 -z-90 w-full h-full opacity-33 overflow-hidden">
@@ -110,6 +113,8 @@ export function InquireFormSection({
           fill
           sizes="100vw"
           quality={50}
+          preload={isPageContent}
+          fetchPriority={isPageContent ? "high" : undefined}
           className="absolute left-0 right-0 -z-100  object-cover"
         />
       </div>
@@ -125,7 +130,7 @@ export function InquireFormSection({
   );
 }
 
-export default function InquireForm({
+function InquireForm({
   forceSuccess = false,
   headingLevel = "h2",
 }: InquireFormProps) {

@@ -8,8 +8,6 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAALiRo7M6TOWyVpLyckAP6NTMrwTHCLB50AUad86Mfw/E03F/u9Ubkkze7vsvZXCyjThAA=",
   "/home-carousel/gleb-freeman-photography.webp":
     "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBWAAqDYnx5SlmA0jTpAAP4A+DeEbHtaltrtmaIItu0uxorCI3UIO5OszBNI5d6Em6a8bBMybvT80AAQMLp1214jBleKMTq7FdkeOH+yIInnPd5QUi7i8mVGUQN3HxA0AA==",
-  "/home-carousel/julia-mcguire.webp":
-    "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQAALdvyj2clIN5gUmRAA/sM1cX1MF5v7Rhr3AnzKCJX3/zqzy/wB/MKNn9Zel/ExZ9EntfazwDmJtljzR0FOkZzDG6cFJ1dwgAAA",
   "/home-carousel/lindsey-finn.webp":
     "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJYwCw7dwAlQc3LeJ2MnO9YSwAAP7Nu2xO6cxnEvvaNc/fBjXyoLfhOmJqglRL/sq6qSJBXdR3D/OA67e9grXPR2anavLTuAhAbhn0sGhBLF84ynAaeiYjf6lof10d5YpeFDVAORELAAAA",
   "/home-carousel/natalia-david.webp":
@@ -58,8 +56,6 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQAHOAGoVHhakLYFYAPXOWKV0LOOaEm6oCFlH+I2t4tzqFYuKBPe2xNcfr9soI356FDnbxy1YXle1R4Nk6hpEBAckFD/6yhiaQ2HGOSoXAAAA",
   "/portfolio/custom-engagement/Image-10.webp":
     "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCsAywAIxshFPVQAMVCg9pR9fND/uJCQG1ojN8PVrgUfRyjASX5KbQRdAjYSeLfhKmQIM6tjADo3k/qLVLxnC5nF+v3q1kuzPZFmeq7TqmCV+1xAAAA",
-  "/portfolio/custom-engagement/Image-11.webp":
-    "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoQAAsABUB8JZACsAEREXZik00AAP7IpyDJiDJTbo6/knWoEbzNydP43rmWEisFINSCO+ehAkpAAA==",
   "/portfolio/custom-engagement/Image-12.webp":
     "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoQAAsABUB8JZACsAEOUot3Q/IAAP7F2FXsvYk2NhzzrHB8l4Zym/1ihoU+1sAnb6ECcIAA",
   "/portfolio/custom-engagement/Image-124.webp":
@@ -70,76 +66,12 @@ export const blurMap: Record<string, string> = {
     "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCdAAo5RjqxNa7AAPxzQbaTz/dGinPDc7RrVuIqLm64Y/LWIR4+d8U68yOtbUz7lmKLkSFEYlJZ3NcE91kf/5Xxg3XC8s2XUvCg/F+Nn3c7cyr5DFcE8zxQQRZjPG1wAA==",
   "/portfolio/custom-engagement/Image-18.webp":
     "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCdAAv0wzKWuOaVgACw5juK4EWjulsuVudgsq026zX63JN3vOxRCVCJGeoexVaBKpsw4McOxCaVTtr+S5eDugzWs4HlD02uygHQZ3x4qCtCsUUhe4AAAAA=",
-  "/portfolio/custom-engagement/Image-181.webp":
-    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJagAAUvWD6sYzMzjkjAD90UZ+/SY1iDvruL8SVoYkFJPFTrUO7W6tSrXPoPoNWTn3J3FNlr7ykOSe/WwwTOjWW2ArmzvBrIhug1KW8AA=",
   "/portfolio/custom-engagement/Image-19.webp":
     "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZACdACD3L8mPEdi+oAD+4KoRfjYwWvDUlVng6DqJbMdJkGJn0l/3IKhIkKA8qzK28Gvi4Bc/TlcuMwXylQAJRAbIuQyYCUAAAA==",
-  "/portfolio/custom-engagement/Image-193.webp":
-    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJaAAAUwYdMin6R01udAAA/e2I6cg05ZCCJgQN6Ci7DdlcN1oLBIRf9IL9r9zfHG5/0Oh2XkWmIVSwuTlZqi+OXl/NyC0zKpGmnolNtME6f4X0zZtQGvJKDMRtlg5hfEAAAA==",
   "/portfolio/custom-engagement/Image-196.webp":
     "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgAAITOQ36eig6oJSAD+sgkXM7iWeidsxCBWmLPZF05UoWBLDlOPLGPbAfbNwnp5Edxq2aSbG/4iQ9BusfgIVOu8u9j9sy8bQAAA",
-  "/portfolio/custom-engagement/Image-197.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCdABqwUS0csm5m9IAA9wbXHuMv6iGwhexx1NxsNhLZF8pH5ODc74+mOlQ3AMaPFMwqoiSwKIZhWGDVjjYZ6oDMbNQfp7c8qGtxHy7pOmxvtRgAAA==",
-  "/portfolio/custom-engagement/Image-2.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgAALhOhy8Coxy4CPXAA/pgXiWodRuFmM0AZ8BBlt/nj2zhjrYMWT5WTByj5of99N+8UR+MTLn4FpqKBdmxMep9zria7MYj2vAq5XlrNrIjZBQKAAA==",
-  "/portfolio/custom-engagement/Image-204.webp":
-    "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJaAC7ABiuLm24nOMG64AA/fTMZcK6ijQ0X65P0ymCiK37OBcpNhpDqCxAtZkLUJ+TGRDZdlw145gF3dkzkOFCAlUouHx+AAA=",
-  "/portfolio/custom-engagement/Image-21.webp":
-    "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBOgBC+XWxtwbFywAP60AsqmUWS6kD9J1CwnLCE0GK7uonN9rKwNuvSi+O/IDNYgxT8nTlJ7yPjIK+vLCN1dq1231h1aVJ5xWUJESAomfIAA",
-  "/portfolio/custom-engagement/Image-212.webp":
-    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgC06CP6OAREgUim7cyAAP5hRsBvj2mZvn0yYlgrTikr3u42UCk5vuXpY2cVUD/y88eqYL9GyOQ8zPVty/i89e04T3XCdmR2blLPZt/2FLqvAAA=",
-  "/portfolio/custom-engagement/Image-213.webp":
-    "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAsABUB8JZgCdAEU8M/ZIpAA/GZ7HFvQ+1CNVEs0GRZJEYmNyOMm+8v1uQR65usJy4AA",
-  "/portfolio/custom-engagement/Image-216.webp":
-    "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABgAPzmEuVOvKKWisAgB4CcJbACdMoABXTAZibllerbhcAD2YNNiTFzFrV94zcu0Mu8nACGiReDOpQrrrBKbEF/GhEKHOk3N54U041JUMlTdiNY0Wct3C7022H9W53hWa4VhjU7775Lycn6JoGAA",
-  "/portfolio/custom-engagement/Image-217.webp":
-    "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgC06A8UuRhwRT1pTgC3QmlYduneB/ad32XZFWaeTUDYx8FGN3B30o5jqR8BueqAaU0U6PnXsSbXEvRaJypugt36G2zySdBXAAAA",
-  "/portfolio/custom-engagement/Image-221.webp":
-    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZAC7ABCQP2PGbtAEOHAApmc18qSqlGtI4qL+FQcdEQszeXAWqzZmGFY0ahFYXiznkILiTCYTvpM2QRlqa5yfYpmizj8iLi0lPCYAAAA=",
   "/portfolio/custom-engagement/Image-24.webp":
     "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAsABUB8JYgCw7DdSLpap+vAAP6U3hVaMBoTwuRGfgQD7zCe8RtkCcG5emo1FQPK9UDwh9Qlvu9TLAAAAA==",
-  "/portfolio/custom-engagement/Image-26.webp":
-    "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAsABUB8JaACdACDZW7QQAD+kYvm4FUMSzKanF1H8kT9k7KzUWwYp8aRx8+SLcZYnRP0JCGUNMvpmgAAAA==",
-  "/portfolio/custom-engagement/Image-29.webp":
-    "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAsABUB8JYgCdABvpBYoAAD+YRzH1HwBKX2tX4LnSpO56xVcZ556eYaFdnLPpYDFSM0lc7gAAA==",
-  "/portfolio/custom-engagement/Image-292.webp":
-    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJagCsABYyWANUZOxKAAD8sWsgw8q1UrLkYFScoXY/2cXG/BH8X/OW/wavWsFL6E9wJm/D2BpBKuRsPdqWbn+ZTlKoBDjHXpl2ugufAkvrpG+koAA=",
-  "/portfolio/custom-engagement/Image-3.webp":
-    "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCw7CHSswlFiVBuWgoAAP6c+gsAuMtNzWH/YWd8Y68ABlXYzM/L1ssbq2hbIVZYI4HUUjo6xdgqXXQLvgUZm/UYL4h6lF4m3lty3JqQ5ONZpAa01LRd+G3tbqVpUZXtgAAuAAA=",
-  "/portfolio/custom-engagement/Image-30.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCdAA7Cs5UV8TRtw9EAAPcEI3HfiiKxKk6RZFlRchVpw63FJ5P0zTYClMXBLF0K0oMHSZanxnuusFxY5cQD2ERImtZNGSjsrXDa4sq7qhN2BgAAAA==",
-  "/portfolio/custom-engagement/Image-31.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgCsABMrbvAoKXCQ7bGAAPbsn7Gf2x49DgRTUnO1rwc8QRey3ZVeIw0hogs4jAbAIvG7Nk1gBSGHsOnkOau9612hbWFvSGng/b79+d8UHGwAm7AwAA==",
-  "/portfolio/custom-engagement/Image-37.webp":
-    "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgAAUpblfV8z+gaAAO9+YXYL1cEqgRqBjWUvUhkikqsoQ3w+NZ8JCTvkg7hVnOJj5U2lJYnJwFaFQAA=",
-  "/portfolio/custom-engagement/Image-38.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJbAC1GoAA8+TUSj5PDADeEpuMNc5AukcVF/puEN/CXal5rdMtNBN64Vb3fVdeJZwMNW8puOrYcL43202BlqZAY7mlDUlzA03fSODlAy1gv+3GzHVwAA==",
-  "/portfolio/custom-engagement/Image-4.webp":
-    "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAsABUB8JYgC7AEe5IxzQAD+kXq2qs/BWvFPISd7VAaYvnYwHB1+jM5KbgAA",
-  "/portfolio/custom-engagement/Image-47.webp":
-    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJQBOgAGC8gvEAAPbskb0G3CMtcAkXSEBloLQaOai2isGCD4usaPm93R+qtxl6aaqV/fMbVyowl8I2CRUy6MeXqqj/6LeYrp/1ykCuKUPZO8QAAAA=",
-  "/portfolio/custom-engagement/Image-5.webp":
-    "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBXDhDqX/vuP1QgAAPqP3Z5ZczV2JNondHcNxBMI03wsjdv77ePXM2HVSAML5xcVdruKRt62lbLlE+UMpn+MMZJUbd3LiyAAAA==",
-  "/portfolio/custom-engagement/Image-56.webp":
-    "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAsABUB8JZACdABU6nAAAOAEQGwBE3GGzwQ5MDB7FdfUH6HskLW2H78aAAAA",
-  "/portfolio/custom-engagement/Image-68.webp":
-    "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCdAA2dl63MNUH3A6+AAN7wNgEFFXsi/3vsdt5UcfnvHw/I4RGGfnKoqhVrScUQov/VUzDuE5WxqhCnzLEGZcAQBTIM80BgZbM0h9JnY0mAAAA=",
-  "/portfolio/custom-engagement/Image-7.webp":
-    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZgCdAB0xkvo4Tj28tsgA/pjkqr3HCVV+TBnZ4KyhhMWf0idHv8QsgDIB6EWIV7lAbF+s9/EHt/Uw+Fzw8dtx7pexa8u7z6tnCvXQAAA=",
-  "/portfolio/custom-engagement/Image-8.webp":
-    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZACw7A/+jOO9ehvacAD+YLvNz9LBzXvX3TvL9OA3BES3BbJzXw2Jad00qWCXJoGzZVy6aJtEMJR5pxGDfXvi2qiQSHhMhW6ansufBKnbpV1Mlf+W40fzOOMCC9fgn8AAAA==",
-  "/portfolio/custom-engagement/Image-9.webp":
-    "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYgAAWv7Ji1Z7Hk5UgAD+sO4ttXJYUHklN0vWKNhigezwzA2BRj+h+H549JBT/gsuSgVip1M/3hWHJ5tSc7wRho6lDFGy1YvUwPcPceoN+DMPLzQAAA==",
-  "/portfolio/custom-engagement/whimsy-10.webp":
-    "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBACdASoQABgAPzmEuVOvKKWisAgB4CcJZACsBagBfC26B/N18slIJIgA/NexIgdpLAS5IJdhccH5vDWy9Ij3F4FXx698tUsZGBXW/7BCFatKTkLDQq/C/MwB+raMCokc1CwsdthhN6em6Ffev1ycdXT7ExpSk9ZqXNPnbgAAAA==",
-  "/portfolio/custom-engagement/whimsy-12.webp":
-    "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJQBbZgQAce/9AFgsik10AAP5pa9Uv9lnhAMdplVadrkrUlecjmssFLMSGrM8snuZkQbzlnNEjSPFUrMEG5c7+79gRj5M6Vx6jofkFrgEf9bf0HeUZDQAA",
-  "/portfolio/custom-engagement/whimsy-13.webp":
-    "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABgAPzmGuVOvKSWisAgB4CcJYgCw7Bk7XyQDEqineOAA/abkAQzL6xnbZsfHN6mgtn4zMbgudXunM83K2RVOVKJkTPUlAQJAqm7nT/YCLb4A8WlI7gNhC1+/qt8gAAA=",
-  "/portfolio/custom-engagement/whimsy-4.webp":
-    "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJbACdMoACRt6bWyCOGhoegAD+v/EB/EWSp90DIYTLwGOVuKHKJmT4zEesklnvYxXJBKzMlucX9QLZ3ENUw98WfZdABx7snmdZcqWaxeV7gchV2rUZN7iOSvYt/OUhkcAAAA==",
-  "/portfolio/custom-engagement/whimsy-5.webp":
-    "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoQABgAPzmIuVQvKSWjMAgB4CcJQAALdwQx+S5okkyLlYyqCAD+5xPBIlF3xNoNxQo2icqygjuT3ObrknOi3D33Exe1Kxknc2Zv0c2SxxUwVa3rVpcyFw/in48hl8SZBrHBMKvLW0WWOgt1VYAAAA==",
   "/portfolio/flower-bar/Image-10.webp":
     "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJbACdMoAC/rxj2x3TYAD+4Gw3D5QR7ml6zjBRoMBEcAxauG//4VVnrBmbqhEzkzqzrOksDNoN64gfkwxxyccHcIqF27wKIgdUxa4iKhAAAA==",
   "/portfolio/flower-bar/Image-11.webp":

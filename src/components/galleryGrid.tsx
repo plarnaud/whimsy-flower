@@ -1,9 +1,36 @@
 "use client";
 
 import { useState } from "react";
+import { preload } from "react-dom";
+import { getImageProps } from "next/image";
 import WhimsyImage from "@/components/whimsyImage";
 import { track } from "@/lib/analytics";
 import Lightbox from "@/components/lightbox";
+
+/* Both layouts are in the HTML and CSS hides one, so the first photo appears
+   twice with different `sizes`. Next's `preload` prop can't take a media
+   query, which made phones also preload the desktop copy (and vice versa).
+   These preloads are scoped to the layout that is actually shown. */
+const MOBILE_MEDIA = "(max-width: 639px)";
+const DESKTOP_MEDIA = "(min-width: 640px)";
+const DESKTOP_BIG_SIZES = "(min-width: 1024px) 38vw, 38vw";
+/* The mobile copy is eager (it is the phone LCP), so desktop browsers fetch it
+   too even though it is display:none there. Giving it the desktop copy's
+   width from 640px up makes both pick the same file, so that costs nothing. */
+const MOBILE_BIG_SIZES = "(min-width: 640px) 38vw, calc(100vw - 48px)";
+
+function preloadFirstPhoto(src: string, sizes: string, media: string) {
+  // Same props as the rendered <Image>, so the srcset matches and React
+  // doesn't add its own unscoped preload for the eager <img>.
+  const { props } = getImageProps({ src, alt: "", fill: true, sizes });
+  preload(props.src, {
+    as: "image",
+    imageSrcSet: props.srcSet,
+    imageSizes: props.sizes,
+    fetchPriority: "high",
+    media,
+  });
+}
 
 type GalleryGridItem = {
   id: string;
@@ -38,7 +65,8 @@ type ImageBoxProps = {
   aspectRatio: string;
   sizes: string;
   className?: string;
-  /* First above-the-fold photo: eager + high fetch priority (it is the LCP). */
+  /* First above-the-fold photo: eager + high fetch priority (it is the LCP;
+     its preload comes from preloadFirstPhoto). */
   priority?: boolean;
   onOpen: () => void;
 };
@@ -64,7 +92,7 @@ function ImageBox({
         fill
         sizes={sizes}
         blurDataURL={item.blurDataURL}
-        priority={priority}
+        loading={priority ? "eager" : undefined}
         fetchPriority={priority ? "high" : undefined}
         className="object-cover object-center"
       />
@@ -93,7 +121,7 @@ function MobileLayout({ items, onOpen }: LayoutProps) {
         key={visible[i].id}
         item={visible[i]}
         aspectRatio="1.5 / 1"
-        sizes="calc(100vw - 48px)"
+        sizes={MOBILE_BIG_SIZES}
         priority={bigIndex === 0}
         onOpen={() => onOpen(bigIndex)}
       />
@@ -181,8 +209,10 @@ function DesktopLayout({
                 alt={big1.imgAlt}
                 blurDataURL={big1.blurDataURL}
                 fill
-                sizes="(min-width: 1024px) 38vw, 38vw"
-                priority={cycleStart === 0}
+                sizes={DESKTOP_BIG_SIZES}
+                // Lazy, so phones (where this layout is display:none) never
+                // fetch it; on desktop the media-scoped preload has already
+                // started the download.
                 fetchPriority={cycleStart === 0 ? "high" : undefined}
                 className="object-cover object-center"
               />
@@ -253,6 +283,12 @@ export default function GalleryGrid({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (items.length === 0) return null;
+
+  preloadFirstPhoto(items[0].imgSrc, MOBILE_BIG_SIZES, MOBILE_MEDIA);
+  // The desktop layout only opens with a big photo when there are 4+ items.
+  if (items.length >= 4) {
+    preloadFirstPhoto(items[0].imgSrc, DESKTOP_BIG_SIZES, DESKTOP_MEDIA);
+  }
 
   const openPhoto = (index: number) => {
     track("select_content", {

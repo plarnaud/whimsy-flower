@@ -26,10 +26,14 @@ type WorkCollageProps = {
    centered landscape hung across columns 3-11, then a staggered pair at
    columns 2-6 and 8-12 (one column of space left, middle and right), then
    another landscape. With four tiles that reads landscape, pair, landscape. */
+/* `sizes` is the tile's share of the 13 columns inside the section's
+   lg:px-16 gutters. */
+const LANDSCAPE_SIZES = "calc((100vw - 128px) * 9 / 13)";
+const PAIR_SIZES = "calc((100vw - 128px) * 5 / 13)";
 const wallPattern = [
-  { position: "lg:col-start-3 lg:col-span-9", offset: "lg:mt-0", aspect: "aspect-[1.7]" },
-  { position: "lg:col-start-2 lg:col-span-5", offset: "lg:mt-8", aspect: "aspect-[0.8]" },
-  { position: "lg:col-start-8 lg:col-span-5", offset: "lg:mt-28", aspect: "aspect-[0.85]" },
+  { position: "lg:col-start-3 lg:col-span-9", offset: "lg:mt-0", aspect: "aspect-[1.7]", sizes: LANDSCAPE_SIZES },
+  { position: "lg:col-start-2 lg:col-span-5", offset: "lg:mt-8", aspect: "aspect-[0.8]", sizes: PAIR_SIZES },
+  { position: "lg:col-start-8 lg:col-span-5", offset: "lg:mt-28", aspect: "aspect-[0.85]", sizes: PAIR_SIZES },
 ];
 
 /* Cycle slot 1 opens a left/right pair; a last tile landing there would hang
@@ -40,6 +44,7 @@ const centeredFinale = {
   position: "lg:col-start-3 lg:col-span-9",
   offset: "lg:mt-16",
   aspect: "aspect-[1.7]",
+  sizes: LANDSCAPE_SIZES,
 };
 
 export default function WorkCollage({ tiles, className = "" }: WorkCollageProps) {
@@ -81,7 +86,7 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                     blurDataURL={tile.coverBlur}
                     width={1600}
                     height={1200}
-                    sizes="calc(100vw - 48px)"
+                    sizes="(min-width: 768px) calc(100vw - 96px), calc(100vw - 48px)"
                     className="w-full h-auto lg:hidden"
                   />
                   {/* On the desktop wall the frame's pattern ratio crops it */}
@@ -91,7 +96,7 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                       alt={tile.coverAlt}
                       blurDataURL={tile.coverBlur}
                       fill
-                      sizes="45vw"
+                      sizes={wall.sizes}
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </span>

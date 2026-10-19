@@ -82,9 +82,14 @@ export default function RootLayout({
             <Script id="ga4" strategy="afterInteractive">
               {GA_BOOTSTRAP}
             </Script>
+            {/* lazyOnload: afterInteractive makes Next emit a high-priority
+                <link rel="preload"> for this ~180 KB script in <head>, where
+                it competes with the hero image and adds main-thread work
+                before LCP. The bootstrap above already queues the config in
+                dataLayer, so nothing is lost by loading the library later. */}
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             <AnalyticsClicks />
           </>

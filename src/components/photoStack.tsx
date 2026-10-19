@@ -83,7 +83,7 @@ export default function PhotoStack({ photos, className = "" }: PhotoStackProps) 
                   alt={photo.alt}
                   blurDataURL={photo.blurDataURL}
                   fill
-                  sizes="(min-width: 640px) 400px, 80vw"
+                  sizes="(min-width: 1412px) 468px, (min-width: 1024px) calc(34vw - 12px), (min-width: 768px) calc(100vw - 108px), calc(100vw - 60px)"
                   className="object-cover"
                 />
               </span>

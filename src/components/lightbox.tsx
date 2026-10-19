@@ -101,7 +101,7 @@ export default function Lightbox({
             alt={item.alt}
             fill
             sizes="100vw"
-            priority
+            preload
             placeholder="blur"
             blurDataURL={item.blurDataURL ?? defaultBlurDataURL}
             // Inline object-fit so the blurred preview is fitted like the photo
@@ -118,7 +118,7 @@ export default function Lightbox({
               alt=""
               fill
               sizes="100vw"
-              priority
+              preload
               style={{ objectFit: "contain" }}
             />
           ))}
