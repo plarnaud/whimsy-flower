@@ -32,12 +32,15 @@ export type GalleryMeta = {
   /* File names kept out of the gallery grid (e.g. used elsewhere on the page). */
   hiddenPhotos?: string[];
   featured?: boolean;
+  /* Last time the gallery page's content changed (sitemap lastmod). */
+  updated: string;
 };
 
 // Central place to register galleries so routes and listings stay in sync.
 export const galleries: GalleryMeta[] = [
   {
     slug: "brides-feature",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["brides-feature"],
     title: "Julia & Jackie",
     year: "2025",
@@ -64,6 +67,7 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "lindsey-fin",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["lindsey-fin"],
     coverImage: "/portfolio/lindsey-fin/L+FWeddingGallery-226.webp",
     coverAlt:
@@ -91,6 +95,7 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "natalia-david",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["natalia-david"],
     coverImage: "/portfolio/natalia-david/natalia-david-wedding-193.webp",
     coverAlt:
@@ -123,6 +128,7 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "talea-erich",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["talea-erich"],
     coverImage: "/portfolio/talea-erich/ErichTaleaWedding-819.webp",
     coverAlt:
@@ -150,6 +156,7 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "shayna-evan",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["shayna-evan"],
     coverImage: "/portfolio/shayna-evan/shayna-evan-wedding-628.webp",
     coverAlt:
@@ -170,6 +177,7 @@ export const galleries: GalleryMeta[] = [
   },
   {
     slug: "trisha-jim",
+    updated: "2026-09-10",
     photoAlts: portfolioAlts["trisha-jim"],
     coverImage: "/portfolio/trisha-jim/DSC03415.webp",
     coverAlt:

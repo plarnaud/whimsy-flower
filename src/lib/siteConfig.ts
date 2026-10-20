@@ -20,21 +20,20 @@ export const siteConfig = {
   founder: {
     name: "Molly",
     jobTitle: "Founder & Creative Director",
+    // Portrait shown in "Meet the Creative Director".
+    image: "/molly-portrait-meadow.webp",
   },
   location: {
     locality: "Hudson",
     region: "NY",
     country: "US",
   },
-  serviceArea: [
-    "Hudson Valley",
-    "Catskills",
-    "New York City",
-    "Columbia County, NY",
-    "Dutchess County, NY",
-    "Greene County, NY",
-    "Ulster County, NY",
-  ],
+  // Only the places the site's own copy names ("Wedding floral design across
+  // the Hudson Valley, the Catskills, New York City, and beyond").
+  serviceArea: ["Hudson Valley", "Catskills", "New York City"],
+  // Square PNG of the studio's illustrated mark (same art as wf-logo.webp),
+  // for search engines that do not accept WebP logos.
+  logo: { url: "/logo.png", width: 512, height: 512 },
   social: {
     instagram: "https://www.instagram.com/whimsy_flower/",
   },

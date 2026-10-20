@@ -3,9 +3,13 @@ import Link from "next/link";
 import PageScaffold from "@/components/pageScaffold";
 import PillButton from "@/components/pillButton";
 
+/* Served with a 404 status. robots overrides the layout's "index, follow"
+   (Next.js also adds its own noindex tag). No canonical: a missing page has
+   no preferred URL. */
 export const metadata: Metadata = {
   title: "Page Not Found",
   robots: { index: false, follow: true },
+  alternates: { canonical: null },
 };
 
 /* Plain block on the page background, sized to end near 75% of the viewport. */

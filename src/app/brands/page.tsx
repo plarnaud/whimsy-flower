@@ -6,13 +6,13 @@ import WorkCollage, { CollageTile } from "@/components/workCollage";
 import PillButton from "@/components/pillButton";
 import { InquireFormSection } from "@/components/inquireForm";
 import JsonLd from "@/components/jsonLd";
-import { breadcrumbGraph } from "@/lib/structuredData";
+import { brandsHubGraph } from "@/lib/structuredData";
 import { brandNames, brandProjects } from "@/data/brandProjects";
 import { blurFor } from "@/lib/blur";
 import PageHero from "@/components/pageHero";
 
 export const metadata: Metadata = {
-  title: "Editorial & Brand Florals, Hudson Valley to NYC",
+  title: "Editorial & Brand Florals, Hudson Valley",
   description:
     "Editorial and brand floral styling for shops, brands, and businesses from the Hudson Valley to Manhattan: launches, press dinners, campaigns, and events.",
 };
@@ -20,9 +20,7 @@ export const metadata: Metadata = {
 export default function BrandsPage() {
   return (
     <PageScaffold>
-      <JsonLd
-        data={breadcrumbGraph([{ name: "Editorial & Brands", path: "/brands" }])}
-      />
+      <JsonLd data={brandsHubGraph(brandProjects)} />
       <HeroSection />
 
       <BrandScroller />
@@ -100,6 +98,7 @@ function SelectedWorkSection() {
   const tiles: CollageTile[] = brandProjects.map((project) => ({
     label: project.brandName,
     sublabel: project.title,
+    href: `/brands/${project.slug}`,
     cover: project.coverImage,
     coverAlt: project.coverAlt,
     coverBlur: blurFor(project.coverImage),

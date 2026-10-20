@@ -5,9 +5,9 @@ import { InquireFormSection } from "@/components/inquireForm";
 import { breadcrumbGraph } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "Inquire: Wedding & Event Florals, Hudson Valley",
+  title: "Inquire: Wedding & Event Florals, Hudson NY",
   description:
-    "Begin a conversation with Whimsy Flower about wedding, event, or brand florals across the Hudson Valley, the Catskills, and New York City. Studio in Hudson, NY.",
+    "Begin a conversation with Whimsy Flower about wedding, event, or brand florals across the Hudson Valley, the Catskills, New York City, and beyond.",
 };
 
 export default function InquirePage() {

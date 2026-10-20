@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${siteConfig.name} handles the information you share through this website.`,
+  description: `How ${siteConfig.legalName} handles what you share on this website: the inquiry form, Google Analytics with every advertising feature off, and your choices.`,
 };
 
 const UPDATED = "October 16, 2026";

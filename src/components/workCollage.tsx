@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import WhimsyImage from "@/components/whimsyImage";
 import { track } from "@/lib/analytics";
 import Lightbox, { LightboxItem } from "@/components/lightbox";
@@ -15,6 +16,9 @@ export type CollageTile = {
   coverBlur?: string;
   /* Full album opened in the modal gallery. */
   images: LightboxItem[];
+  /* Case-study page. The caption links there; the photo keeps opening the
+     modal gallery. */
+  href?: string;
 };
 
 type WorkCollageProps = {
@@ -101,10 +105,21 @@ export default function WorkCollage({ tiles, className = "" }: WorkCollageProps)
                     />
                   </span>
                 </button>
-                <figcaption className="flex items-baseline justify-between gap-6 pt-4 pb-3 border-b border-(--clover)">
-                  <span className="text-[18px] leading-6 text-(--dark-green)">
-                    {tile.label}
-                  </span>
+                <figcaption className="relative flex items-baseline justify-between gap-6 pt-4 pb-3 border-b border-(--clover)">
+                  {tile.href ? (
+                    // The ::after layer stretches the hit area over the
+                    // whole caption row without changing how it looks.
+                    <Link
+                      href={tile.href}
+                      className="text-[18px] leading-6 text-(--dark-green) after:absolute after:inset-0 after:content-['']"
+                    >
+                      {tile.label}
+                    </Link>
+                  ) : (
+                    <span className="text-[18px] leading-6 text-(--dark-green)">
+                      {tile.label}
+                    </span>
+                  )}
                   <span className="text-[11px] uppercase tracking-[0.12em] leading-4 text-(--dark-olive) text-right shrink min-w-0">
                     {tile.sublabel}
                   </span>

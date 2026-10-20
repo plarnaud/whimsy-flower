@@ -23,6 +23,21 @@ function galleryPlace(location: string) {
   return parts.length >= 3 ? parts.slice(-2).join(", ") : location;
 }
 
+/* "<Couple> Wedding Florals in <place>", shortened until the full title
+   (with the 16-character " | Whimsy Flower" suffix) fits in 60 characters:
+   town and state, then town only, then no place. */
+const TITLE_BUDGET = 60 - " | Whimsy Flower".length;
+function galleryTitle(title: string, place: string | undefined) {
+  const base = `${title} Wedding Florals`;
+  const town = place?.split(",")[0].trim();
+  const candidates = [
+    place && `${base} in ${place}`,
+    town && `${base} in ${town}`,
+    town && `${base}, ${town}`,
+  ].filter((c): c is string => Boolean(c));
+  return candidates.find((c) => c.length <= TITLE_BUDGET) ?? base;
+}
+
 /* Written alt for a photo path, falling back to a generic line. */
 function photoAlt(
   gallery: { photoAlts?: Record<string, string>; coupleNames: string },
@@ -60,15 +75,12 @@ export async function generateMetadata({
   const credit = gallery.photographer
     ? ` and photographed by ${gallery.photographer}`
     : "";
+  const cover = { url: gallery.coverImage, alt: gallery.coverAlt };
   return {
-    title: place
-      ? `${gallery.title} Wedding Florals in ${place}`
-      : `${gallery.title} Wedding Florals`,
+    title: galleryTitle(gallery.title, place),
     description: `${gallery.coupleNames}'s wedding florals${venue}, designed by Whimsy Flower of Hudson, NY${credit}.`,
-    openGraph: {
-      ...baseOpenGraph,
-      images: [{ url: gallery.coverImage, alt: gallery.coverAlt }],
-    },
+    openGraph: { ...baseOpenGraph, images: [cover] },
+    twitter: { card: "summary_large_image", images: [cover] },
   };
 }
 

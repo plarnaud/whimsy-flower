@@ -20,12 +20,24 @@ export type BrandProjectMeta = {
   testimonialText?: string;
   testimonialClientName?: string;
   featured?: boolean;
+  /* Search-only fields (never rendered on the page): the <title> before the
+     " | Whimsy Flower" suffix (44 characters at most) and the meta
+     description (140-155 characters), both worded from the project's own
+     photos and copy. */
+  metaTitle: string;
+  metaDescription: string;
+  /* Last time the project page's content changed (sitemap lastmod). */
+  updated: string;
 };
 
 // Central place to register brand projects so routes and listings stay in sync.
 export const brandProjects: BrandProjectMeta[] = [
   {
     slug: "mackenzie-childs-gray-malin",
+    metaTitle: "MacKenzie-Childs x Gray Malin Launch Party",
+    metaDescription:
+      "MacKenzie-Childs x Gray Malin collection launch party florals by Whimsy Flower: anemones, delphinium and white cosmos in MacKenzie-Childs check pots.",
+    updated: "2026-09-10",
     title: "Collection Launch Party",
     brandName: "MacKenzie-Childs x Gray Malin",
     location: "",
@@ -49,6 +61,10 @@ export const brandProjects: BrandProjectMeta[] = [
   },
   {
     slug: "printfresh-mackenzie-childs",
+    metaTitle: "Printfresh x MacKenzie-Childs Launch Party",
+    metaDescription:
+      "Printfresh x MacKenzie-Childs collaboration launch party florals by Whimsy Flower: ranunculus, chocolate cosmos and dried allium in a wallpapered suite.",
+    updated: "2026-09-10",
     title: "Collaboration Launch Party",
     brandName: "Printfresh x MacKenzie-Childs",
     location: "",
@@ -72,6 +88,10 @@ export const brandProjects: BrandProjectMeta[] = [
   },
   {
     slug: "sail-to-sable",
+    metaTitle: "Sail to Sable: Collaboration Launch Brunch",
+    metaDescription:
+      "Sail to Sable collaboration launch brunch florals by Whimsy Flower: a vine and white rose canopy over a long brunch table set with calla lilies and tulips.",
+    updated: "2026-09-10",
     title: "Collaboration Launch Brunch",
     brandName: "Sail to Sable",
     location: "",
@@ -92,6 +112,10 @@ export const brandProjects: BrandProjectMeta[] = [
   },
   {
     slug: "some-shelly-chandelier-cocktail-courier",
+    metaTitle: "Some Shelly x Chandelier Cocktail Courier",
+    metaDescription:
+      "Some Shelly x Chandelier Cocktail Courier styled editorial shoot by Whimsy Flower: white ranunculus, tulips, stock and calla lilies beside a martini.",
+    updated: "2026-09-10",
     title: "Styled Editorial Shoot",
     brandName: "Some Shelly x Chandelier Cocktail Courier",
     location: "",

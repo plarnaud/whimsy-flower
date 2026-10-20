@@ -1,3 +1,4 @@
+import type { BrandProjectMeta } from "@/data/brandProjects";
 import type { GalleryMeta } from "@/data/galleries";
 import type { GalleryGridItem } from "@/lib/galleryAssets";
 import { siteConfig, siteUrl } from "@/lib/siteConfig";
@@ -14,8 +15,9 @@ const areaServed = siteConfig.serviceArea.map((name) => ({
 /* Site-wide graph rendered once from the root layout: the studio as a
    Florist (a LocalBusiness subtype; the schema type is invisible to readers,
    so it does not touch the "design studio" voice), the website, the founder,
-   and the three services. Street address, phone and email are intentionally
-   absent until the studio decides what is public. */
+   and the three services. Every property mirrors something the site itself
+   shows: no street address, phone or email is published on the site, so none
+   appears here. */
 export function organizationGraph() {
   return {
     "@context": "https://schema.org",
@@ -26,7 +28,15 @@ export function organizationGraph() {
         name: siteConfig.name,
         legalName: siteConfig.legalName,
         url: siteUrl,
-        logo: `${siteUrl}/wf-logo.webp`,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${siteUrl}/#logo`,
+          url: `${siteUrl}${siteConfig.logo.url}`,
+          contentUrl: `${siteUrl}${siteConfig.logo.url}`,
+          width: siteConfig.logo.width,
+          height: siteConfig.logo.height,
+          caption: siteConfig.name,
+        },
         image: `${siteUrl}${siteConfig.ogImage.url}`,
         description: siteConfig.description,
         address: {
@@ -37,6 +47,12 @@ export function organizationGraph() {
         },
         areaServed,
         founder: { "@id": founderId },
+        // The Brides feature linked from the home page ("Featured On").
+        subjectOf: {
+          "@type": "Article",
+          url: siteConfig.bridesFeatureUrl,
+          publisher: { "@type": "Organization", name: "Brides" },
+        },
         sameAs: [siteConfig.social.instagram],
       },
       {
@@ -44,6 +60,7 @@ export function organizationGraph() {
         "@id": websiteId,
         url: siteUrl,
         name: siteConfig.name,
+        description: siteConfig.description,
         inLanguage: "en-US",
         publisher: { "@id": organizationId },
       },
@@ -52,6 +69,7 @@ export function organizationGraph() {
         "@id": founderId,
         name: siteConfig.founder.name,
         jobTitle: siteConfig.founder.jobTitle,
+        image: `${siteUrl}${siteConfig.founder.image}`,
         worksFor: { "@id": organizationId },
         url: `${siteUrl}/about`,
       },
@@ -62,7 +80,7 @@ export function organizationGraph() {
         serviceType: "Wedding floral design",
         url: `${siteUrl}/weddings`,
         description:
-          "Bespoke wedding florals: sculptural ceremony installations, reception tablescapes, and personal flowers, designed from a studio in Hudson, NY for celebrations across the Hudson Valley, the Catskills, and New York City.",
+          "Full-service wedding floral design from a studio in Hudson, NY: ceremony architecture, reception tablescapes, and personal flowers, across the Hudson Valley, the Catskills, New York City, and beyond.",
         provider: { "@id": organizationId },
         areaServed,
         offers: {
@@ -83,7 +101,7 @@ export function organizationGraph() {
         serviceType: "Event floral design",
         url: `${siteUrl}/events`,
         description:
-          "Floral design for private celebrations: bridal and baby showers, hands-on floral workshops, flower bars, and intimate gatherings across the Hudson Valley and New York City.",
+          "Floral design for private celebrations: flower bars, custom engagements, bridal showers, rehearsal dinners, and intimate dinner parties, from a studio in Hudson, New York and beyond.",
         provider: { "@id": organizationId },
         areaServed,
       },
@@ -94,7 +112,7 @@ export function organizationGraph() {
         serviceType: "Editorial and brand floral styling",
         url: `${siteUrl}/brands`,
         description:
-          "Editorial floral styling for shops, brands, and businesses from the Hudson Valley to Manhattan: campaigns, product launches, press dinners, and corporate events.",
+          "Editorial floral styling for shops, brands, and businesses from Albany to Manhattan: product launches, press dinners, campaign shoots, and corporate gatherings.",
         provider: { "@id": organizationId },
         areaServed,
       },
@@ -104,7 +122,7 @@ export function organizationGraph() {
 
 type Crumb = { name: string; path: string };
 
-/* Breadcrumb trail for a top-level page (Home is prepended automatically). */
+/* Breadcrumb trail for a page (Home is prepended automatically). */
 export function breadcrumbGraph(crumbs: Crumb[]) {
   const trail: Crumb[] = [{ name: "Home", path: "" }, ...crumbs];
   return {
@@ -137,17 +155,29 @@ export function aboutGraph() {
   };
 }
 
+function imageObjects(
+  items: GalleryGridItem[],
+  photographer?: { name: string; url?: string },
+) {
+  const creator = photographer
+    ? {
+        "@type": "Organization",
+        name: photographer.name,
+        ...(photographer.url ? { url: photographer.url } : {}),
+      }
+    : undefined;
+  return items.map((item) => ({
+    "@type": "ImageObject",
+    contentUrl: `${siteUrl}${item.imgSrc}`,
+    description: item.imgAlt,
+    ...(creator ? { creditText: photographer?.name, creator } : {}),
+  }));
+}
+
 /* Per-gallery graph: breadcrumb trail plus an ImageGallery crediting the
    photographer on every image. */
 export function galleryGraph(gallery: GalleryMeta, items: GalleryGridItem[]) {
   const url = `${siteUrl}/galleries/${gallery.slug}`;
-  const photographer = gallery.photographer
-    ? {
-        "@type": "Organization",
-        name: gallery.photographer,
-        ...(gallery.photographerUrl ? { url: gallery.photographerUrl } : {}),
-      }
-    : undefined;
   const hasPlace = Boolean(
     gallery.location && !/^\d{4}$/.test(gallery.location),
   );
@@ -166,16 +196,89 @@ export function galleryGraph(gallery: GalleryMeta, items: GalleryGridItem[]) {
         name: `${gallery.title} Wedding Florals by Whimsy Flower`,
         description: gallery.paletteText?.split(/(?<=\.)\s/)[0],
         creator: { "@id": organizationId },
+        isPartOf: { "@id": websiteId },
         ...(hasPlace
           ? { contentLocation: { "@type": "Place", name: gallery.location } }
           : {}),
-        image: items.map((item) => ({
+        image: imageObjects(
+          items,
+          gallery.photographer
+            ? { name: gallery.photographer, url: gallery.photographerUrl }
+            : undefined,
+        ),
+      },
+    ],
+  };
+}
+
+/* The brands a project was made for: "A x B" names two collaborators. */
+function brandOrganizations(project: BrandProjectMeta) {
+  return project.brandName
+    .split(/\s+x\s+/)
+    .map((name) => ({ "@type": "Organization", name: name.trim() }));
+}
+
+/* Per brand case study: breadcrumb trail plus an ImageGallery of the work,
+   about the brand(s) it was made for. */
+export function brandProjectGraph(
+  project: BrandProjectMeta,
+  items: GalleryGridItem[],
+) {
+  const url = `${siteUrl}/brands/${project.slug}`;
+  const name = `${project.brandName}: ${project.title}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbGraph([
+        { name: "Editorial & Brands", path: "/brands" },
+        { name, path: `/brands/${project.slug}` },
+      ]),
+      {
+        "@type": "ImageGallery",
+        "@id": `${url}#gallery`,
+        url,
+        name: `${name}, florals by Whimsy Flower`,
+        description: project.metaDescription,
+        creator: { "@id": organizationId },
+        isPartOf: { "@id": websiteId },
+        about: brandOrganizations(project),
+        primaryImageOfPage: {
           "@type": "ImageObject",
-          contentUrl: `${siteUrl}${item.imgSrc}`,
-          description: item.imgAlt,
-          ...(photographer
-            ? { creditText: gallery.photographer, creator: photographer }
-            : {}),
+          contentUrl: `${siteUrl}${project.coverImage}`,
+          description: project.coverAlt,
+        },
+        image: imageObjects(
+          items,
+          project.photographer
+            ? { name: project.photographer, url: project.photographerUrl }
+            : undefined,
+        ),
+      },
+    ],
+  };
+}
+
+/* The Editorial & Brands hub: breadcrumb plus the case studies it links to. */
+export function brandsHubGraph(projects: BrandProjectMeta[]) {
+  const url = `${siteUrl}/brands`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbGraph([{ name: "Editorial & Brands", path: "/brands" }]),
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#page`,
+        url,
+        name: "Editorial & Brands",
+        isPartOf: { "@id": websiteId },
+        about: { "@id": `${url}#service` },
+        hasPart: projects.map((project) => ({
+          "@type": "ImageGallery",
+          "@id": `${siteUrl}/brands/${project.slug}#gallery`,
+          name: `${project.brandName}: ${project.title}`,
+          url: `${siteUrl}/brands/${project.slug}`,
+          image: `${siteUrl}${project.coverImage}`,
+          creator: { "@id": organizationId },
         })),
       },
     ],

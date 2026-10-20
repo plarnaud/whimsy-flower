@@ -12,6 +12,9 @@ import { notFound } from "next/navigation";
 import WhimsyImage from "@/components/whimsyImage";
 import GalleryButton, { FeaturedGallery } from "@/components/galleryButton";
 import { blurFor } from "@/lib/blur";
+import JsonLd from "@/components/jsonLd";
+import { baseOpenGraph } from "@/lib/siteConfig";
+import { brandProjectGraph } from "@/lib/structuredData";
 
 type BrandProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -29,11 +32,14 @@ export async function generateMetadata({
   const project = getBrandProjectBySlug(slug);
   if (!project) return {};
 
+  // The brand name lives in the <title> (the visible H1 stays the project
+  // title); social cards show the project's own cover photo.
+  const cover = { url: project.coverImage, alt: project.coverAlt };
   return {
-    title: `${project.brandName}: ${project.title}`,
-    description: `Florals by Whimsy Flower for ${project.brandName}'s ${project.title.toLowerCase()}${
-      project.location ? ` in ${project.location}` : ""
-    }: editorial floral design and styling from a studio in Hudson, NY.`,
+    title: project.metaTitle,
+    description: project.metaDescription,
+    openGraph: { ...baseOpenGraph, images: [cover] },
+    twitter: { card: "summary_large_image", images: [cover] },
   };
 }
 
@@ -74,6 +80,7 @@ export default async function BrandProjectPage({
 
   return (
     <PageScaffold>
+      <JsonLd data={brandProjectGraph(project, projectGridItems)} />
       <SubPageHeader
         title={project.title}
         imgSrc={project.coverImage}
